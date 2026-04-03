@@ -50,18 +50,18 @@ window.addEventListener('unhandledrejection',function(e){
 <script>
 /* Apollo data constants — separated from Babel for faster transpilation */
 var GCAL_MEETINGS = [
-  {pid:'1',offset:0,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'1',offset:0,title:"SYDNEY - SPACE TENDER",start:'10:00',end:'15:00',durH:5.0},
-  {pid:'1',offset:1,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'1',offset:1,title:"Early Settler | Discovery workshop (In person)",start:'10:00',end:'12:50',durH:2.83},
-  {pid:'1',offset:1,title:"Early Settler | Feature workshop (In person)",start:'13:30',end:'16:20',durH:2.83},
-  {pid:'1',offset:2,title:"Frank Green - WIP ",start:'09:00',end:'09:50',durH:0.83},
-  {pid:'1',offset:2,title:"Apollo - Daily Stand Up",start:'09:45',end:'10:15',durH:0.5},
-  {pid:'1',offset:2,title:"Early Settler | Creative workshop (In person)",start:'10:00',end:'12:50',durH:2.83},
-  {pid:'1',offset:2,title:"Han & Kate",start:'15:00',end:'15:30',durH:0.5},
-  {pid:'1',offset:3,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'1',offset:3,title:"Manning Cartell Search Spring Audit",start:'12:00',end:'12:30',durH:0.5},
-  {pid:'1',offset:4,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
+  {pid:'1',offset:0,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'1',offset:0,title:"SYDNEY - SPACE TENDER",start:'09:00',end:'14:00',durH:5.0},
+  {pid:'1',offset:1,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'1',offset:1,title:"Early Settler | Discovery workshop (In person)",start:'09:00',end:'11:50',durH:2.83},
+  {pid:'1',offset:1,title:"Early Settler | Feature workshop (In person)",start:'12:30',end:'15:20',durH:2.83},
+  {pid:'1',offset:2,title:"Frank Green - WIP ",start:'08:00',end:'08:50',durH:0.83},
+  {pid:'1',offset:2,title:"Apollo - Daily Stand Up",start:'08:45',end:'09:15',durH:0.5},
+  {pid:'1',offset:2,title:"Early Settler | Creative workshop (In person)",start:'09:00',end:'11:50',durH:2.83},
+  {pid:'1',offset:2,title:"Han & Kate",start:'14:00',end:'14:30',durH:0.5},
+  {pid:'1',offset:3,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'1',offset:3,title:"Manning Cartell Search Spring Audit",start:'11:00',end:'11:30',durH:0.5},
+  {pid:'1',offset:4,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
   {pid:'1',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'1',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'1',offset:8,title:"Eckersleys Design Handover",start:'10:00',end:'11:00',durH:1.0},
@@ -103,18 +103,18 @@ var GCAL_MEETINGS = [
   {pid:'1',offset:38,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'1',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'1',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1.0},
-  {pid:'2',offset:0,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'2',offset:0,title:"Weekly Rip Curl Report Brief",start:'11:00',end:'11:30',durH:0.5},
-  {pid:'2',offset:1,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'2',offset:1,title:"Han & Dave 1:1",start:'14:30',end:'15:00',durH:0.5},
-  {pid:'2',offset:1,title:"Shakti Regroup",start:'16:00',end:'16:30',durH:0.5},
-  {pid:'2',offset:2,title:" From Claude Code to Figma – and Back Again",start:'03:00',end:'04:00',durH:1.0},
-  {pid:'2',offset:2,title:"Out of office",start:'09:00',end:'17:00',durH:8.0},
-  {pid:'2',offset:3,title:"Landsmith-SOW review before sharing with client",start:'09:15',end:'10:15',durH:1.0},
-  {pid:'2',offset:3,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'2',offset:3,title:"TRiC x Dot Collective | Castle & Cubby",start:'10:00',end:'11:00',durH:1.0},
-  {pid:'2',offset:3,title:"Rip Curl Deep Dive check-in",start:'14:00',end:'14:30',durH:0.5},
-  {pid:'2',offset:4,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
+  {pid:'2',offset:0,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'2',offset:0,title:"Weekly Rip Curl Report Brief",start:'10:00',end:'10:30',durH:0.5},
+  {pid:'2',offset:1,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'2',offset:1,title:"Han & Dave 1:1",start:'13:30',end:'14:00',durH:0.5},
+  {pid:'2',offset:1,title:"Shakti Regroup",start:'15:00',end:'15:30',durH:0.5},
+  {pid:'2',offset:2,title:" From Claude Code to Figma – and Back Again",start:'02:00',end:'03:00',durH:1.0},
+  {pid:'2',offset:2,title:"Out of office",start:'08:00',end:'16:00',durH:8.0},
+  {pid:'2',offset:3,title:"Landsmith-SOW review before sharing with client",start:'08:15',end:'09:15',durH:1.0},
+  {pid:'2',offset:3,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'2',offset:3,title:"TRiC x Dot Collective | Castle & Cubby",start:'09:00',end:'10:00',durH:1.0},
+  {pid:'2',offset:3,title:"Rip Curl Deep Dive check-in",start:'13:00',end:'13:30',durH:0.5},
+  {pid:'2',offset:4,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
   {pid:'2',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'2',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'2',offset:8,title:"Dave x Audrina: Fortnightly Checkin",start:'11:00',end:'11:30',durH:0.5},
@@ -156,16 +156,16 @@ var GCAL_MEETINGS = [
   {pid:'2',offset:38,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'2',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'2',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1.0},
-  {pid:'3',offset:0,title:"SYDNEY - SPACE TENDER",start:'10:00',end:'15:00',durH:5.0},
-  {pid:'3',offset:1,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'3',offset:1,title:"JAG + DotCollective - Weekly WIP ",start:'10:00',end:'11:00',durH:1.0},
-  {pid:'3',offset:1,title:"Han & Audrina 1:1",start:'15:30',end:'16:00',durH:0.5},
-  {pid:'3',offset:2,title:" From Claude Code to Figma – and Back Again",start:'03:00',end:'04:00',durH:1.0},
-  {pid:'3',offset:2,title:"Apollo - Daily Stand Up",start:'09:45',end:'10:15',durH:0.5},
-  {pid:'3',offset:2,title:"Bec x Audrina: Fortnightly Checkin",start:'11:00',end:'12:00',durH:1.0},
-  {pid:'3',offset:3,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'3',offset:3,title:"Design review - Stock Status by Region/State (Q1)",start:'16:00',end:'16:15',durH:0.25},
-  {pid:'3',offset:4,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
+  {pid:'3',offset:0,title:"SYDNEY - SPACE TENDER",start:'09:00',end:'14:00',durH:5.0},
+  {pid:'3',offset:1,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'3',offset:1,title:"JAG + DotCollective - Weekly WIP ",start:'09:00',end:'10:00',durH:1.0},
+  {pid:'3',offset:1,title:"Han & Audrina 1:1",start:'14:30',end:'15:00',durH:0.5},
+  {pid:'3',offset:2,title:" From Claude Code to Figma – and Back Again",start:'02:00',end:'03:00',durH:1.0},
+  {pid:'3',offset:2,title:"Apollo - Daily Stand Up",start:'08:45',end:'09:15',durH:0.5},
+  {pid:'3',offset:2,title:"Bec x Audrina: Fortnightly Checkin",start:'10:00',end:'11:00',durH:1.0},
+  {pid:'3',offset:3,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'3',offset:3,title:"Design review - Stock Status by Region/State (Q1)",start:'15:00',end:'15:15',durH:0.25},
+  {pid:'3',offset:4,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
   {pid:'3',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'3',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'3',offset:8,title:"Eckersleys Design Handover",start:'10:00',end:'11:00',durH:1.0},
@@ -210,22 +210,22 @@ var GCAL_MEETINGS = [
   {pid:'3',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'3',offset:39,title:"Design Lead Catch Up",start:'14:00',end:'15:00',durH:1.0},
   {pid:'3',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1.0},
-  {pid:'4',offset:0,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'4',offset:0,title:"Lunch break",start:'12:00',end:'12:30',durH:0.5},
-  {pid:'4',offset:1,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'4',offset:1,title:"Early Settler | Discovery workshop (In person)",start:'10:00',end:'12:50',durH:2.83},
-  {pid:'4',offset:1,title:"Lunch break",start:'12:00',end:'12:30',durH:0.5},
-  {pid:'4',offset:1,title:"Early Settler | Feature workshop (In person)",start:'13:30',end:'16:20',durH:2.83},
-  {pid:'4',offset:2,title:"Apollo - Daily Stand Up",start:'09:45',end:'10:15',durH:0.5},
-  {pid:'4',offset:2,title:"Early Settler | Creative workshop (In person)",start:'10:00',end:'12:50',durH:2.83},
-  {pid:'4',offset:2,title:"Lunch break",start:'12:00',end:'12:30',durH:0.5},
-  {pid:'4',offset:3,title:"SEO x Karson- DC site (will confirm in morning but will either 9 or 9.30)",start:'09:00',end:'10:05',durH:1.08},
-  {pid:'4',offset:3,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'4',offset:3,title:"TRiC x Dot Collective | Castle & Cubby",start:'10:00',end:'11:00',durH:1.0},
-  {pid:'4',offset:3,title:"DotCollective Site Alignment",start:'11:00',end:'11:30',durH:0.5},
-  {pid:'4',offset:3,title:"Lunch break",start:'12:00',end:'12:30',durH:0.5},
-  {pid:'4',offset:4,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'4',offset:4,title:"Lunch break",start:'12:00',end:'12:30',durH:0.5},
+  {pid:'4',offset:0,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'4',offset:0,title:"Lunch break",start:'11:00',end:'11:30',durH:0.5},
+  {pid:'4',offset:1,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'4',offset:1,title:"Early Settler | Discovery workshop (In person)",start:'09:00',end:'11:50',durH:2.83},
+  {pid:'4',offset:1,title:"Lunch break",start:'11:00',end:'11:30',durH:0.5},
+  {pid:'4',offset:1,title:"Early Settler | Feature workshop (In person)",start:'12:30',end:'15:20',durH:2.83},
+  {pid:'4',offset:2,title:"Apollo - Daily Stand Up",start:'08:45',end:'09:15',durH:0.5},
+  {pid:'4',offset:2,title:"Early Settler | Creative workshop (In person)",start:'09:00',end:'11:50',durH:2.83},
+  {pid:'4',offset:2,title:"Lunch break",start:'11:00',end:'11:30',durH:0.5},
+  {pid:'4',offset:3,title:"SEO x Karson- DC site (will confirm in morning but will either 9 or 9.30)",start:'08:00',end:'09:05',durH:1.08},
+  {pid:'4',offset:3,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'4',offset:3,title:"TRiC x Dot Collective | Castle & Cubby",start:'09:00',end:'10:00',durH:1.0},
+  {pid:'4',offset:3,title:"DotCollective Site Alignment",start:'10:00',end:'10:30',durH:0.5},
+  {pid:'4',offset:3,title:"Lunch break",start:'11:00',end:'11:30',durH:0.5},
+  {pid:'4',offset:4,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'4',offset:4,title:"Lunch break",start:'11:00',end:'11:30',durH:0.5},
   {pid:'4',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'4',offset:7,title:"Lunch break",start:'12:00',end:'12:30',durH:0.5},
   {pid:'4',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
@@ -289,19 +289,19 @@ var GCAL_MEETINGS = [
   {pid:'4',offset:39,title:"Lunch break",start:'12:00',end:'12:30',durH:0.5},
   {pid:'4',offset:39,title:"Design Lead Catch Up",start:'14:00',end:'15:00',durH:1.0},
   {pid:'4',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1.0},
-  {pid:'5',offset:0,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'5',offset:0,title:"Appointment",start:'14:00',end:'18:30',durH:4.5},
-  {pid:'5',offset:1,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'5',offset:2,title:" From Claude Code to Figma – and Back Again",start:'03:00',end:'04:00',durH:1.0},
-  {pid:'5',offset:2,title:"Apollo - Daily Stand Up",start:'09:45',end:'10:15',durH:0.5},
-  {pid:'5',offset:2,title:"Bec x Audrina: Fortnightly Checkin",start:'11:00',end:'12:00',durH:1.0},
-  {pid:'5',offset:2,title:"Busy",start:'12:00',end:'13:30',durH:1.5},
-  {pid:'5',offset:2,title:"Han & Bec 1:1",start:'13:30',end:'14:00',durH:0.5},
-  {pid:'5',offset:2,title:"ByWren - Internal Creative Prep",start:'14:00',end:'14:30',durH:0.5},
-  {pid:'5',offset:3,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'5',offset:3,title:"Dentist 12:30",start:'12:00',end:'13:00',durH:1.0},
-  {pid:'5',offset:4,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'5',offset:4,title:"OOO",start:'15:00',end:'17:30',durH:2.5},
+  {pid:'5',offset:0,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'5',offset:0,title:"Appointment",start:'13:00',end:'17:30',durH:4.5},
+  {pid:'5',offset:1,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'5',offset:2,title:" From Claude Code to Figma – and Back Again",start:'02:00',end:'03:00',durH:1.0},
+  {pid:'5',offset:2,title:"Apollo - Daily Stand Up",start:'08:45',end:'09:15',durH:0.5},
+  {pid:'5',offset:2,title:"Bec x Audrina: Fortnightly Checkin",start:'10:00',end:'11:00',durH:1.0},
+  {pid:'5',offset:2,title:"Busy",start:'11:00',end:'12:30',durH:1.5},
+  {pid:'5',offset:2,title:"Han & Bec 1:1",start:'12:30',end:'13:00',durH:0.5},
+  {pid:'5',offset:2,title:"ByWren - Internal Creative Prep",start:'13:00',end:'13:30',durH:0.5},
+  {pid:'5',offset:3,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'5',offset:3,title:"Dentist 12:30",start:'11:00',end:'12:00',durH:1.0},
+  {pid:'5',offset:4,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'5',offset:4,title:"OOO",start:'14:00',end:'16:30',durH:2.5},
   {pid:'5',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'5',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'5',offset:8,title:"Eckersleys Design Handover",start:'10:00',end:'11:00',durH:1.0},
@@ -350,26 +350,26 @@ var GCAL_MEETINGS = [
   {pid:'5',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'5',offset:39,title:"OOO",start:'15:00',end:'17:30',durH:2.5},
   {pid:'5',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1.0},
-  {pid:'6',offset:0,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-  {pid:'6',offset:0,title:"Out of Office",start:'09:00',end:'17:30',durH:8.5},
-  {pid:'6',offset:0,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'6',offset:0,title:"SYDNEY - SPACE TENDER",start:'10:00',end:'15:00',durH:5.0},
-  {pid:'6',offset:1,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-  {pid:'6',offset:1,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'6',offset:1,title:"Early Settler | Discovery workshop (In person)",start:'10:00',end:'12:50',durH:2.83},
-  {pid:'6',offset:1,title:"Early Settler | Feature workshop (In person)",start:'13:30',end:'16:20',durH:2.83},
-  {pid:'6',offset:2,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-  {pid:'6',offset:2,title:"Apollo - Daily Stand Up",start:'09:45',end:'10:15',durH:0.5},
-  {pid:'6',offset:2,title:"Early Settler | Creative workshop (In person)",start:'10:00',end:'12:50',durH:2.83},
-  {pid:'6',offset:3,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-  {pid:'6',offset:3,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'6',offset:3,title:"Han & Lach",start:'12:30',end:'13:30',durH:1.0},
-  {pid:'6',offset:3,title:"Strategy Talking Strategy",start:'13:00',end:'13:30',durH:0.5},
-  {pid:'6',offset:3,title:"Han & Lachie 1:1",start:'13:30',end:'14:00',durH:0.5},
-  {pid:'6',offset:3,title:"Rip Curl Deep Dive check-in",start:'14:00',end:'14:30',durH:0.5},
-  {pid:'6',offset:3,title:"Design review - Stock Status by Region/State (Q1)",start:'16:00',end:'16:15',durH:0.25},
-  {pid:'6',offset:4,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-  {pid:'6',offset:4,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
+  {pid:'6',offset:0,title:"Unavailable for Meetings (School Drop-Off)",start:'08:00',end:'08:15',durH:0.25},
+  {pid:'6',offset:0,title:"Out of Office",start:'08:00',end:'16:30',durH:8.5},
+  {pid:'6',offset:0,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'6',offset:0,title:"SYDNEY - SPACE TENDER",start:'09:00',end:'14:00',durH:5.0},
+  {pid:'6',offset:1,title:"Unavailable for Meetings (School Drop-Off)",start:'08:00',end:'08:15',durH:0.25},
+  {pid:'6',offset:1,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'6',offset:1,title:"Early Settler | Discovery workshop (In person)",start:'09:00',end:'11:50',durH:2.83},
+  {pid:'6',offset:1,title:"Early Settler | Feature workshop (In person)",start:'12:30',end:'15:20',durH:2.83},
+  {pid:'6',offset:2,title:"Unavailable for Meetings (School Drop-Off)",start:'08:00',end:'08:15',durH:0.25},
+  {pid:'6',offset:2,title:"Apollo - Daily Stand Up",start:'08:45',end:'09:15',durH:0.5},
+  {pid:'6',offset:2,title:"Early Settler | Creative workshop (In person)",start:'09:00',end:'11:50',durH:2.83},
+  {pid:'6',offset:3,title:"Unavailable for Meetings (School Drop-Off)",start:'08:00',end:'08:15',durH:0.25},
+  {pid:'6',offset:3,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'6',offset:3,title:"Han & Lach",start:'11:30',end:'12:30',durH:1.0},
+  {pid:'6',offset:3,title:"Strategy Talking Strategy",start:'12:00',end:'12:30',durH:0.5},
+  {pid:'6',offset:3,title:"Han & Lachie 1:1",start:'12:30',end:'13:00',durH:0.5},
+  {pid:'6',offset:3,title:"Rip Curl Deep Dive check-in",start:'13:00',end:'13:30',durH:0.5},
+  {pid:'6',offset:3,title:"Design review - Stock Status by Region/State (Q1)",start:'15:00',end:'15:15',durH:0.25},
+  {pid:'6',offset:4,title:"Unavailable for Meetings (School Drop-Off)",start:'08:00',end:'08:15',durH:0.25},
+  {pid:'6',offset:4,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
   {pid:'6',offset:7,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
   {pid:'6',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'6',offset:8,title:"Out of office",start:'00:00',end:'00:00',durH:96.0},
@@ -445,16 +445,16 @@ var GCAL_MEETINGS = [
   {pid:'6',offset:39,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
   {pid:'6',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'6',offset:39,title:"Out of Office",start:'15:30',end:'17:30',durH:2.0},
-  {pid:'7',offset:0,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'7',offset:1,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'7',offset:1,title:"SEO & AEO Blog Training - Session 1",start:'14:30',end:'15:30',durH:1.0},
-  {pid:'7',offset:1,title:"Shakti Regroup",start:'16:00',end:'16:30',durH:0.5},
-  {pid:'7',offset:2,title:"APPROVED: Jonathan Annual Leave",start:'00:00',end:'00:00',durH:48.0},
-  {pid:'7',offset:2,title:"WIP - SVDP - Performance - Monthly",start:'15:30',end:'16:15',durH:0.75},
-  {pid:'7',offset:3,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-  {pid:'7',offset:3,title:"Strategy Talking Strategy",start:'13:00',end:'13:30',durH:0.5},
-  {pid:'7',offset:4,title:"Victorian Public Holiday - Good Friday",start:'00:00',end:'00:00',durH:24.0},
-  {pid:'7',offset:4,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
+  {pid:'7',offset:0,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'7',offset:1,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'7',offset:1,title:"SEO & AEO Blog Training - Session 1",start:'13:30',end:'14:30',durH:1.0},
+  {pid:'7',offset:1,title:"Shakti Regroup",start:'15:00',end:'15:30',durH:0.5},
+  {pid:'7',offset:1,title:"APPROVED: Jonathan Annual Leave",start:'23:00',end:'23:00',durH:48.0},
+  {pid:'7',offset:2,title:"WIP - SVDP - Performance - Monthly",start:'14:30',end:'15:15',durH:0.75},
+  {pid:'7',offset:3,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
+  {pid:'7',offset:3,title:"Strategy Talking Strategy",start:'12:00',end:'12:30',durH:0.5},
+  {pid:'7',offset:3,title:"Victorian Public Holiday - Good Friday",start:'23:00',end:'23:00',durH:24.0},
+  {pid:'7',offset:4,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
   {pid:'7',offset:7,title:"Victorian Public Holiday - Easter Monday",start:'00:00',end:'00:00',durH:24.0},
   {pid:'7',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'7',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
@@ -493,11 +493,11 @@ var GCAL_MEETINGS = [
   {pid:'7',offset:38,title:"Strategy Talking Strategy",start:'13:00',end:'13:30',durH:0.5},
   {pid:'7',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'7',offset:39,title:"Han & Jonathan 1:1",start:'11:00',end:'11:30',durH:0.5},
-  {pid:'7',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1.0}
+  {pid:'7',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1.0},
 ];
 
 /* ── Calendar sync metadata ── */
-var GCAL_REFRESHED='2026-04-04T08:53:39+10:00'; // auto-updated by daily sync task
+var GCAL_REFRESHED='2026-04-02T16:36:39+10:00'; // auto-updated by daily sync task
 </script>
 <script>
 const {
@@ -688,6 +688,33 @@ const PROJ = {
     woUrl: '',
     prodUrl: ''
   },
+  fgsp: {
+    name: 'Frank Green',
+    bg: '#d1fae5',
+    tx: '#047857',
+    signed: true,
+    type: 'support',
+    woUrl: '',
+    prodUrl: ''
+  },
+  lisp: {
+    name: 'Lindelli',
+    bg: '#fae8ff',
+    tx: '#86198f',
+    signed: true,
+    type: 'support',
+    woUrl: '',
+    prodUrl: ''
+  },
+  sfsp: {
+    name: 'Space Furniture',
+    bg: '#e0e7ff',
+    tx: '#3730a3',
+    signed: true,
+    type: 'project',
+    woUrl: '',
+    prodUrl: ''
+  },
   // ── Support (ongoing retainer packs) ──
   rcsp: {
     name: 'Rip Curl',
@@ -817,7 +844,7 @@ const initTeam = [{
   id: '8',
   name: 'Hannah Grantham',
   ini: 'HG',
-  col: '#f472b6',
+  col: '#c9a2c9',
   safeHpD: 6.00,
   photo: null
 }];
@@ -841,19 +868,19 @@ const mk = (p, proj, s, n, note, hrs, isLeave) => ({
 /* ── Real Productive data (synced from API) + leave ── */
 const INIT = [
 // ── Kate Smith ──
-mk('1', 'g', 0, 1, 'Sales', 7.6, false), mk('1', 'g', 1, 1, 'Project', 7.6, false), mk('1', 'g', 2, 1, 'Project', 4.5, false), mk('1', 'cwm', 3, 1, 'Design', 1.5, false), mk('1', 'mcsp', 3, 1, 'Technical Lead', 2.0, false), mk('1', 'cmsp', 3, 1, 'Design', 1.5, false), mk('1', 'bbsp', 8, 1, 'UX Lead', 2.5, false), mk('1', 'eurd', 8, 1, 'Design', 5.0, false), mk('1', 'eurd', 8, 1, 'Design', 4.0, false), mk('1', 'eurd', 9, 7, 'Design', 30.0, false), mk('1', 'g', 16, 13, 'Project', 54.0, false), mk('1', 'g', 29, 9, 'Project', 42.0, false), mk('1', 'g', 38, 12, 'Project', 48.0, false),
+mk('1', 'g', 0, 1, 'Sales', 7.6, false), mk('1', 'g', 1, 1, 'Project', 7.6, false), mk('1', 'g', 2, 1, 'Project', 4.5, false), mk('1', 'cwm', 3, 1, 'Design', 1.5, false), mk('1', 'mcsp', 3, 1, 'Technical Lead', 2.0, false), mk('1', 'cmsp', 3, 1, 'Design', 1.5, false), mk('1', 'bbsp', 8, 1, 'UX Lead', 2.5, false), mk('1', 'eurd', 8, 1, 'Design', 5.0, false), mk('1', 'eurd', 8, 1, 'Design', 4.0, false), mk('1', 'eurd', 9, 7, 'Design', 30.0, false), mk('1', 'g', 16, 13, 'Project', 54.0, false), mk('1', 'g', 29, 9, 'Project', 42.0, false), mk('1', 'g', 38, 12, 'Project', 48.0, false), mk('1', 'g', 50, 9, 'Project', 42.0, false),
 // ── Dave Ye ──
-mk('2', 'g', -3, 4, 'Meetings', 0.5, false), mk('2', 'rcsp', 0, 1, 'UX Lead', 3.0, false), mk('2', 'rcsp', 0, 1, 'UX Lead', 3.0, false), mk('2', 'lswb', 1, 1, 'Strategist', 2.0, false), mk('2', 'g', 1, 1, 'Meetings', 0.5, false), mk('2', 'jdb', 1, 10, 'Design', 1.0, false), mk('2', 'g', 2, 31, 'Meetings', 8.0, false), mk('2', 'lv', 2, 1, 'RDO Wed', null, true), mk('2', 'g', 3, 1, 'Project', 4.0, false), mk('2', 'g', 3, 1, 'Project', 3.0, false), mk('2', 'g', 7, 1, 'Strategy', 2.0, false), mk('2', 'lv', 8, 1, 'DO', null, true), mk('2', 'lv', 9, 1, 'RDO Wed', null, true), mk('2', 'lv', 16, 1, 'RDO Wed', null, true), mk('2', 'lswb', 21, 4, 'Designer', 18.0, false), mk('2', 'lv', 23, 1, 'RDO Wed', null, true), mk('2', 'lswb', 28, 5, 'Designer', 24.0, false), mk('2', 'lv', 30, 1, 'RDO Wed', null, true), mk('2', 'g', 35, 9, 'Project', 36.0, false),
+mk('2', 'g', -3, 4, 'Meetings', 0.5, false), mk('2', 'rcsp', 0, 1, 'UX Lead', 3.0, false), mk('2', 'rcsp', 0, 1, 'UX Lead', 3.0, false), mk('2', 'lswb', 1, 1, 'Strategist', 2.0, false), mk('2', 'g', 1, 1, 'Meetings', 0.5, false), mk('2', 'jdb', 1, 10, 'Design', 1.0, false), mk('2', 'g', 2, 31, 'Meetings', 8.0, false), mk('2', 'g', 3, 1, 'Project', 4.0, false), mk('2', 'g', 3, 1, 'Project', 3.0, false), mk('2', 'fgsp', 7, 1, 'Strategy', 2.0, false), mk('2', 'lv', 8, 1, 'AL', 7.6, true), mk('2', 'lswb', 21, 4, 'Designer', 18.0, false), mk('2', 'lswb', 28, 5, 'Designer', 24.0, false), mk('2', 'g', 35, 9, 'Project', 36.0, false), mk('2', 'g', 45, 9, 'Project', 36.0, false), mk('2', 'g', 56, 5, 'Project', 24.0, false), mk('2', 'g', 63, 8, 'Product', 24.0, false), mk('2', 'g', 73, 13, 'Project', 48.0, false),
 // ── Audrina Heng ──
-mk('3', 'jewd', 0, 1, 'Design Lead', 2.0, false), mk('3', 'g', 0, 1, 'Meetings', 5.0, false), mk('3', 'jdb', 1, 1, 'Design', 3.0, false), mk('3', 'esqq', 1, 1, 'Design', 3.0, false), mk('3', 'g', 1, 1, 'Meetings', 0.5, false), mk('3', 'jewd', 2, 1, 'Design', 2.0, false), mk('3', 'g', 2, 1, 'Eckersleys Design Handover', 1.0, false), mk('3', 'esqq', 2, 1, 'Design', 1.0, false), mk('3', 'g', 2, 1, 'Meetings', 0.5, false), mk('3', 'g', 2, 31, 'Meetings', 10.5, false), mk('3', 'g', 2, 1, 'Planning', 2.0, false), mk('3', 'g', 2, 1, 'Planning', 2.0, false), mk('3', 'jewd', 3, 1, 'Design', 0.5, false), mk('3', 'jewd', 3, 1, 'Design Lead', 0.5, false), mk('3', 'g', 3, 1, 'Meetings', 4.0, false), mk('3', 'jdb', 3, 1, 'Design', 7.0, false), mk('3', 'esqq', 3, 1, 'Design', 0.2, false), mk('3', 'pcsp', 8, 1, 'Development', 3.5, false), mk('3', 'esqq', 8, 1, 'Design', 0.5, false), mk('3', 'eurd', 8, 1, 'Design', 6.0, false), mk('3', 'jewd', 9, 1, 'Design Lead', 0.5, false), mk('3', 'g', 9, 1, 'Meetings', 0.5, false), mk('3', 'eurd', 9, 1, 'Design', 5.5, false), mk('3', 'esqq', 9, 1, 'Design', 0.2, false), mk('3', 'lv', 10, 5, 'AL', null, true), mk('3', 'jewd', 15, 1, 'Design', 1.0, false), mk('3', 'eurd', 15, 1, 'Design', 5.5, false), mk('3', 'jewd', 16, 1, 'Design Lead', 1.0, false), mk('3', 'g', 16, 1, 'Meetings', 0.5, false), mk('3', 'eurd', 16, 1, 'Design', 5.0, false), mk('3', 'eurd', 17, 1, 'Design', 6.0, false), mk('3', 'eurd', 18, 1, 'Design', 4.5, false), mk('3', 'jewd', 21, 1, 'Design', 2.0, false), mk('3', 'eurd', 21, 2, 'Design', 12.0, false), mk('3', 'g', 23, 1, 'Meetings', 0.5, false), mk('3', 'jewd', 23, 1, 'Design', 2.0, false), mk('3', 'jewd', 25, 1, 'Design', 2.0, false), mk('3', 'eurd', 28, 1, 'Design', 6.0, false), mk('3', 'eurd', 29, 3, 'Design', 18.0, false), mk('3', 'g', 30, 1, 'Meetings', 0.5, false), mk('3', 'jewd', 30, 1, 'Design Lead', 2.0, false), mk('3', 'jewd', 32, 1, 'Design', 2.0, false), mk('3', 'lv', 32, 1, 'DO', null, true), mk('3', 'g', 35, 4, 'Project', 24.0, false), mk('3', 'g', 37, 1, 'Meetings', 0.5, false), mk('3', 'g', 39, 1, 'MONTHLY TRIBE', 6.0, false),
+mk('3', 'jewd', 0, 1, 'Design Lead', 2.0, false), mk('3', 'g', 0, 1, 'Meetings', 5.0, false), mk('3', 'jdb', 1, 1, 'Design', 3.0, false), mk('3', 'esqq', 1, 1, 'Design', 3.0, false), mk('3', 'g', 1, 1, 'Meetings', 0.5, false), mk('3', 'jewd', 2, 1, 'Design', 2.0, false), mk('3', 'g', 2, 1, 'Eckersleys Design Handover', 1.0, false), mk('3', 'esqq', 2, 1, 'o', 1.0, false), mk('3', 'g', 2, 1, 'Meetings', 0.5, false), mk('3', 'g', 2, 31, 'Meetings', 10.5, false), mk('3', 'g', 2, 1, 'Planning', 2.0, false), mk('3', 'g', 2, 1, 'Planning', 2.0, false), mk('3', 'jewd', 3, 1, 'Design', 0.5, false), mk('3', 'jewd', 3, 1, 'Design Lead', 0.5, false), mk('3', 'g', 3, 1, 'Meetings', 4.0, false), mk('3', 'jdb', 3, 1, 'Design', 7.0, false), mk('3', 'esqq', 3, 1, 'Design', 0.2, false), mk('3', 'pcsp', 8, 1, 'Development', 3.5, false), mk('3', 'esqq', 8, 1, 'Design', 0.5, false), mk('3', 'eurd', 8, 1, 'Design', 6.0, false), mk('3', 'jewd', 9, 1, 'Design Lead', 0.5, false), mk('3', 'g', 9, 1, 'Meetings', 0.5, false), mk('3', 'eurd', 9, 1, 'Design', 5.5, false), mk('3', 'esqq', 9, 1, 'Design', 0.2, false), mk('3', 'lv', 10, 5, 'AL', 22.8, true), mk('3', 'jewd', 15, 1, 'Design', 1.0, false), mk('3', 'eurd', 15, 1, 'Design', 5.5, false), mk('3', 'jewd', 16, 1, 'Design Lead', 1.0, false), mk('3', 'g', 16, 1, 'Meetings', 0.5, false), mk('3', 'eurd', 16, 1, 'Design', 5.0, false), mk('3', 'eurd', 17, 1, 'Design', 6.0, false), mk('3', 'eurd', 18, 1, 'Design', 4.5, false), mk('3', 'jewd', 21, 1, 'Design', 2.0, false), mk('3', 'eurd', 21, 2, 'Design', 12.0, false), mk('3', 'g', 23, 1, 'Meetings', 0.5, false), mk('3', 'jewd', 23, 1, 'Design', 2.0, false), mk('3', 'jewd', 25, 1, 'Design', 2.0, false), mk('3', 'eurd', 28, 1, 'Design', 6.0, false), mk('3', 'eurd', 29, 3, 'Design', 18.0, false), mk('3', 'g', 30, 1, 'Meetings', 0.5, false), mk('3', 'jewd', 30, 1, 'Design Lead', 2.0, false), mk('3', 'lv', 32, 1, 'Birthday Leave', 7.6, true), mk('3', 'jewd', 32, 1, 'Design', 2.0, false), mk('3', 'g', 35, 4, 'Project', 24.0, false), mk('3', 'g', 37, 1, 'Meetings', 0.5, false), mk('3', 'g', 39, 1, 'MONTHLY TRIBE prep work for presentation for session', 6.0, false), mk('3', 'g', 42, 9, 'Project', 42.0, false), mk('3', 'g', 44, 1, 'Meetings', 0.5, false), mk('3', 'g', 51, 1, 'Meetings', 0.5, false), mk('3', 'g', 51, 2, 'Project', 12.0, false), mk('3', 'g', 53, 15, 'Project', 66.0, false), mk('3', 'g', 58, 1, 'Meetings', 0.5, false), mk('3', 'g', 65, 1, 'Meetings', 0.5, false), mk('3', 'g', 67, 1, 'MONTHLY TRIBE prep work for presentation for session', 6.0, false), mk('3', 'g', 70, 10, 'Project', 42.0, false), mk('3', 'g', 72, 1, 'Meetings', 0.5, false), mk('3', 'lv', 79, 10, 'Europe', 60.8, true), mk('3', 'g', 123, 1, 'MONTHLY TRIBE prep work for presentation for session', 6.0, false),
 // ── Seo Lee ──
-mk('4', 'g', -3, 4, 'Product', 1.5, false), mk('4', 'g', 0, 1, 'Meetings', 0.5, false), mk('4', 'g', 0, 1, 'Project', 5.0, false), mk('4', 'g', 1, 1, 'Meetings', 0.5, false), mk('4', 'g', 1, 1, 'Meetings', 7.0, false), mk('4', 'g', 2, 1, 'Product', 1.5, false), mk('4', 'g', 2, 1, 'Meetings', 5.0, false), mk('4', 'g', 2, 31, 'Meetings', 10.5, false), mk('4', 'g', 3, 1, 'Product', 6.0, false), mk('4', 'g', 7, 1, 'Meetings', 0.5, false), mk('4', 'g', 8, 7, 'Project', 30.0, false), mk('4', 'g', 9, 1, 'Meetings', 0.5, false), mk('4', 'g', 14, 1, 'Meetings', 0.5, false), mk('4', 'g', 15, 3, 'Project', 18.0, false), mk('4', 'g', 16, 1, 'Meetings', 0.5, false), mk('4', 'g', 18, 1, 'Social', 4.0, false), mk('4', 'g', 21, 1, 'Meetings', 0.5, false), mk('4', 'g', 21, 1, 'Sales', 4.0, false), mk('4', 'g', 23, 1, 'Meetings', 0.5, false), mk('4', 'g', 24, 2, 'Project', 12.0, false), mk('4', 'g', 28, 1, 'Meetings', 0.5, false), mk('4', 'g', 28, 8, 'Project', 36.0, false), mk('4', 'g', 30, 1, 'Meetings', 0.5, false), mk('4', 'g', 35, 1, 'Meetings', 0.5, false), mk('4', 'g', 37, 1, 'Meetings', 0.5, false),
+mk('4', 'g', -3, 4, 'Product', 1.5, false), mk('4', 'g', 0, 1, 'Meetings', 0.5, false), mk('4', 'g', 0, 1, 'Project', 5.0, false), mk('4', 'g', 1, 1, 'Meetings', 0.5, false), mk('4', 'g', 1, 1, 'Meetings', 7.0, false), mk('4', 'g', 2, 1, 'Product', 1.5, false), mk('4', 'g', 2, 1, 'Meetings', 5.0, false), mk('4', 'g', 2, 31, 'Meetings', 10.5, false), mk('4', 'g', 3, 1, 'Product', 6.0, false), mk('4', 'g', 7, 1, 'Meetings', 0.5, false), mk('4', 'g', 8, 7, 'Project', 30.0, false), mk('4', 'g', 9, 1, 'Meetings', 0.5, false), mk('4', 'g', 14, 1, 'Meetings', 0.5, false), mk('4', 'g', 15, 3, 'Project', 18.0, false), mk('4', 'g', 16, 1, 'Meetings', 0.5, false), mk('4', 'g', 18, 1, 'Social', 4.0, false), mk('4', 'g', 21, 1, 'Meetings', 0.5, false), mk('4', 'g', 21, 1, 'Sales', 4.0, false), mk('4', 'g', 23, 1, 'Meetings', 0.5, false), mk('4', 'g', 24, 2, 'Project', 12.0, false), mk('4', 'g', 28, 1, 'Meetings', 0.5, false), mk('4', 'g', 28, 8, 'Project', 36.0, false), mk('4', 'g', 30, 1, 'Meetings', 0.5, false), mk('4', 'g', 35, 1, 'Meetings', 0.5, false), mk('4', 'g', 37, 1, 'Meetings', 0.5, false), mk('4', 'g', 42, 1, 'Meetings', 0.5, false), mk('4', 'g', 44, 1, 'Meetings', 0.5, false), mk('4', 'g', 44, 7, 'Project', 30.0, false), mk('4', 'g', 49, 1, 'Meetings', 0.5, false), mk('4', 'g', 51, 1, 'Meetings', 0.5, false), mk('4', 'g', 56, 1, 'Meetings', 0.5, false), mk('4', 'g', 58, 1, 'Meetings', 0.5, false), mk('4', 'g', 63, 1, 'Meetings', 0.5, false), mk('4', 'g', 65, 1, 'Meetings', 0.5, false), mk('4', 'g', 70, 1, 'Meetings', 0.5, false), mk('4', 'g', 70, 3, 'Project', 12.0, false), mk('4', 'g', 72, 1, 'Meetings', 0.5, false),
 // ── Bec Simpson ──
-mk('5', 'g', 0, 1, 'Early Settler - Creative Workshop', 2.5, false), mk('5', 'kgtr', 1, 1, 'Design', 2.0, false), mk('5', 'kgtr', 1, 2, 'Design', 7.0, false), mk('5', 'g', 1, 1, 'Meetings', 0.5, false), mk('5', 'g', 2, 1, 'Meetings', 0.5, false), mk('5', 'g', 2, 2, 'Project', 8.0, false), mk('5', 'g', 2, 31, 'Meetings', 10.5, false), mk('5', 'g', 3, 1, 'Design', 0.4, false), mk('5', 'g', 3, 1, 'Project', 3.0, false), mk('5', 'g', 8, 1, 'Meetings', 2.0, false), mk('5', 'jjsp', 8, 1, 'Design', 0.5, false), mk('5', 'jjsp', 8, 1, 'Design', 0.7, false), mk('5', 'jjsp', 8, 1, 'Design', 6.2, false), mk('5', 'bsp', 9, 5, 'Design', 18.0, false), mk('5', 'jjsp', 9, 1, 'Design', 1.0, false), mk('5', 'jjsp', 9, 1, 'Design', 2.0, false), mk('5', 'jjsp', 9, 1, 'Design', 0.5, false), mk('5', 'bsp', 13, 3, 'Design', 12.0, false), mk('5', 'lv', 14, 2, 'AL', null, true), mk('5', 'bsp', 16, 3, 'Design', 18.0, false), mk('5', 'eurd', 31, 15, 'Design', 35.0, false), mk('5', 'eurd', 36, 18, 'Design', 35.0, false),
+mk('5', 'g', 0, 1, 'Early Settler - Creative Workshop', 2.5, false), mk('5', 'kgtr', 1, 1, 'Design', 2.0, false), mk('5', 'kgtr', 1, 2, 'Design', 7.0, false), mk('5', 'g', 1, 1, 'Meetings', 0.5, false), mk('5', 'g', 2, 1, 'Meetings', 0.5, false), mk('5', 'g', 2, 2, 'Project', 8.0, false), mk('5', 'g', 2, 31, 'Meetings', 10.5, false), mk('5', 'lisp', 3, 1, 'Design', 0.4, false), mk('5', 'g', 3, 1, 'Project', 3.0, false), mk('5', 'g', 4, 1, 'Social', null, false), mk('5', 'g', 7, 1, 'Social', null, false), mk('5', 'g', 8, 1, 'Meetings', 2.0, false), mk('5', 'jjsp', 8, 1, 'Design', 0.5, false), mk('5', 'jjsp', 8, 1, 'Design', 0.7, false), mk('5', 'jjsp', 8, 1, 'Design', 6.2, false), mk('5', 'bsp', 9, 5, 'Design', 18.0, false), mk('5', 'jjsp', 9, 1, 'Design', 1.0, false), mk('5', 'jjsp', 9, 1, 'Design', 2.0, false), mk('5', 'jjsp', 9, 1, 'Design', 0.5, false), mk('5', 'bsp', 13, 3, 'Design', 12.0, false), mk('5', 'lv', 14, 2, 'AL', 15.2, true), mk('5', 'bsp', 16, 3, 'Design', 18.0, false), mk('5', 'eurd', 31, 15, 'Design', 35.0, false), mk('5', 'eurd', 36, 18, 'Design', 35.0, false), mk('5', 'eurd', 46, 15, 'Design', 35.0, false), mk('5', 'eurd', 56, 10, 'Design', 35.0, false), mk('5', 'eurd', 66, 12, 'Design', 35.0, false), mk('5', 'g', 95, 1, 'MONTHLY TRIBE prep work for presentation for session', 6.0, false),
 // ── Lachlan Gibbs ──
-mk('6', 'g', 0, 1, 'Space RFP in Sydney', 0.0, false), mk('6', 'g', 0, 1, 'Sales', 7.6, false), mk('6', 'g', 1, 1, 'Meetings', 0.5, false), mk('6', 'g', 1, 1, 'Meetings', 0.5, false), mk('6', 'g', 1, 1, 'Project', 7.6, false), mk('6', 'rf', 2, 2, 'Strategy', 8.0, false), mk('6', 'krpb', 2, 1, 'Strategy', 2.0, false), mk('6', 'g', 2, 1, 'Project', 4.0, false), mk('6', 'g', 2, 31, 'Meetings', 9.5, false), mk('6', 'g', 2, 31, 'Meetings', 9.5, false), mk('6', 'rcsp', 2, 1, 'UX Lead', 1.0, false), mk('6', 'rf', 3, 1, 'Strategy', 4.0, false), mk('6', 'rf', 4, 1, 'Strategy', 4.0, false), mk('6', 'lv', 8, 4, 'AL', null, true), mk('6', 'lv', 14, 1, 'RDO Mon', null, true), mk('6', 'g', 15, 1, 'Project', 5.0, false), mk('6', 'g', 16, 3, 'Project', 15.0, false), mk('6', 'essw', 21, 27, 'Early Settler Research', 90.0, false), mk('6', 'lv', 28, 1, 'RDO Mon', null, true),
+mk('6', 'sfsp', 0, 1, 'Space RFP in Sydney', null, false), mk('6', 'g', 0, 1, 'Sales', 7.6, false), mk('6', 'g', 1, 1, 'Meetings', 0.5, false), mk('6', 'g', 1, 1, 'Meetings', 0.5, false), mk('6', 'g', 1, 1, 'Project', 7.6, false), mk('6', 'rf', 2, 2, 'Strategy', 8.0, false), mk('6', 'krpb', 2, 1, 'Strategy', 2.0, false), mk('6', 'g', 2, 1, 'Project', 4.0, false), mk('6', 'g', 2, 31, 'Meetings', 9.5, false), mk('6', 'g', 2, 31, 'Meetings', 9.5, false), mk('6', 'rcsp', 2, 1, 'UX Lead', 1.0, false), mk('6', 'rf', 3, 1, 'Strategy', 4.0, false), mk('6', 'rf', 4, 1, 'Strategy', 4.0, false), mk('6', 'lv', 8, 4, 'AL', 22.8, true), mk('6', 'g', 15, 1, 'Project', 5.0, false), mk('6', 'g', 16, 3, 'Project', 15.0, false), mk('6', 'essw', 21, 27, 'Early Settler Research', 90.0, false),
 // ── Jonathan Stiglec ──
-mk('7', 'g', -4, 6, 'Meetings', 2.0, false), mk('7', 'g', 0, 1, 'Early Settler - Discovery Workshop', 3.0, false), mk('7', 'g', 1, 1, 'Meetings', 0.0, false), mk('7', 'g', 1, 1, 'Meetings', 0.5, false), mk('7', 'g', 1, 1, 'Meetings', 0.5, false), mk('7', 'dspd', 1, 1, 'Finalise / Run Training Session', 5.0, false), mk('7', 'g', 2, 31, 'Meetings', 0.5, false), mk('7', 'g', 2, 31, 'Meetings', 10.5, false), mk('7', 'g', 2, 31, 'Meetings', 10.5, false), mk('7', 'lv', 2, 2, 'AL', null, true), mk('7', 'svdp', 8, 1, 'Paid Search Management', 6.0, false), mk('7', 'esqq', 9, 1, 'Strategy', 0.2, false), mk('7', 'lv', 37, 1, 'DO', null, true)];
+mk('7', 'g', -4, 6, 'Meetings', 2.0, false), mk('7', 'g', 0, 1, 'Early Settler - Discovery Workshop', 3.0, false), mk('7', 'g', 1, 1, 'Meetings', 0.0, false), mk('7', 'g', 1, 1, 'Meetings', 0.5, false), mk('7', 'g', 1, 1, 'Meetings', 0.5, false), mk('7', 'dspd', 1, 1, 'Finalise / Run Training Session', 5.0, false), mk('7', 'lv', 2, 2, 'AL', 15.2, true), mk('7', 'g', 2, 31, 'Meetings', 0.5, false), mk('7', 'g', 2, 31, 'Meetings', 10.5, false), mk('7', 'g', 2, 31, 'Meetings', 10.5, false), mk('7', 'svdp', 8, 1, 'Paid Search Management', 6.0, false), mk('7', 'esqq', 9, 1, 'Strategy', 0.2, false), mk('7', 'lv', 37, 1, 'AL', 7.6, true), mk('7', 'dspd', 63, 1, 'Strategy', 4.0, false)];
 
 /* ── Lane assignment ── */
 function assignLanes(bks) {
@@ -2072,7 +2099,8 @@ function CapacityTip({
   tip,
   team,
   bookings,
-  meetHoursPerDay
+  meetHoursPerDay,
+  capMode
 }) {
   if (!tip) return null;
   const m = team.find(t => t.id === tip.pid);
@@ -2080,7 +2108,7 @@ function CapacityTip({
   const d = DAYS[tip.offset];
   if (!d) return null;
   const isWE = d.getDay() === 0 || d.getDay() === 6;
-  const safeH = m.safeHpD || 0;
+  const safeH = capMode === 'real' ? 7.6 : m.safeHpD || 0;
   const meetH = meetHoursPerDay?.[tip.offset] || 0;
   // Booking hours on this day: for each booking covering this day, allocate hrs/n per day
   const dayBks = bookings.filter(b => b.p === m.id && !b.isLeave && b.s <= tip.offset && tip.offset < b.s + b.dn);
@@ -2129,7 +2157,7 @@ function CapacityTip({
     style: {
       color: C.text2
     }
-  }, "Safe capacity"), /*#__PURE__*/React.createElement("span", {
+  }, capMode === 'real' ? 'Real capacity' : 'Safe capacity'), /*#__PURE__*/React.createElement("span", {
     style: {
       fontWeight: 600
     }
@@ -2208,6 +2236,7 @@ function App() {
   const [collapsed, setCollapsed] = useState({});
   const [filter, setFilter] = useState('all');
   const [showMeetings, setShowMeetings] = useState(false);
+  const [capMode, setCapMode] = useState('safe'); // 'safe' or 'real'
   const [legendExpanded, setLegendExpanded] = useState(false);
   const [drawer, setDrawer] = useState(null); // projKey for ProjectDrawer
   const [dayTip, setDayTip] = useState(null);
@@ -2684,6 +2713,30 @@ function App() {
     style: {
       display: 'flex',
       alignItems: 'center',
+      gap: 2,
+      background: 'rgba(255,255,255,0.06)',
+      borderRadius: 8,
+      padding: 2
+    }
+  }, [['safe', 'Safe'], ['real', 'Real']].map(([val, label]) => /*#__PURE__*/React.createElement("button", {
+    key: val,
+    onClick: () => setCapMode(val),
+    style: {
+      padding: '4px 12px',
+      borderRadius: 6,
+      fontSize: 11,
+      fontWeight: 600,
+      letterSpacing: '-0.01em',
+      border: 'none',
+      cursor: 'pointer',
+      background: capMode === val ? '#34d399' : 'transparent',
+      color: capMode === val ? '#000' : 'rgba(255,255,255,0.5)',
+      transition: 'background 0.15s,color 0.15s'
+    }
+  }, label))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
       gap: 6
     }
   }, /*#__PURE__*/React.createElement("button", {
@@ -2916,7 +2969,8 @@ function App() {
     const meetH = showMeetings ? meetingDataByPerson[m.id]?.meetHoursPerDay || {} : [];
     const totalMeetH = showMeetings ? Object.values(meetH).reduce((s, h) => s + h, 0) : 0;
     const bookedH = m.bks.filter(b => !b.isLeave).reduce((s, b) => s + (b.hrs || 0), 0) + totalMeetH;
-    const safeH = m.safeHpD ? m.safeHpD * 25 : null;
+    const hpd = capMode === 'real' ? 7.6 : m.safeHpD || 0;
+    const safeH = hpd ? hpd * 25 : null;
     const pct = safeH ? Math.min(bookedH / safeH * 100, 100) : 0;
     const capCol = pct > 100 ? '#f87171' : pct > 85 ? C.orange : '#34d399';
     const rowBg = mi % 2 === 0 ? C.row1 : C.row2;
@@ -3222,7 +3276,8 @@ function App() {
     tip: dayTip,
     team: team,
     bookings: bookings,
-    meetHoursPerDay: meetingDataByPerson[dayTip.pid]?.meetHoursPerDay
+    meetHoursPerDay: meetingDataByPerson[dayTip.pid]?.meetHoursPerDay,
+    capMode: capMode
   }), ghost && /*#__PURE__*/React.createElement("div", {
     className: "no-sel",
     style: {
