@@ -594,77 +594,99 @@ const PROJ = {
     bg: '#ede9fe',
     tx: '#5b21b6',
     signed: true,
-    type: 'project'
+    type: 'project',
+    woUrl: '',
+    prodUrl: ''
   },
   jewd: {
     name: 'JAG eCommerce',
     bg: '#dbeafe',
     tx: '#1e3a8a',
     signed: true,
-    type: 'project'
+    type: 'project',
+    woUrl: '',
+    prodUrl: ''
   },
   bsp: {
     name: 'ByWren',
     bg: '#fce7f3',
     tx: '#9d174d',
     signed: true,
-    type: 'project'
+    type: 'project',
+    woUrl: '',
+    prodUrl: ''
   },
   essw: {
     name: 'Early Settler',
     bg: '#fef3c7',
     tx: '#78350f',
     signed: true,
-    type: 'project'
+    type: 'project',
+    woUrl: '',
+    prodUrl: ''
   },
   lswb: {
     name: 'Landsmith',
     bg: '#dcfce7',
     tx: '#14532d',
     signed: true,
-    type: 'project'
+    type: 'project',
+    woUrl: '',
+    prodUrl: ''
   },
   jdb: {
     name: 'Jardan',
     bg: '#ccfbf1',
     tx: '#0f766e',
     signed: true,
-    type: 'project'
+    type: 'project',
+    woUrl: '',
+    prodUrl: ''
   },
   kgtr: {
     name: 'Kidman Group',
     bg: '#f3e8ff',
     tx: '#6b21a8',
     signed: true,
-    type: 'project'
+    type: 'project',
+    woUrl: '',
+    prodUrl: ''
   },
   cwm: {
     name: 'Cable Migration',
     bg: '#fce7e7',
     tx: '#991b1b',
     signed: true,
-    type: 'project'
+    type: 'project',
+    woUrl: '',
+    prodUrl: ''
   },
   svdp: {
     name: 'SVDP Google Grant',
     bg: '#e0f2fe',
     tx: '#075985',
     signed: true,
-    type: 'project'
+    type: 'project',
+    woUrl: '',
+    prodUrl: ''
   },
   rf: {
     name: 'Replenishment Flow',
     bg: '#fed7aa',
     tx: '#92400e',
     signed: true,
-    type: 'project'
+    type: 'project',
+    woUrl: '',
+    prodUrl: ''
   },
   krpb: {
     name: 'Klaviyo / Replen',
     bg: '#fffbeb',
     tx: '#92400e',
     signed: true,
-    type: 'project'
+    type: 'project',
+    woUrl: '',
+    prodUrl: ''
   },
   // ── Support (ongoing retainer packs) ──
   rcsp: {
@@ -672,56 +694,72 @@ const PROJ = {
     bg: '#fee2e2',
     tx: '#9f1239',
     signed: true,
-    type: 'support'
+    type: 'support',
+    woUrl: '',
+    prodUrl: ''
   },
   dspd: {
     name: 'Decjuba',
     bg: '#fce7e7',
     tx: '#881337',
     signed: true,
-    type: 'support'
+    type: 'support',
+    woUrl: '',
+    prodUrl: ''
   },
   jjsp: {
     name: 'Jac & Jack',
     bg: '#fef9c3',
     tx: '#713f12',
     signed: true,
-    type: 'support'
+    type: 'support',
+    woUrl: '',
+    prodUrl: ''
   },
   mcsp: {
     name: 'Manning Cartell',
     bg: '#d1fae5',
     tx: '#065f46',
     signed: true,
-    type: 'support'
+    type: 'support',
+    woUrl: '',
+    prodUrl: ''
   },
   esqq: {
     name: 'Essity',
     bg: '#ffedd5',
     tx: '#c2410c',
     signed: true,
-    type: 'support'
+    type: 'support',
+    woUrl: '',
+    prodUrl: ''
   },
   bbsp: {
     name: 'Billini & Banbe',
     bg: '#f0fdf4',
     tx: '#15803d',
     signed: true,
-    type: 'support'
+    type: 'support',
+    woUrl: '',
+    prodUrl: ''
   },
   pcsp: {
     name: 'Perri Cutten',
     bg: '#fff7ed',
     tx: '#9a3412',
     signed: true,
-    type: 'support'
+    type: 'support',
+    woUrl: '',
+    prodUrl: ''
   },
   cmsp: {
     name: 'Cable Melbourne',
     bg: '#ecfdf5',
     tx: '#065f46',
     signed: true,
-    type: 'support'
+    type: 'support',
+    woUrl: '',
+    prodUrl: ''
   }
 };
 
@@ -956,7 +994,8 @@ function Avatar({
    ════════════════════════════════════ */
 function MeetingBar({
   ev,
-  bookingRowH
+  bookingRowH,
+  dayW = DAY_W
 }) {
   const [hov, setHov] = useState(false);
   const top = bookingRowH + 3 + ev.meetLane * MEET_LANE_H;
@@ -966,9 +1005,9 @@ function MeetingBar({
     onMouseLeave: () => setHov(false),
     style: {
       position: 'absolute',
-      left: ev.offset * DAY_W + 1,
+      left: ev.offset * dayW + 1,
       top,
-      width: DAY_W - 2,
+      width: dayW - 2,
       height: MEET_BAR_H,
       borderRadius: 3,
       zIndex: hov ? 22 : 11,
@@ -1219,7 +1258,72 @@ function ProjectDrawer({
       color: C.text1,
       letterSpacing: '-0.03em'
     }
-  }, members.length)))), /*#__PURE__*/React.createElement("div", {
+  }, members.length)))), (p.woUrl || p.prodUrl || projBks.some(b => PROJ[b.proj]?.sowUrl)) && /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: '12px 20px',
+      borderBottom: `1px solid ${C.border}`,
+      display: 'flex',
+      gap: 6,
+      flexWrap: 'wrap'
+    }
+  }, p.woUrl && /*#__PURE__*/React.createElement("a", {
+    href: p.woUrl,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      padding: '5px 12px',
+      borderRadius: 6,
+      fontSize: 10,
+      fontWeight: 600,
+      background: 'rgba(124,58,237,0.12)',
+      border: `1px solid rgba(124,58,237,0.3)`,
+      color: '#a78bfa',
+      textDecoration: 'none',
+      cursor: 'pointer',
+      transition: 'all 0.2s',
+      display: 'flex',
+      alignItems: 'center',
+      gap: 5
+    }
+  }, "\uD83D\uDCCB Work Order"), projBks.some(b => PROJ[b.proj]?.sowUrl) && /*#__PURE__*/React.createElement("a", {
+    href: projBks.find(b => PROJ[b.proj]?.sowUrl)?.sowUrl,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      padding: '5px 12px',
+      borderRadius: 6,
+      fontSize: 10,
+      fontWeight: 600,
+      background: 'rgba(124,58,237,0.12)',
+      border: `1px solid rgba(124,58,237,0.3)`,
+      color: '#a78bfa',
+      textDecoration: 'none',
+      cursor: 'pointer',
+      transition: 'all 0.2s',
+      display: 'flex',
+      alignItems: 'center',
+      gap: 5
+    }
+  }, "\uD83D\uDCDD SOW"), p.prodUrl && /*#__PURE__*/React.createElement("a", {
+    href: p.prodUrl,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      padding: '5px 12px',
+      borderRadius: 6,
+      fontSize: 10,
+      fontWeight: 600,
+      background: 'rgba(124,58,237,0.12)',
+      border: `1px solid rgba(124,58,237,0.3)`,
+      color: '#a78bfa',
+      textDecoration: 'none',
+      cursor: 'pointer',
+      transition: 'all 0.2s',
+      display: 'flex',
+      alignItems: 'center',
+      gap: 5
+    }
+  }, "\uD83D\uDD17 Productive")), /*#__PURE__*/React.createElement("div", {
     style: {
       flex: 1,
       overflowY: 'auto',
@@ -1629,14 +1733,15 @@ function Bar({
   onEdit,
   isDragging,
   mini,
-  filter
+  filter,
+  dayW = DAY_W
 }) {
   const [hov, setHov] = useState(false);
   const p = PROJ[b.proj] || PROJ.lv;
   const isTentative = !p.signed && !p.isLeave;
   const bh = mini ? BAR_H_MINI : BAR_H;
-  const w = Math.max(b.dn * DAY_W - 4, DAY_W - 4);
-  const left = b.s * DAY_W;
+  const w = Math.max(b.dn * dayW - 4, dayW - 4);
+  const left = b.s * dayW;
   const top = mini ? 11 : ROW_PAD / 2 + b.lane * LANE_H;
   const isExtended = !b.isLeave && b.dn > b.n;
   const dimmed = filter !== 'all' && !b.isLeave && p.type !== filter;
@@ -2055,6 +2160,9 @@ function App() {
   const [legendExpanded, setLegendExpanded] = useState(false);
   const [drawer, setDrawer] = useState(null); // projKey for ProjectDrawer
   const [dayTip, setDayTip] = useState(null);
+  const [visibleTeam, setVisibleTeam] = useState(() => new Set(initTeam.map(m => m.id)));
+  const [teamFilterOpen, setTeamFilterOpen] = useState(false);
+  const [zoom, setZoom] = useState(1);
   const historyRef = useRef([INIT]);
   const histIdxRef = useRef(0); // {pid, offset, x, y}
   const dragRef = useRef(null);
@@ -2070,7 +2178,7 @@ function App() {
     return result;
   }, []);
   const rawTeamData = useMemo(() => processTeam(bookings, team), [bookings, team]);
-  const teamData = useMemo(() => rawTeamData.map(m => {
+  const teamData = useMemo(() => rawTeamData.filter(m => visibleTeam.has(m.id)).map(m => {
     const isCollapsed = !!collapsed[m.id];
     const md = meetingDataByPerson[m.id] || {
       meetBks: [],
@@ -2084,7 +2192,7 @@ function App() {
       meetBks: showMeetings ? md.meetBks : [],
       meetH
     };
-  }), [rawTeamData, collapsed, meetingDataByPerson, showMeetings]);
+  }), [rawTeamData, collapsed, meetingDataByPerson, showMeetings, visibleTeam]);
   const rowTops = useMemo(() => {
     const t = [];
     let y = 0;
@@ -2097,9 +2205,10 @@ function App() {
   const scrollToToday = useCallback(() => {
     if (!scrollRef.current) return;
     const todayOff = Math.round((new Date() - WIN) / 86400000);
-    const targetX = Math.max(0, todayOff * DAY_W - NAME_W / 2);
+    const dw = Math.round(DAY_W * zoom);
+    const targetX = Math.max(0, todayOff * dw - NAME_W / 2);
     scrollRef.current.scrollLeft = targetX;
-  }, []);
+  }, [zoom]);
   useEffect(() => {
     scrollToToday();
   }, []);
@@ -2136,12 +2245,13 @@ function App() {
       const p = PROJ[bk.proj] || PROJ.lv;
       const scEl = scrollRef.current;
       if (!scEl) return;
+      const dw = Math.round(DAY_W * zoom);
       const sl = scEl.scrollLeft;
       const rect = scEl.getBoundingClientRect();
       const relX = e.clientX - rect.left - NAME_W + sl;
-      const snDay = Math.round(relX / DAY_W);
-      const snX = snDay * DAY_W + NAME_W - sl + rect.left;
-      const w = Math.max(bk.dn * DAY_W - 4, DAY_W - 4);
+      const snDay = Math.round(relX / dw);
+      const snX = snDay * dw + NAME_W - sl + rect.left;
+      const w = Math.max(bk.dn * dw - 4, dw - 4);
       const isTentative = !p.signed && !p.isLeave;
       setGhost({
         x: snX,
@@ -2174,9 +2284,10 @@ function App() {
         targetPerson
       } = dragRef.current;
       const scEl = scrollRef.current;
+      const dw = Math.round(DAY_W * zoom);
       if (scEl && targetPerson !== undefined) {
         const relX = e.clientX - scEl.getBoundingClientRect().left - NAME_W + scEl.scrollLeft;
-        const newDay = Math.round(relX / DAY_W);
+        const newDay = Math.round(relX / dw);
         const newPerson = teamData[targetPerson].id;
         setBookings(prev => prev.map(b => b.id === bk.id ? {
           ...b,
@@ -2271,7 +2382,8 @@ function App() {
     clearTimeout(tipTimerRef.current);
     setDayTip(null);
   }, []);
-  const gridW = NUM_DAYS * DAY_W;
+  const dayW = Math.round(DAY_W * zoom);
+  const gridW = NUM_DAYS * dayW;
   return /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
@@ -2373,6 +2485,143 @@ function App() {
       transition: 'background 0.15s,color 0.15s'
     }
   }, label))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'relative'
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => setTeamFilterOpen(v => !v),
+    style: {
+      padding: '5px 12px',
+      fontSize: 11,
+      fontWeight: 600,
+      borderRadius: 6,
+      border: `1px solid ${C.border}`,
+      background: 'rgba(255,255,255,0.07)',
+      color: C.text1,
+      cursor: 'pointer',
+      letterSpacing: '-0.01em',
+      display: 'flex',
+      alignItems: 'center',
+      gap: 5
+    }
+  }, "Team ", teamFilterOpen ? '▲' : '▼'), teamFilterOpen && /*#__PURE__*/React.createElement("div", {
+    onClick: e => e.stopPropagation(),
+    style: {
+      position: 'absolute',
+      top: 'calc(100% + 6px)',
+      left: 0,
+      background: '#252528',
+      border: `1px solid ${C.borderMid}`,
+      borderRadius: 8,
+      boxShadow: '0 12px 32px rgba(0,0,0,0.5)',
+      zIndex: 100,
+      minWidth: 140,
+      padding: '8px 0'
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      if (visibleTeam.size === initTeam.length) {
+        setVisibleTeam(new Set());
+      } else {
+        setVisibleTeam(new Set(initTeam.map(m => m.id)));
+      }
+    },
+    style: {
+      width: '100%',
+      padding: '8px 12px',
+      border: 'none',
+      background: 'transparent',
+      textAlign: 'left',
+      fontSize: 11,
+      color: C.text2,
+      cursor: 'pointer',
+      transition: 'background 0.1s'
+    }
+  }, visibleTeam.size === initTeam.length ? 'Clear All' : 'Select All'), /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: 1,
+      background: C.border,
+      margin: '4px 0'
+    }
+  }), initTeam.map(m => /*#__PURE__*/React.createElement("button", {
+    key: m.id,
+    onClick: () => {
+      setVisibleTeam(prev => {
+        const next = new Set(prev);
+        if (next.has(m.id)) next.delete(m.id);else next.add(m.id);
+        return next;
+      });
+    },
+    style: {
+      width: '100%',
+      padding: '8px 12px',
+      border: 'none',
+      background: 'transparent',
+      textAlign: 'left',
+      fontSize: 11,
+      color: C.text1,
+      cursor: 'pointer',
+      transition: 'background 0.1s',
+      display: 'flex',
+      alignItems: 'center',
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    checked: visibleTeam.has(m.id),
+    style: {
+      cursor: 'pointer',
+      width: 14,
+      height: 14
+    },
+    onChange: () => {},
+    readOnly: true
+  }), /*#__PURE__*/React.createElement("span", null, m.name.split(' ')[0]))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 6
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => setZoom(v => Math.max(0.5, v - 0.25)),
+    style: {
+      width: 28,
+      height: 28,
+      borderRadius: 6,
+      border: `1px solid ${C.border}`,
+      background: 'rgba(255,255,255,0.07)',
+      color: C.text1,
+      fontSize: 14,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      cursor: 'pointer'
+    }
+  }, "\u2212"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      fontWeight: 600,
+      color: C.text2,
+      minWidth: 42,
+      textAlign: 'center',
+      fontFamily: 'monospace'
+    }
+  }, Math.round(zoom * 100), "%"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setZoom(v => Math.min(3, v + 0.25)),
+    style: {
+      width: 28,
+      height: 28,
+      borderRadius: 6,
+      border: `1px solid ${C.border}`,
+      background: 'rgba(255,255,255,0.07)',
+      color: C.text1,
+      fontSize: 14,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      cursor: 'pointer'
+    }
+  }, "+")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       flexDirection: 'column',
@@ -2514,7 +2763,7 @@ function App() {
     return /*#__PURE__*/React.createElement("div", {
       key: i,
       style: {
-        width: DAY_W,
+        width: dayW,
         flexShrink: 0,
         display: 'flex',
         flexDirection: 'column',
@@ -2557,7 +2806,9 @@ function App() {
       }
     }, MONS[d.getMonth()]));
   })), teamData.map((m, mi) => {
-    const bookedH = m.bks.filter(b => !b.isLeave).reduce((s, b) => s + (b.hrs || 0), 0);
+    const meetH = showMeetings ? meetingDataByPerson[m.id]?.meetHoursPerDay || {} : [];
+    const totalMeetH = showMeetings ? Object.values(meetH).reduce((s, h) => s + h, 0) : 0;
+    const bookedH = m.bks.filter(b => !b.isLeave).reduce((s, b) => s + (b.hrs || 0), 0) + totalMeetH;
     const safeH = m.safeHpD ? m.safeHpD * 25 : null;
     const pct = safeH ? Math.min(bookedH / safeH * 100, 100) : 0;
     const capCol = pct > 100 ? '#f87171' : pct > 85 ? C.orange : '#34d399';
@@ -2696,10 +2947,10 @@ function App() {
       },
       style: {
         position: 'absolute',
-        left: i * DAY_W,
+        left: i * dayW,
         top: 0,
         bottom: 0,
-        width: DAY_W,
+        width: dayW,
         borderRight: `1px solid ${C.border}`,
         background: d.getDay() === 0 || d.getDay() === 6 ? 'rgba(0,0,0,0.18)' : 'transparent',
         cursor: 'crosshair',
@@ -2711,7 +2962,7 @@ function App() {
       return /*#__PURE__*/React.createElement("div", {
         style: {
           position: 'absolute',
-          left: off * DAY_W + DAY_W / 2,
+          left: off * dayW + dayW / 2,
           top: 0,
           bottom: 0,
           width: 2,
@@ -2727,11 +2978,13 @@ function App() {
       onEdit: handleEditBooking,
       isDragging: draggingId === b.id,
       mini: m.isCollapsed,
-      filter: filter
+      filter: filter,
+      dayW: dayW
     })), showMeetings && !m.isCollapsed && m.meetBks.map((ev, ei) => /*#__PURE__*/React.createElement(MeetingBar, {
       key: ei,
       ev: ev,
-      bookingRowH: m.rowH
+      bookingRowH: m.rowH,
+      dayW: dayW
     }))));
   }))), /*#__PURE__*/React.createElement("div", {
     style: {
