@@ -903,7 +903,7 @@ function ProjectDrawer({projKey,bookings,team,onClose}){
    SETTINGS MODAL
    ════════════════════════════════════ */
 function SettingsModal({team,onSave,onClose}){
-  const[vals,setVals]=useState(()=>Object.fromEntries(team.map(m=>[m.id,m.safeHpD||'''])));
+  const[vals,setVals]=useState(()=>Object.fromEntries(team.map(m=>[m.id,m.safeHpD||''])));
   return(
     <Overlay onClose={onClose}>
       <div style={{width:400}}>
@@ -943,12 +943,12 @@ function BookingModal({initial,team,onSave,onDelete,onClose}){
   const bk=initial?.booking;
   const[form,setForm]=useState({
     person:initial?.member?.id||team[0].id,
-    proj:bk?.proj||''',
-    startDate:bk?offsetToDate(bk.s):(initial?.day?initial.day.toISOString().slice(0,10):'''),
-    endDate:bk?offsetToDate(bk.s+(bk.n-1)):(initial?.day?initial.day.toISOString().slice(0,10):'''),
-    note:bk?.note||''',hrs:bk?.hrs?String(bk.hrs):''',
+    proj:bk?.proj||'',
+    startDate:bk?offsetToDate(bk.s):(initial?.day?initial.day.toISOString().slice(0,10):''),
+    endDate:bk?offsetToDate(bk.s+(bk.n-1)):(initial?.day?initial.day.toISOString().slice(0,10):''),
+    note:bk?.note||'',hrs:bk?.hrs?String(bk.hrs):'',
     useSafe:false,signed:bk?(PROJ[bk.proj]?.signed||false):false,
-    sowUrl:bk?.sowUrl||''',prodUrl:bk?.prodUrl||''',isLeave:bk?.isLeave||false,
+    sowUrl:bk?.sowUrl||'',prodUrl:bk?.prodUrl||'',isLeave:bk?.isLeave||false,
   });
   const member=useMemo(()=>team.find(m=>m.id===form.person)||team[0],[form.person,team]);
   useEffect(()=>{
