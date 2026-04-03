@@ -10,7 +10,6 @@
 <link href="https://api.fontshare.com/v2/css?f[]=tasa-orbiter-display@400,500,600,700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   html,body,#root{height:100%;overflow:hidden}
@@ -500,1191 +499,2423 @@ var GCAL_MEETINGS = [
 /* ── Calendar sync metadata ── */
 var GCAL_REFRESHED='2026-04-02T16:36:39+10:00'; // auto-updated by daily sync task
 </script>
-<script type="text/babel">
-const {useState,useRef,useMemo,useEffect,useCallback} = React;
+<script>
+const {
+  useState,
+  useRef,
+  useMemo,
+  useEffect,
+  useCallback
+} = React;
 
 /* ── Colour system ── */
-const C={
-  bg:'#1c1c1e', header:'#141416', dayHdr:'#161618',
-  row1:'#1c1c1e', row2:'#1f1f22',
-  border:'#2d2d30', borderMid:'#38383c',
-  text1:'#f5f4f2', text2:'#8a8a90', text3:'#505057',
-  violet:'#7c3aed', orange:'#f97316', cap:'#2d2d30',
+const C = {
+  bg: '#1c1c1e',
+  header: '#141416',
+  dayHdr: '#161618',
+  row1: '#1c1c1e',
+  row2: '#1f1f22',
+  border: '#2d2d30',
+  borderMid: '#38383c',
+  text1: '#f5f4f2',
+  text2: '#8a8a90',
+  text3: '#505057',
+  violet: '#7c3aed',
+  orange: '#f97316',
+  cap: '#2d2d30'
 };
 
 /* ── Layout ── */
-const DAY_W=56, BAR_H=26, BAR_H_MINI=10, LANE_H=32, ROW_PAD=12, NAME_W=200, HDR_H=52;
-const MEET_LANE_H=16, MEET_BAR_H=13;
-const NUM_DAYS=42;
-const WIN=new Date(2026,2,30); // Mar 30
-const DAYS=Array.from({length:NUM_DAYS},(_,i)=>{const d=new Date(WIN);d.setDate(d.getDate()+i);return d;});
-const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-const MONS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const DAY_W = 56,
+  BAR_H = 26,
+  BAR_H_MINI = 10,
+  LANE_H = 32,
+  ROW_PAD = 12,
+  NAME_W = 200,
+  HDR_H = 52;
+const MEET_LANE_H = 16,
+  MEET_BAR_H = 13;
+const NUM_DAYS = 42;
+const WIN = new Date(2026, 2, 30); // Mar 30
+const DAYS = Array.from({
+  length: NUM_DAYS
+}, (_, i) => {
+  const d = new Date(WIN);
+  d.setDate(d.getDate() + i);
+  return d;
+});
+const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const MONS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 /* ── Date helpers ── */
-const addD=(d,n)=>{const r=new Date(d);r.setDate(r.getDate()+n);return r;};
-const workDaysBetween=(s,e)=>{let c=0,d=new Date(s);while(d<=e){if(d.getDay()!==0&&d.getDay()!==6)c++;d=addD(d,1);}return c;};
+const addD = (d, n) => {
+  const r = new Date(d);
+  r.setDate(r.getDate() + n);
+  return r;
+};
+const workDaysBetween = (s, e) => {
+  let c = 0,
+    d = new Date(s);
+  while (d <= e) {
+    if (d.getDay() !== 0 && d.getDay() !== 6) c++;
+    d = addD(d, 1);
+  }
+  return c;
+};
 
 /* ── luminance check ── */
-function isLight(hex){
-  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
-  return(r*0.299+g*0.587+b*0.114)>155;
+function isLight(hex) {
+  const r = parseInt(hex.slice(1, 3), 16),
+    g = parseInt(hex.slice(3, 5), 16),
+    b = parseInt(hex.slice(5, 7), 16);
+  return r * 0.299 + g * 0.587 + b * 0.114 > 155;
 }
 
 /* ── Projects (from Productive) — type: 'project' | 'support' | 'internal' ── */
-const PROJ={
-  lv:  {name:'Leave',             bg:'#2a2a2a',tx:'#888888',signed:true, isLeave:true,  type:'leave'},
-  g:   {name:'General / Internal',bg:'#e2e8f0',tx:'#334155',signed:true, type:'internal'},
+const PROJ = {
+  lv: {
+    name: 'Leave',
+    bg: '#2a2a2a',
+    tx: '#888888',
+    signed: true,
+    isLeave: true,
+    type: 'leave'
+  },
+  g: {
+    name: 'General / Internal',
+    bg: '#e2e8f0',
+    tx: '#334155',
+    signed: true,
+    type: 'internal'
+  },
   // ── Projects (bespoke / one-off) ──
-  eurd:{name:'Eckersley',         bg:'#ede9fe',tx:'#5b21b6',signed:true, type:'project'},
-  jewd:{name:'JAG eCommerce',     bg:'#dbeafe',tx:'#1e3a8a',signed:true, type:'project'},
-  bsp: {name:'ByWren',            bg:'#fce7f3',tx:'#9d174d',signed:true, type:'project'},
-  essw:{name:'Early Settler',     bg:'#fef3c7',tx:'#78350f',signed:true, type:'project'},
-  lswb:{name:'Landsmith',         bg:'#dcfce7',tx:'#14532d',signed:true, type:'project'},
-  jdb: {name:'Jardan',            bg:'#ccfbf1',tx:'#0f766e',signed:true, type:'project'},
-  kgtr:{name:'Kidman Group',      bg:'#f3e8ff',tx:'#6b21a8',signed:true, type:'project'},
-  cwm: {name:'Cable Migration',   bg:'#fce7e7',tx:'#991b1b',signed:true, type:'project'},
-  svdp:{name:'SVDP Google Grant', bg:'#e0f2fe',tx:'#075985',signed:true, type:'project'},
-  rf:  {name:'Replenishment Flow',bg:'#fed7aa',tx:'#92400e',signed:true, type:'project'},
-  krpb:{name:'Klaviyo / Replen',  bg:'#fffbeb',tx:'#92400e',signed:true, type:'project'},
+  eurd: {
+    name: 'Eckersley',
+    bg: '#ede9fe',
+    tx: '#5b21b6',
+    signed: true,
+    type: 'project'
+  },
+  jewd: {
+    name: 'JAG eCommerce',
+    bg: '#dbeafe',
+    tx: '#1e3a8a',
+    signed: true,
+    type: 'project'
+  },
+  bsp: {
+    name: 'ByWren',
+    bg: '#fce7f3',
+    tx: '#9d174d',
+    signed: true,
+    type: 'project'
+  },
+  essw: {
+    name: 'Early Settler',
+    bg: '#fef3c7',
+    tx: '#78350f',
+    signed: true,
+    type: 'project'
+  },
+  lswb: {
+    name: 'Landsmith',
+    bg: '#dcfce7',
+    tx: '#14532d',
+    signed: true,
+    type: 'project'
+  },
+  jdb: {
+    name: 'Jardan',
+    bg: '#ccfbf1',
+    tx: '#0f766e',
+    signed: true,
+    type: 'project'
+  },
+  kgtr: {
+    name: 'Kidman Group',
+    bg: '#f3e8ff',
+    tx: '#6b21a8',
+    signed: true,
+    type: 'project'
+  },
+  cwm: {
+    name: 'Cable Migration',
+    bg: '#fce7e7',
+    tx: '#991b1b',
+    signed: true,
+    type: 'project'
+  },
+  svdp: {
+    name: 'SVDP Google Grant',
+    bg: '#e0f2fe',
+    tx: '#075985',
+    signed: true,
+    type: 'project'
+  },
+  rf: {
+    name: 'Replenishment Flow',
+    bg: '#fed7aa',
+    tx: '#92400e',
+    signed: true,
+    type: 'project'
+  },
+  krpb: {
+    name: 'Klaviyo / Replen',
+    bg: '#fffbeb',
+    tx: '#92400e',
+    signed: true,
+    type: 'project'
+  },
   // ── Support (ongoing retainer packs) ──
-  rcsp:{name:'Rip Curl',          bg:'#fee2e2',tx:'#9f1239',signed:true, type:'support'},
-  dspd:{name:'Decjuba',           bg:'#fce7e7',tx:'#881337',signed:true, type:'support'},
-  jjsp:{name:'Jac & Jack',        bg:'#fef9c3',tx:'#713f12',signed:true, type:'support'},
-  mcsp:{name:'Manning Cartell',   bg:'#d1fae5',tx:'#065f46',signed:true, type:'support'},
-  esqq:{name:'Essity',            bg:'#ffedd5',tx:'#c2410c',signed:true, type:'support'},
-  bbsp:{name:'Billini & Banbe',   bg:'#f0fdf4',tx:'#15803d',signed:true, type:'support'},
-  pcsp:{name:'Perri Cutten',      bg:'#fff7ed',tx:'#9a3412',signed:true, type:'support'},
-  cmsp:{name:'Cable Melbourne',   bg:'#ecfdf5',tx:'#065f46',signed:true, type:'support'},
+  rcsp: {
+    name: 'Rip Curl',
+    bg: '#fee2e2',
+    tx: '#9f1239',
+    signed: true,
+    type: 'support'
+  },
+  dspd: {
+    name: 'Decjuba',
+    bg: '#fce7e7',
+    tx: '#881337',
+    signed: true,
+    type: 'support'
+  },
+  jjsp: {
+    name: 'Jac & Jack',
+    bg: '#fef9c3',
+    tx: '#713f12',
+    signed: true,
+    type: 'support'
+  },
+  mcsp: {
+    name: 'Manning Cartell',
+    bg: '#d1fae5',
+    tx: '#065f46',
+    signed: true,
+    type: 'support'
+  },
+  esqq: {
+    name: 'Essity',
+    bg: '#ffedd5',
+    tx: '#c2410c',
+    signed: true,
+    type: 'support'
+  },
+  bbsp: {
+    name: 'Billini & Banbe',
+    bg: '#f0fdf4',
+    tx: '#15803d',
+    signed: true,
+    type: 'support'
+  },
+  pcsp: {
+    name: 'Perri Cutten',
+    bg: '#fff7ed',
+    tx: '#9a3412',
+    signed: true,
+    type: 'support'
+  },
+  cmsp: {
+    name: 'Cable Melbourne',
+    bg: '#ecfdf5',
+    tx: '#065f46',
+    signed: true,
+    type: 'support'
+  }
 };
 
 /* ── Team (Kat removed, Jonathan renamed) ── */
-const initTeam=[
-  {id:'1',name:'Kate Smith',      ini:'KS',col:'#a78bfa',safeHpD:4.26,
-   photo:'https://avatars.slack-edge.com/2026-01-23/10355312431698_46db3a56f2480f6ce708_original.png'},
-  {id:'2',name:'Dave Ye',         ini:'DY',col:'#2a3f72',safeHpD:5.78,
-   photo:'https://avatars.slack-edge.com/2026-03-20/10744002303412_3602fda0090c626df567_original.png'},
-  {id:'3',name:'Audrina Heng',    ini:'AH',col:'#b0eaea',safeHpD:5.22,
-   photo:'https://avatars.slack-edge.com/2026-03-19/10729646465861_6777b1fa3296254b13a2_original.png'},
-  {id:'4',name:'Seo Lee',         ini:'SL',col:'#5c1414',safeHpD:4.90,
-   photo:'https://avatars.slack-edge.com/2025-06-10/9028770023925_b267575d8cb6f045d84c_original.png'},
-  {id:'5',name:'Bec Simpson',     ini:'BS',col:'#1c3f2b',safeHpD:4.98,
-   photo:'https://avatars.slack-edge.com/2026-01-23/10368224347153_29d31ad8e38628b58678_original.png'},
-  {id:'6',name:'Lachlan Gibbs',   ini:'LG',col:'#fbbf24',safeHpD:3.96,photo:null},
-  {id:'7',name:'Jonathan Stiglec',ini:'JS',col:'#60a5fa',safeHpD:4.84,photo:null},
-];
+const initTeam = [{
+  id: '1',
+  name: 'Kate Smith',
+  ini: 'KS',
+  col: '#a78bfa',
+  safeHpD: 4.26,
+  photo: 'https://avatars.slack-edge.com/2026-01-23/10355312431698_46db3a56f2480f6ce708_original.png'
+}, {
+  id: '2',
+  name: 'Dave Ye',
+  ini: 'DY',
+  col: '#2a3f72',
+  safeHpD: 5.78,
+  photo: 'https://avatars.slack-edge.com/2026-03-20/10744002303412_3602fda0090c626df567_original.png'
+}, {
+  id: '3',
+  name: 'Audrina Heng',
+  ini: 'AH',
+  col: '#b0eaea',
+  safeHpD: 5.22,
+  photo: 'https://avatars.slack-edge.com/2026-03-19/10729646465861_6777b1fa3296254b13a2_original.png'
+}, {
+  id: '4',
+  name: 'Seo Lee',
+  ini: 'SL',
+  col: '#5c1414',
+  safeHpD: 4.90,
+  photo: 'https://avatars.slack-edge.com/2025-06-10/9028770023925_b267575d8cb6f045d84c_original.png'
+}, {
+  id: '5',
+  name: 'Bec Simpson',
+  ini: 'BS',
+  col: '#1c3f2b',
+  safeHpD: 4.98,
+  photo: 'https://avatars.slack-edge.com/2026-01-23/10368224347153_29d31ad8e38628b58678_original.png'
+}, {
+  id: '6',
+  name: 'Lachlan Gibbs',
+  ini: 'LG',
+  col: '#fbbf24',
+  safeHpD: 3.96,
+  photo: null
+}, {
+  id: '7',
+  name: 'Jonathan Stiglec',
+  ini: 'JS',
+  col: '#60a5fa',
+  safeHpD: 4.84,
+  photo: null
+}];
 
 /* ── Bookings helper ── */
-let _id=1;
-const mk=(p,proj,s,n,note,hrs,isLeave)=>({
-  id:String(_id++),p,proj,s,n,note:note||'',
-  hrs:hrs||null,isLeave:!!isLeave,sowUrl:null,prodUrl:null,
-  dn:n,
+let _id = 1;
+const mk = (p, proj, s, n, note, hrs, isLeave) => ({
+  id: String(_id++),
+  p,
+  proj,
+  s,
+  n,
+  note: note || '',
+  hrs: hrs || null,
+  isLeave: !!isLeave,
+  sowUrl: null,
+  prodUrl: null,
+  dn: n
 });
 
 /* ── Real Productive data + recurring leave ── */
-const INIT=[
-  // ── Kate Smith ──
-  mk('1','g',0,1,'Sales',7.6,false),
-  mk('1','g',1,1,'Project',7.6,false),
-  mk('1','g',2,1,'Project',4.5,false),
-  mk('1','cwm',3,1,'Design',1.5,false),
-  mk('1','mcsp',3,1,'Technical Lead',2.0,false),
-  mk('1','cmsp',3,1,'Design',1.5,false),
-  mk('1','bbsp',8,1,'UX Lead',2.5,false),
-  mk('1','eurd',8,1,'Design',5.0,false),
-  mk('1','eurd',9,7,'Design',30.0,false),
-  mk('1','g',16,13,'Project',54.0,false),
-  mk('1','g',29,9,'Project',42.0,false),
-  // ── Dave Ye ──
-  mk('2','lv',2,1,'RDO Wed',null,true),
-  mk('2','rcsp',0,1,'UX Lead',3.0,false),
-  mk('2','lswb',1,1,'Strategist',2.0,false),
-  mk('2','jdb',1,10,'Design',1.0,false),
-  mk('2','g',2,31,'Meetings',8.0,false),
-  mk('2','g',3,1,'Project',4.0,false),
-  mk('2','lv',8,1,'DO',7.6,true),
-  mk('2','lv',9,1,'RDO Wed',null,true),
-  mk('2','lswb',21,4,'Designer',18.0,false),
-  mk('2','lv',16,1,'RDO Wed',null,true),
-  mk('2','lv',23,1,'RDO Wed',null,true),
-  mk('2','lswb',28,5,'Designer',24.0,false),
-  mk('2','lv',30,1,'RDO Wed',null,true),
-  mk('2','g',35,9,'Project',36.0,false),
-  // ── Audrina Heng ──
-  mk('3','jewd',0,1,'Design Lead',2.0,false),
-  mk('3','g',0,1,'Meetings',5.0,false),
-  mk('3','jdb',1,1,'Design',3.0,false),
-  mk('3','esqq',1,1,'Design',3.0,false),
-  mk('3','jewd',2,1,'Design',2.0,false),
-  mk('3','esqq',2,1,'Design',1.0,false),
-  mk('3','g',2,31,'Meetings',10.5,false),
-  mk('3','g',2,1,'Planning',2.0,false),
-  mk('3','jdb',3,1,'Design',7.0,false),
-  mk('3','pcsp',8,1,'Development',3.5,false),
-  mk('3','eurd',8,1,'Design',6.0,false),
-  mk('3','eurd',9,1,'Design',5.5,false),
-  mk('3','lv',10,5,'AL',null,true),
-  mk('3','jewd',15,1,'Design',1.0,false),
-  mk('3','eurd',15,1,'Design',5.5,false),
-  mk('3','jewd',16,1,'Design Lead',1.0,false),
-  mk('3','eurd',16,1,'Design',5.0,false),
-  mk('3','eurd',17,1,'Design',6.0,false),
-  mk('3','eurd',18,1,'Design',4.5,false),
-  mk('3','jewd',21,1,'Design',2.0,false),
-  mk('3','eurd',21,2,'Design',12.0,false),
-  mk('3','jewd',23,1,'Design',2.0,false),
-  mk('3','jewd',25,1,'Design',2.0,false),
-  mk('3','eurd',28,1,'Design',6.0,false),
-  mk('3','eurd',29,3,'Design',18.0,false),
-  mk('3','jewd',30,1,'Design Lead',2.0,false),
-  mk('3','lv',32,1,'DO',null,true),
-  mk('3','jewd',32,1,'Design',2.0,false),
-  mk('3','g',35,4,'Project',24.0,false),
-  // ── Seo Lee ──
-  mk('4','g',0,1,'Project',5.0,false),
-  mk('4','g',1,1,'Meetings',7.0,false),
-  mk('4','g',2,1,'Product',1.5,false),
-  mk('4','g',2,31,'Meetings',10.5,false),
-  mk('4','g',3,1,'Product',6.0,false),
-  mk('4','g',8,7,'Project',30.0,false),
-  mk('4','g',15,3,'Project',18.0,false),
-  mk('4','g',18,1,'Social',4.0,false),
-  mk('4','g',21,1,'Sales',4.0,false),
-  mk('4','g',24,2,'Project',12.0,false),
-  mk('4','g',28,8,'Project',36.0,false),
-  // ── Bec Simpson ──
-  mk('5','kgtr',1,1,'Design',2.0,false),
-  mk('5','kgtr',1,2,'Design',7.0,false),
-  mk('5','g',2,2,'Project',8.0,false),
-  mk('5','g',2,31,'Meetings',10.5,false),
-  mk('5','g',3,1,'Project',3.0,false),
-  mk('5','jjsp',8,1,'Design',6.2,false),
-  mk('5','bsp',9,5,'Design',18.0,false),
-  mk('5','jjsp',9,1,'Design',2.0,false),
-  mk('5','bsp',13,3,'Design',12.0,false),
-  mk('5','lv',14,2,'AL',null,true),
-  mk('5','bsp',16,3,'Design',18.0,false),
-  mk('5','eurd',31,15,'Design',35.0,false),
-  // ── Lachlan Gibbs ──
-  mk('6','rf',2,2,'Strategy',8.0,false),
-  mk('6','krpb',2,1,'Strategy',2.0,false),
-  mk('6','g',2,1,'Project',4.0,false),
-  mk('6','g',2,31,'Meetings',9.5,false),
-  mk('6','rcsp',2,1,'UX Lead',1.0,false),
-  mk('6','rf',3,1,'Strategy',4.0,false),
-  mk('6','lv',8,4,'AL',null,true),
-  mk('6','lv',14,1,'RDO Mon',null,true),
-  mk('6','g',15,1,'Project',5.0,false),
-  mk('6','g',16,3,'Project',15.0,false),
-  mk('6','essw',21,27,'Strategist',90.0,false),
-  mk('6','lv',28,1,'RDO Mon',null,true),
-  // ── Jonathan Stiglec ──
-  mk('7','g',0,1,'Meetings',3.0,false),
-  mk('7','dspd',1,1,'Strategy',5.0,false),
-  mk('7','lv',2,2,'AL',null,true),
-  mk('7','g',2,31,'Meetings',10.5,false),
-  mk('7','svdp',8,1,'Paid Search',6.0,false),
-  mk('7','lv',37,1,'DO',null,true),
-];
+const INIT = [
+// ── Kate Smith ──
+mk('1', 'g', 0, 1, 'Sales', 7.6, false), mk('1', 'g', 1, 1, 'Project', 7.6, false), mk('1', 'g', 2, 1, 'Project', 4.5, false), mk('1', 'cwm', 3, 1, 'Design', 1.5, false), mk('1', 'mcsp', 3, 1, 'Technical Lead', 2.0, false), mk('1', 'cmsp', 3, 1, 'Design', 1.5, false), mk('1', 'bbsp', 8, 1, 'UX Lead', 2.5, false), mk('1', 'eurd', 8, 1, 'Design', 5.0, false), mk('1', 'eurd', 9, 7, 'Design', 30.0, false), mk('1', 'g', 16, 13, 'Project', 54.0, false), mk('1', 'g', 29, 9, 'Project', 42.0, false),
+// ── Dave Ye ──
+mk('2', 'lv', 2, 1, 'RDO Wed', null, true), mk('2', 'rcsp', 0, 1, 'UX Lead', 3.0, false), mk('2', 'lswb', 1, 1, 'Strategist', 2.0, false), mk('2', 'jdb', 1, 10, 'Design', 1.0, false), mk('2', 'g', 2, 31, 'Meetings', 8.0, false), mk('2', 'g', 3, 1, 'Project', 4.0, false), mk('2', 'lv', 8, 1, 'DO', 7.6, true), mk('2', 'lv', 9, 1, 'RDO Wed', null, true), mk('2', 'lswb', 21, 4, 'Designer', 18.0, false), mk('2', 'lv', 16, 1, 'RDO Wed', null, true), mk('2', 'lv', 23, 1, 'RDO Wed', null, true), mk('2', 'lswb', 28, 5, 'Designer', 24.0, false), mk('2', 'lv', 30, 1, 'RDO Wed', null, true), mk('2', 'g', 35, 9, 'Project', 36.0, false),
+// ── Audrina Heng ──
+mk('3', 'jewd', 0, 1, 'Design Lead', 2.0, false), mk('3', 'g', 0, 1, 'Meetings', 5.0, false), mk('3', 'jdb', 1, 1, 'Design', 3.0, false), mk('3', 'esqq', 1, 1, 'Design', 3.0, false), mk('3', 'jewd', 2, 1, 'Design', 2.0, false), mk('3', 'esqq', 2, 1, 'Design', 1.0, false), mk('3', 'g', 2, 31, 'Meetings', 10.5, false), mk('3', 'g', 2, 1, 'Planning', 2.0, false), mk('3', 'jdb', 3, 1, 'Design', 7.0, false), mk('3', 'pcsp', 8, 1, 'Development', 3.5, false), mk('3', 'eurd', 8, 1, 'Design', 6.0, false), mk('3', 'eurd', 9, 1, 'Design', 5.5, false), mk('3', 'lv', 10, 5, 'AL', null, true), mk('3', 'jewd', 15, 1, 'Design', 1.0, false), mk('3', 'eurd', 15, 1, 'Design', 5.5, false), mk('3', 'jewd', 16, 1, 'Design Lead', 1.0, false), mk('3', 'eurd', 16, 1, 'Design', 5.0, false), mk('3', 'eurd', 17, 1, 'Design', 6.0, false), mk('3', 'eurd', 18, 1, 'Design', 4.5, false), mk('3', 'jewd', 21, 1, 'Design', 2.0, false), mk('3', 'eurd', 21, 2, 'Design', 12.0, false), mk('3', 'jewd', 23, 1, 'Design', 2.0, false), mk('3', 'jewd', 25, 1, 'Design', 2.0, false), mk('3', 'eurd', 28, 1, 'Design', 6.0, false), mk('3', 'eurd', 29, 3, 'Design', 18.0, false), mk('3', 'jewd', 30, 1, 'Design Lead', 2.0, false), mk('3', 'lv', 32, 1, 'DO', null, true), mk('3', 'jewd', 32, 1, 'Design', 2.0, false), mk('3', 'g', 35, 4, 'Project', 24.0, false),
+// ── Seo Lee ──
+mk('4', 'g', 0, 1, 'Project', 5.0, false), mk('4', 'g', 1, 1, 'Meetings', 7.0, false), mk('4', 'g', 2, 1, 'Product', 1.5, false), mk('4', 'g', 2, 31, 'Meetings', 10.5, false), mk('4', 'g', 3, 1, 'Product', 6.0, false), mk('4', 'g', 8, 7, 'Project', 30.0, false), mk('4', 'g', 15, 3, 'Project', 18.0, false), mk('4', 'g', 18, 1, 'Social', 4.0, false), mk('4', 'g', 21, 1, 'Sales', 4.0, false), mk('4', 'g', 24, 2, 'Project', 12.0, false), mk('4', 'g', 28, 8, 'Project', 36.0, false),
+// ── Bec Simpson ──
+mk('5', 'kgtr', 1, 1, 'Design', 2.0, false), mk('5', 'kgtr', 1, 2, 'Design', 7.0, false), mk('5', 'g', 2, 2, 'Project', 8.0, false), mk('5', 'g', 2, 31, 'Meetings', 10.5, false), mk('5', 'g', 3, 1, 'Project', 3.0, false), mk('5', 'jjsp', 8, 1, 'Design', 6.2, false), mk('5', 'bsp', 9, 5, 'Design', 18.0, false), mk('5', 'jjsp', 9, 1, 'Design', 2.0, false), mk('5', 'bsp', 13, 3, 'Design', 12.0, false), mk('5', 'lv', 14, 2, 'AL', null, true), mk('5', 'bsp', 16, 3, 'Design', 18.0, false), mk('5', 'eurd', 31, 15, 'Design', 35.0, false),
+// ── Lachlan Gibbs ──
+mk('6', 'rf', 2, 2, 'Strategy', 8.0, false), mk('6', 'krpb', 2, 1, 'Strategy', 2.0, false), mk('6', 'g', 2, 1, 'Project', 4.0, false), mk('6', 'g', 2, 31, 'Meetings', 9.5, false), mk('6', 'rcsp', 2, 1, 'UX Lead', 1.0, false), mk('6', 'rf', 3, 1, 'Strategy', 4.0, false), mk('6', 'lv', 8, 4, 'AL', null, true), mk('6', 'lv', 14, 1, 'RDO Mon', null, true), mk('6', 'g', 15, 1, 'Project', 5.0, false), mk('6', 'g', 16, 3, 'Project', 15.0, false), mk('6', 'essw', 21, 27, 'Strategist', 90.0, false), mk('6', 'lv', 28, 1, 'RDO Mon', null, true),
+// ── Jonathan Stiglec ──
+mk('7', 'g', 0, 1, 'Meetings', 3.0, false), mk('7', 'dspd', 1, 1, 'Strategy', 5.0, false), mk('7', 'lv', 2, 2, 'AL', null, true), mk('7', 'g', 2, 31, 'Meetings', 10.5, false), mk('7', 'svdp', 8, 1, 'Paid Search', 6.0, false), mk('7', 'lv', 37, 1, 'DO', null, true)];
 
 /* ── Lane assignment ── */
-function assignLanes(bks){
-  const sorted=[...bks].sort((a,b)=>a.s-b.s);
-  const ends=[];
-  const res=sorted.map(b=>{
-    let lane=ends.findIndex(e=>e<=b.s);
-    if(lane===-1)lane=ends.length;
-    ends[lane]=b.s+b.dn;
-    return{...b,lane};
+function assignLanes(bks) {
+  const sorted = [...bks].sort((a, b) => a.s - b.s);
+  const ends = [];
+  const res = sorted.map(b => {
+    let lane = ends.findIndex(e => e <= b.s);
+    if (lane === -1) lane = ends.length;
+    ends[lane] = b.s + b.dn;
+    return {
+      ...b,
+      lane
+    };
   });
-  return{list:res,lanes:Math.max(1,ends.length)};
+  return {
+    list: res,
+    lanes: Math.max(1, ends.length)
+  };
 }
 
 /* ── AL/DO auto-extend ── */
-function adjustSpan(b,leaveDays){
-  if(b.isLeave)return b.n;
-  const wdNeeded=[...Array(b.n).keys()].filter(i=>!leaveDays.has(b.s+i)).length||b.n;
-  let wd=0,d=b.s;
-  while(wd<wdNeeded){if(!leaveDays.has(d))wd++;if(wd<wdNeeded)d++;}
-  return Math.max(b.n,d-b.s+1);
+function adjustSpan(b, leaveDays) {
+  if (b.isLeave) return b.n;
+  const wdNeeded = [...Array(b.n).keys()].filter(i => !leaveDays.has(b.s + i)).length || b.n;
+  let wd = 0,
+    d = b.s;
+  while (wd < wdNeeded) {
+    if (!leaveDays.has(d)) wd++;
+    if (wd < wdNeeded) d++;
+  }
+  return Math.max(b.n, d - b.s + 1);
 }
 
 /* ── Process team ── */
-function processTeam(bks,team){
-  return team.map(m=>{
-    const mb=bks.filter(b=>b.p===m.id);
-    const leaveDays=new Set(mb.filter(b=>b.isLeave).flatMap(b=>Array.from({length:b.n},(_,i)=>b.s+i)));
-    const adj=mb.map(b=>({...b,dn:adjustSpan(b,leaveDays)}));
-    const{list,lanes}=assignLanes(adj);
-    const rowH=Math.max(52,lanes*LANE_H+ROW_PAD);
-    return{...m,bks:list,lanes,rowH};
+function processTeam(bks, team) {
+  return team.map(m => {
+    const mb = bks.filter(b => b.p === m.id);
+    const leaveDays = new Set(mb.filter(b => b.isLeave).flatMap(b => Array.from({
+      length: b.n
+    }, (_, i) => b.s + i)));
+    const adj = mb.map(b => ({
+      ...b,
+      dn: adjustSpan(b, leaveDays)
+    }));
+    const {
+      list,
+      lanes
+    } = assignLanes(adj);
+    const rowH = Math.max(52, lanes * LANE_H + ROW_PAD);
+    return {
+      ...m,
+      bks: list,
+      lanes,
+      rowH
+    };
   });
 }
 
 /* ── Date ↔ offset ── */
-function dateToOffset(dateStr){const d=new Date(dateStr+'T00:00:00');return Math.round((d-WIN)/86400000);}
-function offsetToDate(off){const d=new Date(WIN);d.setDate(d.getDate()+off);return d.toISOString().slice(0,10);}
+function dateToOffset(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  return Math.round((d - WIN) / 86400000);
+}
+function offsetToDate(off) {
+  const d = new Date(WIN);
+  d.setDate(d.getDate() + off);
+  return d.toISOString().slice(0, 10);
+}
 
 /* ── Meeting lanes per person ── */
-function computeMeetingLanes(pid){
-  const ms=GCAL_MEETINGS.filter(m=>m.pid===pid);
-  const byDay={};
-  ms.forEach(m=>{
-    if(!byDay[m.offset])byDay[m.offset]=[];
+function computeMeetingLanes(pid) {
+  const ms = GCAL_MEETINGS.filter(m => m.pid === pid);
+  const byDay = {};
+  ms.forEach(m => {
+    if (!byDay[m.offset]) byDay[m.offset] = [];
     byDay[m.offset].push(m);
   });
-  let maxLanes=0;
-  const meetBks=[];
-  Object.entries(byDay).forEach(([off,meetings])=>{
-    const sorted=[...meetings].sort((a,b)=>a.start.localeCompare(b.start));
-    sorted.forEach((ev,i)=>{meetBks.push({...ev,meetLane:i});maxLanes=Math.max(maxLanes,i+1);});
+  let maxLanes = 0;
+  const meetBks = [];
+  Object.entries(byDay).forEach(([off, meetings]) => {
+    const sorted = [...meetings].sort((a, b) => a.start.localeCompare(b.start));
+    sorted.forEach((ev, i) => {
+      meetBks.push({
+        ...ev,
+        meetLane: i
+      });
+      maxLanes = Math.max(maxLanes, i + 1);
+    });
   });
-  const meetH=maxLanes>0?maxLanes*MEET_LANE_H+6:0;
-  const meetHoursPerDay={};
-  ms.forEach(m=>{meetHoursPerDay[m.offset]=(meetHoursPerDay[m.offset]||0)+m.durH;});
-  return{meetBks,meetH,meetHoursPerDay};
+  const meetH = maxLanes > 0 ? maxLanes * MEET_LANE_H + 6 : 0;
+  const meetHoursPerDay = {};
+  ms.forEach(m => {
+    meetHoursPerDay[m.offset] = (meetHoursPerDay[m.offset] || 0) + m.durH;
+  });
+  return {
+    meetBks,
+    meetH,
+    meetHoursPerDay
+  };
 }
 
 /* ── Avatar ── */
-function Avatar({m,size=28}){
-  const[err,setErr]=useState(false);
-  const inkCol=isLight(m.col)?'#1a3030':'white';
-  if(m.photo&&!err){
-    return(
-      <img src={m.photo} alt={m.ini} onError={()=>setErr(true)}
-        style={{width:size,height:size,borderRadius:'50%',objectFit:'cover',flexShrink:0,
-          boxShadow:`0 0 0 2px ${C.bg}, 0 0 0 3.5px ${m.col}90`}}/>
-    );
+function Avatar({
+  m,
+  size = 28
+}) {
+  const [err, setErr] = useState(false);
+  const inkCol = isLight(m.col) ? '#1a3030' : 'white';
+  if (m.photo && !err) {
+    return /*#__PURE__*/React.createElement("img", {
+      src: m.photo,
+      alt: m.ini,
+      onError: () => setErr(true),
+      style: {
+        width: size,
+        height: size,
+        borderRadius: '50%',
+        objectFit: 'cover',
+        flexShrink: 0,
+        boxShadow: `0 0 0 2px ${C.bg}, 0 0 0 3.5px ${m.col}90`
+      }
+    });
   }
-  return(
-    <div style={{width:size,height:size,borderRadius:'50%',background:m.col,flexShrink:0,
-      display:'flex',alignItems:'center',justifyContent:'center',
-      color:inkCol,fontSize:Math.round(size*0.34),fontWeight:700,letterSpacing:'-0.02em',
-      boxShadow:`0 0 0 2px ${C.bg}, 0 0 0 3.5px ${m.col}60`}}>
-      {m.ini}
-    </div>
-  );
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: size,
+      height: size,
+      borderRadius: '50%',
+      background: m.col,
+      flexShrink: 0,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: inkCol,
+      fontSize: Math.round(size * 0.34),
+      fontWeight: 700,
+      letterSpacing: '-0.02em',
+      boxShadow: `0 0 0 2px ${C.bg}, 0 0 0 3.5px ${m.col}60`
+    }
+  }, m.ini);
 }
 
 /* ════════════════════════════════════
    MEETING BAR
    ════════════════════════════════════ */
-function MeetingBar({ev,bookingRowH}){
-  const[hov,setHov]=useState(false);
-  const top=bookingRowH+3+ev.meetLane*MEET_LANE_H;
-  return(
-    <div className="no-sel"
-      onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}
-      style={{position:'absolute',left:ev.offset*DAY_W+1,top,
-        width:DAY_W-2,height:MEET_BAR_H,
-        borderRadius:3,zIndex:hov?22:11,
-        background:'rgba(28,28,38,0.97)',
-        border:'1px solid rgba(255,255,255,0.14)',
-        display:'flex',alignItems:'center',padding:'0 4px',gap:2,
-        cursor:'default',overflow:'hidden'}}>
-      <span style={{fontSize:8,opacity:0.7,flexShrink:0,lineHeight:1}}>📅</span>
-      <span style={{fontSize:8,color:'rgba(200,200,220,0.75)',
-        whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis',flex:1,letterSpacing:'-0.01em'}}>
-        {ev.start} {ev.title}
-      </span>
-      {hov&&(
-        <div style={{position:'absolute',bottom:'calc(100% + 7px)',left:'50%',
-          transform:'translateX(-50%)',
-          background:'#1c1c24',border:`1px solid ${C.borderMid}`,
-          color:C.text1,padding:'9px 13px',borderRadius:10,
-          fontSize:11,whiteSpace:'nowrap',
-          boxShadow:'0 8px 30px rgba(0,0,0,0.7)',zIndex:200,
-          pointerEvents:'none',lineHeight:1.8,letterSpacing:'-0.01em'}}>
-          <div style={{fontWeight:700,marginBottom:2}}>{ev.title}</div>
-          <div style={{color:C.text2}}>📅 {ev.start} – {ev.end}</div>
-          <div style={{color:C.text2}}>{ev.durH}h</div>
-          <div style={{position:'absolute',bottom:-5,left:'50%',
-            transform:'translateX(-50%) rotate(45deg)',
-            width:10,height:10,background:'#1c1c24',
-            border:`1px solid ${C.borderMid}`,borderTop:'none',borderLeft:'none'}}/>
-        </div>
-      )}
-    </div>
-  );
+function MeetingBar({
+  ev,
+  bookingRowH
+}) {
+  const [hov, setHov] = useState(false);
+  const top = bookingRowH + 3 + ev.meetLane * MEET_LANE_H;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "no-sel",
+    onMouseEnter: () => setHov(true),
+    onMouseLeave: () => setHov(false),
+    style: {
+      position: 'absolute',
+      left: ev.offset * DAY_W + 1,
+      top,
+      width: DAY_W - 2,
+      height: MEET_BAR_H,
+      borderRadius: 3,
+      zIndex: hov ? 22 : 11,
+      background: 'rgba(28,28,38,0.97)',
+      border: '1px solid rgba(255,255,255,0.14)',
+      display: 'flex',
+      alignItems: 'center',
+      padding: '0 4px',
+      gap: 2,
+      cursor: 'default',
+      overflow: 'hidden'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 8,
+      opacity: 0.7,
+      flexShrink: 0,
+      lineHeight: 1
+    }
+  }, "\uD83D\uDCC5"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 8,
+      color: 'rgba(200,200,220,0.75)',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      flex: 1,
+      letterSpacing: '-0.01em'
+    }
+  }, ev.start, " ", ev.title), hov && /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      bottom: 'calc(100% + 7px)',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      background: '#1c1c24',
+      border: `1px solid ${C.borderMid}`,
+      color: C.text1,
+      padding: '9px 13px',
+      borderRadius: 10,
+      fontSize: 11,
+      whiteSpace: 'nowrap',
+      boxShadow: '0 8px 30px rgba(0,0,0,0.7)',
+      zIndex: 200,
+      pointerEvents: 'none',
+      lineHeight: 1.8,
+      letterSpacing: '-0.01em'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      marginBottom: 2
+    }
+  }, ev.title), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: C.text2
+    }
+  }, "\uD83D\uDCC5 ", ev.start, " \u2013 ", ev.end), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: C.text2
+    }
+  }, ev.durH, "h"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      bottom: -5,
+      left: '50%',
+      transform: 'translateX(-50%) rotate(45deg)',
+      width: 10,
+      height: 10,
+      background: '#1c1c24',
+      border: `1px solid ${C.borderMid}`,
+      borderTop: 'none',
+      borderLeft: 'none'
+    }
+  })));
 }
 
 /* ════════════════════════════════════
    PROJECT DRAWER
    ════════════════════════════════════ */
-function ProjectDrawer({projKey,bookings,team,onClose}){
-  const p=PROJ[projKey];
-  if(!p)return null;
-  const projBks=bookings.filter(b=>b.proj===projKey&&!b.isLeave);
-  const totalH=projBks.reduce((s,b)=>s+(b.hrs||0),0);
-  const members=team.filter(m=>projBks.some(b=>b.p===m.id));
-  const typeLabels={project:'Bespoke Project',support:'Support Retainer',internal:'Internal'};
-  return(
-    <div onClick={onClose} style={{position:'fixed',inset:0,zIndex:190,background:'transparent'}}>
-      <div onClick={e=>e.stopPropagation()}
-        style={{position:'absolute',right:0,top:0,bottom:0,width:340,
-          background:'#1a1a1e',borderLeft:`1px solid ${C.borderMid}`,
-          display:'flex',flexDirection:'column',
-          boxShadow:'-12px 0 48px rgba(0,0,0,0.6)',
-          animation:'slideIn 0.2s ease'}}>
-        {/* Header */}
-        <div style={{padding:'20px 20px 16px',borderBottom:`1px solid ${C.border}`}}>
-          <div style={{display:'flex',alignItems:'flex-start',justifyContent:'space-between',marginBottom:10}}>
-            <div style={{display:'flex',alignItems:'center',gap:10}}>
-              <div style={{width:14,height:14,borderRadius:3,background:p.bg,
-                border:`2px solid ${p.tx}60`,flexShrink:0}}/>
-              <div>
-                <div style={{fontSize:15,fontWeight:700,color:C.text1,letterSpacing:'-0.03em'}}>{p.name}</div>
-                <div style={{fontSize:10,color:C.text3,marginTop:1,textTransform:'uppercase',
-                  letterSpacing:'0.08em'}}>{typeLabels[p.type]||p.type}</div>
-              </div>
-            </div>
-            <button onClick={onClose} style={{width:26,height:26,borderRadius:'50%',
-              background:'rgba(255,255,255,0.07)',border:'none',color:C.text2,
-              fontSize:14,display:'flex',alignItems:'center',justifyContent:'center',cursor:'pointer'}}>×</button>
-          </div>
-          <div style={{display:'flex',gap:10}}>
-            <div style={{flex:1,padding:'10px 12px',borderRadius:8,background:'rgba(255,255,255,0.04)',
-              border:`1px solid ${C.border}`}}>
-              <div style={{fontSize:9,color:C.text3,textTransform:'uppercase',letterSpacing:'0.08em',marginBottom:3}}>Total Booked</div>
-              <div style={{fontSize:17,fontWeight:700,color:C.text1,letterSpacing:'-0.03em'}}>{Math.round(totalH)}h</div>
-            </div>
-            <div style={{flex:1,padding:'10px 12px',borderRadius:8,background:'rgba(255,255,255,0.04)',
-              border:`1px solid ${C.border}`}}>
-              <div style={{fontSize:9,color:C.text3,textTransform:'uppercase',letterSpacing:'0.08em',marginBottom:3}}>Bookings</div>
-              <div style={{fontSize:17,fontWeight:700,color:C.text1,letterSpacing:'-0.03em'}}>{projBks.length}</div>
-            </div>
-            <div style={{flex:1,padding:'10px 12px',borderRadius:8,background:'rgba(255,255,255,0.04)',
-              border:`1px solid ${C.border}`}}>
-              <div style={{fontSize:9,color:C.text3,textTransform:'uppercase',letterSpacing:'0.08em',marginBottom:3}}>People</div>
-              <div style={{fontSize:17,fontWeight:700,color:C.text1,letterSpacing:'-0.03em'}}>{members.length}</div>
-            </div>
-          </div>
-        </div>
-        {/* Bookings list */}
-        <div style={{flex:1,overflowY:'auto',padding:'14px 20px'}}>
-          <div style={{fontSize:10,fontWeight:700,color:C.text3,textTransform:'uppercase',
-            letterSpacing:'0.10em',marginBottom:10}}>Scheduled Bookings</div>
-          {projBks.length===0?(
-            <div style={{fontSize:12,color:C.text3,textAlign:'center',marginTop:24}}>No bookings yet</div>
-          ):projBks.map(bk=>{
-            const m=team.find(t=>t.p===bk.p||t.id===bk.p);
-            const startD=new Date(WIN);startD.setDate(startD.getDate()+bk.s);
-            const endD=new Date(WIN);endD.setDate(endD.getDate()+bk.s+bk.dn-1);
-            const fmtD=d=>`${d.getDate()} ${MONS[d.getMonth()]}`;
-            return(
-              <div key={bk.id} style={{padding:'9px 12px',borderRadius:8,marginBottom:6,
-                background:'rgba(255,255,255,0.03)',border:`1px solid ${C.border}`}}>
-                <div style={{display:'flex',alignItems:'center',gap:7,marginBottom:4}}>
-                  {m&&<Avatar m={m} size={20}/>}
-                  <span style={{fontSize:11,fontWeight:600,color:C.text1}}>{m?m.name.split(' ')[0]:'?'}</span>
-                  {bk.hrs&&<span style={{marginLeft:'auto',fontSize:10,fontFamily:'monospace',
-                    color:C.text2}}>{bk.hrs}h</span>}
-                </div>
-                <div style={{fontSize:10,color:C.text2}}>{fmtD(startD)} → {fmtD(endD)}</div>
-                {bk.note&&<div style={{fontSize:10,color:C.text3,marginTop:2}}>{bk.note}</div>}
-              </div>
-            );
-          })}
-        </div>
-        {/* Productive note */}
-        <div style={{padding:'12px 20px',borderTop:`1px solid ${C.border}`,
-          background:'rgba(124,58,237,0.06)'}}>
-          <div style={{fontSize:10,color:'rgba(167,139,250,0.8)',lineHeight:1.5}}>
-            💡 To sync meeting time to Productive, add bookings manually or use the Productive API integration.
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+function ProjectDrawer({
+  projKey,
+  bookings,
+  team,
+  onClose
+}) {
+  const p = PROJ[projKey];
+  if (!p) return null;
+  const projBks = bookings.filter(b => b.proj === projKey && !b.isLeave);
+  const totalH = projBks.reduce((s, b) => s + (b.hrs || 0), 0);
+  const members = team.filter(m => projBks.some(b => b.p === m.id));
+  const typeLabels = {
+    project: 'Bespoke Project',
+    support: 'Support Retainer',
+    internal: 'Internal'
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    onClick: onClose,
+    style: {
+      position: 'fixed',
+      inset: 0,
+      zIndex: 190,
+      background: 'transparent'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    onClick: e => e.stopPropagation(),
+    style: {
+      position: 'absolute',
+      right: 0,
+      top: 0,
+      bottom: 0,
+      width: 340,
+      background: '#1a1a1e',
+      borderLeft: `1px solid ${C.borderMid}`,
+      display: 'flex',
+      flexDirection: 'column',
+      boxShadow: '-12px 0 48px rgba(0,0,0,0.6)',
+      animation: 'slideIn 0.2s ease'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: '20px 20px 16px',
+      borderBottom: `1px solid ${C.border}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      justifyContent: 'space-between',
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 14,
+      height: 14,
+      borderRadius: 3,
+      background: p.bg,
+      border: `2px solid ${p.tx}60`,
+      flexShrink: 0
+    }
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: C.text1,
+      letterSpacing: '-0.03em'
+    }
+  }, p.name), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: C.text3,
+      marginTop: 1,
+      textTransform: 'uppercase',
+      letterSpacing: '0.08em'
+    }
+  }, typeLabels[p.type] || p.type))), /*#__PURE__*/React.createElement("button", {
+    onClick: onClose,
+    style: {
+      width: 26,
+      height: 26,
+      borderRadius: '50%',
+      background: 'rgba(255,255,255,0.07)',
+      border: 'none',
+      color: C.text2,
+      fontSize: 14,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      cursor: 'pointer'
+    }
+  }, "\xD7")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      padding: '10px 12px',
+      borderRadius: 8,
+      background: 'rgba(255,255,255,0.04)',
+      border: `1px solid ${C.border}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: C.text3,
+      textTransform: 'uppercase',
+      letterSpacing: '0.08em',
+      marginBottom: 3
+    }
+  }, "Total Booked"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 17,
+      fontWeight: 700,
+      color: C.text1,
+      letterSpacing: '-0.03em'
+    }
+  }, Math.round(totalH), "h")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      padding: '10px 12px',
+      borderRadius: 8,
+      background: 'rgba(255,255,255,0.04)',
+      border: `1px solid ${C.border}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: C.text3,
+      textTransform: 'uppercase',
+      letterSpacing: '0.08em',
+      marginBottom: 3
+    }
+  }, "Bookings"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 17,
+      fontWeight: 700,
+      color: C.text1,
+      letterSpacing: '-0.03em'
+    }
+  }, projBks.length)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      padding: '10px 12px',
+      borderRadius: 8,
+      background: 'rgba(255,255,255,0.04)',
+      border: `1px solid ${C.border}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: C.text3,
+      textTransform: 'uppercase',
+      letterSpacing: '0.08em',
+      marginBottom: 3
+    }
+  }, "People"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 17,
+      fontWeight: 700,
+      color: C.text1,
+      letterSpacing: '-0.03em'
+    }
+  }, members.length)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      overflowY: 'auto',
+      padding: '14px 20px'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      fontWeight: 700,
+      color: C.text3,
+      textTransform: 'uppercase',
+      letterSpacing: '0.10em',
+      marginBottom: 10
+    }
+  }, "Scheduled Bookings"), projBks.length === 0 ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: C.text3,
+      textAlign: 'center',
+      marginTop: 24
+    }
+  }, "No bookings yet") : projBks.map(bk => {
+    const m = team.find(t => t.p === bk.p || t.id === bk.p);
+    const startD = new Date(WIN);
+    startD.setDate(startD.getDate() + bk.s);
+    const endD = new Date(WIN);
+    endD.setDate(endD.getDate() + bk.s + bk.dn - 1);
+    const fmtD = d => `${d.getDate()} ${MONS[d.getMonth()]}`;
+    return /*#__PURE__*/React.createElement("div", {
+      key: bk.id,
+      style: {
+        padding: '9px 12px',
+        borderRadius: 8,
+        marginBottom: 6,
+        background: 'rgba(255,255,255,0.03)',
+        border: `1px solid ${C.border}`
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 7,
+        marginBottom: 4
+      }
+    }, m && /*#__PURE__*/React.createElement(Avatar, {
+      m: m,
+      size: 20
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        fontWeight: 600,
+        color: C.text1
+      }
+    }, m ? m.name.split(' ')[0] : '?'), bk.hrs && /*#__PURE__*/React.createElement("span", {
+      style: {
+        marginLeft: 'auto',
+        fontSize: 10,
+        fontFamily: 'monospace',
+        color: C.text2
+      }
+    }, bk.hrs, "h")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: C.text2
+      }
+    }, fmtD(startD), " \u2192 ", fmtD(endD)), bk.note && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: C.text3,
+        marginTop: 2
+      }
+    }, bk.note));
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: '12px 20px',
+      borderTop: `1px solid ${C.border}`,
+      background: 'rgba(124,58,237,0.06)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: 'rgba(167,139,250,0.8)',
+      lineHeight: 1.5
+    }
+  }, "\uD83D\uDCA1 To sync meeting time to Productive, add bookings manually or use the Productive API integration."))));
 }
 
 /* ════════════════════════════════════
    SETTINGS MODAL
    ════════════════════════════════════ */
-function SettingsModal({team,onSave,onClose}){
-  const[vals,setVals]=useState(()=>Object.fromEntries(team.map(m=>[m.id,m.safeHpD||''])));
-  return(
-    <Overlay onClose={onClose}>
-      <div style={{width:400}}>
-        <h2 style={{fontSize:15,fontWeight:700,color:C.text1,marginBottom:4,letterSpacing:'-0.03em'}}>Safe Hours Settings</h2>
-        <p style={{fontSize:12,color:C.text2,marginBottom:18,lineHeight:1.5}}>
-          Max schedulable hours/day per person.
-        </p>
-        <div style={{display:'flex',flexDirection:'column',gap:8}}>
-          {team.map(m=>(
-            <div key={m.id} style={{display:'flex',alignItems:'center',gap:12,padding:'8px 12px',
-              borderRadius:10,background:'rgba(255,255,255,0.03)',border:`1px solid ${C.border}`}}>
-              <Avatar m={m} size={26}/>
-              <span style={{flex:1,fontSize:12,fontWeight:600,color:C.text1}}>{m.name}</span>
-              <div style={{display:'flex',alignItems:'center',gap:6,width:110}}>
-                <input type="number" min="1" max="12" step="0.25"
-                  value={vals[m.id]} onChange={e=>setVals(v=>({...v,[m.id]:e.target.value}))}
-                  style={{width:65,textAlign:'center'}} placeholder="hrs"/>
-                <span style={{fontSize:10,color:C.text2}}>h/day</span>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div style={{display:'flex',justifyContent:'flex-end',gap:8,marginTop:20}}>
-          <Btn ghost onClick={onClose}>Cancel</Btn>
-          <Btn primary onClick={()=>onSave(vals)}>Save</Btn>
-        </div>
-      </div>
-    </Overlay>
-  );
+function SettingsModal({
+  team,
+  onSave,
+  onClose
+}) {
+  const [vals, setVals] = useState(() => Object.fromEntries(team.map(m => [m.id, m.safeHpD || ''])));
+  return /*#__PURE__*/React.createElement(Overlay, {
+    onClose: onClose
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 400
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: C.text1,
+      marginBottom: 4,
+      letterSpacing: '-0.03em'
+    }
+  }, "Safe Hours Settings"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: 12,
+      color: C.text2,
+      marginBottom: 18,
+      lineHeight: 1.5
+    }
+  }, "Max schedulable hours/day per person."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 8
+    }
+  }, team.map(m => /*#__PURE__*/React.createElement("div", {
+    key: m.id,
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 12,
+      padding: '8px 12px',
+      borderRadius: 10,
+      background: 'rgba(255,255,255,0.03)',
+      border: `1px solid ${C.border}`
+    }
+  }, /*#__PURE__*/React.createElement(Avatar, {
+    m: m,
+    size: 26
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: 1,
+      fontSize: 12,
+      fontWeight: 600,
+      color: C.text1
+    }
+  }, m.name), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 6,
+      width: 110
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "number",
+    min: "1",
+    max: "12",
+    step: "0.25",
+    value: vals[m.id],
+    onChange: e => setVals(v => ({
+      ...v,
+      [m.id]: e.target.value
+    })),
+    style: {
+      width: 65,
+      textAlign: 'center'
+    },
+    placeholder: "hrs"
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: C.text2
+    }
+  }, "h/day"))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      gap: 8,
+      marginTop: 20
+    }
+  }, /*#__PURE__*/React.createElement(Btn, {
+    ghost: true,
+    onClick: onClose
+  }, "Cancel"), /*#__PURE__*/React.createElement(Btn, {
+    primary: true,
+    onClick: () => onSave(vals)
+  }, "Save"))));
 }
 
 /* ════════════════════════════════════
    BOOKING MODAL
    ════════════════════════════════════ */
-function BookingModal({initial,team,onSave,onDelete,onClose}){
-  const isEdit=!!initial?.booking;
-  const bk=initial?.booking;
-  const[form,setForm]=useState({
-    person:initial?.member?.id||team[0].id,
-    proj:bk?.proj||'',
-    startDate:bk?offsetToDate(bk.s):(initial?.day?initial.day.toISOString().slice(0,10):''),
-    endDate:bk?offsetToDate(bk.s+(bk.n-1)):(initial?.day?initial.day.toISOString().slice(0,10):''),
-    note:bk?.note||'',hrs:bk?.hrs?String(bk.hrs):'',
-    useSafe:false,signed:bk?(PROJ[bk.proj]?.signed||false):false,
-    sowUrl:bk?.sowUrl||'',prodUrl:bk?.prodUrl||'',isLeave:bk?.isLeave||false,
+function BookingModal({
+  initial,
+  team,
+  onSave,
+  onDelete,
+  onClose
+}) {
+  const isEdit = !!initial?.booking;
+  const bk = initial?.booking;
+  const [form, setForm] = useState({
+    person: initial?.member?.id || team[0].id,
+    proj: bk?.proj || '',
+    startDate: bk ? offsetToDate(bk.s) : initial?.day ? initial.day.toISOString().slice(0, 10) : '',
+    endDate: bk ? offsetToDate(bk.s + (bk.n - 1)) : initial?.day ? initial.day.toISOString().slice(0, 10) : '',
+    note: bk?.note || '',
+    hrs: bk?.hrs ? String(bk.hrs) : '',
+    useSafe: false,
+    signed: bk ? PROJ[bk.proj]?.signed || false : false,
+    sowUrl: bk?.sowUrl || '',
+    prodUrl: bk?.prodUrl || '',
+    isLeave: bk?.isLeave || false
   });
-  const member=useMemo(()=>team.find(m=>m.id===form.person)||team[0],[form.person,team]);
-  useEffect(()=>{
-    if(!form.useSafe||!form.startDate||!form.endDate||!member.safeHpD)return;
-    const s=new Date(form.startDate+'T00:00:00'),e=new Date(form.endDate+'T00:00:00');
-    setForm(f=>({...f,hrs:String(Math.round(workDaysBetween(s,e)*member.safeHpD*10)/10)}));
-  },[form.useSafe,form.startDate,form.endDate,member]);
-  const set=useCallback((k,v)=>setForm(f=>({...f,[k]:v})),[]);
-  const calcSafeHrs=()=>{
-    if(!form.startDate||!form.endDate||!member.safeHpD)return null;
-    const s=new Date(form.startDate+'T00:00:00'),e=new Date(form.endDate+'T00:00:00');
-    return Math.round(workDaysBetween(s,e)*member.safeHpD*10)/10;
+  const member = useMemo(() => team.find(m => m.id === form.person) || team[0], [form.person, team]);
+  useEffect(() => {
+    if (!form.useSafe || !form.startDate || !form.endDate || !member.safeHpD) return;
+    const s = new Date(form.startDate + 'T00:00:00'),
+      e = new Date(form.endDate + 'T00:00:00');
+    setForm(f => ({
+      ...f,
+      hrs: String(Math.round(workDaysBetween(s, e) * member.safeHpD * 10) / 10)
+    }));
+  }, [form.useSafe, form.startDate, form.endDate, member]);
+  const set = useCallback((k, v) => setForm(f => ({
+    ...f,
+    [k]: v
+  })), []);
+  const calcSafeHrs = () => {
+    if (!form.startDate || !form.endDate || !member.safeHpD) return null;
+    const s = new Date(form.startDate + 'T00:00:00'),
+      e = new Date(form.endDate + 'T00:00:00');
+    return Math.round(workDaysBetween(s, e) * member.safeHpD * 10) / 10;
   };
-  const handleSave=()=>{
-    if(!form.proj&&!form.isLeave){alert('Please select a project');return;}
-    const s=dateToOffset(form.startDate),e=dateToOffset(form.endDate),n=Math.max(1,e-s+1);
-    onSave({id:bk?.id||String(Date.now()),p:form.person,proj:form.isLeave?'lv':form.proj,
-      s,n,note:form.note,hrs:form.hrs?parseFloat(form.hrs):null,
-      isLeave:form.isLeave,sowUrl:form.sowUrl,prodUrl:form.prodUrl});
+  const handleSave = () => {
+    if (!form.proj && !form.isLeave) {
+      alert('Please select a project');
+      return;
+    }
+    const s = dateToOffset(form.startDate),
+      e = dateToOffset(form.endDate),
+      n = Math.max(1, e - s + 1);
+    onSave({
+      id: bk?.id || String(Date.now()),
+      p: form.person,
+      proj: form.isLeave ? 'lv' : form.proj,
+      s,
+      n,
+      note: form.note,
+      hrs: form.hrs ? parseFloat(form.hrs) : null,
+      isLeave: form.isLeave,
+      sowUrl: form.sowUrl,
+      prodUrl: form.prodUrl
+    });
     onClose();
   };
-  const projOptions=Object.entries(PROJ).filter(([,p])=>!p.isLeave);
-  const safeCalc=calcSafeHrs();
-  return(
-    <Overlay onClose={onClose}>
-      <div style={{width:440}}>
-        <h2 style={{fontSize:15,fontWeight:700,color:C.text1,marginBottom:16,letterSpacing:'-0.03em'}}>
-          {isEdit?'Edit Booking':'New Booking'}
-        </h2>
-        <div style={{display:'flex',flexDirection:'column',gap:13}}>
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10}}>
-            <div><label>Team Member</label>
-              <select value={form.person} onChange={e=>set('person',e.target.value)}>
-                {team.map(m=><option key={m.id} value={m.id}>{m.name}</option>)}
-              </select>
-            </div>
-            <div><label>Project</label>
-              <select value={form.proj} onChange={e=>set('proj',e.target.value)} disabled={form.isLeave}>
-                <option value="">— Select —</option>
-                {projOptions.map(([k,p])=><option key={k} value={k}>{p.signed?'●':'○'} {p.name}</option>)}
-              </select>
-            </div>
-          </div>
-          <Toggle label="🏖️  Annual Leave / Day Off" on={form.isLeave} onChange={v=>set('isLeave',v)}/>
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10}}>
-            <div><label>Start Date</label><input type="date" value={form.startDate} onChange={e=>set('startDate',e.target.value)}/></div>
-            <div><label>End Date</label><input type="date" value={form.endDate} min={form.startDate} onChange={e=>set('endDate',e.target.value)}/></div>
-          </div>
-          {!form.isLeave&&member.safeHpD&&(
-            <div style={{padding:'12px 14px',borderRadius:10,background:'rgba(124,58,237,0.07)',border:`1px solid rgba(124,58,237,0.2)`}}>
-              <Toggle label={`Use 100% of ${member.name.split(' ')[0]}'s safe hours (${member.safeHpD}h/day)`} on={form.useSafe} onChange={v=>set('useSafe',v)}/>
-              {safeCalc&&<div style={{marginTop:8,fontSize:11,color:'#a78bfa'}}>
-                {form.startDate&&form.endDate?`= ${safeCalc}h across ${workDaysBetween(new Date(form.startDate+'T00:00:00'),new Date(form.endDate+'T00:00:00'))} working days`:'Select dates to calculate'}
-              </div>}
-            </div>
-          )}
-          {!form.isLeave&&<div><label>Estimated Hours {form.useSafe?'(auto)':''}</label>
-            <input type="number" step="0.5" min="0" value={form.hrs} onChange={e=>set('hrs',e.target.value)}
-              placeholder="e.g. 24" disabled={form.useSafe} style={{opacity:form.useSafe?0.4:1}}/>
-          </div>}
-          <div><label>Label / Note</label>
-            <input type="text" value={form.note} onChange={e=>set('note',e.target.value)} placeholder="e.g. Eckersley Wireframes"/>
-          </div>
-          {!form.isLeave&&(
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10}}>
-              <div><label>SOW Status</label>
-                <select value={form.signed?'signed':'tentative'} onChange={e=>set('signed',e.target.value==='signed')}>
-                  <option value="tentative">○ Tentative</option>
-                  <option value="signed">● Signed</option>
-                </select>
-              </div>
-              {form.signed&&<div><label>SOW Link</label>
-                <input type="url" value={form.sowUrl} onChange={e=>set('sowUrl',e.target.value)} placeholder="https://drive.google.com/..."/>
-              </div>}
-            </div>
-          )}
-          {!form.isLeave&&(
-            <div><label>Productive URL</label>
-              <div style={{display:'flex',gap:8}}>
-                <input type="url" value={form.prodUrl} onChange={e=>set('prodUrl',e.target.value)}
-                  placeholder="https://app.productive.io/..."/>
-              </div>
-            </div>
-          )}
-        </div>
-        <div style={{display:'flex',gap:8,marginTop:20}}>
-          {isEdit&&<Btn danger onClick={()=>{onDelete(bk.id);onClose();}}>Delete</Btn>}
-          <div style={{flex:1}}/>
-          <Btn ghost onClick={onClose}>Cancel</Btn>
-          <Btn primary onClick={handleSave}>{isEdit?'Update':'Create'}</Btn>
-        </div>
-      </div>
-    </Overlay>
-  );
+  const projOptions = Object.entries(PROJ).filter(([, p]) => !p.isLeave);
+  const safeCalc = calcSafeHrs();
+  return /*#__PURE__*/React.createElement(Overlay, {
+    onClose: onClose
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 440
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: C.text1,
+      marginBottom: 16,
+      letterSpacing: '-0.03em'
+    }
+  }, isEdit ? 'Edit Booking' : 'New Booking'), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 13
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Team Member"), /*#__PURE__*/React.createElement("select", {
+    value: form.person,
+    onChange: e => set('person', e.target.value)
+  }, team.map(m => /*#__PURE__*/React.createElement("option", {
+    key: m.id,
+    value: m.id
+  }, m.name)))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Project"), /*#__PURE__*/React.createElement("select", {
+    value: form.proj,
+    onChange: e => set('proj', e.target.value),
+    disabled: form.isLeave
+  }, /*#__PURE__*/React.createElement("option", {
+    value: ""
+  }, "\u2014 Select \u2014"), projOptions.map(([k, p]) => /*#__PURE__*/React.createElement("option", {
+    key: k,
+    value: k
+  }, p.signed ? '●' : '○', " ", p.name))))), /*#__PURE__*/React.createElement(Toggle, {
+    label: "\uD83C\uDFD6\uFE0F  Annual Leave / Day Off",
+    on: form.isLeave,
+    onChange: v => set('isLeave', v)
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Start Date"), /*#__PURE__*/React.createElement("input", {
+    type: "date",
+    value: form.startDate,
+    onChange: e => set('startDate', e.target.value)
+  })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "End Date"), /*#__PURE__*/React.createElement("input", {
+    type: "date",
+    value: form.endDate,
+    min: form.startDate,
+    onChange: e => set('endDate', e.target.value)
+  }))), !form.isLeave && member.safeHpD && /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: '12px 14px',
+      borderRadius: 10,
+      background: 'rgba(124,58,237,0.07)',
+      border: `1px solid rgba(124,58,237,0.2)`
+    }
+  }, /*#__PURE__*/React.createElement(Toggle, {
+    label: `Use 100% of ${member.name.split(' ')[0]}'s safe hours (${member.safeHpD}h/day)`,
+    on: form.useSafe,
+    onChange: v => set('useSafe', v)
+  }), safeCalc && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 8,
+      fontSize: 11,
+      color: '#a78bfa'
+    }
+  }, form.startDate && form.endDate ? `= ${safeCalc}h across ${workDaysBetween(new Date(form.startDate + 'T00:00:00'), new Date(form.endDate + 'T00:00:00'))} working days` : 'Select dates to calculate')), !form.isLeave && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Estimated Hours ", form.useSafe ? '(auto)' : ''), /*#__PURE__*/React.createElement("input", {
+    type: "number",
+    step: "0.5",
+    min: "0",
+    value: form.hrs,
+    onChange: e => set('hrs', e.target.value),
+    placeholder: "e.g. 24",
+    disabled: form.useSafe,
+    style: {
+      opacity: form.useSafe ? 0.4 : 1
+    }
+  })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Label / Note"), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: form.note,
+    onChange: e => set('note', e.target.value),
+    placeholder: "e.g. Eckersley Wireframes"
+  })), !form.isLeave && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "SOW Status"), /*#__PURE__*/React.createElement("select", {
+    value: form.signed ? 'signed' : 'tentative',
+    onChange: e => set('signed', e.target.value === 'signed')
+  }, /*#__PURE__*/React.createElement("option", {
+    value: "tentative"
+  }, "\u25CB Tentative"), /*#__PURE__*/React.createElement("option", {
+    value: "signed"
+  }, "\u25CF Signed"))), form.signed && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "SOW Link"), /*#__PURE__*/React.createElement("input", {
+    type: "url",
+    value: form.sowUrl,
+    onChange: e => set('sowUrl', e.target.value),
+    placeholder: "https://drive.google.com/..."
+  }))), !form.isLeave && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Productive URL"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "url",
+    value: form.prodUrl,
+    onChange: e => set('prodUrl', e.target.value),
+    placeholder: "https://app.productive.io/..."
+  })))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 8,
+      marginTop: 20
+    }
+  }, isEdit && /*#__PURE__*/React.createElement(Btn, {
+    danger: true,
+    onClick: () => {
+      onDelete(bk.id);
+      onClose();
+    }
+  }, "Delete"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }), /*#__PURE__*/React.createElement(Btn, {
+    ghost: true,
+    onClick: onClose
+  }, "Cancel"), /*#__PURE__*/React.createElement(Btn, {
+    primary: true,
+    onClick: handleSave
+  }, isEdit ? 'Update' : 'Create'))));
 }
 
 /* ── Booking Bar ── */
-function Bar({b,onDown,onEdit,isDragging,mini,filter}){
-  const[hov,setHov]=useState(false);
-  const p=PROJ[b.proj]||PROJ.lv;
-  const isTentative=!p.signed&&!p.isLeave;
-  const bh=mini?BAR_H_MINI:BAR_H;
-  const w=Math.max(b.dn*DAY_W-4,DAY_W-4);
-  const left=b.s*DAY_W;
-  const top=mini?11:(ROW_PAD/2+b.lane*LANE_H);
-  const isExtended=!b.isLeave&&b.dn>b.n;
-  const dimmed=filter!=='all'&&!b.isLeave&&p.type!==filter;
-
-  return(
-    <div className="no-sel"
-      onMouseDown={e=>{if(dimmed)return;e.preventDefault();e.stopPropagation();onDown(e,b);}}
-      onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}
-      style={{position:'absolute',left,top,width:w,height:bh,
-        cursor:dimmed?'default':'grab',zIndex:hov?20:10,
-        opacity:isDragging?0.2:dimmed?0.07:1,
-        transition:'opacity 0.15s',pointerEvents:dimmed?'none':'auto'}}>
-      <div onClick={e=>{e.stopPropagation();if(!mini)onEdit(b);}}
-        style={{position:'absolute',inset:0,borderRadius:mini?4:7,overflow:'hidden',
-          background:p.isLeave?'#303036':p.bg,
-          border:isTentative?`1.5px dashed ${p.tx}aa`:`1px solid ${p.isLeave?'#404048':'rgba(0,0,0,0.1)'}`,
-          opacity:isTentative?0.85:1,
-          boxShadow:hov&&!mini?'0 4px 16px rgba(0,0,0,0.5)':'0 1px 3px rgba(0,0,0,0.3)',
-          display:'flex',alignItems:'center',padding:mini?'0 3px':'0 7px',gap:4,
-          transition:'box-shadow 0.12s',cursor:mini?'default':'pointer'}}>
-        {!mini&&p.isLeave&&<span style={{fontSize:10,flexShrink:0}}>🏖️</span>}
-        {!mini&&<span style={{fontSize:11,letterSpacing:'-0.01em',
-          fontWeight:isTentative?400:700,
-          fontStyle:isTentative?'italic':'normal',
-          color:p.isLeave?'#888':p.tx,
-          whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis',flex:1,lineHeight:1.3}}>
-          {b.note||p.name}
-        </span>}
-        {!mini&&b.hrs&&<span style={{fontSize:9,fontFamily:'monospace',color:p.tx,opacity:isTentative?0.4:0.55,flexShrink:0}}>{b.hrs}h</span>}
-        {isExtended&&!mini&&(
-          <div title={`Extended +${b.dn-b.n}d past leave`}
-            style={{position:'absolute',right:-4,top:'50%',transform:'translateY(-50%)',
-              width:8,height:8,borderRadius:'50%',
-              background:C.orange,border:`1.5px solid ${C.bg}`,zIndex:4,flexShrink:0}}/>
-        )}
-      </div>
-      {hov&&!mini&&(
-        <div style={{position:'absolute',bottom:'calc(100% + 8px)',left:'50%',
-          transform:'translateX(-50%)',
-          background:'#1e1e22',border:`1px solid ${C.borderMid}`,
-          color:C.text1,padding:'9px 13px',borderRadius:10,
-          fontSize:11,whiteSpace:'nowrap',
-          boxShadow:'0 8px 30px rgba(0,0,0,0.6)',zIndex:100,
-          pointerEvents:'none',lineHeight:1.7,letterSpacing:'-0.01em'}}>
-          <div style={{fontWeight:700,marginBottom:2}}>{p.name}</div>
-          {isTentative
-            ?<div style={{color:'#fcd34d',fontStyle:'italic'}}>Tentative — SOW pending</div>
-            :!p.isLeave&&<div style={{color:'#a78bfa',fontWeight:700}}>SOW Signed</div>}
-          {b.note&&b.note!==p.name&&<div style={{color:C.text2}}>{b.note}</div>}
-          {b.hrs&&<div style={{color:C.text2}}>{b.hrs}h estimated</div>}
-          {isExtended&&<div style={{color:C.orange}}>⬤ Extended +{b.dn-b.n}d — pushed out past leave</div>}
-          <div style={{fontSize:10,color:C.text3,marginTop:3}}>Click to edit · Drag to move</div>
-          <div style={{position:'absolute',bottom:-5,left:'50%',
-            transform:'translateX(-50%) rotate(45deg)',
-            width:10,height:10,background:'#1e1e22',
-            border:`1px solid ${C.borderMid}`,borderTop:'none',borderLeft:'none'}}/>
-        </div>
-      )}
-    </div>
-  );
+function Bar({
+  b,
+  onDown,
+  onEdit,
+  isDragging,
+  mini,
+  filter
+}) {
+  const [hov, setHov] = useState(false);
+  const p = PROJ[b.proj] || PROJ.lv;
+  const isTentative = !p.signed && !p.isLeave;
+  const bh = mini ? BAR_H_MINI : BAR_H;
+  const w = Math.max(b.dn * DAY_W - 4, DAY_W - 4);
+  const left = b.s * DAY_W;
+  const top = mini ? 11 : ROW_PAD / 2 + b.lane * LANE_H;
+  const isExtended = !b.isLeave && b.dn > b.n;
+  const dimmed = filter !== 'all' && !b.isLeave && p.type !== filter;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "no-sel",
+    onMouseDown: e => {
+      if (dimmed) return;
+      e.preventDefault();
+      e.stopPropagation();
+      onDown(e, b);
+    },
+    onMouseEnter: () => setHov(true),
+    onMouseLeave: () => setHov(false),
+    style: {
+      position: 'absolute',
+      left,
+      top,
+      width: w,
+      height: bh,
+      cursor: dimmed ? 'default' : 'grab',
+      zIndex: hov ? 20 : 10,
+      opacity: isDragging ? 0.2 : dimmed ? 0.07 : 1,
+      transition: 'opacity 0.15s',
+      pointerEvents: dimmed ? 'none' : 'auto'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    onClick: e => {
+      e.stopPropagation();
+      if (!mini) onEdit(b);
+    },
+    style: {
+      position: 'absolute',
+      inset: 0,
+      borderRadius: mini ? 4 : 7,
+      overflow: 'hidden',
+      background: p.isLeave ? '#303036' : p.bg,
+      border: isTentative ? `1.5px dashed ${p.tx}aa` : `1px solid ${p.isLeave ? '#404048' : 'rgba(0,0,0,0.1)'}`,
+      opacity: isTentative ? 0.85 : 1,
+      boxShadow: hov && !mini ? '0 4px 16px rgba(0,0,0,0.5)' : '0 1px 3px rgba(0,0,0,0.3)',
+      display: 'flex',
+      alignItems: 'center',
+      padding: mini ? '0 3px' : '0 7px',
+      gap: 4,
+      transition: 'box-shadow 0.12s',
+      cursor: mini ? 'default' : 'pointer'
+    }
+  }, !mini && p.isLeave && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      flexShrink: 0
+    }
+  }, "\uD83C\uDFD6\uFE0F"), !mini && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      letterSpacing: '-0.01em',
+      fontWeight: isTentative ? 400 : 700,
+      fontStyle: isTentative ? 'italic' : 'normal',
+      color: p.isLeave ? '#888' : p.tx,
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      flex: 1,
+      lineHeight: 1.3
+    }
+  }, b.note || p.name), !mini && b.hrs && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 9,
+      fontFamily: 'monospace',
+      color: p.tx,
+      opacity: isTentative ? 0.4 : 0.55,
+      flexShrink: 0
+    }
+  }, b.hrs, "h"), isExtended && !mini && /*#__PURE__*/React.createElement("div", {
+    title: `Extended +${b.dn - b.n}d past leave`,
+    style: {
+      position: 'absolute',
+      right: -4,
+      top: '50%',
+      transform: 'translateY(-50%)',
+      width: 8,
+      height: 8,
+      borderRadius: '50%',
+      background: C.orange,
+      border: `1.5px solid ${C.bg}`,
+      zIndex: 4,
+      flexShrink: 0
+    }
+  })), hov && !mini && /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      bottom: 'calc(100% + 8px)',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      background: '#1e1e22',
+      border: `1px solid ${C.borderMid}`,
+      color: C.text1,
+      padding: '9px 13px',
+      borderRadius: 10,
+      fontSize: 11,
+      whiteSpace: 'nowrap',
+      boxShadow: '0 8px 30px rgba(0,0,0,0.6)',
+      zIndex: 100,
+      pointerEvents: 'none',
+      lineHeight: 1.7,
+      letterSpacing: '-0.01em'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      marginBottom: 2
+    }
+  }, p.name), isTentative ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: '#fcd34d',
+      fontStyle: 'italic'
+    }
+  }, "Tentative \u2014 SOW pending") : !p.isLeave && /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: '#a78bfa',
+      fontWeight: 700
+    }
+  }, "SOW Signed"), b.note && b.note !== p.name && /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: C.text2
+    }
+  }, b.note), b.hrs && /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: C.text2
+    }
+  }, b.hrs, "h estimated"), isExtended && /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: C.orange
+    }
+  }, "\u2B24 Extended +", b.dn - b.n, "d \u2014 pushed out past leave"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: C.text3,
+      marginTop: 3
+    }
+  }, "Click to edit \xB7 Drag to move"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      bottom: -5,
+      left: '50%',
+      transform: 'translateX(-50%) rotate(45deg)',
+      width: 10,
+      height: 10,
+      background: '#1e1e22',
+      border: `1px solid ${C.borderMid}`,
+      borderTop: 'none',
+      borderLeft: 'none'
+    }
+  })));
 }
 
 /* ── Helper components ── */
-function Overlay({onClose,children}){
-  return(
-    <div onClick={onClose} style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.75)',
-      zIndex:200,display:'flex',alignItems:'center',justifyContent:'center',backdropFilter:'blur(6px)'}}>
-      <div onClick={e=>e.stopPropagation()} style={{
-        background:'#252528',border:`1px solid ${C.borderMid}`,
-        borderRadius:16,padding:28,boxShadow:'0 24px 80px rgba(0,0,0,0.7)',
-        maxHeight:'90vh',overflowY:'auto',position:'relative'}}>
-        <button onClick={onClose} style={{position:'absolute',top:14,right:14,
-          background:'rgba(255,255,255,0.07)',border:'none',color:C.text2,
-          width:28,height:28,borderRadius:'50%',fontSize:16,cursor:'pointer',
-          display:'flex',alignItems:'center',justifyContent:'center'}}>×</button>
-        {children}
-      </div>
-    </div>
-  );
+function Overlay({
+  onClose,
+  children
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    onClick: onClose,
+    style: {
+      position: 'fixed',
+      inset: 0,
+      background: 'rgba(0,0,0,0.75)',
+      zIndex: 200,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backdropFilter: 'blur(6px)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    onClick: e => e.stopPropagation(),
+    style: {
+      background: '#252528',
+      border: `1px solid ${C.borderMid}`,
+      borderRadius: 16,
+      padding: 28,
+      boxShadow: '0 24px 80px rgba(0,0,0,0.7)',
+      maxHeight: '90vh',
+      overflowY: 'auto',
+      position: 'relative'
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: onClose,
+    style: {
+      position: 'absolute',
+      top: 14,
+      right: 14,
+      background: 'rgba(255,255,255,0.07)',
+      border: 'none',
+      color: C.text2,
+      width: 28,
+      height: 28,
+      borderRadius: '50%',
+      fontSize: 16,
+      cursor: 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
+  }, "\xD7"), children));
 }
-function Toggle({label,on,onChange}){
-  return(
-    <div style={{display:'flex',alignItems:'center',gap:10,cursor:'pointer'}} onClick={()=>onChange(!on)}>
-      <div style={{width:38,height:20,borderRadius:10,position:'relative',flexShrink:0,
-        background:on?C.violet:'#3a3a40',transition:'background 0.2s'}}>
-        <div style={{position:'absolute',top:2,left:on?20:2,width:16,height:16,
-          borderRadius:'50%',background:'white',transition:'left 0.2s',boxShadow:'0 1px 4px rgba(0,0,0,0.4)'}}/>
-      </div>
-      <span style={{fontSize:12,color:C.text1,userSelect:'none',letterSpacing:'-0.01em'}}>{label}</span>
-    </div>
-  );
+function Toggle({
+  label,
+  on,
+  onChange
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 10,
+      cursor: 'pointer'
+    },
+    onClick: () => onChange(!on)
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 38,
+      height: 20,
+      borderRadius: 10,
+      position: 'relative',
+      flexShrink: 0,
+      background: on ? C.violet : '#3a3a40',
+      transition: 'background 0.2s'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      top: 2,
+      left: on ? 20 : 2,
+      width: 16,
+      height: 16,
+      borderRadius: '50%',
+      background: 'white',
+      transition: 'left 0.2s',
+      boxShadow: '0 1px 4px rgba(0,0,0,0.4)'
+    }
+  })), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: C.text1,
+      userSelect: 'none',
+      letterSpacing: '-0.01em'
+    }
+  }, label));
 }
-function Btn({children,onClick,primary,ghost,danger,style={}}){
-  return(
-    <button onClick={onClick} style={{
-      padding:'8px 16px',borderRadius:8,fontSize:12,fontWeight:600,letterSpacing:'-0.01em',
-      background:primary?C.violet:danger?'rgba(239,68,68,0.1)':'rgba(255,255,255,0.06)',
-      color:primary?'white':danger?'#f87171':C.text1,
-      border:primary?'none':danger?'1px solid rgba(239,68,68,0.2)':`1px solid ${C.border}`,
-      ...style}}>
-      {children}
-    </button>
-  );
+function Btn({
+  children,
+  onClick,
+  primary,
+  ghost,
+  danger,
+  style = {}
+}) {
+  return /*#__PURE__*/React.createElement("button", {
+    onClick: onClick,
+    style: {
+      padding: '8px 16px',
+      borderRadius: 8,
+      fontSize: 12,
+      fontWeight: 600,
+      letterSpacing: '-0.01em',
+      background: primary ? C.violet : danger ? 'rgba(239,68,68,0.1)' : 'rgba(255,255,255,0.06)',
+      color: primary ? 'white' : danger ? '#f87171' : C.text1,
+      border: primary ? 'none' : danger ? '1px solid rgba(239,68,68,0.2)' : `1px solid ${C.border}`,
+      ...style
+    }
+  }, children);
 }
 
 /* ════════════════════════════════════
    CAPACITY TOOLTIP
    ════════════════════════════════════ */
-function CapacityTip({tip,team,bookings,meetHoursPerDay}){
-  if(!tip)return null;
-  const m=team.find(t=>t.id===tip.pid);
-  if(!m)return null;
-  const d=DAYS[tip.offset];
-  if(!d)return null;
-  const isWE=d.getDay()===0||d.getDay()===6;
-  const safeH=m.safeHpD||0;
-  const meetH=meetHoursPerDay?.[tip.offset]||0;
+function CapacityTip({
+  tip,
+  team,
+  bookings,
+  meetHoursPerDay
+}) {
+  if (!tip) return null;
+  const m = team.find(t => t.id === tip.pid);
+  if (!m) return null;
+  const d = DAYS[tip.offset];
+  if (!d) return null;
+  const isWE = d.getDay() === 0 || d.getDay() === 6;
+  const safeH = m.safeHpD || 0;
+  const meetH = meetHoursPerDay?.[tip.offset] || 0;
   // Booking hours on this day: for each booking covering this day, allocate hrs/n per day
-  const dayBks=bookings.filter(b=>b.p===m.id&&!b.isLeave&&b.s<=tip.offset&&tip.offset<b.s+b.dn);
-  const bookedH=dayBks.reduce((s,b)=>s+(b.hrs?b.hrs/b.n:0),0);
-  const availH=Math.max(0,safeH-meetH-bookedH);
-  const fmtH=h=>Math.round(h*10)/10;
-  return(
-    <div style={{position:'fixed',left:tip.x,top:tip.y,
-      transform:'translate(-50%,-110%)',
-      background:'#18181e',border:`1px solid ${C.borderMid}`,
-      color:C.text1,padding:'10px 14px',borderRadius:10,
-      fontSize:11,whiteSpace:'nowrap',
-      boxShadow:'0 8px 32px rgba(0,0,0,0.7)',zIndex:300,
-      pointerEvents:'none',lineHeight:1.8,letterSpacing:'-0.01em',
-      minWidth:160}}>
-      <div style={{fontWeight:700,marginBottom:4,color:C.text1,letterSpacing:'-0.02em'}}>
-        {m.name.split(' ')[0]} · {d.getDate()} {MONS[d.getMonth()]}
-      </div>
-      {isWE?(
-        <div style={{color:C.text3,fontStyle:'italic'}}>Weekend</div>
-      ):(
-        <>
-          <div style={{display:'flex',justifyContent:'space-between',gap:18}}>
-            <span style={{color:C.text2}}>Safe capacity</span>
-            <span style={{fontWeight:600}}>{fmtH(safeH)}h</span>
-          </div>
-          {meetH>0&&<div style={{display:'flex',justifyContent:'space-between',gap:18}}>
-            <span style={{color:'#93c5fd'}}>📅 Meetings</span>
-            <span style={{fontWeight:600,color:'#93c5fd'}}>−{fmtH(meetH)}h</span>
-          </div>}
-          {bookedH>0&&<div style={{display:'flex',justifyContent:'space-between',gap:18}}>
-            <span style={{color:C.text2}}>Scheduled work</span>
-            <span style={{fontWeight:600}}>−{fmtH(bookedH)}h</span>
-          </div>}
-          <div style={{borderTop:`1px solid ${C.border}`,marginTop:5,paddingTop:5,
-            display:'flex',justifyContent:'space-between',gap:18}}>
-            <span style={{color:availH<1?'#f87171':availH<2?C.orange:'#34d399'}}>Available</span>
-            <span style={{fontWeight:700,color:availH<1?'#f87171':availH<2?C.orange:'#34d399'}}>
-              {fmtH(availH)}h
-            </span>
-          </div>
-        </>
-      )}
-      <div style={{position:'absolute',bottom:-5,left:'50%',
-        transform:'translateX(-50%) rotate(45deg)',
-        width:10,height:10,background:'#18181e',
-        border:`1px solid ${C.borderMid}`,borderTop:'none',borderLeft:'none'}}/>
-    </div>
-  );
+  const dayBks = bookings.filter(b => b.p === m.id && !b.isLeave && b.s <= tip.offset && tip.offset < b.s + b.dn);
+  const bookedH = dayBks.reduce((s, b) => s + (b.hrs ? b.hrs / b.n : 0), 0);
+  const availH = Math.max(0, safeH - meetH - bookedH);
+  const fmtH = h => Math.round(h * 10) / 10;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'fixed',
+      left: tip.x,
+      top: tip.y,
+      transform: 'translate(-50%,-110%)',
+      background: '#18181e',
+      border: `1px solid ${C.borderMid}`,
+      color: C.text1,
+      padding: '10px 14px',
+      borderRadius: 10,
+      fontSize: 11,
+      whiteSpace: 'nowrap',
+      boxShadow: '0 8px 32px rgba(0,0,0,0.7)',
+      zIndex: 300,
+      pointerEvents: 'none',
+      lineHeight: 1.8,
+      letterSpacing: '-0.01em',
+      minWidth: 160
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      marginBottom: 4,
+      color: C.text1,
+      letterSpacing: '-0.02em'
+    }
+  }, m.name.split(' ')[0], " \xB7 ", d.getDate(), " ", MONS[d.getMonth()]), isWE ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: C.text3,
+      fontStyle: 'italic'
+    }
+  }, "Weekend") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      gap: 18
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: C.text2
+    }
+  }, "Safe capacity"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 600
+    }
+  }, fmtH(safeH), "h")), meetH > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      gap: 18
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#93c5fd'
+    }
+  }, "\uD83D\uDCC5 Meetings"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 600,
+      color: '#93c5fd'
+    }
+  }, "\u2212", fmtH(meetH), "h")), bookedH > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      gap: 18
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: C.text2
+    }
+  }, "Scheduled work"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 600
+    }
+  }, "\u2212", fmtH(bookedH), "h")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      borderTop: `1px solid ${C.border}`,
+      marginTop: 5,
+      paddingTop: 5,
+      display: 'flex',
+      justifyContent: 'space-between',
+      gap: 18
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: availH < 1 ? '#f87171' : availH < 2 ? C.orange : '#34d399'
+    }
+  }, "Available"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 700,
+      color: availH < 1 ? '#f87171' : availH < 2 ? C.orange : '#34d399'
+    }
+  }, fmtH(availH), "h"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      bottom: -5,
+      left: '50%',
+      transform: 'translateX(-50%) rotate(45deg)',
+      width: 10,
+      height: 10,
+      background: '#18181e',
+      border: `1px solid ${C.borderMid}`,
+      borderTop: 'none',
+      borderLeft: 'none'
+    }
+  }));
 }
 
 /* ════════════════════════════════════
    MAIN APP
    ════════════════════════════════════ */
-function App(){
-  const[bookings,setBookings]=useState(INIT);
-  const[team,setTeam]=useState(initTeam);
-  const[draggingId,setDraggingId]=useState(null);
-  const[ghost,setGhost]=useState(null);
-  const[modal,setModal]=useState(null);
-  const[collapsed,setCollapsed]=useState({});
-  const[filter,setFilter]=useState('all');
-  const[showMeetings,setShowMeetings]=useState(false);
-  const[legendExpanded,setLegendExpanded]=useState(false);
-  const[drawer,setDrawer]=useState(null); // projKey for ProjectDrawer
-  const[dayTip,setDayTip]=useState(null);
-  const historyRef=useRef([INIT]);
-  const histIdxRef=useRef(0); // {pid, offset, x, y}
-  const dragRef=useRef(null);
-  const scrollRef=useRef(null);
-  const tipTimerRef=useRef(null);
+function App() {
+  const [bookings, setBookings] = useState(INIT);
+  const [team, setTeam] = useState(initTeam);
+  const [draggingId, setDraggingId] = useState(null);
+  const [ghost, setGhost] = useState(null);
+  const [modal, setModal] = useState(null);
+  const [collapsed, setCollapsed] = useState({});
+  const [filter, setFilter] = useState('all');
+  const [showMeetings, setShowMeetings] = useState(false);
+  const [legendExpanded, setLegendExpanded] = useState(false);
+  const [drawer, setDrawer] = useState(null); // projKey for ProjectDrawer
+  const [dayTip, setDayTip] = useState(null);
+  const historyRef = useRef([INIT]);
+  const histIdxRef = useRef(0); // {pid, offset, x, y}
+  const dragRef = useRef(null);
+  const scrollRef = useRef(null);
+  const tipTimerRef = useRef(null);
 
   /* ── Precompute meeting data per person ── */
-  const meetingDataByPerson=useMemo(()=>{
-    const result={};
-    initTeam.forEach(m=>{
-      result[m.id]=computeMeetingLanes(m.id);
+  const meetingDataByPerson = useMemo(() => {
+    const result = {};
+    initTeam.forEach(m => {
+      result[m.id] = computeMeetingLanes(m.id);
     });
     return result;
-  },[]);
-
-  const rawTeamData=useMemo(()=>processTeam(bookings,team),[bookings,team]);
-
-  const teamData=useMemo(()=>rawTeamData.map(m=>{
-    const isCollapsed=!!collapsed[m.id];
-    const md=meetingDataByPerson[m.id]||{meetBks:[],meetH:0};
-    const meetH=showMeetings?md.meetH:0;
-    return{...m,isCollapsed,
-      effectiveRowH:isCollapsed?48:m.rowH+meetH,
-      meetBks:showMeetings?md.meetBks:[],
-      meetH,
+  }, []);
+  const rawTeamData = useMemo(() => processTeam(bookings, team), [bookings, team]);
+  const teamData = useMemo(() => rawTeamData.map(m => {
+    const isCollapsed = !!collapsed[m.id];
+    const md = meetingDataByPerson[m.id] || {
+      meetBks: [],
+      meetH: 0
     };
-  }),[rawTeamData,collapsed,meetingDataByPerson,showMeetings]);
-
-  const rowTops=useMemo(()=>{
-    const t=[];let y=0;
-    teamData.forEach(m=>{t.push(y);y+=m.effectiveRowH;});
+    const meetH = showMeetings ? md.meetH : 0;
+    return {
+      ...m,
+      isCollapsed,
+      effectiveRowH: isCollapsed ? 48 : m.rowH + meetH,
+      meetBks: showMeetings ? md.meetBks : [],
+      meetH
+    };
+  }), [rawTeamData, collapsed, meetingDataByPerson, showMeetings]);
+  const rowTops = useMemo(() => {
+    const t = [];
+    let y = 0;
+    teamData.forEach(m => {
+      t.push(y);
+      y += m.effectiveRowH;
+    });
     return t;
-  },[teamData]);
-
-  const scrollToToday=useCallback(()=>{
-    if(!scrollRef.current)return;
-    const todayOff=Math.round((new Date()-WIN)/86400000);
-    const targetX=Math.max(0,todayOff*DAY_W-NAME_W/2);
-    scrollRef.current.scrollLeft=targetX;
-  },[]);
-
-  useEffect(()=>{ scrollToToday(); },[]);
+  }, [teamData]);
+  const scrollToToday = useCallback(() => {
+    if (!scrollRef.current) return;
+    const todayOff = Math.round((new Date() - WIN) / 86400000);
+    const targetX = Math.max(0, todayOff * DAY_W - NAME_W / 2);
+    scrollRef.current.scrollLeft = targetX;
+  }, []);
+  useEffect(() => {
+    scrollToToday();
+  }, []);
 
   // Undo/Redo keyboard shortcut
-  useEffect(()=>{
-    function onKey(e){
-      if((e.metaKey||e.ctrlKey)&&e.key==='z'&&!e.shiftKey){
+  useEffect(() => {
+    function onKey(e) {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'z' && !e.shiftKey) {
         e.preventDefault();
-        if(histIdxRef.current>0){
+        if (histIdxRef.current > 0) {
           histIdxRef.current--;
           setBookings(historyRef.current[histIdxRef.current]);
         }
       }
-      if((e.metaKey||e.ctrlKey)&&(e.key==='y'||(e.key==='z'&&e.shiftKey))){
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'y' || e.key === 'z' && e.shiftKey)) {
         e.preventDefault();
-        if(histIdxRef.current<historyRef.current.length-1){
+        if (histIdxRef.current < historyRef.current.length - 1) {
           histIdxRef.current++;
           setBookings(historyRef.current[histIdxRef.current]);
         }
       }
     }
-    document.addEventListener('keydown',onKey);
-    return()=>document.removeEventListener('keydown',onKey);
-  },[]);
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
 
   /* ── mouse handlers ── */
-  useEffect(()=>{
-    function onMove(e){
-      if(!dragRef.current)return;
-      const{bk}=dragRef.current;
-      const p=PROJ[bk.proj]||PROJ.lv;
-      const scEl=scrollRef.current;if(!scEl)return;
-      const sl=scEl.scrollLeft;
-      const rect=scEl.getBoundingClientRect();
-      const relX=e.clientX-rect.left-NAME_W+sl;
-      const snDay=Math.round(relX/DAY_W);
-      const snX=snDay*DAY_W+NAME_W-sl+rect.left;
-      const w=Math.max(bk.dn*DAY_W-4,DAY_W-4);
-      const isTentative=!p.signed&&!p.isLeave;
-      setGhost({x:snX,y:e.clientY-BAR_H/2,w,label:bk.note||p.name,
-        bg:p.isLeave?'#303036':p.bg,tx:p.tx,isTentative,day:snDay});
-      const relY=e.clientY-rect.top-HDR_H+scEl.scrollTop;
-      let tgt=teamData.length-1;
-      for(let i=0;i<rowTops.length;i++){if(relY<rowTops[i]+teamData[i].effectiveRowH){tgt=i;break;}}
-      dragRef.current.targetPerson=tgt;
-    }
-    function onUp(e){
-      if(!dragRef.current){setDraggingId(null);setGhost(null);return;}
-      const{bk,targetPerson}=dragRef.current;
-      const scEl=scrollRef.current;
-      if(scEl&&targetPerson!==undefined){
-        const relX=e.clientX-scEl.getBoundingClientRect().left-NAME_W+scEl.scrollLeft;
-        const newDay=Math.round(relX/DAY_W);
-        const newPerson=teamData[targetPerson].id;
-        setBookings(prev=>prev.map(b=>b.id===bk.id?{...b,p:newPerson,s:Math.max(-7,newDay)}:b));
+  useEffect(() => {
+    function onMove(e) {
+      if (!dragRef.current) return;
+      const {
+        bk
+      } = dragRef.current;
+      const p = PROJ[bk.proj] || PROJ.lv;
+      const scEl = scrollRef.current;
+      if (!scEl) return;
+      const sl = scEl.scrollLeft;
+      const rect = scEl.getBoundingClientRect();
+      const relX = e.clientX - rect.left - NAME_W + sl;
+      const snDay = Math.round(relX / DAY_W);
+      const snX = snDay * DAY_W + NAME_W - sl + rect.left;
+      const w = Math.max(bk.dn * DAY_W - 4, DAY_W - 4);
+      const isTentative = !p.signed && !p.isLeave;
+      setGhost({
+        x: snX,
+        y: e.clientY - BAR_H / 2,
+        w,
+        label: bk.note || p.name,
+        bg: p.isLeave ? '#303036' : p.bg,
+        tx: p.tx,
+        isTentative,
+        day: snDay
+      });
+      const relY = e.clientY - rect.top - HDR_H + scEl.scrollTop;
+      let tgt = teamData.length - 1;
+      for (let i = 0; i < rowTops.length; i++) {
+        if (relY < rowTops[i] + teamData[i].effectiveRowH) {
+          tgt = i;
+          break;
+        }
       }
-      dragRef.current=null;setDraggingId(null);setGhost(null);
-      setBookings(prev=>{pushHistory(prev);return prev;});
+      dragRef.current.targetPerson = tgt;
     }
-    document.addEventListener('mousemove',onMove);
-    document.addEventListener('mouseup',onUp);
-    return()=>{document.removeEventListener('mousemove',onMove);document.removeEventListener('mouseup',onUp);};
-  },[teamData,rowTops]);
-
-  const handleBarDown=useCallback((e,b)=>{dragRef.current={bk:b,targetPerson:undefined};setDraggingId(b.id);},[]);
-  const handleCellClick=useCallback((member,day)=>{if(dragRef.current)return;setModal({type:'create',member,day});},[]);
-  const handleEditBooking=useCallback((b)=>{setModal({type:'edit',booking:b});},[]);
-  const pushHistory=useCallback((newBks)=>{
-    const h=historyRef.current.slice(0,histIdxRef.current+1);
-    h.push(newBks);
-    if(h.length>50)h.shift();
-    historyRef.current=h;
-    histIdxRef.current=h.length-1;
-  },[]);
-  const handleSaveBooking=useCallback((bkData)=>{
-    setBookings(prev=>{
-      const next=bkData.id&&prev.find(b=>b.id===bkData.id)
-        ?prev.map(b=>b.id===bkData.id?bkData:b)
-        :[...prev,bkData];
-      pushHistory(next);return next;
+    function onUp(e) {
+      if (!dragRef.current) {
+        setDraggingId(null);
+        setGhost(null);
+        return;
+      }
+      const {
+        bk,
+        targetPerson
+      } = dragRef.current;
+      const scEl = scrollRef.current;
+      if (scEl && targetPerson !== undefined) {
+        const relX = e.clientX - scEl.getBoundingClientRect().left - NAME_W + scEl.scrollLeft;
+        const newDay = Math.round(relX / DAY_W);
+        const newPerson = teamData[targetPerson].id;
+        setBookings(prev => prev.map(b => b.id === bk.id ? {
+          ...b,
+          p: newPerson,
+          s: Math.max(-7, newDay)
+        } : b));
+      }
+      dragRef.current = null;
+      setDraggingId(null);
+      setGhost(null);
+      setBookings(prev => {
+        pushHistory(prev);
+        return prev;
+      });
+    }
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+    return () => {
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+    };
+  }, [teamData, rowTops]);
+  const handleBarDown = useCallback((e, b) => {
+    dragRef.current = {
+      bk: b,
+      targetPerson: undefined
+    };
+    setDraggingId(b.id);
+  }, []);
+  const handleCellClick = useCallback((member, day) => {
+    if (dragRef.current) return;
+    setModal({
+      type: 'create',
+      member,
+      day
     });
-  },[pushHistory]);
-  const handleDeleteBooking=useCallback((id)=>{
-    setBookings(prev=>{const next=prev.filter(b=>b.id!==id);pushHistory(next);return next;});
-  },[pushHistory]);
-  const handleSaveSettings=useCallback((vals)=>{
-    setTeam(prev=>prev.map(m=>({...m,safeHpD:vals[m.id]?parseFloat(vals[m.id]):null})));
+  }, []);
+  const handleEditBooking = useCallback(b => {
+    setModal({
+      type: 'edit',
+      booking: b
+    });
+  }, []);
+  const pushHistory = useCallback(newBks => {
+    const h = historyRef.current.slice(0, histIdxRef.current + 1);
+    h.push(newBks);
+    if (h.length > 50) h.shift();
+    historyRef.current = h;
+    histIdxRef.current = h.length - 1;
+  }, []);
+  const handleSaveBooking = useCallback(bkData => {
+    setBookings(prev => {
+      const next = bkData.id && prev.find(b => b.id === bkData.id) ? prev.map(b => b.id === bkData.id ? bkData : b) : [...prev, bkData];
+      pushHistory(next);
+      return next;
+    });
+  }, [pushHistory]);
+  const handleDeleteBooking = useCallback(id => {
+    setBookings(prev => {
+      const next = prev.filter(b => b.id !== id);
+      pushHistory(next);
+      return next;
+    });
+  }, [pushHistory]);
+  const handleSaveSettings = useCallback(vals => {
+    setTeam(prev => prev.map(m => ({
+      ...m,
+      safeHpD: vals[m.id] ? parseFloat(vals[m.id]) : null
+    })));
     setModal(null);
-  },[]);
-  const toggleCollapse=useCallback((id)=>{setCollapsed(prev=>({...prev,[id]:!prev[id]}));},[]);
-
-  const handleCellEnter=useCallback((e,pid,offset)=>{
-    if(dragRef.current)return;
+  }, []);
+  const toggleCollapse = useCallback(id => {
+    setCollapsed(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  }, []);
+  const handleCellEnter = useCallback((e, pid, offset) => {
+    if (dragRef.current) return;
     clearTimeout(tipTimerRef.current);
-    const rect=e.currentTarget.getBoundingClientRect();
-    tipTimerRef.current=setTimeout(()=>{
-      setDayTip({pid,offset,x:rect.left+rect.width/2,y:rect.top});
-    },300);
-  },[]);
-  const handleCellLeave=useCallback(()=>{
+    const rect = e.currentTarget.getBoundingClientRect();
+    tipTimerRef.current = setTimeout(() => {
+      setDayTip({
+        pid,
+        offset,
+        x: rect.left + rect.width / 2,
+        y: rect.top
+      });
+    }, 300);
+  }, []);
+  const handleCellLeave = useCallback(() => {
     clearTimeout(tipTimerRef.current);
     setDayTip(null);
-  },[]);
-
-  const gridW=NUM_DAYS*DAY_W;
-
-  return(
-    <div style={{display:'flex',flexDirection:'column',height:'100vh',background:C.bg}}>
-
-      {/* ── TOP NAV ── */}
-      <div style={{display:'flex',alignItems:'center',gap:12,padding:'0 18px',height:54,
-        background:C.header,borderBottom:`1px solid ${C.border}`,
-        boxShadow:'0 1px 0 rgba(0,0,0,0.3)',flexShrink:0,zIndex:40}}>
-        <div style={{display:'flex',alignItems:'center',gap:9,marginRight:6}}>
-          <div style={{width:30,height:30,borderRadius:7,background:C.violet,
-            display:'flex',alignItems:'center',justifyContent:'center',
-            color:'white',fontWeight:700,fontSize:14,letterSpacing:'-0.05em',
-            boxShadow:`0 2px 8px ${C.violet}50`}}>A</div>
-          <div>
-            <div style={{fontSize:13,fontWeight:700,color:'#fff',lineHeight:1.2,letterSpacing:'-0.03em'}}>Apollo Scheduler</div>
-            <div style={{fontSize:10,color:'rgba(255,255,255,0.4)',lineHeight:1.2}}>DotCollective</div>
-          </div>
-        </div>
-        <div style={{width:1,height:22,background:'rgba(255,255,255,0.1)',marginRight:2}}/>
-        <button onClick={scrollToToday} style={{padding:'5px 14px',fontSize:11,fontWeight:600,
-          color:'rgba(255,255,255,0.9)',border:'1px solid rgba(255,255,255,0.18)',borderRadius:6,
-          background:'rgba(255,255,255,0.08)',cursor:'pointer',letterSpacing:'-0.01em'}}>
-          Today
-        </button>
-        {/* ── Filter tabs ── */}
-        <div style={{display:'flex',alignItems:'center',gap:2,
-          background:'rgba(255,255,255,0.06)',borderRadius:8,padding:2}}>
-          {[['all','All'],['project','Projects'],['support','Support']].map(([val,label])=>(
-            <button key={val} onClick={()=>setFilter(val)}
-              style={{padding:'4px 14px',borderRadius:6,fontSize:11,fontWeight:600,
-                letterSpacing:'-0.01em',border:'none',cursor:'pointer',
-                background:filter===val?C.violet:'transparent',
-                color:filter===val?'white':'rgba(255,255,255,0.5)',
-                transition:'background 0.15s,color 0.15s'}}>
-              {label}
-            </button>
-          ))}
-        </div>
-        {/* ── Meetings toggle ── */}
-        <div style={{display:'flex',flexDirection:'column',alignItems:'flex-start',gap:1}}>
-          <button onClick={()=>setShowMeetings(v=>!v)}
-            title={showMeetings?'Hide meetings':'Show calendar meetings (auto-synced daily)'}
-            style={{padding:'5px 12px',fontSize:11,fontWeight:600,
-              borderRadius:6,border:showMeetings?`1px solid rgba(147,197,253,0.4)`:'1px solid rgba(255,255,255,0.14)',
-              background:showMeetings?'rgba(59,130,246,0.18)':'rgba(255,255,255,0.07)',
-              color:showMeetings?'#93c5fd':'rgba(255,255,255,0.5)',
-              cursor:'pointer',letterSpacing:'-0.01em',
-              display:'flex',alignItems:'center',gap:5}}>
-            <span>📅</span>
-            <span>{showMeetings?'Meetings on':'Meetings'}</span>
-          </button>
-          {(()=>{
-            const d=new Date(GCAL_REFRESHED),now=new Date();
-            const diffH=Math.round((now-d)/3600000);
-            const label=diffH<1?'just now':diffH<24?`${diffH}h ago`:`${Math.round(diffH/24)}d ago`;
-            return<span style={{fontSize:8,color:'rgba(255,255,255,0.25)',letterSpacing:'-0.01em',paddingLeft:3}}>synced {label}</span>;
-          })()}
-        </div>
-
-        <div style={{flex:1}}/>
-        <div style={{display:'flex',alignItems:'center',gap:14,fontSize:11,color:'rgba(255,255,255,0.4)',letterSpacing:'-0.01em'}}>
-          <span style={{fontWeight:700}}>Bold = Signed</span>
-          <span style={{fontStyle:'italic'}}>Italic = Tentative</span>
-          <span style={{display:'flex',alignItems:'center',gap:4}}>
-            <span style={{width:8,height:8,borderRadius:'50%',background:C.orange,display:'inline-block'}}/>
-            <span>extended past leave</span>
-          </span>
-        </div>
-        <button onClick={()=>setModal({type:'settings'})}
-          style={{width:30,height:30,borderRadius:6,marginLeft:8,
-            background:'rgba(255,255,255,0.07)',border:'1px solid rgba(255,255,255,0.12)',
-            color:'rgba(255,255,255,0.6)',fontSize:14,
-            display:'flex',alignItems:'center',justifyContent:'center',cursor:'pointer'}}
-          title="Safe hours settings">⚙️</button>
-      </div>
-
-      {/* ── GRID ── */}
-      <div ref={scrollRef} style={{flex:1,overflowX:'auto',overflowY:'auto'}}>
-        <div style={{minWidth:NAME_W+gridW,position:'relative'}}>
-
-          {/* Day header */}
-          <div style={{display:'flex',position:'sticky',top:0,zIndex:30,height:HDR_H,
-            background:`rgba(22,22,24,0.97)`,backdropFilter:'blur(12px)',
-            borderBottom:`1px solid ${C.border}`}}>
-            <div style={{width:NAME_W,flexShrink:0,position:'sticky',left:0,zIndex:31,
-              background:'rgba(22,22,24,0.97)',borderRight:`1px solid ${C.border}`,
-              display:'flex',alignItems:'flex-end',padding:'8px 14px 9px'}}>
-              <span style={{fontSize:9,fontWeight:700,color:C.text3,textTransform:'uppercase',letterSpacing:'0.12em'}}>Team</span>
-            </div>
-            {DAYS.map((d,i)=>{
-              const isWE=d.getDay()===0||d.getDay()===6;
-              const isTd=d.toDateString()===new Date().toDateString();
-              const showM=i===0||d.getDate()===1;
-              return(
-                <div key={i} style={{width:DAY_W,flexShrink:0,display:'flex',flexDirection:'column',
-                  alignItems:'center',justifyContent:'center',
-                  borderRight:`1px solid ${C.border}`,
-                  background:isWE?'rgba(0,0,0,0.2)':'transparent',padding:'4px 0'}}>
-                  <span style={{fontSize:9,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.06em',
-                    color:isTd?C.violet:C.text3}}>{DOW[d.getDay()]}</span>
-                  <span style={{fontSize:13,fontWeight:700,marginTop:1,lineHeight:1,
-                    width:24,height:24,display:'flex',alignItems:'center',justifyContent:'center',
-                    borderRadius:'50%',letterSpacing:'-0.02em',
-                    background:isTd?C.violet:'transparent',
-                    color:isTd?'white':C.text1}}>{d.getDate()}</span>
-                  {showM&&<span style={{fontSize:9,color:C.text3,marginTop:1,letterSpacing:'0.03em'}}>{MONS[d.getMonth()]}</span>}
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Person rows */}
-          {teamData.map((m,mi)=>{
-            const bookedH=m.bks.filter(b=>!b.isLeave).reduce((s,b)=>s+(b.hrs||0),0);
-            const safeH=m.safeHpD?m.safeHpD*25:null;
-            const pct=safeH?Math.min(bookedH/safeH*100,100):0;
-            const capCol=pct>100?'#f87171':pct>85?C.orange:'#34d399';
-            const rowBg=mi%2===0?C.row1:C.row2;
-            const rowH=m.effectiveRowH;
-            return(
-              <div key={m.id} style={{display:'flex',height:rowH,borderBottom:`1px solid ${C.border}`,background:rowBg}}>
-
-                {/* Name column */}
-                <div style={{width:NAME_W,flexShrink:0,position:'sticky',left:0,zIndex:15,
-                  background:rowBg,borderRight:`1px solid ${C.border}`,
-                  padding:'7px 10px 7px 12px',
-                  display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
-                  <div style={{display:'flex',alignItems:'center',gap:7}}>
-                    <Avatar m={m} size={26}/>
-                    <div style={{minWidth:0,flex:1}}>
-                      <div style={{fontSize:11,fontWeight:700,color:C.text1,letterSpacing:'-0.02em',
-                        whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>
-                        {m.name.split(' ')[0]}
-                      </div>
-                      <div style={{fontSize:10,color:C.text2,letterSpacing:'-0.01em',
-                        whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>
-                        {m.name.split(' ').slice(1).join(' ')}
-                      </div>
-                    </div>
-                    <button
-                      onClick={()=>toggleCollapse(m.id)}
-                      title={m.isCollapsed?'Expand':'Collapse'}
-                      style={{width:20,height:20,borderRadius:5,flexShrink:0,
-                        background:'rgba(255,255,255,0.05)',border:`1px solid ${C.border}`,
-                        color:C.text3,fontSize:10,display:'flex',alignItems:'center',justifyContent:'center',
-                        transition:'color 0.1s'}}>
-                      {m.isCollapsed?'↕':'↕'}
-                    </button>
-                  </div>
-                  {safeH?(
-                    <div style={{display:'flex',alignItems:'center',gap:5}}>
-                      <div style={{flex:1,height:3,background:C.cap,borderRadius:2,overflow:'hidden'}}>
-                        <div style={{width:`${pct}%`,height:'100%',background:capCol,borderRadius:2,transition:'width 0.3s'}}/>
-                      </div>
-                      <span style={{fontSize:9,fontFamily:'monospace',color:pct>100?'#f87171':pct>85?C.orange:C.text2}}>
-                        {Math.round(bookedH)}h
-                      </span>
-                    </div>
-                  ):(
-                    <div style={{fontSize:9,color:C.text3}}>no cap</div>
-                  )}
-                  {m.isCollapsed&&(
-                    <div style={{fontSize:8,color:C.text3,letterSpacing:'0.02em',textTransform:'uppercase',lineHeight:1}}>
-                      collapsed · {m.bks.filter(b=>!b.isLeave).length} bookings
-                    </div>
-                  )}
-                </div>
-
-                {/* Timeline */}
-                <div style={{position:'relative',width:gridW,height:rowH,flexShrink:0}}>
-                  {DAYS.map((d,i)=>(
-                    <div key={i}
-                      onClick={()=>handleCellClick(m,d)}
-                      onMouseEnter={e=>{handleCellEnter(e,m.id,i);if(!dragRef.current)e.currentTarget.style.background=d.getDay()===0||d.getDay()===6?'rgba(124,58,237,0.05)':'rgba(124,58,237,0.03)';}}
-                      onMouseLeave={e=>{handleCellLeave();e.currentTarget.style.background=d.getDay()===0||d.getDay()===6?'rgba(0,0,0,0.18)':'transparent';}}
-                      style={{position:'absolute',left:i*DAY_W,top:0,bottom:0,width:DAY_W,
-                        borderRight:`1px solid ${C.border}`,
-                        background:d.getDay()===0||d.getDay()===6?'rgba(0,0,0,0.18)':'transparent',
-                        cursor:'crosshair',transition:'background 0.1s'}}
-                    />
-                  ))}
-                  {/* Today line */}
-                  {(()=>{const off=Math.round((new Date()-WIN)/86400000);
-                    if(off<0||off>=NUM_DAYS)return null;
-                    return<div style={{position:'absolute',left:off*DAY_W+DAY_W/2,top:0,bottom:0,
-                      width:2,background:'rgba(124,58,237,0.35)',pointerEvents:'none',zIndex:5}}/>;
-                  })()}
-                  {/* Booking bars */}
-                  {m.bks.map(b=>(
-                    <Bar key={b.id} b={b}
-                      onDown={handleBarDown} onEdit={handleEditBooking}
-                      isDragging={draggingId===b.id}
-                      mini={m.isCollapsed}
-                      filter={filter}/>
-                  ))}
-                  {/* Meeting bars */}
-                  {showMeetings&&!m.isCollapsed&&m.meetBks.map((ev,ei)=>(
-                    <MeetingBar key={ei} ev={ev} bookingRowH={m.rowH}/>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* ── PROJECT LEGEND ── */}
-      <div style={{flexShrink:0,background:'#161618',borderTop:`1px solid ${C.border}`}}>
-        {/* Legend header */}
-        <div style={{display:'flex',alignItems:'center',gap:8,padding:'6px 14px 5px',cursor:'pointer'}}
-          onClick={()=>setLegendExpanded(v=>!v)}>
-          <span style={{fontSize:9,fontWeight:700,color:C.text3,textTransform:'uppercase',letterSpacing:'0.12em',marginRight:2}}>
-            Projects
-          </span>
-          <span style={{fontSize:9,color:C.text3,marginLeft:'auto'}}>{legendExpanded?'▲ collapse':'▼ expand'}</span>
-        </div>
-        {/* Chips row */}
-        <div style={{display:'flex',gap:4,flexWrap:'wrap',padding:'0 14px 7px',alignItems:'center'}}>
-          {Object.entries(PROJ).filter(([,p])=>!p.isLeave&&(filter==='all'||p.type===filter)).map(([k,p])=>(
-            <div key={k}
-              onClick={()=>setDrawer(k)}
-              style={{display:'flex',alignItems:'center',gap:3,
-                padding:'3px 9px',borderRadius:20,cursor:'pointer',
-                background:p.bg,fontSize:10,
-                fontWeight:p.signed?700:400,
-                fontStyle:p.signed?'normal':'italic',
-                color:p.tx,letterSpacing:'-0.01em',
-                border:p.signed?'none':`1.5px dashed ${p.tx}80`,
-                transition:'opacity 0.1s,transform 0.1s',
-                transform:'scale(1)',
-              }}
-              onMouseEnter={e=>e.currentTarget.style.opacity='0.8'}
-              onMouseLeave={e=>e.currentTarget.style.opacity='1'}>
-              {p.name}
-            </div>
-          ))}
-        </div>
-        {/* Expanded legend */}
-        {legendExpanded&&(
-          <div style={{borderTop:`1px solid ${C.border}`,padding:'10px 14px 12px',
-            display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(200px,1fr))',gap:5}}>
-            {[['project','Bespoke Projects'],['support','Support Retainers'],['internal','Internal']].map(([type,label])=>{
-              const items=Object.entries(PROJ).filter(([,p])=>!p.isLeave&&p.type===type);
-              if(filter!=='all'&&filter!==type&&type!=='internal')return null;
-              return items.length===0?null:(
-                <div key={type}>
-                  <div style={{fontSize:9,fontWeight:700,color:C.text3,textTransform:'uppercase',
-                    letterSpacing:'0.10em',marginBottom:5}}>{label}</div>
-                  {items.map(([k,p])=>(
-                    <div key={k} onClick={()=>setDrawer(k)}
-                      style={{display:'flex',alignItems:'center',gap:7,padding:'4px 7px',
-                        borderRadius:6,marginBottom:3,cursor:'pointer',
-                        background:'rgba(255,255,255,0.03)',
-                        border:`1px solid ${C.border}`}}
-                      onMouseEnter={e=>e.currentTarget.style.background='rgba(255,255,255,0.06)'}
-                      onMouseLeave={e=>e.currentTarget.style.background='rgba(255,255,255,0.03)'}>
-                      <div style={{width:10,height:10,borderRadius:2,background:p.bg,
-                        border:`1.5px solid ${p.tx}50`,flexShrink:0}}/>
-                      <span style={{fontSize:11,fontWeight:p.signed?700:400,fontStyle:p.signed?'normal':'italic',
-                        color:C.text1,letterSpacing:'-0.01em',flex:1}}>{p.name}</span>
-                      <span style={{fontSize:9,color:C.text3,textTransform:'uppercase',letterSpacing:'0.04em'}}>
-                        {bookings.filter(b=>b.proj===k).length > 0 ?
-                          `${Math.round(bookings.filter(b=>b.proj===k).reduce((s,b)=>s+(b.hrs||0),0))}h` : ''}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
-
-      {/* Capacity tooltip */}
-      {dayTip&&<CapacityTip tip={dayTip} team={team} bookings={bookings}
-        meetHoursPerDay={meetingDataByPerson[dayTip.pid]?.meetHoursPerDay}/>}
-
-      {/* Drag ghost */}
-      {ghost&&(
-        <div className="no-sel" style={{
-          position:'fixed',left:ghost.x,top:ghost.y,
-          width:Math.max(ghost.w,DAY_W-4),height:BAR_H,
-          borderRadius:7,pointerEvents:'none',zIndex:9999,
-          background:ghost.bg,
-          border:ghost.isTentative?`1.5px dashed ${ghost.tx}aa`:`2px solid rgba(255,255,255,0.15)`,
-          opacity:ghost.isTentative?0.85:0.92,
-          boxShadow:'0 12px 40px rgba(0,0,0,0.7)',
-          display:'flex',alignItems:'center',padding:'0 8px'}}>
-          <span style={{fontSize:11,fontWeight:600,color:ghost.tx,letterSpacing:'-0.01em',
-            whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{ghost.label}</span>
-        </div>
-      )}
-
-      {/* Project Drawer */}
-      {drawer&&<ProjectDrawer projKey={drawer} bookings={bookings} team={team} onClose={()=>setDrawer(null)}/>}
-
-      {/* Modals */}
-      {modal?.type==='create'&&<BookingModal initial={modal} team={team} onSave={handleSaveBooking} onDelete={handleDeleteBooking} onClose={()=>setModal(null)}/>}
-      {modal?.type==='edit'&&<BookingModal initial={modal} team={team} onSave={handleSaveBooking} onDelete={handleDeleteBooking} onClose={()=>setModal(null)}/>}
-      {modal?.type==='settings'&&<SettingsModal team={team} onSave={handleSaveSettings} onClose={()=>setModal(null)}/>}
-    </div>
-  );
+  }, []);
+  const gridW = NUM_DAYS * DAY_W;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100vh',
+      background: C.bg
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 12,
+      padding: '0 18px',
+      height: 54,
+      background: C.header,
+      borderBottom: `1px solid ${C.border}`,
+      boxShadow: '0 1px 0 rgba(0,0,0,0.3)',
+      flexShrink: 0,
+      zIndex: 40
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 9,
+      marginRight: 6
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 30,
+      height: 30,
+      borderRadius: 7,
+      background: C.violet,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: 'white',
+      fontWeight: 700,
+      fontSize: 14,
+      letterSpacing: '-0.05em',
+      boxShadow: `0 2px 8px ${C.violet}50`
+    }
+  }, "A"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      color: '#fff',
+      lineHeight: 1.2,
+      letterSpacing: '-0.03em'
+    }
+  }, "Apollo Scheduler"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: 'rgba(255,255,255,0.4)',
+      lineHeight: 1.2
+    }
+  }, "DotCollective"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 1,
+      height: 22,
+      background: 'rgba(255,255,255,0.1)',
+      marginRight: 2
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: scrollToToday,
+    style: {
+      padding: '5px 14px',
+      fontSize: 11,
+      fontWeight: 600,
+      color: 'rgba(255,255,255,0.9)',
+      border: '1px solid rgba(255,255,255,0.18)',
+      borderRadius: 6,
+      background: 'rgba(255,255,255,0.08)',
+      cursor: 'pointer',
+      letterSpacing: '-0.01em'
+    }
+  }, "Today"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 2,
+      background: 'rgba(255,255,255,0.06)',
+      borderRadius: 8,
+      padding: 2
+    }
+  }, [['all', 'All'], ['project', 'Projects'], ['support', 'Support']].map(([val, label]) => /*#__PURE__*/React.createElement("button", {
+    key: val,
+    onClick: () => setFilter(val),
+    style: {
+      padding: '4px 14px',
+      borderRadius: 6,
+      fontSize: 11,
+      fontWeight: 600,
+      letterSpacing: '-0.01em',
+      border: 'none',
+      cursor: 'pointer',
+      background: filter === val ? C.violet : 'transparent',
+      color: filter === val ? 'white' : 'rgba(255,255,255,0.5)',
+      transition: 'background 0.15s,color 0.15s'
+    }
+  }, label))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      gap: 1
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => setShowMeetings(v => !v),
+    title: showMeetings ? 'Hide meetings' : 'Show calendar meetings (auto-synced daily)',
+    style: {
+      padding: '5px 12px',
+      fontSize: 11,
+      fontWeight: 600,
+      borderRadius: 6,
+      border: showMeetings ? `1px solid rgba(147,197,253,0.4)` : '1px solid rgba(255,255,255,0.14)',
+      background: showMeetings ? 'rgba(59,130,246,0.18)' : 'rgba(255,255,255,0.07)',
+      color: showMeetings ? '#93c5fd' : 'rgba(255,255,255,0.5)',
+      cursor: 'pointer',
+      letterSpacing: '-0.01em',
+      display: 'flex',
+      alignItems: 'center',
+      gap: 5
+    }
+  }, /*#__PURE__*/React.createElement("span", null, "\uD83D\uDCC5"), /*#__PURE__*/React.createElement("span", null, showMeetings ? 'Meetings on' : 'Meetings')), (() => {
+    const d = new Date(GCAL_REFRESHED),
+      now = new Date();
+    const diffH = Math.round((now - d) / 3600000);
+    const label = diffH < 1 ? 'just now' : diffH < 24 ? `${diffH}h ago` : `${Math.round(diffH / 24)}d ago`;
+    return /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 8,
+        color: 'rgba(255,255,255,0.25)',
+        letterSpacing: '-0.01em',
+        paddingLeft: 3
+      }
+    }, "synced ", label);
+  })()), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 14,
+      fontSize: 11,
+      color: 'rgba(255,255,255,0.4)',
+      letterSpacing: '-0.01em'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 700
+    }
+  }, "Bold = Signed"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontStyle: 'italic'
+    }
+  }, "Italic = Tentative"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 8,
+      height: 8,
+      borderRadius: '50%',
+      background: C.orange,
+      display: 'inline-block'
+    }
+  }), /*#__PURE__*/React.createElement("span", null, "extended past leave"))), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setModal({
+      type: 'settings'
+    }),
+    style: {
+      width: 30,
+      height: 30,
+      borderRadius: 6,
+      marginLeft: 8,
+      background: 'rgba(255,255,255,0.07)',
+      border: '1px solid rgba(255,255,255,0.12)',
+      color: 'rgba(255,255,255,0.6)',
+      fontSize: 14,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      cursor: 'pointer'
+    },
+    title: "Safe hours settings"
+  }, "\u2699\uFE0F")), /*#__PURE__*/React.createElement("div", {
+    ref: scrollRef,
+    style: {
+      flex: 1,
+      overflowX: 'auto',
+      overflowY: 'auto'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      minWidth: NAME_W + gridW,
+      position: 'relative'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      position: 'sticky',
+      top: 0,
+      zIndex: 30,
+      height: HDR_H,
+      background: `rgba(22,22,24,0.97)`,
+      backdropFilter: 'blur(12px)',
+      borderBottom: `1px solid ${C.border}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: NAME_W,
+      flexShrink: 0,
+      position: 'sticky',
+      left: 0,
+      zIndex: 31,
+      background: 'rgba(22,22,24,0.97)',
+      borderRight: `1px solid ${C.border}`,
+      display: 'flex',
+      alignItems: 'flex-end',
+      padding: '8px 14px 9px'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 9,
+      fontWeight: 700,
+      color: C.text3,
+      textTransform: 'uppercase',
+      letterSpacing: '0.12em'
+    }
+  }, "Team")), DAYS.map((d, i) => {
+    const isWE = d.getDay() === 0 || d.getDay() === 6;
+    const isTd = d.toDateString() === new Date().toDateString();
+    const showM = i === 0 || d.getDate() === 1;
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      style: {
+        width: DAY_W,
+        flexShrink: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRight: `1px solid ${C.border}`,
+        background: isWE ? 'rgba(0,0,0,0.2)' : 'transparent',
+        padding: '4px 0'
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 9,
+        fontWeight: 600,
+        textTransform: 'uppercase',
+        letterSpacing: '0.06em',
+        color: isTd ? C.violet : C.text3
+      }
+    }, DOW[d.getDay()]), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 13,
+        fontWeight: 700,
+        marginTop: 1,
+        lineHeight: 1,
+        width: 24,
+        height: 24,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '50%',
+        letterSpacing: '-0.02em',
+        background: isTd ? C.violet : 'transparent',
+        color: isTd ? 'white' : C.text1
+      }
+    }, d.getDate()), showM && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 9,
+        color: C.text3,
+        marginTop: 1,
+        letterSpacing: '0.03em'
+      }
+    }, MONS[d.getMonth()]));
+  })), teamData.map((m, mi) => {
+    const bookedH = m.bks.filter(b => !b.isLeave).reduce((s, b) => s + (b.hrs || 0), 0);
+    const safeH = m.safeHpD ? m.safeHpD * 25 : null;
+    const pct = safeH ? Math.min(bookedH / safeH * 100, 100) : 0;
+    const capCol = pct > 100 ? '#f87171' : pct > 85 ? C.orange : '#34d399';
+    const rowBg = mi % 2 === 0 ? C.row1 : C.row2;
+    const rowH = m.effectiveRowH;
+    return /*#__PURE__*/React.createElement("div", {
+      key: m.id,
+      style: {
+        display: 'flex',
+        height: rowH,
+        borderBottom: `1px solid ${C.border}`,
+        background: rowBg
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: NAME_W,
+        flexShrink: 0,
+        position: 'sticky',
+        left: 0,
+        zIndex: 15,
+        background: rowBg,
+        borderRight: `1px solid ${C.border}`,
+        padding: '7px 10px 7px 12px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 7
+      }
+    }, /*#__PURE__*/React.createElement(Avatar, {
+      m: m,
+      size: 26
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        minWidth: 0,
+        flex: 1
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 11,
+        fontWeight: 700,
+        color: C.text1,
+        letterSpacing: '-0.02em',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
+      }
+    }, m.name.split(' ')[0]), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: C.text2,
+        letterSpacing: '-0.01em',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
+      }
+    }, m.name.split(' ').slice(1).join(' '))), /*#__PURE__*/React.createElement("button", {
+      onClick: () => toggleCollapse(m.id),
+      title: m.isCollapsed ? 'Expand' : 'Collapse',
+      style: {
+        width: 20,
+        height: 20,
+        borderRadius: 5,
+        flexShrink: 0,
+        background: 'rgba(255,255,255,0.05)',
+        border: `1px solid ${C.border}`,
+        color: C.text3,
+        fontSize: 10,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: 'color 0.1s'
+      }
+    }, m.isCollapsed ? '↕' : '↕')), safeH ? /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 5
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1,
+        height: 3,
+        background: C.cap,
+        borderRadius: 2,
+        overflow: 'hidden'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: `${pct}%`,
+        height: '100%',
+        background: capCol,
+        borderRadius: 2,
+        transition: 'width 0.3s'
+      }
+    })), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 9,
+        fontFamily: 'monospace',
+        color: pct > 100 ? '#f87171' : pct > 85 ? C.orange : C.text2
+      }
+    }, Math.round(bookedH), "h")) : /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 9,
+        color: C.text3
+      }
+    }, "no cap"), m.isCollapsed && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 8,
+        color: C.text3,
+        letterSpacing: '0.02em',
+        textTransform: 'uppercase',
+        lineHeight: 1
+      }
+    }, "collapsed \xB7 ", m.bks.filter(b => !b.isLeave).length, " bookings")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: 'relative',
+        width: gridW,
+        height: rowH,
+        flexShrink: 0
+      }
+    }, DAYS.map((d, i) => /*#__PURE__*/React.createElement("div", {
+      key: i,
+      onClick: () => handleCellClick(m, d),
+      onMouseEnter: e => {
+        handleCellEnter(e, m.id, i);
+        if (!dragRef.current) e.currentTarget.style.background = d.getDay() === 0 || d.getDay() === 6 ? 'rgba(124,58,237,0.05)' : 'rgba(124,58,237,0.03)';
+      },
+      onMouseLeave: e => {
+        handleCellLeave();
+        e.currentTarget.style.background = d.getDay() === 0 || d.getDay() === 6 ? 'rgba(0,0,0,0.18)' : 'transparent';
+      },
+      style: {
+        position: 'absolute',
+        left: i * DAY_W,
+        top: 0,
+        bottom: 0,
+        width: DAY_W,
+        borderRight: `1px solid ${C.border}`,
+        background: d.getDay() === 0 || d.getDay() === 6 ? 'rgba(0,0,0,0.18)' : 'transparent',
+        cursor: 'crosshair',
+        transition: 'background 0.1s'
+      }
+    })), (() => {
+      const off = Math.round((new Date() - WIN) / 86400000);
+      if (off < 0 || off >= NUM_DAYS) return null;
+      return /*#__PURE__*/React.createElement("div", {
+        style: {
+          position: 'absolute',
+          left: off * DAY_W + DAY_W / 2,
+          top: 0,
+          bottom: 0,
+          width: 2,
+          background: 'rgba(124,58,237,0.35)',
+          pointerEvents: 'none',
+          zIndex: 5
+        }
+      });
+    })(), m.bks.map(b => /*#__PURE__*/React.createElement(Bar, {
+      key: b.id,
+      b: b,
+      onDown: handleBarDown,
+      onEdit: handleEditBooking,
+      isDragging: draggingId === b.id,
+      mini: m.isCollapsed,
+      filter: filter
+    })), showMeetings && !m.isCollapsed && m.meetBks.map((ev, ei) => /*#__PURE__*/React.createElement(MeetingBar, {
+      key: ei,
+      ev: ev,
+      bookingRowH: m.rowH
+    }))));
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flexShrink: 0,
+      background: '#161618',
+      borderTop: `1px solid ${C.border}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 8,
+      padding: '6px 14px 5px',
+      cursor: 'pointer'
+    },
+    onClick: () => setLegendExpanded(v => !v)
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 9,
+      fontWeight: 700,
+      color: C.text3,
+      textTransform: 'uppercase',
+      letterSpacing: '0.12em',
+      marginRight: 2
+    }
+  }, "Projects"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 9,
+      color: C.text3,
+      marginLeft: 'auto'
+    }
+  }, legendExpanded ? '▲ collapse' : '▼ expand')), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 4,
+      flexWrap: 'wrap',
+      padding: '0 14px 7px',
+      alignItems: 'center'
+    }
+  }, Object.entries(PROJ).filter(([, p]) => !p.isLeave && (filter === 'all' || p.type === filter)).map(([k, p]) => /*#__PURE__*/React.createElement("div", {
+    key: k,
+    onClick: () => setDrawer(k),
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 3,
+      padding: '3px 9px',
+      borderRadius: 20,
+      cursor: 'pointer',
+      background: p.bg,
+      fontSize: 10,
+      fontWeight: p.signed ? 700 : 400,
+      fontStyle: p.signed ? 'normal' : 'italic',
+      color: p.tx,
+      letterSpacing: '-0.01em',
+      border: p.signed ? 'none' : `1.5px dashed ${p.tx}80`,
+      transition: 'opacity 0.1s,transform 0.1s',
+      transform: 'scale(1)'
+    },
+    onMouseEnter: e => e.currentTarget.style.opacity = '0.8',
+    onMouseLeave: e => e.currentTarget.style.opacity = '1'
+  }, p.name))), legendExpanded && /*#__PURE__*/React.createElement("div", {
+    style: {
+      borderTop: `1px solid ${C.border}`,
+      padding: '10px 14px 12px',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill,minmax(200px,1fr))',
+      gap: 5
+    }
+  }, [['project', 'Bespoke Projects'], ['support', 'Support Retainers'], ['internal', 'Internal']].map(([type, label]) => {
+    const items = Object.entries(PROJ).filter(([, p]) => !p.isLeave && p.type === type);
+    if (filter !== 'all' && filter !== type && type !== 'internal') return null;
+    return items.length === 0 ? null : /*#__PURE__*/React.createElement("div", {
+      key: type
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 9,
+        fontWeight: 700,
+        color: C.text3,
+        textTransform: 'uppercase',
+        letterSpacing: '0.10em',
+        marginBottom: 5
+      }
+    }, label), items.map(([k, p]) => /*#__PURE__*/React.createElement("div", {
+      key: k,
+      onClick: () => setDrawer(k),
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 7,
+        padding: '4px 7px',
+        borderRadius: 6,
+        marginBottom: 3,
+        cursor: 'pointer',
+        background: 'rgba(255,255,255,0.03)',
+        border: `1px solid ${C.border}`
+      },
+      onMouseEnter: e => e.currentTarget.style.background = 'rgba(255,255,255,0.06)',
+      onMouseLeave: e => e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: 10,
+        height: 10,
+        borderRadius: 2,
+        background: p.bg,
+        border: `1.5px solid ${p.tx}50`,
+        flexShrink: 0
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        fontWeight: p.signed ? 700 : 400,
+        fontStyle: p.signed ? 'normal' : 'italic',
+        color: C.text1,
+        letterSpacing: '-0.01em',
+        flex: 1
+      }
+    }, p.name), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 9,
+        color: C.text3,
+        textTransform: 'uppercase',
+        letterSpacing: '0.04em'
+      }
+    }, bookings.filter(b => b.proj === k).length > 0 ? `${Math.round(bookings.filter(b => b.proj === k).reduce((s, b) => s + (b.hrs || 0), 0))}h` : ''))));
+  }))), dayTip && /*#__PURE__*/React.createElement(CapacityTip, {
+    tip: dayTip,
+    team: team,
+    bookings: bookings,
+    meetHoursPerDay: meetingDataByPerson[dayTip.pid]?.meetHoursPerDay
+  }), ghost && /*#__PURE__*/React.createElement("div", {
+    className: "no-sel",
+    style: {
+      position: 'fixed',
+      left: ghost.x,
+      top: ghost.y,
+      width: Math.max(ghost.w, DAY_W - 4),
+      height: BAR_H,
+      borderRadius: 7,
+      pointerEvents: 'none',
+      zIndex: 9999,
+      background: ghost.bg,
+      border: ghost.isTentative ? `1.5px dashed ${ghost.tx}aa` : `2px solid rgba(255,255,255,0.15)`,
+      opacity: ghost.isTentative ? 0.85 : 0.92,
+      boxShadow: '0 12px 40px rgba(0,0,0,0.7)',
+      display: 'flex',
+      alignItems: 'center',
+      padding: '0 8px'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      fontWeight: 600,
+      color: ghost.tx,
+      letterSpacing: '-0.01em',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis'
+    }
+  }, ghost.label)), drawer && /*#__PURE__*/React.createElement(ProjectDrawer, {
+    projKey: drawer,
+    bookings: bookings,
+    team: team,
+    onClose: () => setDrawer(null)
+  }), modal?.type === 'create' && /*#__PURE__*/React.createElement(BookingModal, {
+    initial: modal,
+    team: team,
+    onSave: handleSaveBooking,
+    onDelete: handleDeleteBooking,
+    onClose: () => setModal(null)
+  }), modal?.type === 'edit' && /*#__PURE__*/React.createElement(BookingModal, {
+    initial: modal,
+    team: team,
+    onSave: handleSaveBooking,
+    onDelete: handleDeleteBooking,
+    onClose: () => setModal(null)
+  }), modal?.type === 'settings' && /*#__PURE__*/React.createElement(SettingsModal, {
+    team: team,
+    onSave: handleSaveSettings,
+    onClose: () => setModal(null)
+  }));
 }
+ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(App, null));
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
 </script>
 </body>
 </html>
