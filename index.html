@@ -1730,6 +1730,7 @@ function Bar({
   b,
   onDown,
   onEdit,
+  onResize,
   isDragging,
   mini,
   filter,
@@ -1744,6 +1745,12 @@ function Bar({
   const top = mini ? 11 : ROW_PAD / 2 + b.lane * LANE_H;
   const isExtended = !b.isLeave && b.dn > b.n;
   const dimmed = filter !== 'all' && !b.isLeave && p.type !== filter;
+  const handleResizeDown = (e, edge) => {
+    if (dimmed || mini) return;
+    e.preventDefault();
+    e.stopPropagation();
+    onResize(e, b, edge);
+  };
   return /*#__PURE__*/React.createElement("div", {
     className: "no-sel",
     onMouseDown: e => {
@@ -1828,6 +1835,30 @@ function Bar({
       zIndex: 4,
       flexShrink: 0
     }
+  })), !mini && !dimmed && hov && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    onMouseDown: e => handleResizeDown(e, 'left'),
+    style: {
+      position: 'absolute',
+      left: -2,
+      top: 0,
+      width: 6,
+      height: '100%',
+      cursor: 'ew-resize',
+      zIndex: 25,
+      borderRadius: '4px 0 0 4px'
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    onMouseDown: e => handleResizeDown(e, 'right'),
+    style: {
+      position: 'absolute',
+      right: -2,
+      top: 0,
+      width: 6,
+      height: '100%',
+      cursor: 'ew-resize',
+      zIndex: 25,
+      borderRadius: '0 4px 4px 0'
+    }
   })), hov && !mini && /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'absolute',
@@ -1880,7 +1911,7 @@ function Bar({
       color: C.text3,
       marginTop: 3
     }
-  }, "Click to edit \xB7 Drag to move"), /*#__PURE__*/React.createElement("div", {
+  }, "Click to edit \xB7 Drag edges to resize \xB7 Drag to move"), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'absolute',
       bottom: -5,
@@ -2239,7 +2270,8 @@ function App() {
     function onMove(e) {
       if (!dragRef.current) return;
       const {
-        bk
+        bk,
+        mode
       } = dragRef.current;
       const p = PROJ[bk.proj] || PROJ.lv;
       const scEl = scrollRef.current;
@@ -2249,6 +2281,34 @@ function App() {
       const rect = scEl.getBoundingClientRect();
       const relX = e.clientX - rect.left - NAME_W + sl;
       const snDay = Math.round(relX / dw);
+      if (mode === 'resize') {
+        const {
+          edge,
+          origS,
+          origN
+        } = dragRef.current;
+        let newS = origS,
+          newN = origN;
+        if (edge === 'left') {
+          newS = Math.min(snDay, origS + origN - 1);
+          newN = origS + origN - newS;
+        } else {
+          const newEnd = Math.max(snDay, origS);
+          newN = newEnd - origS + 1;
+          newS = origS;
+        }
+        if (newN < 1) newN = 1;
+        // Live preview: update booking in-place
+        setBookings(prev => prev.map(b => b.id === bk.id ? {
+          ...b,
+          s: newS,
+          n: newN,
+          dn: newN
+        } : b));
+        return;
+      }
+
+      // move mode
       const snX = snDay * dw + NAME_W - sl + rect.left;
       const w = Math.max(bk.dn * dw - 4, dw - 4);
       const isTentative = !p.signed && !p.isLeave;
@@ -2280,10 +2340,23 @@ function App() {
       }
       const {
         bk,
+        mode,
         targetPerson
       } = dragRef.current;
       const scEl = scrollRef.current;
       const dw = Math.round(DAY_W * zoom);
+      if (mode === 'resize') {
+        // Resize already applied live — just commit to history
+        dragRef.current = null;
+        setDraggingId(null);
+        setBookings(prev => {
+          pushHistory(prev);
+          return prev;
+        });
+        return;
+      }
+
+      // move mode
       if (scEl && targetPerson !== undefined) {
         const relX = e.clientX - scEl.getBoundingClientRect().left - NAME_W + scEl.scrollLeft;
         const newDay = Math.round(relX / dw);
@@ -2312,7 +2385,18 @@ function App() {
   const handleBarDown = useCallback((e, b) => {
     dragRef.current = {
       bk: b,
-      targetPerson: undefined
+      targetPerson: undefined,
+      mode: 'move'
+    };
+    setDraggingId(b.id);
+  }, []);
+  const handleBarResize = useCallback((e, b, edge) => {
+    dragRef.current = {
+      bk: b,
+      mode: 'resize',
+      edge,
+      origS: b.s,
+      origN: b.n
     };
     setDraggingId(b.id);
   }, []);
@@ -2978,6 +3062,7 @@ function App() {
       b: b,
       onDown: handleBarDown,
       onEdit: handleEditBooking,
+      onResize: handleBarResize,
       isDragging: draggingId === b.id,
       mini: m.isCollapsed,
       filter: filter,
