@@ -36,7 +36,7 @@
 <body><div id="root"></div>
 <script>
 /* Apollo data constants — separated from Babel for faster transpilation */
-const GCAL_MEETINGS = [
+var GCAL_MEETINGS = [
   {pid:'1',offset:0,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
   {pid:'1',offset:0,title:"SYDNEY - SPACE TENDER",start:'09:00',end:'14:00',durH:5.0},
   {pid:'1',offset:1,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
@@ -484,7 +484,7 @@ const GCAL_MEETINGS = [
 ];
 
 /* ── Calendar sync metadata ── */
-const GCAL_REFRESHED='2026-04-02T16:36:39+10:00'; // auto-updated by daily sync task
+var GCAL_REFRESHED='2026-04-02T16:36:39+10:00'; // auto-updated by daily sync task
 </script>
 <script type="text/babel">
 const {useState,useRef,useMemo,useEffect,useCallback} = React;
