@@ -493,11 +493,11 @@ var GCAL_MEETINGS = [
   {pid:'7',offset:38,title:"Strategy Talking Strategy",start:'13:00',end:'13:30',durH:0.5},
   {pid:'7',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'7',offset:39,title:"Han & Jonathan 1:1",start:'11:00',end:'11:30',durH:0.5},
-  {pid:'7',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1.0}
+  {pid:'7',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1.0},
 ];
 
 /* ── Calendar sync metadata ── */
-var GCAL_REFRESHED='2026-04-04T07:52:57+10:00'; // auto-updated by daily sync task
+var GCAL_REFRESHED='2026-04-02T16:36:39+10:00'; // auto-updated by daily sync task
 </script>
 <script>
 const {
@@ -870,14 +870,13 @@ function assignLanes(bks) {
 /* ── AL/DO auto-extend ── */
 function adjustSpan(b, leaveDays) {
   if (b.isLeave) return b.n;
-  const wdNeeded = [...Array(b.n).keys()].filter(i => !leaveDays.has(b.s + i)).length || b.n;
   let wd = 0,
     d = b.s;
-  while (wd < wdNeeded) {
+  while (wd < b.n) {
     if (!leaveDays.has(d)) wd++;
-    if (wd < wdNeeded) d++;
+    if (wd < b.n) d++;
   }
-  return Math.max(b.n, d - b.s + 1);
+  return d - b.s + 1;
 }
 
 /* ── Process team ── */
@@ -1525,7 +1524,7 @@ function BookingModal({
   const bk = initial?.booking;
   const [form, setForm] = useState({
     person: initial?.member?.id || team[0].id,
-    proj: bk?.proj || '',
+    proj: bk?.proj || 'g',
     startDate: bk ? offsetToDate(bk.s) : initial?.day ? initial.day.toISOString().slice(0, 10) : '',
     endDate: bk ? offsetToDate(bk.s + (bk.n - 1)) : initial?.day ? initial.day.toISOString().slice(0, 10) : '',
     note: bk?.note || '',
@@ -2624,9 +2623,8 @@ function App() {
   }, "+")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-start',
-      gap: 1
+      alignItems: 'center',
+      gap: 6
     }
   }, /*#__PURE__*/React.createElement("button", {
     onClick: () => setShowMeetings(v => !v),
@@ -2654,8 +2652,7 @@ function App() {
       style: {
         fontSize: 8,
         color: 'rgba(255,255,255,0.25)',
-        letterSpacing: '-0.01em',
-        paddingLeft: 3
+        letterSpacing: '-0.01em'
       }
     }, "synced ", label);
   })()), /*#__PURE__*/React.createElement("div", {
@@ -2760,10 +2757,13 @@ function App() {
     const isWE = d.getDay() === 0 || d.getDay() === 6;
     const isTd = d.toDateString() === new Date().toDateString();
     const showM = i === 0 || d.getDate() === 1;
+    const compact = dayW < 40;
     return /*#__PURE__*/React.createElement("div", {
       key: i,
       style: {
         width: dayW,
+        minWidth: dayW,
+        maxWidth: dayW,
         flexShrink: 0,
         display: 'flex',
         flexDirection: 'column',
@@ -2771,24 +2771,26 @@ function App() {
         justifyContent: 'center',
         borderRight: `1px solid ${C.border}`,
         background: isWE ? 'rgba(0,0,0,0.2)' : 'transparent',
-        padding: '4px 0'
+        padding: '4px 0',
+        overflow: 'hidden',
+        boxSizing: 'border-box'
       }
     }, /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 9,
+        fontSize: compact ? 7 : 9,
         fontWeight: 600,
         textTransform: 'uppercase',
-        letterSpacing: '0.06em',
+        letterSpacing: compact ? 0 : '0.06em',
         color: isTd ? C.violet : C.text3
       }
-    }, DOW[d.getDay()]), /*#__PURE__*/React.createElement("span", {
+    }, compact ? DOW[d.getDay()][0] : DOW[d.getDay()]), /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 13,
+        fontSize: compact ? 10 : 13,
         fontWeight: 700,
         marginTop: 1,
         lineHeight: 1,
-        width: 24,
-        height: 24,
+        width: compact ? 18 : 24,
+        height: compact ? 18 : 24,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -2797,7 +2799,7 @@ function App() {
         background: isTd ? C.violet : 'transparent',
         color: isTd ? 'white' : C.text1
       }
-    }, d.getDate()), showM && /*#__PURE__*/React.createElement("span", {
+    }, d.getDate()), showM && !compact && /*#__PURE__*/React.createElement("span", {
       style: {
         fontSize: 9,
         color: C.text3,
