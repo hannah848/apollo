@@ -493,11 +493,11 @@ var GCAL_MEETINGS = [
   {pid:'7',offset:38,title:"Strategy Talking Strategy",start:'13:00',end:'13:30',durH:0.5},
   {pid:'7',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
   {pid:'7',offset:39,title:"Han & Jonathan 1:1",start:'11:00',end:'11:30',durH:0.5},
-  {pid:'7',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1.0}
+  {pid:'7',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1.0},
 ];
 
 /* ── Calendar sync metadata ── */
-var GCAL_REFRESHED='2026-04-04T08:22:10+10:00'; // auto-updated by daily sync task
+var GCAL_REFRESHED='2026-04-02T16:36:39+10:00'; // auto-updated by daily sync task
 </script>
 <script>
 const {
@@ -1744,6 +1744,7 @@ function Bar({
   dayW = DAY_W
 }) {
   const [hov, setHov] = useState(false);
+  const barRef = useRef(null);
   const p = PROJ[b.proj] || PROJ.lv;
   const isTentative = !p.signed && !p.isLeave;
   const bh = mini ? BAR_H_MINI : BAR_H;
@@ -1758,8 +1759,21 @@ function Bar({
     e.stopPropagation();
     onResize(e, b, edge);
   };
+  const [tipPos, setTipPos] = useState(null);
+  useEffect(() => {
+    if (hov && !mini && barRef.current) {
+      const r = barRef.current.getBoundingClientRect();
+      setTipPos({
+        x: r.left + r.width / 2,
+        y: r.top
+      });
+    } else {
+      setTipPos(null);
+    }
+  }, [hov, mini]);
   return /*#__PURE__*/React.createElement("div", {
     className: "no-sel",
+    ref: barRef,
     onMouseDown: e => {
       if (dimmed) return;
       e.preventDefault();
@@ -1866,12 +1880,12 @@ function Bar({
       zIndex: 25,
       borderRadius: '0 4px 4px 0'
     }
-  })), hov && !mini && /*#__PURE__*/React.createElement("div", {
+  })), tipPos && /*#__PURE__*/React.createElement("div", {
     style: {
-      position: 'absolute',
-      bottom: 'calc(100% + 8px)',
-      left: '50%',
-      transform: 'translateX(-50%)',
+      position: 'fixed',
+      left: tipPos.x,
+      top: tipPos.y,
+      transform: 'translate(-50%,calc(-100% - 10px))',
       background: '#1e1e22',
       border: `1px solid ${C.borderMid}`,
       color: C.text1,
@@ -1880,7 +1894,7 @@ function Bar({
       fontSize: 11,
       whiteSpace: 'nowrap',
       boxShadow: '0 8px 30px rgba(0,0,0,0.6)',
-      zIndex: 100,
+      zIndex: 9999,
       pointerEvents: 'none',
       lineHeight: 1.7,
       letterSpacing: '-0.01em'
