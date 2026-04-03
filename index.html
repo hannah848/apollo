@@ -34,6 +34,20 @@
 </style>
 </head>
 <body><div id="root"></div>
+<div id="err-display" style="display:none;position:fixed;top:0;left:0;right:0;padding:20px;background:#ff3333;color:#fff;font-family:monospace;font-size:13px;z-index:99999;white-space:pre-wrap;max-height:50vh;overflow:auto"></div>
+<script>
+window.onerror=function(msg,src,line,col,err){
+  var d=document.getElementById('err-display');
+  d.style.display='block';
+  d.textContent='JS ERROR: '+msg+'\nAt: '+src+':'+line+':'+col+'\n'+(err&&err.stack||'');
+  return false;
+};
+window.addEventListener('unhandledrejection',function(e){
+  var d=document.getElementById('err-display');
+  d.style.display='block';
+  d.textContent=(d.textContent||'')+'PROMISE ERROR: '+e.reason;
+});
+</script>
 <script>
 /* Apollo data constants — separated from Babel for faster transpilation */
 var GCAL_MEETINGS = [
