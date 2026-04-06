@@ -880,8 +880,202 @@ const mk = (p, proj, s, n, note, hrs, isLeave) => ({
   isLeave: !!isLeave,
   sowUrl: null,
   prodUrl: null,
-  dn: n
+  dn: n,
+  prodBookingId: null
 });
+
+/* ── Productive API Sync Layer ── */
+const PROD_API = 'https://api.productive.io/api/v2';
+const PROD_TOKEN = 'c7e381f5-685e-4850-8bac-14941f97af46';
+const PROD_ORG = '1476';
+const PERSON_PROD_MAP = {
+  '1': '1043514',
+  '2': '456779',
+  '3': '934507',
+  '4': '1066502',
+  '5': '274241',
+  '6': '991921',
+  '7': '990257',
+  '8': '777282'
+};
+
+/* Maps proj code → default Productive service_id for creating bookings */
+const PROJ_SERVICE_MAP = {
+  eurd: '12908899',
+  // Design – Eckersley Unified Replatform Design
+  jewd: '12623198',
+  // Design – JAG eCommerce
+  bsp: '12859867',
+  // Design – ByWren Shopify
+  essw: '13013658',
+  // Strategist – Early Settler Shopify
+  lswb: '12799517',
+  // Designer – Landsmith Shopify
+  jdb: '8931117',
+  // Design – Jardan Design Budget
+  kgtr: '11511346',
+  // Design – Kidman Group Theme Rebuild
+  cwm: '12908624',
+  // Design – Cable Website Migration
+  rcsp: '12650153',
+  // UX Lead – Rip Curl Support Pack
+  dspd: '12993513',
+  // Strategy – Decjuba Support Pack
+  jjsp: '12822898',
+  // Design – Jac & Jack Support Pack
+  mcsp: '10860175',
+  // Technical Lead – Manning Cartell Support
+  esqq: '12078387',
+  // Design – Essity Support
+  bbsp: '12493673',
+  // UX Lead – Billini & Banbe Support
+  pcsp: '12527034',
+  // Development – Perri Cutten Support
+  cmsp: '13014386',
+  // Design – Cable Melbourne Support
+  npfg: '8295222',
+  // Technical Direction – Natural Pet Food
+  shak: '12028333',
+  // Consulting – Shakti Mat
+  svdp: '13211127',
+  // Paid Search – SVDP
+  rf: '12460265',
+  // Strategy – Replenishment Flow
+  krpb: '12564397',
+  // Strategy – Klaviyo Replenishment
+  fgsp: '13069858',
+  // Strategy – Frank Green Support
+  lisp: '12549183',
+  // Design – Lindelli Support
+  sfsp: '12765528',
+  // Strategy – Space Furniture Support
+  g: '12684686' // Meetings – General (default internal)
+};
+async function prodFetch(method, path, body) {
+  const opts = {
+    method,
+    headers: {
+      'Content-Type': 'application/vnd.api+json',
+      'X-Auth-Token': PROD_TOKEN,
+      'X-Organization-Id': PROD_ORG
+    }
+  };
+  if (body) opts.body = JSON.stringify(body);
+  try {
+    const resp = await fetch(PROD_API + path, opts);
+    if (!resp.ok) {
+      const txt = await resp.text();
+      console.error(`[ProdSync] ${method} ${path} → ${resp.status}`, txt);
+      return null;
+    }
+    if (resp.status === 204) return {
+      ok: true
+    };
+    return await resp.json();
+  } catch (err) {
+    console.error('[ProdSync] Network error:', err);
+    return null;
+  }
+}
+
+/* Create a booking in Productive */
+async function prodCreateBooking(bk, capMode) {
+  const personId = PERSON_PROD_MAP[bk.p];
+  const serviceId = PROJ_SERVICE_MAP[bk.proj] || PROJ_SERVICE_MAP.g;
+  if (!personId || !serviceId) return null;
+  const startDate = offsetToDate(bk.s);
+  const endDate = offsetToDate(bk.s + bk.dn - 1);
+  const wDays = workDaysBetween(new Date(startDate + 'T00:00:00'), new Date(endDate + 'T00:00:00'));
+  /* Use safe hours (from hrs field) or calculate from capMode */
+  const totalMins = bk.hrs ? Math.round(bk.hrs * 60) : Math.round(wDays * (capMode === 'real' ? 7.6 : 6) * 60);
+  const payload = {
+    data: {
+      type: 'bookings',
+      attributes: {
+        started_on: startDate,
+        ended_on: endDate,
+        total_time: totalMins,
+        booking_method_id: 3,
+        // total time mode
+        note: bk.note || ''
+      },
+      relationships: {
+        person: {
+          data: {
+            type: 'people',
+            id: personId
+          }
+        },
+        service: {
+          data: {
+            type: 'services',
+            id: serviceId
+          }
+        }
+      }
+    }
+  };
+  const result = await prodFetch('POST', '/bookings', payload);
+  if (result && result.data) {
+    console.log(`[ProdSync] Created booking ${result.data.id} for ${bk.note}`);
+    return result.data.id;
+  }
+  return null;
+}
+
+/* Update an existing booking in Productive */
+async function prodUpdateBooking(prodBookingId, bk, capMode) {
+  if (!prodBookingId) return false;
+  const startDate = offsetToDate(bk.s);
+  const endDate = offsetToDate(bk.s + bk.dn - 1);
+  const wDays = workDaysBetween(new Date(startDate + 'T00:00:00'), new Date(endDate + 'T00:00:00'));
+  const totalMins = bk.hrs ? Math.round(bk.hrs * 60) : Math.round(wDays * (capMode === 'real' ? 7.6 : 6) * 60);
+  const serviceId = PROJ_SERVICE_MAP[bk.proj] || PROJ_SERVICE_MAP.g;
+  const personId = PERSON_PROD_MAP[bk.p];
+  const payload = {
+    data: {
+      type: 'bookings',
+      id: prodBookingId,
+      attributes: {
+        started_on: startDate,
+        ended_on: endDate,
+        total_time: totalMins,
+        note: bk.note || ''
+      },
+      relationships: {
+        person: {
+          data: {
+            type: 'people',
+            id: personId
+          }
+        },
+        service: {
+          data: {
+            type: 'services',
+            id: serviceId
+          }
+        }
+      }
+    }
+  };
+  const result = await prodFetch('PATCH', `/bookings/${prodBookingId}`, payload);
+  if (result) {
+    console.log(`[ProdSync] Updated booking ${prodBookingId}`);
+    return true;
+  }
+  return false;
+}
+
+/* Delete a booking in Productive */
+async function prodDeleteBooking(prodBookingId) {
+  if (!prodBookingId) return false;
+  const result = await prodFetch('DELETE', `/bookings/${prodBookingId}`);
+  if (result) {
+    console.log(`[ProdSync] Deleted booking ${prodBookingId}`);
+    return true;
+  }
+  return false;
+}
 
 /* ── Real Productive data (synced from API) + leave ── */
 const INIT = [
@@ -889,6 +1083,8 @@ const INIT = [
 mk('1', 'g', 0, 1, 'Space RFP - OOO', null, false), mk('1', 'g', 0, 1, 'Sales', 7.6, false), mk('1', 'g', 1, 1, 'Early Setter Discovery', null, false), mk('1', 'g', 2, 1, 'Early Setter Creative Workshop', null, false), mk('1', 'cmsp', 3, 1, 'Find in Store / Click & Collect', null, false), mk('1', 'g', 3, 1, 'Eckersleys Design Handover', null, false), mk('1', 'mcsp', 3, 1, 'Manning Cartell - SearchSpring Sales Impact Analysis', null, false), mk('1', 'rcsp', 8, 1, 'Reporting Updates - 30/03 - 05/04', null, false), mk('1', 'eurd', 8, 1, 'Design: Sprint 1 - Wireframes', null, false), mk('1', 'eurd', 8, 8, 'Design: Sprint 2 - Wireframes', null, false), mk('1', 'g', 16, 13, 'Seed UX & IA*', null, false), mk('1', 'g', 29, 9, 'Seed Wireframes*', null, false), mk('1', 'g', 38, 12, 'Living Edge UX & IA*', null, false), mk('1', 'g', 50, 9, 'Living Edge Wireframes*', null, false),
 // ── Dave Ye ──
 mk('2', 'g', -3, 4, 'Meeting: Weekly Rip Curl Report Brief', null, false), mk('2', 'g', -3, 4, 'Meetings', 0.5, false), mk('2', 'g', 1, 1, 'Meetings', 0.5, false), mk('2', 'g', 2, 31, 'Meetings', 8.0, false), mk('2', 'lv', 8, 1, 'AL', 7.6, true), mk('2', 'g', 10, 8, 'Runaway the Label — Commerce Turnaround (Emergency Diagnostic)', null, false), mk('2', 'g', 35, 9, 'Castle & Cubby UX & IA*', null, false), mk('2', 'g', 45, 9, 'Castle & Cubby Design Systems*', null, false), mk('2', 'g', 56, 5, 'Castle & Cubby UI Roll Out*', null, false), mk('2', 'g', 63, 8, 'Living Edge Design Systems*', null, false), mk('2', 'g', 73, 13, 'Living Edge UI Rollout*', null, false),
+// Dave – Wednesday RDOs
+mk('2', 'lv', 2, 1, 'RDO', 7.6, true), mk('2', 'lv', 9, 1, 'RDO', 7.6, true), mk('2', 'lv', 16, 1, 'RDO', 7.6, true), mk('2', 'lv', 23, 1, 'RDO', 7.6, true), mk('2', 'lv', 30, 1, 'RDO', 7.6, true), mk('2', 'lv', 37, 1, 'RDO', 7.6, true), mk('2', 'lv', 44, 1, 'RDO', 7.6, true), mk('2', 'lv', 51, 1, 'RDO', 7.6, true), mk('2', 'lv', 58, 1, 'RDO', 7.6, true), mk('2', 'lv', 65, 1, 'RDO', 7.6, true), mk('2', 'lv', 72, 1, 'RDO', 7.6, true), mk('2', 'lv', 79, 1, 'RDO', 7.6, true), mk('2', 'lv', 86, 1, 'RDO', 7.6, true),
 // ── Audrina Heng ──
 mk('3', 'g', 0, 1, 'Space RFP OOO', null, false), mk('3', 'g', 0, 1, 'Meetings', 5.0, false), mk('3', 'g', 1, 1, 'Meetings', 0.5, false), mk('3', 'esqq', 2, 2, 'DESIGN: Development Feedback', null, false), mk('3', 'g', 2, 2, 'Creative Workshop Template', null, false), mk('3', 'g', 2, 1, 'Eckersleys Design Handover', 1.0, false), mk('3', 'g', 2, 1, 'Meetings', 0.5, false), mk('3', 'g', 2, 31, 'Meetings', 10.5, false), mk('3', 'g', 2, 1, 'Planning', 2.0, false), mk('3', 'g', 2, 1, 'Planning', 2.0, false), mk('3', 'g', 3, 1, 'Meetings', 4.0, false), mk('3', 'esqq', 9, 1, 'Design review', null, false), mk('3', 'g', 9, 1, 'Meetings', 0.5, false), mk('3', 'lv', 10, 5, 'AL', 22.8, true), mk('3', 'g', 16, 1, 'Meetings', 0.5, false), mk('3', 'g', 23, 1, 'Meetings', 0.5, false), mk('3', 'g', 30, 1, 'Meetings', 0.5, false), mk('3', 'lv', 32, 1, 'Birthday Leave', 7.6, true), mk('3', 'eurd', 8, 17, 'Sprint 3 - Creative Concepts', null, false), mk('3', 'eurd', 25, 12, 'Design: Sprint 5 - Homepage and Globals', null, false), mk('3', 'eurd', 28, 4, 'Design: Sprint 4- Design System', null, false), mk('3', 'g', 37, 1, 'Meetings', 0.5, false), mk('3', 'g', 42, 9, 'Seed Creative Concepts*', null, false), mk('3', 'g', 44, 1, 'Meetings', 0.5, false), mk('3', 'g', 51, 2, 'Seed Design Systems*', null, false), mk('3', 'g', 51, 1, 'Meetings', 0.5, false), mk('3', 'g', 53, 15, 'Seed UI Rollout*', null, false), mk('3', 'g', 58, 1, 'Meetings', 0.5, false), mk('3', 'g', 65, 1, 'Meetings', 0.5, false), mk('3', 'g', 72, 1, 'Meetings', 0.5, false), mk('3', 'lv', 79, 10, 'Europe', 60.8, true),
 // ── Seo Lee ──
@@ -1623,11 +1819,13 @@ function BookingModal({
       proj: form.isLeave ? 'lv' : form.proj,
       s,
       n,
+      dn: n,
       note: form.note,
       hrs: form.hrs ? parseFloat(form.hrs) : null,
       isLeave: form.isLeave,
       sowUrl: form.sowUrl,
-      prodUrl: form.prodUrl
+      prodUrl: form.prodUrl,
+      prodBookingId: bk?.prodBookingId || null
     });
     onClose();
   };
@@ -2257,6 +2455,10 @@ function App() {
   const [filter, setFilter] = useState('all');
   const [showMeetings, setShowMeetings] = useState(false);
   const [capMode, setCapMode] = useState('safe'); // 'safe' or 'real'
+  const capModeRef = useRef(capMode);
+  useEffect(() => {
+    capModeRef.current = capMode;
+  }, [capMode]);
   const [legendExpanded, setLegendExpanded] = useState(false);
   const [drawer, setDrawer] = useState(null); // projKey for ProjectDrawer
   const [dayTip, setDayTip] = useState(null);
@@ -2416,11 +2618,25 @@ function App() {
       const scEl = scrollRef.current;
       const dw = Math.round(DAY_W * zoom);
       if (mode === 'resize') {
-        // Resize already applied live — just commit to history
+        // Resize already applied live — commit to history and sync
         dragRef.current = null;
         setDraggingId(null);
         setBookings(prev => {
           pushHistory(prev);
+          // Sync resized booking to Productive
+          const updated = prev.find(b => b.id === bk.id);
+          if (updated && !updated.isLeave) {
+            if (updated.prodBookingId) {
+              prodUpdateBooking(updated.prodBookingId, updated, capModeRef.current);
+            } else {
+              prodCreateBooking(updated, capModeRef.current).then(pid => {
+                if (pid) setBookings(p2 => p2.map(b => b.id === bk.id ? {
+                  ...b,
+                  prodBookingId: pid
+                } : b));
+              });
+            }
+          }
           return prev;
         });
         return;
@@ -2431,11 +2647,28 @@ function App() {
         const relX = e.clientX - scEl.getBoundingClientRect().left - NAME_W + scEl.scrollLeft;
         const newDay = Math.round(relX / dw);
         const newPerson = teamData[targetPerson].id;
-        setBookings(prev => prev.map(b => b.id === bk.id ? {
-          ...b,
-          p: newPerson,
-          s: Math.max(-7, newDay)
-        } : b));
+        setBookings(prev => {
+          const next = prev.map(b => b.id === bk.id ? {
+            ...b,
+            p: newPerson,
+            s: Math.max(-7, newDay)
+          } : b);
+          // Sync moved booking to Productive
+          const moved = next.find(b => b.id === bk.id);
+          if (moved && !moved.isLeave) {
+            if (moved.prodBookingId) {
+              prodUpdateBooking(moved.prodBookingId, moved, capModeRef.current);
+            } else {
+              prodCreateBooking(moved, capModeRef.current).then(pid => {
+                if (pid) setBookings(p2 => p2.map(b => b.id === bk.id ? {
+                  ...b,
+                  prodBookingId: pid
+                } : b));
+              });
+            }
+          }
+          return next;
+        });
       }
       dragRef.current = null;
       setDraggingId(null);
@@ -2492,19 +2725,38 @@ function App() {
     histIdxRef.current = h.length - 1;
   }, []);
   const handleSaveBooking = useCallback(bkData => {
+    const isNew = !(bkData.id && bookings.find(b => b.id === bkData.id));
     setBookings(prev => {
       const next = bkData.id && prev.find(b => b.id === bkData.id) ? prev.map(b => b.id === bkData.id ? bkData : b) : [...prev, bkData];
       pushHistory(next);
       return next;
     });
-  }, [pushHistory]);
+    // Sync to Productive
+    if (!bkData.isLeave) {
+      if (isNew || !bkData.prodBookingId) {
+        prodCreateBooking(bkData, capModeRef.current).then(pid => {
+          if (pid) setBookings(prev => prev.map(b => b.id === bkData.id ? {
+            ...b,
+            prodBookingId: pid
+          } : b));
+        });
+      } else {
+        prodUpdateBooking(bkData.prodBookingId, bkData, capModeRef.current);
+      }
+    }
+  }, [pushHistory, bookings]);
   const handleDeleteBooking = useCallback(id => {
+    const bk = bookings.find(b => b.id === id);
     setBookings(prev => {
       const next = prev.filter(b => b.id !== id);
       pushHistory(next);
       return next;
     });
-  }, [pushHistory]);
+    // Delete from Productive
+    if (bk && bk.prodBookingId && !bk.isLeave) {
+      prodDeleteBooking(bk.prodBookingId);
+    }
+  }, [pushHistory, bookings]);
   const handleSaveSettings = useCallback(vals => {
     setTeam(prev => prev.map(m => ({
       ...m,
@@ -2754,6 +3006,32 @@ function App() {
       transition: 'background 0.15s,color 0.15s'
     }
   }, label))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 5,
+      padding: '4px 10px',
+      borderRadius: 8,
+      background: 'rgba(52,211,153,0.08)',
+      border: '1px solid rgba(52,211,153,0.2)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 6,
+      height: 6,
+      borderRadius: 3,
+      background: '#34d399',
+      boxShadow: '0 0 6px rgba(52,211,153,0.5)',
+      animation: 'pulse 2s ease-in-out infinite'
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      fontWeight: 600,
+      color: '#34d399',
+      letterSpacing: '-0.01em'
+    }
+  }, "Productive Sync")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       alignItems: 'center',
