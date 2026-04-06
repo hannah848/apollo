@@ -2585,13 +2585,13 @@ async function fetchProductiveTasks() {
         const a = t.attributes;
         const sd = a.start_date,
           dd = a.due_date;
-        if (!sd || !dd) continue;
+        if (!dd) continue; // need at least a due date
         const assignee = t.relationships?.assignee?.data;
         if (!assignee) continue;
         // Find person index
         const pEntry = TEAM_ENTRIES.find(([, pid]) => pid === assignee.id);
         if (!pEntry) continue;
-        const startOff = dateToOff(sd);
+        const startOff = sd ? dateToOff(sd) : dateToOff(dd);
         const endOff = dateToOff(dd);
         const n = Math.max(1, endOff - startOff + 1);
         allTasks.set(t.id, {
