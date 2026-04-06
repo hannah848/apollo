@@ -2566,7 +2566,8 @@ async function fetchProductiveTasks() {
           note: a.title || '',
           hrs: null,
           isLeave: false,
-          prodBookingId: null
+          prodBookingId: null,
+          _prodUrl: `https://app.productive.io/1476-dotcollective/tasks/${t.id}`
         });
       }
     } catch (e) {
@@ -2603,7 +2604,8 @@ async function fetchProductiveTasks() {
           note: a.title || '',
           hrs: null,
           isLeave: false,
-          prodBookingId: null
+          prodBookingId: null,
+          _prodUrl: `https://app.productive.io/1476-dotcollective/tasks/${t.id}`
         });
       }
     } catch (e) {
@@ -2612,6 +2614,7 @@ async function fetchProductiveTasks() {
   }
 
   // Fetch bookings per person (leave + meetings)
+  const meetingsSeen = new Set();
   for (const [pIdx, prodId] of TEAM_ENTRIES) {
     try {
       const resp = await prodFetch('GET', `/bookings?filter[person_id]=${prodId}&filter[after]=2026-03-30&filter[before]=2026-07-31&include=service,event&page[size]=200`);
@@ -2630,6 +2633,7 @@ async function fetchProductiveTasks() {
         const svcRel = b.relationships?.service?.data;
         const svcName = svcRel ? svcCache[svcRel.id] || '' : '';
         const hrs = a.total_time ? a.total_time / 60 : null;
+        const bkUrl = `https://app.productive.io/1476-dotcollective/bookings/${b.id}`;
         if (eventRel) {
           // Leave
           allLeave.push({
@@ -2641,20 +2645,27 @@ async function fetchProductiveTasks() {
             note: a.note || 'AL',
             hrs,
             isLeave: true,
-            prodBookingId: b.id
+            prodBookingId: b.id,
+            _prodUrl: bkUrl
           });
-        } else if (['meetings', 'social', 'planning', 'sales', 'product'].includes(svcName.toLowerCase())) {
-          allMeetings.push({
-            p: pIdx,
-            proj: 'g',
-            s: startOff,
-            n,
-            dn: n,
-            note: svcName,
-            hrs,
-            isLeave: false,
-            prodBookingId: b.id
-          });
+        } else if (svcName.toLowerCase() === 'meetings') {
+          // Only literal "Meetings" service → meeting bar (dedup by person+range)
+          const dedupKey = `${pIdx}_${a.started_on}_${a.ended_on}`;
+          if (!meetingsSeen.has(dedupKey)) {
+            meetingsSeen.add(dedupKey);
+            allMeetings.push({
+              p: pIdx,
+              proj: 'g',
+              s: startOff,
+              n,
+              dn: n,
+              note: svcName,
+              hrs,
+              isLeave: false,
+              prodBookingId: b.id,
+              _prodUrl: bkUrl
+            });
+          }
         }
       }
     } catch (e) {
@@ -2664,12 +2675,16 @@ async function fetchProductiveTasks() {
 
   // Combine and assign IDs
   let id = 10000;
-  const all = [...Array.from(allTasks.values()), ...allLeave, ...allMeetings].map(entry => ({
-    ...entry,
-    id: String(id++),
-    sowUrl: null,
-    prodUrl: null
-  }));
+  const all = [...Array.from(allTasks.values()), ...allLeave, ...allMeetings].map(entry => {
+    const url = entry._prodUrl || null;
+    delete entry._prodUrl;
+    return {
+      ...entry,
+      id: String(id++),
+      sowUrl: null,
+      prodUrl: url
+    };
+  });
   console.log(`[Fetch] Loaded ${allTasks.size} tasks, ${allLeave.length} leave, ${allMeetings.length} meetings = ${all.length} total`);
   return all;
 }
