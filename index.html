@@ -535,17 +535,52 @@ const DAY_W = 56,
   HDR_H = 52;
 const MEET_LANE_H = 16,
   MEET_BAR_H = 13;
-const NUM_DAYS = 42;
 const WIN = new Date(2026, 2, 30); // Mar 30
-const DAYS = Array.from({
-  length: NUM_DAYS
-}, (_, i) => {
-  const d = new Date(WIN);
-  d.setDate(d.getDate() + i);
-  return d;
-});
 const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+/* ── Build weekday-only timeline ── */
+const CAL_RANGE_START = -10,
+  CAL_RANGE_END = 110; // calendar offset range to cover
+const _allDays = [];
+for (let i = CAL_RANGE_START; i < CAL_RANGE_END; i++) {
+  const d = new Date(WIN);
+  d.setDate(d.getDate() + i);
+  _allDays.push({
+    off: i,
+    d
+  });
+}
+const _wdayEntries = _allDays.filter(x => x.d.getDay() !== 0 && x.d.getDay() !== 6);
+const DAYS = _wdayEntries.map(x => x.d);
+const NUM_DAYS = DAYS.length;
+/* Calendar offset → visual column index */
+const _calToVis = {};
+_wdayEntries.forEach((x, vi) => {
+  _calToVis[x.off] = vi;
+});
+/* For weekend offsets, snap to next Monday's visual index */
+_allDays.forEach(x => {
+  if (_calToVis[x.off] === undefined) {
+    let next = x.off + 1;
+    while (_calToVis[next] === undefined && next < CAL_RANGE_END) next++;
+    _calToVis[x.off] = _calToVis[next] !== undefined ? _calToVis[next] : NUM_DAYS;
+  }
+});
+/* Visual column → calendar offset (reverse) */
+const _visToCal = _wdayEntries.map(x => x.off);
+function calToVis(calOff) {
+  return _calToVis[calOff] ?? 0;
+}
+function visToCal(visIdx) {
+  return _visToCal[Math.max(0, Math.min(visIdx, _visToCal.length - 1))] ?? 0;
+}
+/* Visual width of a booking: how many weekday columns it spans */
+function visSpan(calStart, calDays) {
+  const vs = calToVis(calStart);
+  const ve = calToVis(calStart + calDays - 1);
+  return Math.max(1, ve - vs + 1);
+}
 
 /* ── Date helpers ── */
 const addD = (d, n) => {
@@ -1086,7 +1121,7 @@ mk('2', 'g', -3, 4, 'Meeting: Weekly Rip Curl Report Brief', null, false), mk('2
 // Dave – Wednesday RDOs
 mk('2', 'lv', 2, 1, 'RDO', 7.6, true), mk('2', 'lv', 9, 1, 'RDO', 7.6, true), mk('2', 'lv', 16, 1, 'RDO', 7.6, true), mk('2', 'lv', 23, 1, 'RDO', 7.6, true), mk('2', 'lv', 30, 1, 'RDO', 7.6, true), mk('2', 'lv', 37, 1, 'RDO', 7.6, true), mk('2', 'lv', 44, 1, 'RDO', 7.6, true), mk('2', 'lv', 51, 1, 'RDO', 7.6, true), mk('2', 'lv', 58, 1, 'RDO', 7.6, true), mk('2', 'lv', 65, 1, 'RDO', 7.6, true), mk('2', 'lv', 72, 1, 'RDO', 7.6, true), mk('2', 'lv', 79, 1, 'RDO', 7.6, true), mk('2', 'lv', 86, 1, 'RDO', 7.6, true),
 // ── Audrina Heng ──
-mk('3', 'g', 0, 1, 'Space RFP OOO', null, false), mk('3', 'g', 0, 1, 'Meetings', 5.0, false), mk('3', 'g', 1, 1, 'Meetings', 0.5, false), mk('3', 'esqq', 2, 2, 'DESIGN: Development Feedback', null, false), mk('3', 'g', 2, 2, 'Creative Workshop Template', null, false), mk('3', 'g', 2, 1, 'Eckersleys Design Handover', 1.0, false), mk('3', 'g', 2, 1, 'Meetings', 0.5, false), mk('3', 'g', 2, 31, 'Meetings', 10.5, false), mk('3', 'g', 2, 1, 'Planning', 2.0, false), mk('3', 'g', 2, 1, 'Planning', 2.0, false), mk('3', 'g', 3, 1, 'Meetings', 4.0, false), mk('3', 'esqq', 9, 1, 'Design review', null, false), mk('3', 'g', 9, 1, 'Meetings', 0.5, false), mk('3', 'lv', 10, 5, 'AL', 22.8, true), mk('3', 'g', 16, 1, 'Meetings', 0.5, false), mk('3', 'g', 23, 1, 'Meetings', 0.5, false), mk('3', 'g', 30, 1, 'Meetings', 0.5, false), mk('3', 'lv', 32, 1, 'Birthday Leave', 7.6, true), mk('3', 'eurd', 8, 17, 'Sprint 3 - Creative Concepts', null, false), mk('3', 'eurd', 25, 12, 'Design: Sprint 5 - Homepage and Globals', null, false), mk('3', 'eurd', 28, 4, 'Design: Sprint 4- Design System', null, false), mk('3', 'g', 37, 1, 'Meetings', 0.5, false), mk('3', 'g', 42, 9, 'Seed Creative Concepts*', null, false), mk('3', 'g', 44, 1, 'Meetings', 0.5, false), mk('3', 'g', 51, 2, 'Seed Design Systems*', null, false), mk('3', 'g', 51, 1, 'Meetings', 0.5, false), mk('3', 'g', 53, 15, 'Seed UI Rollout*', null, false), mk('3', 'g', 58, 1, 'Meetings', 0.5, false), mk('3', 'g', 65, 1, 'Meetings', 0.5, false), mk('3', 'g', 72, 1, 'Meetings', 0.5, false), mk('3', 'lv', 79, 10, 'Europe', 60.8, true),
+mk('3', 'g', 0, 1, 'Space RFP OOO', null, false), mk('3', 'g', 0, 1, 'Meetings', 5.0, false), mk('3', 'g', 1, 1, 'Meetings', 0.5, false), mk('3', 'esqq', 2, 2, 'DESIGN: Development Feedback', null, false), mk('3', 'g', 2, 2, 'Creative Workshop Template', null, false), mk('3', 'g', 2, 1, 'Eckersleys Design Handover', 1.0, false), mk('3', 'g', 2, 1, 'Meetings', 0.5, false), mk('3', 'g', 2, 31, 'Meetings', 10.5, false), mk('3', 'g', 2, 1, 'Planning', 2.0, false), mk('3', 'g', 2, 1, 'Planning', 2.0, false), mk('3', 'g', 3, 1, 'Meetings', 4.0, false), mk('3', 'esqq', 9, 1, 'Design review', null, false), mk('3', 'g', 9, 1, 'Meetings', 0.5, false), mk('3', 'lv', 10, 5, 'AL', 22.8, true), mk('3', 'g', 16, 1, 'Meetings', 0.5, false), mk('3', 'g', 23, 1, 'Meetings', 0.5, false), mk('3', 'g', 30, 1, 'Meetings', 0.5, false), mk('3', 'eurd', 8, 17, 'Sprint 3 - Creative Concepts', null, false), mk('3', 'eurd', 25, 12, 'Design: Sprint 5 - Homepage and Globals', null, false), mk('3', 'eurd', 28, 4, 'Design: Sprint 4- Design System', null, false), mk('3', 'lv', 32, 1, 'Birthday Leave', 7.6, true), mk('3', 'g', 37, 1, 'Meetings', 0.5, false), mk('3', 'g', 42, 9, 'Seed Creative Concepts*', null, false), mk('3', 'g', 44, 1, 'Meetings', 0.5, false), mk('3', 'g', 51, 2, 'Seed Design Systems*', null, false), mk('3', 'g', 51, 1, 'Meetings', 0.5, false), mk('3', 'g', 53, 15, 'Seed UI Rollout*', null, false), mk('3', 'g', 58, 1, 'Meetings', 0.5, false), mk('3', 'g', 65, 1, 'Meetings', 0.5, false), mk('3', 'g', 72, 1, 'Meetings', 0.5, false), mk('3', 'lv', 79, 10, 'Europe', 60.8, true),
 // ── Seo Lee ──
 mk('4', 'g', -3, 4, 'Early Settler Discovery Prep', null, false), mk('4', 'g', 0, 1, 'Meetings', 0.5, false), mk('4', 'g', 1, 1, 'Early Settler Discovery OOO', null, false), mk('4', 'g', 1, 1, 'Meetings', 0.5, false), mk('4', 'g', 1, 1, 'Meetings', 7.0, false), mk('4', 'g', 2, 1, 'Early Settler Creative Workshop OOO', null, false), mk('4', 'g', 2, 1, 'DotCollective V2026 Site', null, false), mk('4', 'g', 2, 1, 'Meetings', 5.0, false), mk('4', 'g', 2, 31, 'Meetings', 10.5, false), mk('4', 'g', 3, 1, 'DotCollective V2026 Site', null, false), mk('4', 'g', 7, 1, 'Meetings', 0.5, false), mk('4', 'g', 8, 7, 'Early Settler Creative Concepts', null, false), mk('4', 'g', 9, 1, 'Meetings', 0.5, false), mk('4', 'g', 14, 1, 'Meetings', 0.5, false), mk('4', 'g', 15, 3, 'Nova Support', null, false), mk('4', 'g', 16, 1, 'Meetings', 0.5, false), mk('4', 'g', 18, 1, 'Social', 4.0, false), mk('4', 'g', 21, 1, 'Meetings', 0.5, false), mk('4', 'g', 21, 1, 'Sales', 4.0, false), mk('4', 'g', 23, 1, 'Meetings', 0.5, false), mk('4', 'g', 24, 2, 'Living Edge Workshops*', null, false), mk('4', 'g', 28, 8, 'Living Edge Creative Concepts*', null, false), mk('4', 'g', 28, 1, 'Meetings', 0.5, false), mk('4', 'g', 30, 1, 'Meetings', 0.5, false), mk('4', 'g', 35, 1, 'Meetings', 0.5, false), mk('4', 'g', 37, 1, 'Meetings', 0.5, false), mk('4', 'g', 42, 1, 'Meetings', 0.5, false), mk('4', 'g', 44, 7, 'Living Edge Creative Concepts*', null, false), mk('4', 'g', 44, 1, 'Meetings', 0.5, false), mk('4', 'g', 49, 1, 'Meetings', 0.5, false), mk('4', 'g', 51, 1, 'Meetings', 0.5, false), mk('4', 'g', 56, 1, 'Meetings', 0.5, false), mk('4', 'g', 58, 1, 'Meetings', 0.5, false), mk('4', 'g', 60, 20, 'Early Settler UI Roll Out *', null, false), mk('4', 'g', 63, 1, 'Meetings', 0.5, false), mk('4', 'g', 65, 1, 'Meetings', 0.5, false), mk('4', 'g', 70, 3, 'Early Settler Design System*', null, false), mk('4', 'g', 70, 1, 'Meetings', 0.5, false), mk('4', 'g', 72, 1, 'Meetings', 0.5, false),
 // ── Bec Simpson ──
@@ -1254,7 +1289,7 @@ function MeetingBar({
     onMouseLeave: () => setHov(false),
     style: {
       position: 'absolute',
-      left: ev.offset * dayW + 1,
+      left: calToVis(ev.offset) * dayW + 1,
       top,
       width: dayW - 2,
       height: MEET_BAR_H,
@@ -1993,8 +2028,9 @@ function Bar({
   const p = PROJ[b.proj] || PROJ.lv;
   const isTentative = !p.signed && !p.isLeave;
   const bh = mini ? BAR_H_MINI : BAR_H;
-  const w = Math.max(b.dn * dayW - 4, dayW - 4);
-  const left = b.s * dayW;
+  const vSpan = visSpan(b.s, b.dn);
+  const w = Math.max(vSpan * dayW - 4, dayW - 4);
+  const left = calToVis(b.s) * dayW;
   const top = mini ? 11 : ROW_PAD / 2 + b.lane * LANE_H;
   const isExtended = !b.isLeave && b.dn > b.n;
   const dimmed = filter !== 'all' && !b.isLeave && p.type !== filter;
@@ -2325,11 +2361,11 @@ function CapacityTip({
   if (!m) return null;
   const d = DAYS[tip.offset];
   if (!d) return null;
-  const isWE = d.getDay() === 0 || d.getDay() === 6;
+  const calOff = visToCal(tip.offset); // calendar offset for booking comparisons
   const safeH = capMode === 'real' ? 7.6 : m.safeHpD || 0;
-  const meetH = meetHoursPerDay?.[tip.offset] || 0;
+  const meetH = meetHoursPerDay?.[calOff] || 0;
   // Booking hours on this day: for each booking covering this day, allocate hrs/n per day
-  const dayBks = bookings.filter(b => b.p === m.id && !b.isLeave && b.s <= tip.offset && tip.offset < b.s + b.dn);
+  const dayBks = bookings.filter(b => b.p === m.id && !b.isLeave && b.s <= calOff && calOff < b.s + b.dn);
   const bookedH = dayBks.reduce((s, b) => s + (b.hrs ? b.hrs / b.n : 0), 0);
   const availH = Math.max(0, safeH - meetH - bookedH);
   const fmtH = h => Math.round(h * 10) / 10;
@@ -2360,12 +2396,7 @@ function CapacityTip({
       color: C.text1,
       letterSpacing: '-0.02em'
     }
-  }, m.name.split(' ')[0], " \xB7 ", d.getDate(), " ", MONS[d.getMonth()]), isWE ? /*#__PURE__*/React.createElement("div", {
-    style: {
-      color: C.text3,
-      fontStyle: 'italic'
-    }
-  }, "Weekend") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+  }, m.name.split(' ')[0], " \xB7 ", d.getDate(), " ", MONS[d.getMonth()]), (() => /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -2426,7 +2457,7 @@ function CapacityTip({
       fontWeight: 700,
       color: availH < 1 ? '#f87171' : availH < 2 ? C.orange : '#34d399'
     }
-  }, fmtH(availH), "h"))), /*#__PURE__*/React.createElement("div", {
+  }, fmtH(availH), "h"))))(), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'absolute',
       bottom: -5,
@@ -2552,7 +2583,9 @@ function App() {
       const sl = scEl.scrollLeft;
       const rect = scEl.getBoundingClientRect();
       const relX = e.clientX - rect.left - NAME_W + sl;
-      const snDay = Math.round(relX / dw);
+      const visCol = Math.round(relX / dw);
+      const calDay = visToCal(visCol); // convert visual → calendar offset
+
       if (mode === 'resize') {
         const {
           edge,
@@ -2562,10 +2595,10 @@ function App() {
         let newS = origS,
           newN = origN;
         if (edge === 'left') {
-          newS = Math.min(snDay, origS + origN - 1);
+          newS = Math.min(calDay, origS + origN - 1);
           newN = origS + origN - newS;
         } else {
-          const newEnd = Math.max(snDay, origS);
+          const newEnd = Math.max(calDay, origS);
           newN = newEnd - origS + 1;
           newS = origS;
         }
@@ -2581,8 +2614,9 @@ function App() {
       }
 
       // move mode
-      const snX = snDay * dw + NAME_W - sl + rect.left;
-      const w = Math.max(bk.dn * dw - 4, dw - 4);
+      const snX = visCol * dw + NAME_W - sl + rect.left;
+      const vSpan = visSpan(bk.s, bk.dn);
+      const w = Math.max(vSpan * dw - 4, dw - 4);
       const isTentative = !p.signed && !p.isLeave;
       setGhost({
         x: snX,
@@ -2592,7 +2626,7 @@ function App() {
         bg: p.isLeave ? '#303036' : p.bg,
         tx: p.tx,
         isTentative,
-        day: snDay
+        day: calDay
       });
       const relY = e.clientY - rect.top - HDR_H + scEl.scrollTop;
       let tgt = teamData.length - 1;
@@ -2645,7 +2679,8 @@ function App() {
       // move mode
       if (scEl && targetPerson !== undefined) {
         const relX = e.clientX - scEl.getBoundingClientRect().left - NAME_W + scEl.scrollLeft;
-        const newDay = Math.round(relX / dw);
+        const visCol = Math.round(relX / dw);
+        const newDay = visToCal(visCol); // convert visual → calendar
         const newPerson = teamData[targetPerson].id;
         setBookings(prev => {
           const next = prev.map(b => b.id === bk.id ? {
@@ -3210,7 +3245,6 @@ function App() {
       letterSpacing: '0.12em'
     }
   }, "Team")), DAYS.map((d, i) => {
-    const isWE = d.getDay() === 0 || d.getDay() === 6;
     const isTd = d.toDateString() === new Date().toDateString();
     const showM = i === 0 || d.getDate() === 1;
     const compact = dayW < 40;
@@ -3226,7 +3260,7 @@ function App() {
         alignItems: 'center',
         justifyContent: 'center',
         borderRight: `1px solid ${C.border}`,
-        background: isWE ? 'rgba(0,0,0,0.2)' : 'transparent',
+        background: 'transparent',
         padding: '4px 0',
         overflow: 'hidden',
         boxSizing: 'border-box'
@@ -3399,11 +3433,11 @@ function App() {
       onClick: () => handleCellClick(m, d),
       onMouseEnter: e => {
         handleCellEnter(e, m.id, i);
-        if (!dragRef.current) e.currentTarget.style.background = d.getDay() === 0 || d.getDay() === 6 ? 'rgba(124,58,237,0.05)' : 'rgba(124,58,237,0.03)';
+        if (!dragRef.current) e.currentTarget.style.background = 'rgba(124,58,237,0.03)';
       },
       onMouseLeave: e => {
         handleCellLeave();
-        e.currentTarget.style.background = d.getDay() === 0 || d.getDay() === 6 ? 'rgba(0,0,0,0.18)' : 'transparent';
+        e.currentTarget.style.background = 'transparent';
       },
       style: {
         position: 'absolute',
@@ -3412,17 +3446,18 @@ function App() {
         bottom: 0,
         width: dayW,
         borderRight: `1px solid ${C.border}`,
-        background: d.getDay() === 0 || d.getDay() === 6 ? 'rgba(0,0,0,0.18)' : 'transparent',
+        background: 'transparent',
         cursor: 'crosshair',
         transition: 'background 0.1s'
       }
     })), (() => {
-      const off = Math.round((new Date() - WIN) / 86400000);
-      if (off < 0 || off >= NUM_DAYS) return null;
+      const calOff = Math.round((new Date() - WIN) / 86400000);
+      const visIdx = calToVis(calOff);
+      if (visIdx < 0 || visIdx >= NUM_DAYS) return null;
       return /*#__PURE__*/React.createElement("div", {
         style: {
           position: 'absolute',
-          left: off * dayW + dayW / 2,
+          left: visIdx * dayW + dayW / 2,
           top: 0,
           bottom: 0,
           width: 2,
