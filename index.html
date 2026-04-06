@@ -1133,7 +1133,7 @@ mk('6', 'g', 0, 1, 'Space RFP OOO', null, false), mk('6', 'g', 0, 1, 'Sales', 7.
 // ── Jonathan Stiglec ──
 mk('7', 'g', -4, 6, 'Meetings', 2.0, false), mk('7', 'shak', -3, 1, 'Effort/Business Impact Scoring', null, false), mk('7', 'shak', -3, 1, 'Design single-page PDF appendix: Customer Sentiment Analysis', null, false), mk('7', 'shak', -3, 1, 'Validate Page Architecture & Navigation Structure', null, false), mk('7', 'g', 0, 1, 'Early Settler - Discovery Workshop', 3.0, false), mk('7', 'g', 1, 1, 'Meetings', 0.0, false), mk('7', 'g', 1, 1, 'Meetings', 0.5, false), mk('7', 'g', 1, 1, 'Meetings', 0.5, false), mk('7', 'lv', 2, 2, 'AL', 15.2, true), mk('7', 'g', 2, 31, 'Meetings', 0.5, false), mk('7', 'g', 2, 31, 'Meetings', 10.5, false), mk('7', 'g', 2, 31, 'Meetings', 10.5, false), mk('7', 'lv', 37, 1, 'AL', 7.6, true),
 // ── Hannah Grantham ──
-mk('8', 'g', -4, 6, 'Apollo Stand Up', null, false), mk('8', 'jdb', 1, 1, 'Sprint 12: PDP Configuration - Additional designs', null, false), mk('8', 'shak', 1, 1, 'Review and Validate Bundle Discount & First Purchase Incentive Approach', null, false), mk('8', 'npfg', 1, 1, 'Subscription Pricing', null, false), mk('8', 'g', 3, 1, 'ByWren Creative Workshop Prep', null, false), mk('8', 'bsp', 38, 1, 'Sprint 4: Design QA testing', null, false)];
+mk('8', 'g', -4, 6, 'Apollo Stand Up', null, false), mk('8', 'jdb', 1, 1, 'Sprint 12: PDP Configuration - Additional designs', null, false), mk('8', 'shak', 1, 1, 'Review and Validate Bundle Discount & First Purchase Incentive Approach', null, false), mk('8', 'npfg', 1, 1, 'Subscription Pricing', null, false), mk('8', 'g', 3, 1, 'ByWren Creative Workshop Prep', null, false), mk('8', 'g', 8, 1, 'TEST Scheduler', null, false), mk('8', 'bsp', 38, 1, 'Sprint 4: Design QA testing', null, false)];
 
 /* ── Lane assignment ── */
 function assignLanes(bks) {
@@ -2478,6 +2478,201 @@ function CapacityTip({
 /* ════════════════════════════════════
    MAIN APP
    ════════════════════════════════════ */
+/* ── Project ID → code mapping for auto-fetch ── */
+const PROJ_ID_MAP = {
+  '840660': 'eurd',
+  '46343': 'cmsp',
+  '689442': 'rcsp',
+  '61345': 'mcsp',
+  '885373': 'bsp',
+  '660590': 'jdb',
+  '854997': 'shak',
+  '705179': 'npfg',
+  '707378': 'rcsp',
+  '8093': 'g'
+};
+/* Deal name → proj code (fuzzy match for task projects) */
+function projCodeFromName(name) {
+  if (!name) return 'g';
+  const n = name.toLowerCase();
+  if (n.includes('eckersley')) return 'eurd';
+  if (n.includes('jag') || n.includes('apg')) return 'jewd';
+  if (n.includes('bywren') || n.includes('wren')) return 'bsp';
+  if (n.includes('early settler')) return 'essw';
+  if (n.includes('landsmith')) return 'lswb';
+  if (n.includes('jardan')) return 'jdb';
+  if (n.includes('kidman')) return 'kgtr';
+  if (n.includes('cable') && n.includes('migrat')) return 'cwm';
+  if (n.includes('cable') && n.includes('melb')) return 'cmsp';
+  if (n.includes('rip curl') || n.includes('ripcurl')) return 'rcsp';
+  if (n.includes('decjuba')) return 'dspd';
+  if (n.includes('jac') && n.includes('jack')) return 'jjsp';
+  if (n.includes('manning')) return 'mcsp';
+  if (n.includes('essity')) return 'esqq';
+  if (n.includes('billini') || n.includes('banbe')) return 'bbsp';
+  if (n.includes('perri')) return 'pcsp';
+  if (n.includes('natural pet')) return 'npfg';
+  if (n.includes('shakti')) return 'shak';
+  if (n.includes('svdp') || n.includes('vincent')) return 'svdp';
+  if (n.includes('frank green')) return 'fgsp';
+  if (n.includes('lindelli')) return 'lisp';
+  if (n.includes('space furniture')) return 'sfsp';
+  if (n.includes('seed')) return 'g';
+  if (n.includes('castle')) return 'g';
+  if (n.includes('living edge')) return 'g';
+  return 'g';
+}
+
+/* Fetch tasks + bookings from Productive on load */
+async function fetchProductiveTasks() {
+  const TEAM_ENTRIES = Object.entries(PERSON_PROD_MAP); // [['1','1043514'],...]
+  const EXTRA_PROJ = ['840660']; // projects that don't return via assignee filter
+  const WIN_DATE = new Date(2026, 2, 30);
+  const dateToOff = ds => {
+    const d = new Date(ds + 'T00:00:00');
+    return Math.round((d - WIN_DATE) / 86400000);
+  };
+  const allTasks = new Map(); // taskId→entry
+  const allLeave = []; // leave bookings
+  const allMeetings = []; // meeting bookings
+  const projNameCache = {}; // projId→name
+
+  // Fetch tasks per person
+  for (const [pIdx, prodId] of TEAM_ENTRIES) {
+    try {
+      const resp = await prodFetch('GET', `/tasks?filter[assignee_id]=${prodId}&filter[after]=2026-03-25&filter[before]=2026-08-31&include=project&page[size]=200`);
+      if (!resp || !resp.data) continue;
+      // Cache project names from included
+      (resp.included || []).forEach(inc => {
+        if (inc.type === 'projects') projNameCache[inc.id] = inc.attributes?.name || '';
+      });
+      for (const t of resp.data) {
+        const a = t.attributes;
+        const sd = a.start_date,
+          dd = a.due_date;
+        if (!dd) continue; // need at least a due date
+        const startOff = sd ? dateToOff(sd) : dateToOff(dd);
+        const endOff = dateToOff(dd);
+        const n = Math.max(1, endOff - startOff + 1);
+        const projRel = t.relationships?.project?.data;
+        const projId = projRel?.id || '';
+        const projCode = PROJ_ID_MAP[projId] || projCodeFromName(projNameCache[projId] || '');
+        allTasks.set(t.id, {
+          p: pIdx,
+          proj: projCode,
+          s: startOff,
+          n,
+          dn: n,
+          note: a.title || '',
+          hrs: null,
+          isLeave: false,
+          prodBookingId: null
+        });
+      }
+    } catch (e) {
+      console.error('[Fetch] Tasks error for', prodId, e);
+    }
+  }
+
+  // Fetch tasks from extra projects (Eckersley etc)
+  for (const projId of EXTRA_PROJ) {
+    try {
+      const resp = await prodFetch('GET', `/tasks?filter[project_id]=${projId}&page[size]=200&include=assignee`);
+      if (!resp || !resp.data) continue;
+      const projCode = PROJ_ID_MAP[projId] || 'g';
+      for (const t of resp.data) {
+        if (allTasks.has(t.id)) continue;
+        const a = t.attributes;
+        const sd = a.start_date,
+          dd = a.due_date;
+        if (!sd || !dd) continue;
+        const assignee = t.relationships?.assignee?.data;
+        if (!assignee) continue;
+        // Find person index
+        const pEntry = TEAM_ENTRIES.find(([, pid]) => pid === assignee.id);
+        if (!pEntry) continue;
+        const startOff = dateToOff(sd);
+        const endOff = dateToOff(dd);
+        const n = Math.max(1, endOff - startOff + 1);
+        allTasks.set(t.id, {
+          p: pEntry[0],
+          proj: projCode,
+          s: startOff,
+          n,
+          dn: n,
+          note: a.title || '',
+          hrs: null,
+          isLeave: false,
+          prodBookingId: null
+        });
+      }
+    } catch (e) {
+      console.error('[Fetch] Extra project error', projId, e);
+    }
+  }
+
+  // Fetch bookings per person (leave + meetings)
+  for (const [pIdx, prodId] of TEAM_ENTRIES) {
+    try {
+      const resp = await prodFetch('GET', `/bookings?filter[person_id]=${prodId}&filter[after]=2026-03-30&filter[before]=2026-07-31&include=service,event&page[size]=200`);
+      if (!resp || !resp.data) continue;
+      const svcCache = {};
+      (resp.included || []).forEach(inc => {
+        if (inc.type === 'services') svcCache[inc.id] = inc.attributes?.name || '';
+      });
+      for (const b of resp.data) {
+        const a = b.attributes;
+        if (!a.started_on || !a.ended_on) continue;
+        const startOff = dateToOff(a.started_on);
+        const endOff = dateToOff(a.ended_on);
+        const n = Math.max(1, endOff - startOff + 1);
+        const eventRel = b.relationships?.event?.data;
+        const svcRel = b.relationships?.service?.data;
+        const svcName = svcRel ? svcCache[svcRel.id] || '' : '';
+        const hrs = a.total_time ? a.total_time / 60 : null;
+        if (eventRel) {
+          // Leave
+          allLeave.push({
+            p: pIdx,
+            proj: 'lv',
+            s: startOff,
+            n,
+            dn: n,
+            note: a.note || 'AL',
+            hrs,
+            isLeave: true,
+            prodBookingId: b.id
+          });
+        } else if (['meetings', 'social', 'planning', 'sales', 'product'].includes(svcName.toLowerCase())) {
+          allMeetings.push({
+            p: pIdx,
+            proj: 'g',
+            s: startOff,
+            n,
+            dn: n,
+            note: svcName,
+            hrs,
+            isLeave: false,
+            prodBookingId: b.id
+          });
+        }
+      }
+    } catch (e) {
+      console.error('[Fetch] Bookings error for', prodId, e);
+    }
+  }
+
+  // Combine and assign IDs
+  let id = 10000;
+  const all = [...Array.from(allTasks.values()), ...allLeave, ...allMeetings].map(entry => ({
+    ...entry,
+    id: String(id++),
+    sowUrl: null,
+    prodUrl: null
+  }));
+  console.log(`[Fetch] Loaded ${allTasks.size} tasks, ${allLeave.length} leave, ${allMeetings.length} meetings = ${all.length} total`);
+  return all;
+}
 function App() {
   const [bookings, setBookings] = useState(INIT);
   const [team, setTeam] = useState(initTeam);
@@ -2498,7 +2693,27 @@ function App() {
   const [visibleTeam, setVisibleTeam] = useState(() => new Set(initTeam.map(m => m.id)));
   const [teamFilterOpen, setTeamFilterOpen] = useState(false);
   const [zoom, setZoom] = useState(1);
+  const [syncStatus, setSyncStatus] = useState('loading'); // 'loading','synced','error'
   const historyRef = useRef([INIT]);
+
+  /* ── Auto-fetch from Productive on mount ── */
+  useEffect(() => {
+    setSyncStatus('loading');
+    fetchProductiveTasks().then(fresh => {
+      if (fresh && fresh.length > 0) {
+        setBookings(fresh);
+        historyRef.current = [fresh];
+        setSyncStatus('synced');
+        console.log('[Sync] Loaded fresh data from Productive');
+      } else {
+        setSyncStatus('error');
+        console.warn('[Sync] No data returned, keeping INIT');
+      }
+    }).catch(err => {
+      console.error('[Sync] Fetch failed, keeping INIT', err);
+      setSyncStatus('error');
+    });
+  }, []);
   const histIdxRef = useRef(0); // {pid, offset, x, y}
   const dragRef = useRef(null);
   const scrollRef = useRef(null);
@@ -3049,26 +3264,26 @@ function App() {
       gap: 5,
       padding: '4px 10px',
       borderRadius: 8,
-      background: 'rgba(52,211,153,0.08)',
-      border: '1px solid rgba(52,211,153,0.2)'
+      background: syncStatus === 'loading' ? 'rgba(251,191,36,0.08)' : syncStatus === 'synced' ? 'rgba(52,211,153,0.08)' : 'rgba(248,113,113,0.08)',
+      border: `1px solid ${syncStatus === 'loading' ? 'rgba(251,191,36,0.2)' : syncStatus === 'synced' ? 'rgba(52,211,153,0.2)' : 'rgba(248,113,113,0.2)'}`
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       width: 6,
       height: 6,
       borderRadius: 3,
-      background: '#34d399',
-      boxShadow: '0 0 6px rgba(52,211,153,0.5)',
-      animation: 'pulse 2s ease-in-out infinite'
+      background: syncStatus === 'loading' ? '#fbbf24' : syncStatus === 'synced' ? '#34d399' : '#f87171',
+      boxShadow: `0 0 6px ${syncStatus === 'loading' ? 'rgba(251,191,36,0.5)' : syncStatus === 'synced' ? 'rgba(52,211,153,0.5)' : 'rgba(248,113,113,0.5)'}`,
+      animation: syncStatus === 'loading' ? 'pulse 1s ease-in-out infinite' : 'none'
     }
   }), /*#__PURE__*/React.createElement("span", {
     style: {
       fontSize: 10,
       fontWeight: 600,
-      color: '#34d399',
-      letterSpacing: '-0.01em'
+      letterSpacing: '-0.01em',
+      color: syncStatus === 'loading' ? '#fbbf24' : syncStatus === 'synced' ? '#34d399' : '#f87171'
     }
-  }, "Productive Sync")), /*#__PURE__*/React.createElement("div", {
+  }, syncStatus === 'loading' ? 'Syncing...' : syncStatus === 'synced' ? 'Productive Synced' : 'Offline (cached)')), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       alignItems: 'center',
