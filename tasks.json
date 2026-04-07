@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-07T02:22:43.504Z",
+  "generated": "2026-04-07T22:24:23.555Z",
   "entries": [
     {
       "p": "1",
@@ -602,7 +602,7 @@
     {
       "p": "5",
       "proj": "g",
-      "s": 16,
+      "s": 24,
       "n": 7,
       "dn": 7,
       "note": "Sprint 2: Design (Customations -Landing page & cart)",
@@ -1078,8 +1078,7 @@
       "isLeave": false,
       "prodBookingId": "30919684",
       "prodUrl": "https://app.productive.io/1476-dotcollective/bookings/30919684",
-      "sowUrl": ""
+      "sowUrl": null
     }
-  ],
-  "synced": "2026-04-07T10:23:31.857+00:00"
+  ]
 }
