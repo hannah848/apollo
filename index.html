@@ -1104,47 +1104,52 @@ async function prodFetch(method, path, body) {
   }
 }
 
-/* Create a booking in Productive */
+/* Universal fallback service (Jardan Design) — works for all team members */
+const FALLBACK_SERVICE = '8931117';
+
+/* Create a booking in Productive (tries project service, falls back to universal) */
 async function prodCreateBooking(bk, capMode) {
   const personId = PERSON_PROD_MAP[bk.p];
-  const serviceId = PROJ_SERVICE_MAP[bk.proj] || PROJ_SERVICE_MAP.g;
-  if (!personId || !serviceId) return null;
+  if (!personId) return null;
   const startDate = offsetToDate(bk.s);
   const endDate = offsetToDate(bk.s + bk.dn - 1);
   const wDays = workDaysBetween(new Date(startDate + 'T00:00:00'), new Date(endDate + 'T00:00:00'));
   /* Use safe hours (from hrs field) or calculate from capMode */
   const totalMins = bk.hrs ? Math.round(bk.hrs * 60) : Math.round(wDays * (capMode === 'real' ? 7.6 : 6) * 60);
-  const payload = {
-    data: {
-      type: 'bookings',
-      attributes: {
-        started_on: startDate,
-        ended_on: endDate,
-        total_time: totalMins,
-        booking_method_id: 3,
-        // total time mode
-        note: bk.note || ''
-      },
-      relationships: {
-        person: {
-          data: {
-            type: 'people',
-            id: personId
-          }
+  const serviceIds = [PROJ_SERVICE_MAP[bk.proj], FALLBACK_SERVICE].filter(Boolean);
+  for (const serviceId of serviceIds) {
+    const payload = {
+      data: {
+        type: 'bookings',
+        attributes: {
+          started_on: startDate,
+          ended_on: endDate,
+          total_time: totalMins,
+          booking_method_id: 3,
+          note: bk.note || bk.title || ''
         },
-        service: {
-          data: {
-            type: 'services',
-            id: serviceId
+        relationships: {
+          person: {
+            data: {
+              type: 'people',
+              id: personId
+            }
+          },
+          service: {
+            data: {
+              type: 'services',
+              id: serviceId
+            }
           }
         }
       }
+    };
+    const result = await prodFetch('POST', '/bookings', payload);
+    if (result && result.data) {
+      console.log(`[ProdSync] Created booking ${result.data.id} for ${bk.note} (service ${serviceId})`);
+      return result.data.id;
     }
-  };
-  const result = await prodFetch('POST', '/bookings', payload);
-  if (result && result.data) {
-    console.log(`[ProdSync] Created booking ${result.data.id} for ${bk.note}`);
-    return result.data.id;
+    console.warn(`[ProdSync] Service ${serviceId} failed for ${bk.note}, trying fallback…`);
   }
   return null;
 }
@@ -1156,7 +1161,7 @@ async function prodUpdateBooking(prodBookingId, bk, capMode) {
   const endDate = offsetToDate(bk.s + bk.dn - 1);
   const wDays = workDaysBetween(new Date(startDate + 'T00:00:00'), new Date(endDate + 'T00:00:00'));
   const totalMins = bk.hrs ? Math.round(bk.hrs * 60) : Math.round(wDays * (capMode === 'real' ? 7.6 : 6) * 60);
-  const serviceId = PROJ_SERVICE_MAP[bk.proj] || PROJ_SERVICE_MAP.g;
+  const serviceId = PROJ_SERVICE_MAP[bk.proj] || FALLBACK_SERVICE;
   const personId = PERSON_PROD_MAP[bk.p];
   const payload = {
     data: {
@@ -1166,7 +1171,7 @@ async function prodUpdateBooking(prodBookingId, bk, capMode) {
         started_on: startDate,
         ended_on: endDate,
         total_time: totalMins,
-        note: bk.note || ''
+        note: bk.note || bk.title || ''
       },
       relationships: {
         person: {
