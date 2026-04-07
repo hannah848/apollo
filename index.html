@@ -2512,140 +2512,25 @@ function projCodeFromName(name) {
   return 'g';
 }
 
-/* Fetch tasks + leave from Productive on load (no meeting bookings) */
+/* Fetch tasks + leave from tasks.json (generated server-side from Productive) */
 async function fetchProductiveTasks() {
-  const TEAM_ENTRIES = Object.entries(PERSON_PROD_MAP); // [['1','1043514'],...]
-  const EXTRA_PROJ = ['840660']; // projects that don't return via assignee filter
-  const WIN_DATE = new Date(2026, 2, 30);
-  const dateToOff = ds => {
-    const d = new Date(ds + 'T00:00:00');
-    return Math.round((d - WIN_DATE) / 86400000);
-  };
-  const PROD_BASE = 'https://app.productive.io/1476-dotcollective';
-  const allTasks = new Map(); // taskId→entry
-  const allLeave = []; // leave bookings
-  const projNameCache = {}; // projId→name
-
-  // Fetch tasks per person
-  for (const [pIdx, prodId] of TEAM_ENTRIES) {
-    try {
-      const resp = await prodFetch('GET', `/tasks?filter[assignee_id]=${prodId}&filter[after]=2026-03-20&filter[before]=2026-08-31&include=project&page[size]=200`);
-      if (!resp || !resp.data) continue;
-      (resp.included || []).forEach(inc => {
-        if (inc.type === 'projects') projNameCache[inc.id] = inc.attributes?.name || '';
-      });
-      for (const t of resp.data) {
-        const a = t.attributes;
-        const sd = a.start_date,
-          dd = a.due_date;
-        if (!dd) continue;
-        const startOff = sd ? dateToOff(sd) : dateToOff(dd);
-        const endOff = dateToOff(dd);
-        const n = Math.max(1, endOff - startOff + 1);
-        const projRel = t.relationships?.project?.data;
-        const projId = projRel?.id || '';
-        const projCode = PROJ_ID_MAP[projId] || projCodeFromName(projNameCache[projId] || '');
-        allTasks.set(t.id, {
-          p: pIdx,
-          proj: projCode,
-          s: startOff,
-          n,
-          dn: n,
-          note: a.title || '',
-          hrs: null,
-          isLeave: false,
-          prodBookingId: null,
-          _prodUrl: `${PROD_BASE}/tasks/${t.id}`
-        });
-      }
-    } catch (e) {
-      console.error('[Fetch] Tasks error for', prodId, e);
-    }
+  try {
+    const resp = await fetch('tasks.json?_=' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    const entries = (data.entries || []).map((e, i) => ({
+      ...e,
+      id: String(10000 + i),
+      sowUrl: e.sowUrl || null,
+      prodUrl: e.prodUrl || null,
+      prodBookingId: e.prodBookingId || null
+    }));
+    console.log(`[Fetch] Loaded ${entries.length} entries from tasks.json (generated ${data.generated || '?'})`);
+    return entries;
+  } catch (err) {
+    console.error('[Fetch] Failed to load tasks.json:', err);
+    return [];
   }
-
-  // Fetch tasks from extra projects (Eckersley etc)
-  for (const projId of EXTRA_PROJ) {
-    try {
-      const resp = await prodFetch('GET', `/tasks?filter[project_id]=${projId}&filter[after]=2026-03-20&filter[before]=2026-08-31&page[size]=200&include=assignee`);
-      if (!resp || !resp.data) continue;
-      const projCode = PROJ_ID_MAP[projId] || 'g';
-      for (const t of resp.data) {
-        if (allTasks.has(t.id)) continue;
-        const a = t.attributes;
-        const sd = a.start_date,
-          dd = a.due_date;
-        if (!dd) continue;
-        const assignee = t.relationships?.assignee?.data;
-        if (!assignee) continue;
-        const pEntry = TEAM_ENTRIES.find(([, pid]) => pid === assignee.id);
-        if (!pEntry) continue;
-        const startOff = sd ? dateToOff(sd) : dateToOff(dd);
-        const endOff = dateToOff(dd);
-        const n = Math.max(1, endOff - startOff + 1);
-        allTasks.set(t.id, {
-          p: pEntry[0],
-          proj: projCode,
-          s: startOff,
-          n,
-          dn: n,
-          note: a.title || '',
-          hrs: null,
-          isLeave: false,
-          prodBookingId: null,
-          _prodUrl: `${PROD_BASE}/tasks/${t.id}`
-        });
-      }
-    } catch (e) {
-      console.error('[Fetch] Extra project error', projId, e);
-    }
-  }
-
-  // Fetch bookings per person — ONLY leave (event-linked bookings)
-  for (const [pIdx, prodId] of TEAM_ENTRIES) {
-    try {
-      const resp = await prodFetch('GET', `/bookings?filter[person_id]=${prodId}&filter[after]=2026-03-20&filter[before]=2026-07-31&include=event&page[size]=200`);
-      if (!resp || !resp.data) continue;
-      for (const b of resp.data) {
-        const a = b.attributes;
-        if (!a.started_on || !a.ended_on) continue;
-        const eventRel = b.relationships?.event?.data;
-        if (!eventRel) continue; // Only leave bookings (event-linked)
-        const startOff = dateToOff(a.started_on);
-        const endOff = dateToOff(a.ended_on);
-        const n = Math.max(1, endOff - startOff + 1);
-        const hrs = a.total_time ? a.total_time / 60 : null;
-        allLeave.push({
-          p: pIdx,
-          proj: 'lv',
-          s: startOff,
-          n,
-          dn: n,
-          note: a.note || 'AL',
-          hrs,
-          isLeave: true,
-          prodBookingId: b.id,
-          _prodUrl: `${PROD_BASE}/bookings/${b.id}`
-        });
-      }
-    } catch (e) {
-      console.error('[Fetch] Bookings error for', prodId, e);
-    }
-  }
-
-  // Combine and assign IDs
-  let id = 10000;
-  const all = [...Array.from(allTasks.values()), ...allLeave].map(entry => {
-    const url = entry._prodUrl || null;
-    delete entry._prodUrl;
-    return {
-      ...entry,
-      id: String(id++),
-      sowUrl: null,
-      prodUrl: url
-    };
-  });
-  console.log(`[Fetch] Loaded ${allTasks.size} tasks, ${allLeave.length} leave = ${all.length} total`);
-  return all;
 }
 function App() {
   const [bookings, setBookings] = useState(INIT);
