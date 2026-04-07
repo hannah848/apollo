@@ -925,7 +925,15 @@ const mk = (p, proj, s, n, note, hrs, isLeave) => ({
   sowUrl: null,
   prodUrl: null,
   dn: n,
-  prodBookingId: null
+  prodBookingId: null,
+  title: note || '',
+  description: '',
+  tags: [],
+  taskList: '',
+  priority: '',
+  status: '',
+  dueDate: '',
+  attachments: []
 });
 
 /* ── GitHub persistence (save bookings to tasks.json in repo) ── */
@@ -1861,8 +1869,76 @@ function SettingsModal({
 }
 
 /* ════════════════════════════════════
-   BOOKING MODAL
+   BOOKING MODAL  (full Productive fields)
    ════════════════════════════════════ */
+const PRIORITY_OPTS = [{
+  v: '',
+  label: '— None —'
+}, {
+  v: '1',
+  label: '🔴 Urgent'
+}, {
+  v: '2',
+  label: '🟠 High'
+}, {
+  v: '3',
+  label: '🟡 Normal'
+}, {
+  v: '4',
+  label: '🔵 Low'
+}];
+const STATUS_OPTS = [{
+  v: '',
+  label: '— None —'
+}, {
+  v: 'backlog',
+  label: 'Backlog'
+}, {
+  v: 'todo',
+  label: 'To Do'
+}, {
+  v: 'pending',
+  label: 'Pending'
+}, {
+  v: 'awaiting',
+  label: 'Awaiting'
+}, {
+  v: 'in_progress',
+  label: 'In Progress'
+}, {
+  v: 'review',
+  label: 'Review'
+}, {
+  v: 'deploy',
+  label: 'Deploy'
+}, {
+  v: 'done',
+  label: 'Done'
+}, {
+  v: 'closed',
+  label: 'Closed'
+}];
+function TabBtn({
+  label,
+  active,
+  onClick
+}) {
+  return /*#__PURE__*/React.createElement("button", {
+    onClick: onClick,
+    style: {
+      padding: '7px 16px',
+      fontSize: 12,
+      fontWeight: active ? 700 : 500,
+      color: active ? C.text1 : C.text2,
+      background: active ? 'rgba(124,58,237,0.15)' : 'transparent',
+      border: 'none',
+      borderBottom: active ? `2px solid ${C.violet}` : '2px solid transparent',
+      cursor: 'pointer',
+      letterSpacing: '-0.01em',
+      transition: 'all 0.15s'
+    }
+  }, label);
+}
 function BookingModal({
   initial,
   team,
@@ -1872,6 +1948,7 @@ function BookingModal({
 }) {
   const isEdit = !!initial?.booking;
   const bk = initial?.booking;
+  const [tab, setTab] = useState('schedule');
   const [form, setForm] = useState({
     person: bk?.p || initial?.member?.id || team[0].id,
     proj: bk?.proj || 'g',
@@ -1883,8 +1960,19 @@ function BookingModal({
     signed: bk ? PROJ[bk.proj]?.signed || false : false,
     sowUrl: bk?.sowUrl || '',
     prodUrl: bk?.prodUrl || '',
-    isLeave: bk?.isLeave || false
+    isLeave: bk?.isLeave || false,
+    // ── New Productive fields ──
+    title: bk?.title || bk?.note || '',
+    description: bk?.description || '',
+    tags: bk?.tags || [],
+    taskList: bk?.taskList || '',
+    priority: bk?.priority || '',
+    status: bk?.status || '',
+    dueDate: bk?.dueDate || '',
+    attachments: bk?.attachments || []
   });
+  const [tagInput, setTagInput] = useState('');
+  const descRef = useRef(null);
   const member = useMemo(() => team.find(m => m.id === form.person) || team[0], [form.person, team]);
   useEffect(() => {
     if (!form.useSafe || !form.startDate || !form.endDate || !member.safeHpD) return;
@@ -1905,6 +1993,14 @@ function BookingModal({
       e = new Date(form.endDate + 'T00:00:00');
     return Math.round(workDaysBetween(s, e) * member.safeHpD * 10) / 10;
   };
+  const addTag = () => {
+    const t = tagInput.trim();
+    if (t && !form.tags.includes(t)) {
+      set('tags', [...form.tags, t]);
+    }
+    setTagInput('');
+  };
+  const removeTag = t => set('tags', form.tags.filter(x => x !== t));
   const handleSave = () => {
     if (!form.proj && !form.isLeave) {
       alert('Please select a project');
@@ -1920,38 +2016,182 @@ function BookingModal({
       s,
       n,
       dn: n,
-      note: form.note,
+      note: form.title || form.note,
       hrs: form.hrs ? parseFloat(form.hrs) : null,
       isLeave: form.isLeave,
       sowUrl: form.sowUrl,
       prodUrl: form.prodUrl,
-      prodBookingId: bk?.prodBookingId || null
+      prodBookingId: bk?.prodBookingId || null,
+      title: form.title,
+      description: form.description,
+      tags: form.tags,
+      taskList: form.taskList,
+      priority: form.priority,
+      status: form.status,
+      dueDate: form.dueDate,
+      attachments: form.attachments
     });
     onClose();
   };
   const projOptions = Object.entries(PROJ).filter(([, p]) => !p.isLeave);
   const safeCalc = calcSafeHrs();
+
+  /* ── Description toolbar helpers ── */
+  const execCmd = (cmd, val) => {
+    if (descRef.current) {
+      descRef.current.focus();
+      document.execCommand(cmd, false, val || null);
+    }
+  };
+  const descToolbar = /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 2,
+      padding: '4px 6px',
+      background: 'rgba(255,255,255,0.03)',
+      borderRadius: '8px 8px 0 0',
+      border: `1px solid ${C.border}`,
+      borderBottom: 'none'
+    }
+  }, [{
+    cmd: 'bold',
+    icon: 'B',
+    style: {
+      fontWeight: 700
+    }
+  }, {
+    cmd: 'italic',
+    icon: 'I',
+    style: {
+      fontStyle: 'italic'
+    }
+  }, {
+    cmd: 'underline',
+    icon: 'U',
+    style: {
+      textDecoration: 'underline'
+    }
+  }, {
+    cmd: 'strikeThrough',
+    icon: 'S',
+    style: {
+      textDecoration: 'line-through'
+    }
+  }, {
+    cmd: 'insertUnorderedList',
+    icon: '•',
+    style: {}
+  }, {
+    cmd: 'insertOrderedList',
+    icon: '1.',
+    style: {}
+  }].map(b => /*#__PURE__*/React.createElement("button", {
+    key: b.cmd,
+    onMouseDown: e => {
+      e.preventDefault();
+      execCmd(b.cmd);
+    },
+    style: {
+      width: 28,
+      height: 26,
+      border: 'none',
+      background: 'rgba(255,255,255,0.05)',
+      borderRadius: 4,
+      color: C.text2,
+      fontSize: 12,
+      cursor: 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      ...b.style
+    }
+  }, b.icon)), /*#__PURE__*/React.createElement("button", {
+    onMouseDown: e => {
+      e.preventDefault();
+      const url = prompt('Enter URL:');
+      if (url) execCmd('createLink', url);
+    },
+    style: {
+      width: 28,
+      height: 26,
+      border: 'none',
+      background: 'rgba(255,255,255,0.05)',
+      borderRadius: 4,
+      color: C.text2,
+      fontSize: 12,
+      cursor: 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
+  }, "\uD83D\uDD17"));
   return /*#__PURE__*/React.createElement(Overlay, {
     onClose: onClose
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      width: 440
+      width: 560
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 10,
+      marginBottom: 4
     }
   }, /*#__PURE__*/React.createElement("h2", {
     style: {
       fontSize: 15,
       fontWeight: 700,
       color: C.text1,
-      marginBottom: 16,
-      letterSpacing: '-0.03em'
+      letterSpacing: '-0.03em',
+      flex: 1
     }
-  }, isEdit ? 'Edit Booking' : 'New Booking'), /*#__PURE__*/React.createElement("div", {
+  }, isEdit ? 'Edit Booking' : 'New Booking'), form.prodUrl && /*#__PURE__*/React.createElement("a", {
+    href: form.prodUrl,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      fontSize: 11,
+      color: '#a78bfa',
+      textDecoration: 'none',
+      display: 'flex',
+      alignItems: 'center',
+      gap: 4
+    }
+  }, "Open in Productive \u2197")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 0,
+      borderBottom: `1px solid ${C.border}`,
+      marginBottom: 16
+    }
+  }, /*#__PURE__*/React.createElement(TabBtn, {
+    label: "Schedule",
+    active: tab === 'schedule',
+    onClick: () => setTab('schedule')
+  }), /*#__PURE__*/React.createElement(TabBtn, {
+    label: "Details",
+    active: tab === 'details',
+    onClick: () => setTab('details')
+  }), /*#__PURE__*/React.createElement(TabBtn, {
+    label: "Links & SOW",
+    active: tab === 'links',
+    onClick: () => setTab('links')
+  })), tab === 'schedule' && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       flexDirection: 'column',
       gap: 13
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Title"), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: form.title,
+    onChange: e => set('title', e.target.value),
+    placeholder: "e.g. Eckersley Wireframes",
+    style: {
+      fontWeight: 600
+    }
+  })), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
@@ -2019,12 +2259,181 @@ function BookingModal({
     style: {
       opacity: form.useSafe ? 0.4 : 1
     }
-  })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Label / Note"), /*#__PURE__*/React.createElement("input", {
+  }))), tab === 'details' && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 13
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Description"), descToolbar, /*#__PURE__*/React.createElement("div", {
+    ref: descRef,
+    contentEditable: true,
+    suppressContentEditableWarning: true,
+    onBlur: e => set('description', e.currentTarget.innerHTML),
+    dangerouslySetInnerHTML: {
+      __html: form.description
+    },
+    style: {
+      minHeight: 120,
+      maxHeight: 220,
+      overflowY: 'auto',
+      padding: '10px 12px',
+      fontSize: 12,
+      lineHeight: 1.6,
+      color: C.text1,
+      background: 'rgba(255,255,255,0.03)',
+      border: `1px solid ${C.border}`,
+      borderRadius: '0 0 8px 8px',
+      outline: 'none',
+      whiteSpace: 'pre-wrap'
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Priority"), /*#__PURE__*/React.createElement("select", {
+    value: form.priority,
+    onChange: e => set('priority', e.target.value)
+  }, PRIORITY_OPTS.map(o => /*#__PURE__*/React.createElement("option", {
+    key: o.v,
+    value: o.v
+  }, o.label)))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Workflow Status"), /*#__PURE__*/React.createElement("select", {
+    value: form.status,
+    onChange: e => set('status', e.target.value)
+  }, STATUS_OPTS.map(o => /*#__PURE__*/React.createElement("option", {
+    key: o.v,
+    value: o.v
+  }, o.label))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Task List"), /*#__PURE__*/React.createElement("input", {
     type: "text",
-    value: form.note,
-    onChange: e => set('note', e.target.value),
-    placeholder: "e.g. Eckersley Wireframes"
-  })), !form.isLeave && /*#__PURE__*/React.createElement("div", {
+    value: form.taskList,
+    onChange: e => set('taskList', e.target.value),
+    placeholder: "e.g. Sprint 3"
+  })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Due Date"), /*#__PURE__*/React.createElement("input", {
+    type: "date",
+    value: form.dueDate,
+    onChange: e => set('dueDate', e.target.value)
+  }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Tags"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: 6,
+      marginBottom: 6
+    }
+  }, form.tags.map(t => /*#__PURE__*/React.createElement("span", {
+    key: t,
+    style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 4,
+      padding: '3px 10px',
+      borderRadius: 12,
+      fontSize: 11,
+      fontWeight: 600,
+      background: 'rgba(124,58,237,0.15)',
+      color: '#c4b5fd',
+      border: '1px solid rgba(124,58,237,0.25)'
+    }
+  }, t, /*#__PURE__*/React.createElement("button", {
+    onClick: () => removeTag(t),
+    style: {
+      background: 'none',
+      border: 'none',
+      color: '#c4b5fd',
+      cursor: 'pointer',
+      fontSize: 13,
+      padding: 0,
+      lineHeight: 1
+    }
+  }, "\xD7")))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 6
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: tagInput,
+    onChange: e => setTagInput(e.target.value),
+    onKeyDown: e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        addTag();
+      }
+    },
+    placeholder: "Add tag\u2026",
+    style: {
+      flex: 1
+    }
+  }), /*#__PURE__*/React.createElement(Btn, {
+    ghost: true,
+    onClick: addTag,
+    style: {
+      padding: '6px 12px',
+      fontSize: 11
+    }
+  }, "+ Add"))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Attachments"), form.attachments.length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 4,
+      marginBottom: 6
+    }
+  }, form.attachments.map((a, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 8,
+      padding: '6px 10px',
+      borderRadius: 8,
+      background: 'rgba(255,255,255,0.03)',
+      border: `1px solid ${C.border}`,
+      fontSize: 11
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: 1,
+      color: C.text1
+    }
+  }, a.name || a), a.url && /*#__PURE__*/React.createElement("a", {
+    href: a.url,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      color: '#a78bfa',
+      fontSize: 10
+    }
+  }, "Open \u2197")))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: '16px',
+      borderRadius: 8,
+      border: `1.5px dashed ${C.border}`,
+      textAlign: 'center',
+      color: C.text3,
+      fontSize: 11,
+      cursor: 'default'
+    }
+  }, "Attachments sync from Productive \u2014 upload files directly in", ' ', form.prodUrl ? /*#__PURE__*/React.createElement("a", {
+    href: form.prodUrl,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      color: '#a78bfa'
+    }
+  }, "Productive \u2197") : 'Productive'))), tab === 'links' && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 13
+    }
+  }, !form.isLeave && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
@@ -2045,18 +2454,38 @@ function BookingModal({
   }))), !form.isLeave && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Productive URL"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
-      gap: 8
+      gap: 8,
+      alignItems: 'center'
     }
   }, /*#__PURE__*/React.createElement("input", {
     type: "url",
     value: form.prodUrl,
     onChange: e => set('prodUrl', e.target.value),
-    placeholder: "https://app.productive.io/..."
-  })))), /*#__PURE__*/React.createElement("div", {
+    placeholder: "https://app.productive.io/...",
+    style: {
+      flex: 1
+    }
+  }), form.prodUrl && /*#__PURE__*/React.createElement("a", {
+    href: form.prodUrl,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      fontSize: 11,
+      color: '#a78bfa',
+      whiteSpace: 'nowrap'
+    }
+  }, "Open \u2197"))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Label / Note (legacy)"), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: form.note,
+    onChange: e => set('note', e.target.value),
+    placeholder: "e.g. Eckersley Wireframes"
+  }))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       gap: 8,
-      marginTop: 20
+      marginTop: 20,
+      paddingTop: 16,
+      borderTop: `1px solid ${C.border}`
     }
   }, isEdit && /*#__PURE__*/React.createElement(Btn, {
     danger: true,
@@ -2597,7 +3026,15 @@ async function fetchProductiveTasks() {
       id: String(10000 + i),
       sowUrl: e.sowUrl || null,
       prodUrl: e.prodUrl || null,
-      prodBookingId: e.prodBookingId || null
+      prodBookingId: e.prodBookingId || null,
+      title: e.title || e.note || '',
+      description: e.description || '',
+      tags: e.tags || [],
+      taskList: e.taskList || '',
+      priority: e.priority || '',
+      status: e.status || '',
+      dueDate: e.dueDate || '',
+      attachments: e.attachments || []
     }));
     console.log(`[Fetch] Loaded ${entries.length} entries from tasks.json (generated ${data.generated || '?'})`);
     return entries;
