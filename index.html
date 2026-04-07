@@ -1117,26 +1117,8 @@ async function prodDeleteBooking(prodBookingId) {
   return false;
 }
 
-/* ── Real Productive data (synced from API) + leave ── */
-const INIT = [
-// ── Kate Smith ──
-mk('1', 'g', 0, 1, 'Space RFP - OOO', null, false), mk('1', 'g', 0, 1, 'Sales', 7.6, false), mk('1', 'g', 1, 1, 'Early Setter Discovery', null, false), mk('1', 'g', 2, 1, 'Early Setter Creative Workshop', null, false), mk('1', 'cmsp', 3, 1, 'Find in Store / Click & Collect', null, false), mk('1', 'g', 3, 1, 'Eckersleys Design Handover', null, false), mk('1', 'mcsp', 3, 1, 'Manning Cartell - SearchSpring Sales Impact Analysis', null, false), mk('1', 'rcsp', 8, 1, 'Reporting Updates - 30/03 - 05/04', null, false), mk('1', 'eurd', 8, 1, 'Design: Sprint 1 - Wireframes', null, false), mk('1', 'eurd', 8, 8, 'Design: Sprint 2 - Wireframes', null, false), mk('1', 'g', 16, 13, 'Seed UX & IA*', null, false), mk('1', 'g', 29, 9, 'Seed Wireframes*', null, false), mk('1', 'g', 38, 12, 'Living Edge UX & IA*', null, false), mk('1', 'g', 50, 9, 'Living Edge Wireframes*', null, false),
-// ── Dave Ye ──
-mk('2', 'g', -3, 4, 'Meeting: Weekly Rip Curl Report Brief', null, false), mk('2', 'g', -3, 4, 'Meetings', 0.5, false), mk('2', 'g', 1, 1, 'Meetings', 0.5, false), mk('2', 'g', 2, 31, 'Meetings', 8.0, false), mk('2', 'lv', 8, 1, 'AL', 7.6, true), mk('2', 'g', 10, 8, 'Runaway the Label — Commerce Turnaround (Emergency Diagnostic)', null, false), mk('2', 'g', 35, 9, 'Castle & Cubby UX & IA*', null, false), mk('2', 'g', 45, 9, 'Castle & Cubby Design Systems*', null, false), mk('2', 'g', 56, 5, 'Castle & Cubby UI Roll Out*', null, false), mk('2', 'g', 63, 8, 'Living Edge Design Systems*', null, false), mk('2', 'g', 73, 13, 'Living Edge UI Rollout*', null, false),
-// Dave – Wednesday RDOs
-mk('2', 'lv', 2, 1, 'RDO', 7.6, true), mk('2', 'lv', 9, 1, 'RDO', 7.6, true), mk('2', 'lv', 16, 1, 'RDO', 7.6, true), mk('2', 'lv', 23, 1, 'RDO', 7.6, true), mk('2', 'lv', 30, 1, 'RDO', 7.6, true), mk('2', 'lv', 37, 1, 'RDO', 7.6, true), mk('2', 'lv', 44, 1, 'RDO', 7.6, true), mk('2', 'lv', 51, 1, 'RDO', 7.6, true), mk('2', 'lv', 58, 1, 'RDO', 7.6, true), mk('2', 'lv', 65, 1, 'RDO', 7.6, true), mk('2', 'lv', 72, 1, 'RDO', 7.6, true), mk('2', 'lv', 79, 1, 'RDO', 7.6, true), mk('2', 'lv', 86, 1, 'RDO', 7.6, true),
-// ── Audrina Heng ──
-mk('3', 'g', 0, 1, 'Space RFP OOO', null, false), mk('3', 'g', 0, 1, 'Meetings', 5.0, false), mk('3', 'g', 1, 1, 'Meetings', 0.5, false), mk('3', 'esqq', 2, 2, 'DESIGN: Development Feedback', null, false), mk('3', 'g', 2, 2, 'Creative Workshop Template', null, false), mk('3', 'g', 2, 1, 'Eckersleys Design Handover', 1.0, false), mk('3', 'g', 2, 1, 'Meetings', 0.5, false), mk('3', 'g', 2, 31, 'Meetings', 10.5, false), mk('3', 'g', 2, 1, 'Planning', 2.0, false), mk('3', 'g', 2, 1, 'Planning', 2.0, false), mk('3', 'g', 3, 1, 'Meetings', 4.0, false), mk('3', 'esqq', 9, 1, 'Design review', null, false), mk('3', 'g', 9, 1, 'Meetings', 0.5, false), mk('3', 'lv', 10, 5, 'AL', 22.8, true), mk('3', 'g', 16, 1, 'Meetings', 0.5, false), mk('3', 'g', 23, 1, 'Meetings', 0.5, false), mk('3', 'g', 30, 1, 'Meetings', 0.5, false), mk('3', 'eurd', 8, 17, 'Sprint 3 - Creative Concepts', null, false), mk('3', 'eurd', 25, 12, 'Design: Sprint 5 - Homepage and Globals', null, false), mk('3', 'eurd', 28, 4, 'Design: Sprint 4- Design System', null, false), mk('3', 'lv', 32, 1, 'Birthday Leave', 7.6, true), mk('3', 'g', 37, 1, 'Meetings', 0.5, false), mk('3', 'g', 42, 9, 'Seed Creative Concepts*', null, false), mk('3', 'g', 44, 1, 'Meetings', 0.5, false), mk('3', 'g', 51, 2, 'Seed Design Systems*', null, false), mk('3', 'g', 51, 1, 'Meetings', 0.5, false), mk('3', 'g', 53, 15, 'Seed UI Rollout*', null, false), mk('3', 'g', 58, 1, 'Meetings', 0.5, false), mk('3', 'g', 65, 1, 'Meetings', 0.5, false), mk('3', 'g', 72, 1, 'Meetings', 0.5, false), mk('3', 'lv', 79, 10, 'Europe', 60.8, true),
-// ── Seo Lee ──
-mk('4', 'g', -3, 4, 'Early Settler Discovery Prep', null, false), mk('4', 'g', 0, 1, 'Meetings', 0.5, false), mk('4', 'g', 1, 1, 'Early Settler Discovery OOO', null, false), mk('4', 'g', 1, 1, 'Meetings', 0.5, false), mk('4', 'g', 1, 1, 'Meetings', 7.0, false), mk('4', 'g', 2, 1, 'Early Settler Creative Workshop OOO', null, false), mk('4', 'g', 2, 1, 'DotCollective V2026 Site', null, false), mk('4', 'g', 2, 1, 'Meetings', 5.0, false), mk('4', 'g', 2, 31, 'Meetings', 10.5, false), mk('4', 'g', 3, 1, 'DotCollective V2026 Site', null, false), mk('4', 'g', 7, 1, 'Meetings', 0.5, false), mk('4', 'g', 8, 7, 'Early Settler Creative Concepts', null, false), mk('4', 'g', 9, 1, 'Meetings', 0.5, false), mk('4', 'g', 14, 1, 'Meetings', 0.5, false), mk('4', 'g', 15, 3, 'Nova Support', null, false), mk('4', 'g', 16, 1, 'Meetings', 0.5, false), mk('4', 'g', 18, 1, 'Social', 4.0, false), mk('4', 'g', 21, 1, 'Meetings', 0.5, false), mk('4', 'g', 21, 1, 'Sales', 4.0, false), mk('4', 'g', 23, 1, 'Meetings', 0.5, false), mk('4', 'g', 24, 2, 'Living Edge Workshops*', null, false), mk('4', 'g', 28, 8, 'Living Edge Creative Concepts*', null, false), mk('4', 'g', 28, 1, 'Meetings', 0.5, false), mk('4', 'g', 30, 1, 'Meetings', 0.5, false), mk('4', 'g', 35, 1, 'Meetings', 0.5, false), mk('4', 'g', 37, 1, 'Meetings', 0.5, false), mk('4', 'g', 42, 1, 'Meetings', 0.5, false), mk('4', 'g', 44, 7, 'Living Edge Creative Concepts*', null, false), mk('4', 'g', 44, 1, 'Meetings', 0.5, false), mk('4', 'g', 49, 1, 'Meetings', 0.5, false), mk('4', 'g', 51, 1, 'Meetings', 0.5, false), mk('4', 'g', 56, 1, 'Meetings', 0.5, false), mk('4', 'g', 58, 1, 'Meetings', 0.5, false), mk('4', 'g', 60, 20, 'Early Settler UI Roll Out *', null, false), mk('4', 'g', 63, 1, 'Meetings', 0.5, false), mk('4', 'g', 65, 1, 'Meetings', 0.5, false), mk('4', 'g', 70, 3, 'Early Settler Design System*', null, false), mk('4', 'g', 70, 1, 'Meetings', 0.5, false), mk('4', 'g', 72, 1, 'Meetings', 0.5, false),
-// ── Bec Simpson ──
-mk('5', 'g', 0, 1, 'Early Settler - Creative Workshop', 2.5, false), mk('5', 'g', 1, 1, 'Meetings', 0.5, false), mk('5', 'g', 2, 1, 'Meetings', 0.5, false), mk('5', 'g', 2, 31, 'Meetings', 10.5, false), mk('5', 'g', 4, 1, 'Social', null, false), mk('5', 'g', 7, 1, 'Social', null, false), mk('5', 'g', 8, 1, 'ByWren Creative Workshop', null, false), mk('5', 'g', 8, 1, 'Meetings', 2.0, false), mk('5', 'bsp', 9, 7, 'Sprint 1: Design (Applied branding to chosen theme in figma)', null, false), mk('5', 'jjsp', 9, 1, 'Briefing: Implement Pre-Order Functionality', null, false), mk('5', 'lv', 14, 2, 'AL', 15.2, true), mk('5', 'bsp', 16, 7, 'Sprint 2: Design (Customations -Landing page & cart)', null, false), mk('5', 'bsp', 31, 1, 'Sprint 3: Design QA testing', null, false), mk('5', 'eurd', 31, 15, 'Design: Sprint 6- Key Templates (Collections and Search)', null, false), mk('5', 'eurd', 36, 18, 'Design: Sprint 7- Key Templates (Product Pages, Cart and Mini Cart)', null, false), mk('5', 'eurd', 46, 15, 'Design: Sprint 8- Secondary Pages Part 1', null, false), mk('5', 'eurd', 56, 10, 'Design: Sprint 9- Secondary Pages Part 2', null, false), mk('5', 'eurd', 66, 12, 'Design: Sprint 9- Secondary Pages Part 2 Loyalty + Accounts', null, false),
-// ── Lachlan Gibbs ──
-mk('6', 'g', 0, 1, 'Space RFP OOO', null, false), mk('6', 'g', 0, 1, 'Sales', 7.6, false), mk('6', 'g', 1, 1, 'Early Settler Workshop OOO', null, false), mk('6', 'g', 1, 1, 'Meetings', 0.5, false), mk('6', 'g', 1, 1, 'Meetings', 0.5, false), mk('6', 'g', 2, 1, 'Early Settler Workshop OOO', null, false), mk('6', 'g', 2, 31, 'Meetings', 9.5, false), mk('6', 'g', 2, 31, 'Meetings', 9.5, false), mk('6', 'npfg', 8, 1, 'US subscription order w/o 5% discount', null, false), mk('6', 'lv', 8, 4, 'AL', 22.8, true), mk('6', 'g', 15, 1, 'Chemist Warehouse Op Scoping', null, false), mk('6', 'essw', 16, 2, 'Internal Interview Planning', null, false), mk('6', 'essw', 16, 2, 'Internal Interview Discussion Guide', null, false), mk('6', 'g', 16, 3, 'Rip Curl- Action Items', null, false), mk('6', 'essw', 18, 4, 'Conduct Internal Interviews', null, false), mk('6', 'essw', 21, 2, 'Store Visit/Observation Planning', null, false), mk('6', 'essw', 22, 2, 'Store Visits x 3', null, false), mk('6', 'essw', 24, 2, 'Initial Findings Summary', null, false), mk('6', 'essw', 24, 2, 'Research Plan', null, false), mk('6', 'essw', 29, 2, 'Platform & Screener Setup', null, false), mk('6', 'essw', 29, 3, 'Qual Interview Discussion Guide', null, false), mk('6', 'essw', 32, 6, 'Candidate Selection & Scheduling', null, false), mk('6', 'essw', 37, 6, 'Qual Customer Interviews x 15', null, false), mk('6', 'essw', 37, 6, 'Qual Analysis & Insight Consolidation', null, false), mk('6', 'essw', 43, 9, 'Findings & Insights Summary Doc', null, false), mk('6', 'essw', 52, 1, 'Final Presentation', null, false),
-// ── Jonathan Stiglec ──
-mk('7', 'g', -4, 6, 'Meetings', 2.0, false), mk('7', 'shak', -3, 1, 'Effort/Business Impact Scoring', null, false), mk('7', 'shak', -3, 1, 'Design single-page PDF appendix: Customer Sentiment Analysis', null, false), mk('7', 'shak', -3, 1, 'Validate Page Architecture & Navigation Structure', null, false), mk('7', 'g', 0, 1, 'Early Settler - Discovery Workshop', 3.0, false), mk('7', 'g', 1, 1, 'Meetings', 0.0, false), mk('7', 'g', 1, 1, 'Meetings', 0.5, false), mk('7', 'g', 1, 1, 'Meetings', 0.5, false), mk('7', 'lv', 2, 2, 'AL', 15.2, true), mk('7', 'g', 2, 31, 'Meetings', 0.5, false), mk('7', 'g', 2, 31, 'Meetings', 10.5, false), mk('7', 'g', 2, 31, 'Meetings', 10.5, false), mk('7', 'lv', 37, 1, 'AL', 7.6, true),
-// ── Hannah Grantham ──
-mk('8', 'g', -4, 6, 'Apollo Stand Up', null, false), mk('8', 'jdb', 1, 1, 'Sprint 12: PDP Configuration - Additional designs', null, false), mk('8', 'shak', 1, 1, 'Review and Validate Bundle Discount & First Purchase Incentive Approach', null, false), mk('8', 'npfg', 1, 1, 'Subscription Pricing', null, false), mk('8', 'g', 3, 1, 'ByWren Creative Workshop Prep', null, false), mk('8', 'g', 8, 1, 'TEST Scheduler', null, false), mk('8', 'bsp', 38, 1, 'Sprint 4: Design QA testing', null, false)];
+/* ── INIT is empty — all data pulled from Productive on load ── */
+const INIT = [];
 
 /* ── Lane assignment ── */
 function assignLanes(bks) {
@@ -2526,7 +2508,7 @@ function projCodeFromName(name) {
   return 'g';
 }
 
-/* Fetch tasks + bookings from Productive on load */
+/* Fetch tasks + leave from Productive on load (no meeting bookings) */
 async function fetchProductiveTasks() {
   const TEAM_ENTRIES = Object.entries(PERSON_PROD_MAP); // [['1','1043514'],...]
   const EXTRA_PROJ = ['840660']; // projects that don't return via assignee filter
@@ -2535,17 +2517,16 @@ async function fetchProductiveTasks() {
     const d = new Date(ds + 'T00:00:00');
     return Math.round((d - WIN_DATE) / 86400000);
   };
+  const PROD_BASE = 'https://app.productive.io/1476-dotcollective';
   const allTasks = new Map(); // taskId→entry
   const allLeave = []; // leave bookings
-  const allMeetings = []; // meeting bookings
   const projNameCache = {}; // projId→name
 
   // Fetch tasks per person
   for (const [pIdx, prodId] of TEAM_ENTRIES) {
     try {
-      const resp = await prodFetch('GET', `/tasks?filter[assignee_id]=${prodId}&filter[after]=2026-03-25&filter[before]=2026-08-31&include=project&page[size]=200`);
+      const resp = await prodFetch('GET', `/tasks?filter[assignee_id]=${prodId}&filter[after]=2026-03-20&filter[before]=2026-08-31&include=project&page[size]=200`);
       if (!resp || !resp.data) continue;
-      // Cache project names from included
       (resp.included || []).forEach(inc => {
         if (inc.type === 'projects') projNameCache[inc.id] = inc.attributes?.name || '';
       });
@@ -2553,7 +2534,7 @@ async function fetchProductiveTasks() {
         const a = t.attributes;
         const sd = a.start_date,
           dd = a.due_date;
-        if (!dd) continue; // need at least a due date
+        if (!dd) continue;
         const startOff = sd ? dateToOff(sd) : dateToOff(dd);
         const endOff = dateToOff(dd);
         const n = Math.max(1, endOff - startOff + 1);
@@ -2570,7 +2551,7 @@ async function fetchProductiveTasks() {
           hrs: null,
           isLeave: false,
           prodBookingId: null,
-          _prodUrl: `https://app.productive.io/1476-dotcollective/tasks/${t.id}`
+          _prodUrl: `${PROD_BASE}/tasks/${t.id}`
         });
       }
     } catch (e) {
@@ -2581,7 +2562,7 @@ async function fetchProductiveTasks() {
   // Fetch tasks from extra projects (Eckersley etc)
   for (const projId of EXTRA_PROJ) {
     try {
-      const resp = await prodFetch('GET', `/tasks?filter[project_id]=${projId}&page[size]=200&include=assignee`);
+      const resp = await prodFetch('GET', `/tasks?filter[project_id]=${projId}&filter[after]=2026-03-20&filter[before]=2026-08-31&page[size]=200&include=assignee`);
       if (!resp || !resp.data) continue;
       const projCode = PROJ_ID_MAP[projId] || 'g';
       for (const t of resp.data) {
@@ -2589,10 +2570,9 @@ async function fetchProductiveTasks() {
         const a = t.attributes;
         const sd = a.start_date,
           dd = a.due_date;
-        if (!dd) continue; // need at least a due date
+        if (!dd) continue;
         const assignee = t.relationships?.assignee?.data;
         if (!assignee) continue;
-        // Find person index
         const pEntry = TEAM_ENTRIES.find(([, pid]) => pid === assignee.id);
         if (!pEntry) continue;
         const startOff = sd ? dateToOff(sd) : dateToOff(dd);
@@ -2608,7 +2588,7 @@ async function fetchProductiveTasks() {
           hrs: null,
           isLeave: false,
           prodBookingId: null,
-          _prodUrl: `https://app.productive.io/1476-dotcollective/tasks/${t.id}`
+          _prodUrl: `${PROD_BASE}/tasks/${t.id}`
         });
       }
     } catch (e) {
@@ -2616,60 +2596,32 @@ async function fetchProductiveTasks() {
     }
   }
 
-  // Fetch bookings per person (leave + meetings)
-  const meetingsSeen = new Set();
+  // Fetch bookings per person — ONLY leave (event-linked bookings)
   for (const [pIdx, prodId] of TEAM_ENTRIES) {
     try {
-      const resp = await prodFetch('GET', `/bookings?filter[person_id]=${prodId}&filter[after]=2026-03-30&filter[before]=2026-07-31&include=service,event&page[size]=200`);
+      const resp = await prodFetch('GET', `/bookings?filter[person_id]=${prodId}&filter[after]=2026-03-20&filter[before]=2026-07-31&include=event&page[size]=200`);
       if (!resp || !resp.data) continue;
-      const svcCache = {};
-      (resp.included || []).forEach(inc => {
-        if (inc.type === 'services') svcCache[inc.id] = inc.attributes?.name || '';
-      });
       for (const b of resp.data) {
         const a = b.attributes;
         if (!a.started_on || !a.ended_on) continue;
+        const eventRel = b.relationships?.event?.data;
+        if (!eventRel) continue; // Only leave bookings (event-linked)
         const startOff = dateToOff(a.started_on);
         const endOff = dateToOff(a.ended_on);
         const n = Math.max(1, endOff - startOff + 1);
-        const eventRel = b.relationships?.event?.data;
-        const svcRel = b.relationships?.service?.data;
-        const svcName = svcRel ? svcCache[svcRel.id] || '' : '';
         const hrs = a.total_time ? a.total_time / 60 : null;
-        const bkUrl = `https://app.productive.io/1476-dotcollective/bookings/${b.id}`;
-        if (eventRel) {
-          // Leave
-          allLeave.push({
-            p: pIdx,
-            proj: 'lv',
-            s: startOff,
-            n,
-            dn: n,
-            note: a.note || 'AL',
-            hrs,
-            isLeave: true,
-            prodBookingId: b.id,
-            _prodUrl: bkUrl
-          });
-        } else if (svcName.toLowerCase() === 'meetings') {
-          // Only literal "Meetings" service → meeting bar (dedup by person+range)
-          const dedupKey = `${pIdx}_${a.started_on}_${a.ended_on}`;
-          if (!meetingsSeen.has(dedupKey)) {
-            meetingsSeen.add(dedupKey);
-            allMeetings.push({
-              p: pIdx,
-              proj: 'g',
-              s: startOff,
-              n,
-              dn: n,
-              note: svcName,
-              hrs,
-              isLeave: false,
-              prodBookingId: b.id,
-              _prodUrl: bkUrl
-            });
-          }
-        }
+        allLeave.push({
+          p: pIdx,
+          proj: 'lv',
+          s: startOff,
+          n,
+          dn: n,
+          note: a.note || 'AL',
+          hrs,
+          isLeave: true,
+          prodBookingId: b.id,
+          _prodUrl: `${PROD_BASE}/bookings/${b.id}`
+        });
       }
     } catch (e) {
       console.error('[Fetch] Bookings error for', prodId, e);
@@ -2678,7 +2630,7 @@ async function fetchProductiveTasks() {
 
   // Combine and assign IDs
   let id = 10000;
-  const all = [...Array.from(allTasks.values()), ...allLeave, ...allMeetings].map(entry => {
+  const all = [...Array.from(allTasks.values()), ...allLeave].map(entry => {
     const url = entry._prodUrl || null;
     delete entry._prodUrl;
     return {
@@ -2688,7 +2640,7 @@ async function fetchProductiveTasks() {
       prodUrl: url
     };
   });
-  console.log(`[Fetch] Loaded ${allTasks.size} tasks, ${allLeave.length} leave, ${allMeetings.length} meetings = ${all.length} total`);
+  console.log(`[Fetch] Loaded ${allTasks.size} tasks, ${allLeave.length} leave = ${all.length} total`);
   return all;
 }
 function App() {
@@ -3005,10 +2957,14 @@ function App() {
     if (!bkData.isLeave) {
       if (isNew || !bkData.prodBookingId) {
         prodCreateBooking(bkData, capModeRef.current).then(pid => {
-          if (pid) setBookings(prev => prev.map(b => b.id === bkData.id ? {
-            ...b,
-            prodBookingId: pid
-          } : b));
+          if (pid) {
+            const prodUrl = `https://app.productive.io/1476-dotcollective/bookings/${pid}`;
+            setBookings(prev => prev.map(b => b.id === bkData.id ? {
+              ...b,
+              prodBookingId: pid,
+              prodUrl
+            } : b));
+          }
         });
       } else {
         prodUpdateBooking(bkData.prodBookingId, bkData, capModeRef.current);
