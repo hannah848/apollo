@@ -18,7 +18,7 @@ WIN   = datetime.date(2026, 3, 30)
 
 # Fallback service and task list for task creation when not specified
 FALLBACK_SERVICE   = '8931117'  # Design service
-FALLBACK_TASK_LIST = None       # Will try to look up from productive-meta.json
+FALLBACK_TASK_LIST = None       # Never create tasks without a known active project
 
 # Only create Productive tasks for these Apollo person IDs (expand after testing)
 TASK_CREATION_ALLOWED = {'8'}   # Hannah only during testing
@@ -91,6 +91,7 @@ try:
     with open('productive-meta.json') as f:
         meta = json.load(f)
     for p in meta.get('projects', []):
+        # productive-meta.json already excludes archived — trust it
         meta_projects[p['name'].lower()] = p['id']
     for tl in meta.get('taskLists', []):
         pid = tl['projectId']
@@ -110,14 +111,14 @@ def find_prod_project_id(apollo_proj_key):
     return None
 
 def find_task_list_id(prod_project_id, preferred_name='Scheduling'):
-    """Find first task list in project. Prefer one named 'Scheduling' or 'Tasks'."""
+    """Find first task list in active project. Returns None if project not found or archived."""
     if not prod_project_id:
-        return FALLBACK_TASK_LIST
+        return None  # Don't fall back to random task list — only use known active projects
     tls = meta_task_lists.get(prod_project_id, [])
     if not tls:
-        return FALLBACK_TASK_LIST
-    # Prefer 'Scheduling' > 'Tasks' > first
-    for preferred in [preferred_name, 'Tasks', 'To Do']:
+        return None
+    # Prefer 'Scheduling' > 'Pending' > 'Tasks' > first
+    for preferred in [preferred_name, 'Pending', 'Tasks', 'To Do']:
         for tl in tls:
             if preferred.lower() in tl['name'].lower():
                 return tl['id']
