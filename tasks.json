@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-09T08:40:12.831Z",
+  "generated": "2026-04-09T08:40:57.849Z",
   "entries": [
     {
       "p": "1",
@@ -1044,10 +1044,10 @@
     {
       "p": "2",
       "proj": "g",
-      "s": 10,
+      "s": 9,
       "n": 2,
       "dn": 2,
-      "note": "QA Test Booking",
+      "note": "QA Test Booking EDITED",
       "hrs": 11.6,
       "isLeave": false,
       "prodBookingId": null,
