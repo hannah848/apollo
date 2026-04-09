@@ -146,16 +146,12 @@
 <div class="modal-overlay" id="settingsModal">
   <div class="modal">
     <div class="modal-title">🔑 Connect your tools</div>
-    <div class="modal-sub">Your tokens are stored locally in this browser only — they're never sent to GitHub or anyone else.</div>
+    <div class="modal-sub">Your GitHub token is used to book assignments into Apollo (tasks.json). It's stored locally in this browser only.</div>
     <div class="modal-fields">
       <div>
-        <label>Productive API Token (Sandbox)</label>
-        <input type="password" id="prodToken" placeholder="c7e381f5-..." autocomplete="off">
-      </div>
-      <div>
         <label>GitHub Personal Access Token</label>
-        <input type="password" id="ghToken" placeholder="ghp_..." autocomplete="off">
-        <div style="font-size:10px;color:#666;margin-top:5px;">Needs <code style="color:#a78bfa">repo</code> scope on <code style="color:#a78bfa">hannah848/apollo</code></div>
+        <input type="password" id="ghToken" placeholder="github_pat_..." autocomplete="off">
+        <div style="font-size:10px;color:#666;margin-top:5px;">Needs Contents: Read and write on <code style="color:#a78bfa">hannah848/apollo</code></div>
       </div>
     </div>
     <div class="modal-actions">
@@ -203,8 +199,8 @@
 // ════════════════════════════════════════════════════════
 const PRODUCTIVE_ORG = '1476';
 const PRODUCTIVE_BASE = 'https://api.productive.io/api/v2';
-const CORS_PROXY = 'https://corsproxy.io/?';
 const HANNAH_PROD_ID = '777282';
+const QUEUE_DATA_URL = 'https://raw.githubusercontent.com/hannah848/apollo/main/queue-data.json';
 const APOLLO_TASKS_URL = 'https://raw.githubusercontent.com/hannah848/apollo/main/tasks.json';
 const GITHUB_REPO = 'hannah848/apollo';
 const GITHUB_FILE = 'tasks.json';
@@ -258,23 +254,20 @@ function getProdToken() { return localStorage.getItem('apollo_prod_token') || ''
 function getGhToken()   { return localStorage.getItem('apollo_gh_token') || ''; }
 
 function saveSettings() {
-  const pt = document.getElementById('prodToken').value.trim();
   const gh = document.getElementById('ghToken').value.trim();
-  if (!pt || !gh) { alert('Please enter both tokens.'); return; }
-  localStorage.setItem('apollo_prod_token', pt);
+  if (!gh) { alert('Please enter your GitHub token.'); return; }
   localStorage.setItem('apollo_gh_token', gh);
   document.getElementById('settingsModal').classList.add('hidden');
   loadAll();
 }
 
 function openSettings() {
-  document.getElementById('prodToken').value = getProdToken();
   document.getElementById('ghToken').value = getGhToken();
   document.getElementById('settingsModal').classList.remove('hidden');
 }
 
 function checkTokens() {
-  if (!getProdToken() || !getGhToken()) {
+  if (!getGhToken()) {
     document.getElementById('settingsModal').classList.remove('hidden');
     return false;
   }
@@ -696,14 +689,9 @@ async function loadApollo() {
 }
 
 async function loadProductiveQueue() {
-  const token = getProdToken();
-  // Fetch Hannah's open tickets — route via CORS proxy since Productive blocks direct browser requests
-  const targetUrl = `${PRODUCTIVE_BASE}/tasks?filter%5Bassignee_id%5D=${HANNAH_PROD_ID}&filter%5Bstatus%5D=1&filter%5Bafter%5D=2025-10-01&include=deal%2Cservice&page%5Bsize%5D=100`;
-  const resp = await fetch(
-    CORS_PROXY + targetUrl,
-    { headers: { 'X-Auth-Token': token, 'X-Organization-Id': PRODUCTIVE_ORG, 'Content-Type': 'application/json' } }
-  );
-  if (!resp.ok) throw new Error(`Productive API error: ${resp.status}`);
+  // Read from pre-synced static file (updated by GitHub Action every 5 min)
+  const resp = await fetch(QUEUE_DATA_URL + '?t=' + Date.now());
+  if (!resp.ok) throw new Error(`Could not load queue data: ${resp.status}`);
   const data = await resp.json();
 
   const dealMap = {}, serviceMap = {};
@@ -740,7 +728,8 @@ async function loadAll() {
     renderCapacity(capacityData);
     renderTickets(tickets, capacityData);
     const t = today();
-    document.getElementById('headerSub').textContent = `${tickets.filter(x=>!x.title.toLowerCase().includes('test')&&!x.title.toLowerCase().includes('template')).length} tickets · refreshed ${new Date().toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit'})}`;
+    const real = tickets.filter(x=>!x.title.toLowerCase().includes('test')&&!x.title.toLowerCase().includes('template'));
+    document.getElementById('headerSub').textContent = `${real.length} tickets · synced ${new Date().toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit'})}`;
   } catch (err) {
     document.getElementById('ticketList').innerHTML = `
       <div class="state-center">
