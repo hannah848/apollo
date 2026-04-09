@@ -203,6 +203,7 @@
 // ════════════════════════════════════════════════════════
 const PRODUCTIVE_ORG = '1476';
 const PRODUCTIVE_BASE = 'https://api.productive.io/api/v2';
+const CORS_PROXY = 'https://corsproxy.io/?';
 const HANNAH_PROD_ID = '777282';
 const APOLLO_TASKS_URL = 'https://raw.githubusercontent.com/hannah848/apollo/main/tasks.json';
 const GITHUB_REPO = 'hannah848/apollo';
@@ -696,9 +697,10 @@ async function loadApollo() {
 
 async function loadProductiveQueue() {
   const token = getProdToken();
-  // Fetch Hannah's open tickets
+  // Fetch Hannah's open tickets — route via CORS proxy since Productive blocks direct browser requests
+  const targetUrl = `${PRODUCTIVE_BASE}/tasks?filter%5Bassignee_id%5D=${HANNAH_PROD_ID}&filter%5Bstatus%5D=1&filter%5Bafter%5D=2025-10-01&include=deal%2Cservice&page%5Bsize%5D=100`;
   const resp = await fetch(
-    `${PRODUCTIVE_BASE}/tasks?filter%5Bassignee_id%5D=${HANNAH_PROD_ID}&filter%5Bstatus%5D=1&filter%5Bafter%5D=2025-10-01&include=deal%2Cservice&page%5Bsize%5D=100`,
+    CORS_PROXY + encodeURIComponent(targetUrl),
     { headers: { 'X-Auth-Token': token, 'X-Organization-Id': PRODUCTIVE_ORG, 'Content-Type': 'application/json' } }
   );
   if (!resp.ok) throw new Error(`Productive API error: ${resp.status}`);
