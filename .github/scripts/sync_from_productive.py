@@ -108,7 +108,7 @@ while True:
            f'&filter[workflow_status_category_id][]=1'
            f'&filter[workflow_status_category_id][]=2'
            f'&page[size]=100&page[number]={page}'
-           f'&include=assignees,project')
+           f'')
     data = prod(url)
     if not data or not data.get('data'):
         break
