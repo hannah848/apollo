@@ -1,0 +1,30 @@
+name: Sync Productive to Apollo
+on:
+  schedule:
+    - cron: "* * * * *"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Sync Productive tasks into Apollo
+        run: python3 .github/scripts/sync_from_productive.py
+        env:
+          PRODUCTIVE_TOKEN: ${{ secrets.PRODUCTIVE_TOKEN }}
+
+      - name: Commit if changed
+        run: |
+          git config user.name "apollo-bot"
+          git config user.email "bot@dotcollective.com.au"
+          git add tasks.json
+          git diff --staged --quiet && echo "No changes" && exit 0
+          git commit -m "[from-productive] sync tasks $(date -u +%H:%M)"
+          git pull --rebase origin main
+          git push
