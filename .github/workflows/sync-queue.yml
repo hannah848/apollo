@@ -11,27 +11,63 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: Fetch Hannah queue from Productive
+        run: |
+          python3 << 'PYEOF'
+import urllib.request, json, datetime, os
+
+TOKEN = os.environ.get('PRODUCTIVE_TOKEN', 'c7e381f5-685e-4850-8bac-14941f97af46')
+ORG = '1476'
+HEADERS = {
+    'X-Auth-Token': TOKEN,
+    'X-Organization-Id': ORG,
+    'Content-Type': 'application/vnd.api+json'
+}
+
+def prod(path):
+    req = urllib.request.Request(f'https://api.productive.io/api/v2{path}', headers=HEADERS)
+    with urllib.request.urlopen(req) as r:
+        return json.loads(r.read())
+
+all_tasks = []
+page = 1
+while True:
+    url = (f'/tasks?filter[assignee_id][]=777282'
+           f'&filter[workflow_status_category_id][]=1'
+           f'&filter[workflow_status_category_id][]=2'
+           f'&page[size]=100&page[number]={page}'
+           f'&include=assignees,task_list')
+    data = prod(url)
+    all_tasks.extend(data.get('data', []))
+    meta = data.get('meta', {})
+    total = meta.get('total_count', 0)
+    if len(all_tasks) >= total or not data.get('data'):
+        break
+    page += 1
+
+output = {
+    '_generated': datetime.datetime.utcnow().isoformat() + 'Z',
+    'data': all_tasks,
+    'meta': {'total_count': len(all_tasks)}
+}
+
+with open('queue-data.json', 'w') as f:
+    json.dump(output, f, indent=2)
+
+print(f'Fetched {len(all_tasks)} tickets')
+PYEOF
         env:
           PRODUCTIVE_TOKEN: ${{ secrets.PRODUCTIVE_TOKEN }}
-        run: |
-          curl -sf \
-            -H "X-Auth-Token: $PRODUCTIVE_TOKEN" \
-            -H "X-Organization-Id: 1476" \
-            "https://api.productive.io/api/v2/tasks?filter%5Bassignee_id%5D=777282&filter%5Bstatus%5D=1&filter%5Bafter%5D=2025-10-01&include=deal%2Cservice&page%5Bsize%5D=100" \
-            | python3 -c "
-import sys, json, datetime
-data = json.load(sys.stdin)
-data['_generated'] = datetime.datetime.utcnow().isoformat() + 'Z'
-print(json.dumps(data, indent=2))
-" > queue-data.json
-          echo "Fetched $(python3 -c \"import json; d=json.load(open('queue-data.json')); print(len(d.get('data',[])))\") tickets"
 
       - name: Commit if changed
         run: |
           git config user.name "apollo-bot"
           git config user.email "bot@dotcollective.com.au"
           git add queue-data.json
-          git diff --staged --quiet || git commit -m "sync: queue $(date -u +%H:%M)"
+          git diff --staged --quiet && echo "No changes" && exit 0
+          git commit -m "sync: queue $(date -u +%H:%M)"
+          git pull --rebase origin main
           git push
