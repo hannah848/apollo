@@ -69,6 +69,9 @@ def prod_req(method, path, body=None):
             return {'ok': True, 'status': r.status} if r.status == 204 else json.loads(r.read())
     except urllib.error.HTTPError as e:
         body_text = e.read().decode()[:300]
+        if e.code == 403 and method in ('PATCH', 'DELETE'):
+            print(f'  [{method}] {path[:60]} → 403 (no write permission — skip)')
+            return {'ok': False, 'status': 403, 'skipped': True}
         print(f'  [{method}] {path[:60]} → {e.code}: {body_text}')
         return None
 
@@ -120,12 +123,18 @@ def find_task_list_id(prod_project_id, preferred_name='Scheduling'):
                 return tl['id']
     return tls[0]['id']
 
-def make_task_payload(entry, prod_person_id, task_list_id):
+def make_task_payload(entry, prod_person_id, task_list_id, prod_proj_id=None):
     """Build Productive task creation payload."""
     title = entry.get('note') or entry.get('title') or 'Apollo booking'
     start = offset_to_date(entry['s'])
     dn    = entry.get('dn') or entry.get('n') or 1
     end   = offset_to_date(entry['s'] + dn - 1)
+    rels = {
+        'task_list': {'data': {'type': 'task_lists', 'id': task_list_id}},
+        'assignees': {'data': [{'type': 'people',    'id': prod_person_id}]},
+    }
+    if prod_proj_id:
+        rels['project'] = {'data': {'type': 'projects', 'id': prod_proj_id}}
     payload = {
         'data': {
             'type': 'tasks',
@@ -134,10 +143,7 @@ def make_task_payload(entry, prod_person_id, task_list_id):
                 'start_date': start,
                 'due_date':   end,
             },
-            'relationships': {
-                'task_list': {'data': {'type': 'task_lists', 'id': task_list_id}},
-                'assignee':  {'data': {'type': 'people',     'id': prod_person_id}},
-            }
+            'relationships': rels,
         }
     }
     return payload
@@ -285,7 +291,7 @@ for entry in curr_entries:
             task_list_id  = find_task_list_id(prod_proj_id)
 
             if task_list_id:
-                task_payload = make_task_payload(entry, prod_pid, task_list_id)
+                task_payload = make_task_payload(entry, prod_pid, task_list_id, prod_proj_id)
                 r = prod_req('POST', '/tasks', task_payload)
                 if r and r.get('data'):
                     prod_task_id = r['data']['id']
