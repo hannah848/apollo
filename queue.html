@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apollo — My Queue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: #1c1c1e; color: #f5f4f2; font-family: 'Space Grotesk', -apple-system, sans-serif; -webkit-font-smoothing: antialiased; letter-spacing: -0.01em; }
+  ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-track { background: #161618; } ::-webkit-scrollbar-thumb { background: #3a3a3e; border-radius: 3px; }
+  button { font-family: inherit; cursor: pointer; border: none; outline: none; letter-spacing: -0.01em; }
+  input, select, textarea { font-family: inherit; background: #2a2a2e; color: #f5f4f2; border: 1px solid #38383c; border-radius: 8px; padding: 8px 11px; font-size: 12px; width: 100%; outline: none; transition: border 0.15s; }
+  input:focus, select:focus { border-color: #7c3aed; }
+  label { font-size: 10px; font-weight: 600; color: #666; display: block; margin-bottom: 5px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* ── Header ── */
+  .header { display: flex; align-items: center; gap: 16px; padding: 16px 24px; border-bottom: 1px solid #2a2a2e; background: #1c1c1e; position: sticky; top: 0; z-index: 10; }
+  .header-back { display: flex; align-items: center; gap: 6px; color: #666; font-size: 12px; font-weight: 500; text-decoration: none; padding: 6px 10px; border-radius: 6px; background: #2a2a2e; transition: background 0.15s; }
+  .header-back:hover { background: #38383c; color: #f5f4f2; }
+  .header-title { font-size: 16px; font-weight: 700; }
+  .header-sub { font-size: 12px; color: #666; }
+  .header-right { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+  .btn-refresh { background: #2a2a2e; color: #f5f4f2; padding: 7px 14px; border-radius: 7px; font-size: 12px; font-weight: 500; transition: background 0.15s; border: 1px solid #38383c; }
+  .btn-refresh:hover { background: #38383c; }
+  .btn-settings { background: transparent; color: #666; padding: 7px; border-radius: 7px; font-size: 16px; transition: color 0.15s; }
+  .btn-settings:hover { color: #f5f4f2; }
+
+  /* ── Main layout ── */
+  .main { padding: 24px; max-width: 900px; margin: 0 auto; }
+  .section-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #666; margin-bottom: 12px; }
+
+  /* ── Capacity bar ── */
+  .capacity-strip { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+  .cap-pill { display: flex; align-items: center; gap: 6px; background: #2a2a2e; border: 1px solid #38383c; border-radius: 20px; padding: 5px 10px; font-size: 11px; font-weight: 500; }
+  .cap-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .cap-dot.green { background: #34c759; } .cap-dot.amber { background: #ff9500; } .cap-dot.red { background: #ff3b30; }
+  .cap-name { color: #f5f4f2; } .cap-days { color: #666; }
+
+  /* ── Ticket card ── */
+  .ticket-list { display: flex; flex-direction: column; gap: 12px; }
+  .ticket-card { background: #232325; border: 1px solid #2e2e32; border-radius: 12px; overflow: hidden; transition: border-color 0.15s; }
+  .ticket-card:hover { border-color: #3a3a3e; }
+  .ticket-card.urgent { border-left: 3px solid #ff3b30; }
+  .ticket-card.soon { border-left: 3px solid #ff9500; }
+  .ticket-card.flexible { border-left: 3px solid #34c759; }
+
+  .ticket-header { padding: 14px 16px 10px; display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+  .ticket-urgency { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 7px; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .ticket-urgency.urgent { background: rgba(255,59,48,0.15); color: #ff3b30; }
+  .ticket-urgency.soon { background: rgba(255,149,0,0.15); color: #ff9500; }
+  .ticket-urgency.flexible { background: rgba(52,199,89,0.15); color: #34c759; }
+  .ticket-urgency.overdue { background: rgba(255,59,48,0.25); color: #ff3b30; }
+  .ticket-info { flex: 1; min-width: 0; }
+  .ticket-title { font-size: 14px; font-weight: 600; line-height: 1.3; margin-bottom: 4px; }
+  .ticket-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .ticket-tag { font-size: 10px; color: #666; display: flex; align-items: center; gap: 3px; }
+  .ticket-chevron { color: #666; font-size: 12px; transition: transform 0.2s; flex-shrink: 0; margin-top: 3px; }
+  .ticket-card.open .ticket-chevron { transform: rotate(180deg); }
+
+  /* ── Recommendation panel ── */
+  .ticket-body { display: none; padding: 0 16px 14px; }
+  .ticket-card.open .ticket-body { display: block; }
+
+  .rec-section { margin-top: 6px; }
+  .rec-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #666; margin-bottom: 8px; }
+
+  .rec-primary { background: #2a2a2e; border: 1px solid #7c3aed; border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
+  .rec-person-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .rec-avatar { width: 32px; height: 32px; border-radius: 50%; background: #7c3aed; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .rec-person-info { flex: 1; }
+  .rec-person-name { font-size: 13px; font-weight: 600; }
+  .rec-person-role { font-size: 11px; color: #888; }
+  .rec-cap-badge { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 4px; }
+  .rec-cap-badge.green { background: rgba(52,199,89,0.15); color: #34c759; }
+  .rec-cap-badge.amber { background: rgba(255,149,0,0.15); color: #ff9500; }
+  .rec-cap-badge.red { background: rgba(255,59,48,0.15); color: #ff3b30; }
+
+  .rec-reason { font-size: 12px; color: #ccc; line-height: 1.5; margin-bottom: 10px; }
+
+  /* ── Timeline strip ── */
+  .timeline-strip { background: #1c1c1e; border-radius: 7px; padding: 10px 12px; margin-bottom: 10px; }
+  .timeline-person-name { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #666; margin-bottom: 6px; }
+  .timeline-blocks { display: flex; gap: 3px; flex-wrap: wrap; }
+  .t-block { font-size: 9px; font-weight: 500; padding: 3px 7px; border-radius: 4px; white-space: nowrap; }
+  .t-block.busy { background: rgba(124,58,237,0.2); color: #a78bfa; border: 1px solid rgba(124,58,237,0.3); }
+  .t-block.gap { background: rgba(52,199,89,0.15); color: #34c759; border: 1px solid rgba(52,199,89,0.25); }
+  .t-block.suggested { background: rgba(52,199,89,0.3); color: #34c759; border: 1px solid #34c759; font-weight: 700; }
+
+  /* ── Also / Warning ── */
+  .rec-secondary-list { display: flex; flex-direction: column; gap: 6px; }
+  .rec-secondary { background: #242428; border: 1px solid #2e2e32; border-radius: 8px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; }
+  .rec-secondary-avatar { width: 24px; height: 24px; border-radius: 50%; background: #3a3a3e; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+  .rec-secondary-text { flex: 1; font-size: 11px; color: #aaa; }
+  .rec-secondary-text strong { color: #f5f4f2; }
+  .rec-warn { background: rgba(255,149,0,0.08); border: 1px solid rgba(255,149,0,0.2); border-radius: 8px; padding: 8px 12px; font-size: 11px; color: #ff9500; display: flex; gap: 6px; align-items: flex-start; }
+
+  /* ── Accept panel ── */
+  .accept-panel { margin-top: 12px; border-top: 1px solid #2e2e32; padding-top: 12px; }
+  .accept-title { font-size: 11px; font-weight: 600; color: #888; margin-bottom: 10px; }
+  .accept-fields { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .accept-field { flex: 1; min-width: 120px; }
+  .accept-actions { display: flex; gap: 8px; }
+  .btn-accept { background: #7c3aed; color: #fff; padding: 8px 18px; border-radius: 7px; font-size: 12px; font-weight: 600; transition: background 0.15s; }
+  .btn-accept:hover { background: #6d28d9; }
+  .btn-accept:disabled { background: #4a3a6e; color: #888; cursor: not-allowed; }
+  .btn-skip { background: #2a2a2e; color: #888; padding: 8px 14px; border-radius: 7px; font-size: 12px; font-weight: 500; transition: background 0.15s; border: 1px solid #38383c; }
+  .btn-skip:hover { background: #38383c; color: #f5f4f2; }
+  .accept-status { font-size: 11px; margin-top: 6px; }
+  .accept-status.success { color: #34c759; } .accept-status.error { color: #ff3b30; } .accept-status.loading { color: #666; }
+
+  /* ── Ticket type toggle ── */
+  .ticket-type-toggle { display: flex; gap: 6px; margin-bottom: 10px; }
+  .type-btn { padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 500; background: #2a2a2e; color: #888; border: 1px solid #38383c; transition: all 0.15s; }
+  .type-btn.active { background: rgba(124,58,237,0.2); color: #a78bfa; border-color: #7c3aed; }
+
+  /* ── Settings modal ── */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 100; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+  .modal-overlay.hidden { display: none; }
+  .modal { background: #232325; border: 1px solid #38383c; border-radius: 14px; padding: 24px; width: 480px; max-width: 95vw; }
+  .modal-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .modal-sub { font-size: 12px; color: #888; margin-bottom: 20px; line-height: 1.5; }
+  .modal-fields { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+  .modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+  .btn-primary { background: #7c3aed; color: #fff; padding: 9px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+  .btn-primary:hover { background: #6d28d9; }
+
+  /* ── Empty / loading states ── */
+  .state-center { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px; gap: 12px; color: #666; text-align: center; }
+  .state-center .icon { font-size: 32px; }
+  .state-center .msg { font-size: 14px; font-weight: 500; color: #f5f4f2; }
+  .state-center .sub { font-size: 12px; }
+  .spinner { width: 20px; height: 20px; border: 2px solid #38383c; border-top-color: #7c3aed; border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Dismissed / done ── */
+  .ticket-card.dismissed { opacity: 0.35; pointer-events: none; }
+  .ticket-card.done { border-left-color: #34c759; opacity: 0.6; }
+  .done-badge { font-size: 10px; font-weight: 600; padding: 3px 7px; border-radius: 4px; background: rgba(52,199,89,0.15); color: #34c759; }
+</style>
+</head>
+<body>
+
+<!-- ── Settings Modal ── -->
+<div class="modal-overlay" id="settingsModal">
+  <div class="modal">
+    <div class="modal-title">🔑 Connect your tools</div>
+    <div class="modal-sub">Your tokens are stored locally in this browser only — they're never sent to GitHub or anyone else.</div>
+    <div class="modal-fields">
+      <div>
+        <label>Productive API Token (Sandbox)</label>
+        <input type="password" id="prodToken" placeholder="c7e381f5-..." autocomplete="off">
+      </div>
+      <div>
+        <label>GitHub Personal Access Token</label>
+        <input type="password" id="ghToken" placeholder="ghp_..." autocomplete="off">
+        <div style="font-size:10px;color:#666;margin-top:5px;">Needs <code style="color:#a78bfa">repo</code> scope on <code style="color:#a78bfa">hannah848/apollo</code></div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-primary" onclick="saveSettings()">Save & Load Queue</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Header ── -->
+<div class="header">
+  <a class="header-back" href="./index.html">← Scheduler</a>
+  <div>
+    <div class="header-title">My Queue</div>
+    <div class="header-sub" id="headerSub">Tickets assigned to you — ready to reassign</div>
+  </div>
+  <div class="header-right">
+    <button class="btn-refresh" onclick="loadAll()">↻ Refresh</button>
+    <button class="btn-settings" onclick="openSettings()" title="Settings">⚙</button>
+  </div>
+</div>
+
+<!-- ── Main ── -->
+<div class="main">
+
+  <!-- Capacity strip -->
+  <div class="section-title">Team Capacity · Next 2 Weeks</div>
+  <div class="capacity-strip" id="capacityStrip">
+    <div class="cap-pill"><div class="spinner"></div><span style="color:#666">Loading…</span></div>
+  </div>
+
+  <!-- Ticket list -->
+  <div class="section-title" id="ticketCountLabel">Open Tickets in Your Queue</div>
+  <div class="ticket-list" id="ticketList">
+    <div class="state-center">
+      <div class="spinner"></div>
+      <div class="msg">Loading your queue…</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════
+// CONFIG
+// ════════════════════════════════════════════════════════
+const PRODUCTIVE_ORG = '1476';
+const PRODUCTIVE_BASE = 'https://api.productive.io/api/v2';
+const HANNAH_PROD_ID = '777282';
+const APOLLO_TASKS_URL = 'https://raw.githubusercontent.com/hannah848/apollo/main/tasks.json';
+const GITHUB_REPO = 'hannah848/apollo';
+const GITHUB_FILE = 'tasks.json';
+const WIN = new Date('2026-03-30T00:00:00Z'); // Apollo reference date
+
+// Team data: Apollo p-ID → person info
+const TEAM = {
+  '1': { name:'Kate Smith',     initials:'KS', role:'Senior UX Designer',      safeHpD:4.26, prodId:'1043514', color:'#7c3aed' },
+  '2': { name:'Dave Ye',        initials:'DY', role:'Senior UX/Strategist',     safeHpD:5.78, prodId:'456779',  color:'#0ea5e9' },
+  '3': { name:'Audrina Heng',   initials:'AH', role:'Mid UI Designer',          safeHpD:5.22, prodId:'934507',  color:'#ec4899' },
+  '4': { name:'Seo Lee',        initials:'SL', role:'Brand/UI Designer',        safeHpD:4.90, prodId:'1066502', color:'#f59e0b' },
+  '5': { name:'Bec Simpson',    initials:'BS', role:'Junior-Mid UI Designer',   safeHpD:4.98, prodId:'274241',  color:'#10b981' },
+  '6': { name:'Lachlan Gibbs',  initials:'LG', role:'CRM Strategist',           safeHpD:3.96, prodId:'991921',  color:'#f97316' },
+  '7': { name:'Jonathan Stiglec',initials:'JS',role:'SEO/Paid Media Strategist',safeHpD:4.84, prodId:'990257',  color:'#06b6d4' },
+};
+
+// Discipline → recommendation logic
+const DISCIPLINE_MAP = [
+  { keywords:['ux','wireframe','research','jtbd','user research','sitemap','ia ','information arch','prototype','usability'], primary:'1', secondary:'2', label:'UX / Research' },
+  { keywords:['information architecture','ia ','navigation','mega menu','content structure'], primary:'2', secondary:'1', label:'Information Architecture' },
+  { keywords:['google ads','ppc','paid','pmax','ad copy','cpc','cpm','ctr','sem','search ads'], primary:'7', secondary:null, label:'Google Ads / Paid Media' },
+  { keywords:['seo','redirect','301','robots','schema','backlink','organic','ranking','serp','technical seo'], primary:'7', secondary:null, label:'Technical SEO' },
+  { keywords:['klaviyo','email flow','email campaign','edm','email marketing','crm','subscription','retention','gorgias','loyalty'], primary:'6', secondary:'7', label:'CRM / Email Marketing' },
+  { keywords:['ga4','google analytics','looker','dashboard','tracking','gtm','data layer','conversion tracking'], primary:'7', secondary:'1', label:'Analytics / Tracking' },
+  { keywords:['brand','logo','visual system','brand guidelines','brand identity','brand deck'], primary:'4', secondary:'5', label:'Brand Design' },
+  { keywords:['design system','component','design system'], primary:'4', secondary:'3', label:'Design System' },
+  { keywords:['design rollout','ui rollout','sprint','plp','pdp','cart','homepage design','ui design','collection','product page'], primary:'3', secondary:'5', label:'UI Production' },
+  { keywords:['creative concept','concept','art direction','creative direction'], primary:'4', secondary:'5', label:'Creative Concepts' },
+  { keywords:['workshop','creative workshop','discovery workshop','feature workshop'], primary:'1', secondary:'4', label:'Workshop' },
+  { keywords:['design qa','qa testing','design review','design testing'], primary:'5', secondary:'3', label:'Design QA' },
+  { keywords:['social','instagram','linkedin','marketing assets','social assets'], primary:'5', secondary:'4', label:'Marketing Assets' },
+  { keywords:['audit','ecommerce audit','holistic audit','cro','experience audit'], primary:'2', secondary:'1', label:'Ecommerce Audit' },
+  { keywords:['scope','scoping','effort estimate','estimate','sow'], primary:'2', secondary:'1', label:'Scoping' },
+  { keywords:['reporting','weekly report','analytics report','seo report'], primary:'7', secondary:'1', label:'Reporting' },
+  { keywords:['shopify','platform','tech','development','app','integration','magento'], primary:'7', secondary:'6', label:'Shopify / Technical' },
+  { keywords:['tolstoy','video commerce'], primary:'1', secondary:null, label:'Tolstoy' },
+  { keywords:['strategy','strategic','roadmap','competitor','market share'], primary:'2', secondary:'6', label:'Strategy' },
+];
+
+// ════════════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════════════
+let apolloEntries = [];
+let tasksJsonSha = '';
+let capacityData = {};
+
+// ════════════════════════════════════════════════════════
+// SETTINGS
+// ════════════════════════════════════════════════════════
+function getProdToken() { return localStorage.getItem('apollo_prod_token') || ''; }
+function getGhToken()   { return localStorage.getItem('apollo_gh_token') || ''; }
+
+function saveSettings() {
+  const pt = document.getElementById('prodToken').value.trim();
+  const gh = document.getElementById('ghToken').value.trim();
+  if (!pt || !gh) { alert('Please enter both tokens.'); return; }
+  localStorage.setItem('apollo_prod_token', pt);
+  localStorage.setItem('apollo_gh_token', gh);
+  document.getElementById('settingsModal').classList.add('hidden');
+  loadAll();
+}
+
+function openSettings() {
+  document.getElementById('prodToken').value = getProdToken();
+  document.getElementById('ghToken').value = getGhToken();
+  document.getElementById('settingsModal').classList.remove('hidden');
+}
+
+function checkTokens() {
+  if (!getProdToken() || !getGhToken()) {
+    document.getElementById('settingsModal').classList.remove('hidden');
+    return false;
+  }
+  return true;
+}
+
+// ════════════════════════════════════════════════════════
+// DATE UTILS
+// ════════════════════════════════════════════════════════
+function dayOffset(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00Z');
+  return Math.round((d - WIN) / 86400000);
+}
+
+function offsetToDate(s) {
+  const d = new Date(WIN.getTime() + s * 86400000);
+  return d.toISOString().slice(0,10);
+}
+
+function countWeekdays(startStr, endStr) {
+  let count = 0, d = new Date(startStr + 'T00:00:00Z'), end = new Date(endStr + 'T00:00:00Z');
+  while (d <= end) { if (d.getUTCDay() !== 0 && d.getUTCDay() !== 6) count++; d.setUTCDate(d.getUTCDate() + 1); }
+  return count;
+}
+
+function fmtDate(str) {
+  if (!str) return 'no date';
+  const d = new Date(str + 'T00:00:00Z');
+  return d.toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'numeric' });
+}
+
+function isWeekend(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00Z');
+  return d.getUTCDay() === 0 || d.getUTCDay() === 6;
+}
+
+function addWorkdays(dateStr, days) {
+  let d = new Date(dateStr + 'T00:00:00Z'), added = 0;
+  while (added < days) { d.setUTCDate(d.getUTCDate() + 1); if (!isWeekend(d.toISOString().slice(0,10))) added++; }
+  return d.toISOString().slice(0,10);
+}
+
+function today() { return new Date().toISOString().slice(0,10); }
+
+function urgencyOf(dueDate) {
+  if (!dueDate) return 'flexible';
+  const diff = Math.floor((new Date(dueDate + 'T00:00:00Z') - new Date(today() + 'T00:00:00Z')) / 86400000);
+  if (diff < 0) return 'overdue';
+  if (diff <= 5) return 'urgent';
+  if (diff <= 14) return 'soon';
+  return 'flexible';
+}
+
+// ════════════════════════════════════════════════════════
+// CAPACITY FROM APOLLO
+// ════════════════════════════════════════════════════════
+function computeCapacity(entries) {
+  const t = today();
+  const windowEnd = addWorkdays(t, 14);
+  const totalDays = countWeekdays(t, windowEnd);
+
+  const result = {};
+  for (const [pid, person] of Object.entries(TEAM)) {
+    const personEntries = entries.filter(e => String(e.p) === pid && !e.isLeave && e.proj !== 'lv');
+    let bookedDays = new Set();
+    let bookings = [];
+
+    for (const e of personEntries) {
+      const bkStart = offsetToDate(e.s || 0);
+      const bkEnd   = offsetToDate((e.s || 0) + (e.n || 1) - 1);
+      if (bkEnd < t) continue; // past
+
+      const effStart = bkStart < t ? t : bkStart;
+      const effEnd   = bkEnd > windowEnd ? windowEnd : bkEnd;
+      if (effStart > effEnd) continue;
+
+      bookings.push({ title: e.title || e.note || '?', start: bkStart, end: bkEnd, effStart, effEnd });
+
+      let d = new Date(effStart + 'T00:00:00Z'), endD = new Date(effEnd + 'T00:00:00Z');
+      while (d <= endD) { if (d.getUTCDay() > 0 && d.getUTCDay() < 6) bookedDays.add(d.toISOString().slice(0,10)); d.setUTCDate(d.getUTCDate()+1); }
+    }
+
+    const days = bookedDays.size;
+    const pct = totalDays > 0 ? Math.round((days / totalDays) * 100) : 0;
+    const flag = pct >= 100 ? 'red' : pct >= 85 ? 'amber' : 'green';
+    const free = totalDays - days;
+
+    // Find gaps between bookings (sorted)
+    const sorted = bookings.sort((a,b) => a.start.localeCompare(b.start));
+    const gaps = [];
+    for (let i = 0; i < sorted.length - 1; i++) {
+      const gapStart = addWorkdays(sorted[i].end, 1);
+      const gapEnd   = addWorkdays(sorted[i+1].start, -1);
+      if (gapStart <= gapEnd && gapEnd >= t) {
+        const wd = countWeekdays(gapStart > t ? gapStart : t, gapEnd);
+        if (wd >= 1) gaps.push({ start: gapStart > t ? gapStart : t, end: gapEnd, days: wd, label: `${fmtDate(gapStart > t ? gapStart : t)} – ${fmtDate(gapEnd)} (${wd}d free)` });
+      }
+    }
+    // Also add time after last booking
+    if (sorted.length > 0) {
+      const afterStart = addWorkdays(sorted[sorted.length-1].end, 1);
+      if (afterStart <= windowEnd) {
+        const wd = countWeekdays(afterStart, windowEnd);
+        if (wd >= 1) gaps.push({ start: afterStart, end: windowEnd, days: wd, label: `${fmtDate(afterStart)} onwards (${wd}d free)` });
+      }
+    } else if (totalDays > 0) {
+      gaps.push({ start: t, end: windowEnd, days: totalDays, label: `Fully available (${totalDays}d)` });
+    }
+
+    result[pid] = { ...person, days, totalDays, pct, flag, free, bookings: sorted, gaps };
+  }
+  return result;
+}
+
+// ════════════════════════════════════════════════════════
+// RECOMMENDATION ENGINE
+// ════════════════════════════════════════════════════════
+function classify(title, description) {
+  const text = (title + ' ' + description).toLowerCase();
+  for (const rule of DISCIPLINE_MAP) {
+    if (rule.keywords.some(kw => text.includes(kw))) return rule;
+  }
+  return { primary: '2', secondary: '1', label: 'General / Strategy' };
+}
+
+function recommend(ticket, cap) {
+  const disc = classify(ticket.title, ticket.description || '');
+  const primary = cap[disc.primary];
+  const secondary = disc.secondary ? cap[disc.secondary] : null;
+
+  // Build reason text based on scheduling context
+  const gapDesc = (pid) => {
+    const c = cap[pid];
+    if (!c) return '';
+    if (c.flag === 'green' && c.free >= 3) return `has ${c.free} days free in the next 2 weeks`;
+    if (c.gaps.length > 0) return `has a gap: ${c.gaps[0].label}`;
+    if (c.flag === 'red') return 'is fully booked';
+    return `${c.free} day${c.free !== 1 ? 's' : ''} available`;
+  };
+
+  let reason = '';
+  if (disc.label === 'UI Production') reason = `${primary.name} is the sprint UI specialist — detail-oriented component work is her core. She ${gapDesc(disc.primary)}.`;
+  else if (disc.label === 'Information Architecture') reason = `${primary.name} owns IA — sitemap, navigation, and content structure. He ${gapDesc(disc.primary)}.`;
+  else if (disc.label.includes('SEO') || disc.label === 'Google Ads / Paid Media') reason = `${primary.name} is the only team member covering this discipline. He ${gapDesc(disc.primary)}.`;
+  else if (disc.label === 'CRM / Email Marketing') reason = `${primary.name} is the Klaviyo and email specialist. He ${gapDesc(disc.primary)}.`;
+  else if (disc.label === 'Analytics / Tracking') reason = `${primary.name} handles GA4, GTM, and Looker Studio. He ${gapDesc(disc.primary)}.`;
+  else if (disc.label === 'Brand Design') reason = `${primary.name} is the brand and visual identity lead. She ${gapDesc(disc.primary)}.`;
+  else if (disc.label === 'Workshop') reason = `${primary.name} facilitates discovery and creative workshops with the most experience. She ${gapDesc(disc.primary)}.`;
+  else if (disc.label === 'Design QA') reason = `${primary.name} has done the QA on prior sprints for this type of work and ${gapDesc(disc.primary)}.`;
+  else reason = `${primary.name} is the best fit for ${disc.label} work and ${gapDesc(disc.primary)}.`;
+
+  // Capacity warning
+  let warn = null;
+  if (primary.flag === 'red') warn = `${primary.name} is currently fully booked. Scheduling here would require displacing other work — confirm with Hannah first.`;
+  else if (primary.flag === 'amber') warn = `${primary.name} has limited headroom. Review bookings before committing.`;
+
+  return { disc, primary, secondary, reason, warn };
+}
+
+// ════════════════════════════════════════════════════════
+// RENDER CAPACITY STRIP
+// ════════════════════════════════════════════════════════
+function renderCapacity(cap) {
+  const strip = document.getElementById('capacityStrip');
+  strip.innerHTML = Object.values(cap).map(p => `
+    <div class="cap-pill">
+      <div class="cap-dot ${p.flag}"></div>
+      <span class="cap-name">${p.name.split(' ')[0]}</span>
+      <span class="cap-days">${p.free}d free</span>
+    </div>
+  `).join('');
+}
+
+// ════════════════════════════════════════════════════════
+// RENDER TICKETS
+// ════════════════════════════════════════════════════════
+function renderTickets(tickets, cap) {
+  const list = document.getElementById('ticketList');
+  const label = document.getElementById('ticketCountLabel');
+
+  // Filter out test tickets
+  const real = tickets.filter(t => !t.title.toLowerCase().includes('test') && !t.title.toLowerCase().includes('template task'));
+  label.textContent = `Open Tickets in Your Queue (${real.length})`;
+
+  if (real.length === 0) {
+    list.innerHTML = `<div class="state-center"><div class="icon">🎉</div><div class="msg">Queue is clear!</div><div class="sub">No open tickets assigned to you right now.</div></div>`;
+    return;
+  }
+
+  // Sort: overdue → urgent → soon → flexible
+  const urgOrder = { overdue:0, urgent:1, soon:2, flexible:3 };
+  real.sort((a,b) => (urgOrder[urgencyOf(a.due_date)] - urgOrder[urgencyOf(b.due_date)]) || (a.due_date||'z').localeCompare(b.due_date||'z'));
+
+  list.innerHTML = real.map((ticket, idx) => {
+    const urg = urgencyOf(ticket.due_date);
+    const rec = recommend(ticket, cap);
+    const urgLabel = urg === 'overdue' ? '⚠ Overdue' : urg === 'urgent' ? '🔴 Urgent' : urg === 'soon' ? '🟡 Soon' : '🟢 Flexible';
+    const p = rec.primary;
+    const pCap = cap[rec.primary.p] || p;
+
+    // Timeline blocks for recommended person
+    const pData = Object.entries(cap).find(([k,v]) => v.name === p.name);
+    const pCapData = pData ? pData[1] : null;
+    let timelineHtml = '';
+    if (pCapData) {
+      const blocks = pCapData.bookings.slice(0,5).map(b =>
+        `<div class="t-block busy" title="${b.title}">${b.title.length > 20 ? b.title.slice(0,18)+'…' : b.title}<br><span style="opacity:0.7">${fmtDate(b.start)}–${fmtDate(b.end)}</span></div>`
+      ).join('');
+      const gapBlocks = pCapData.gaps.map(g =>
+        `<div class="t-block gap">✦ Free: ${g.label}</div>`
+      ).join('');
+      timelineHtml = `
+        <div class="timeline-strip">
+          <div class="timeline-person-name">${p.name} — schedule view</div>
+          <div class="timeline-blocks">${blocks}${gapBlocks || '<div class="t-block gap">↳ Then available</div>'}</div>
+        </div>`;
+    }
+
+    const secHtml = rec.secondary ? `
+      <div class="rec-secondary">
+        <div class="rec-secondary-avatar" style="background:${rec.secondary.color}">${rec.secondary.initials}</div>
+        <div class="rec-secondary-text"><strong>${rec.secondary.name}</strong> — Also capable of ${rec.disc.label} work. ${cap[Object.keys(TEAM).find(k=>TEAM[k].name===rec.secondary.name)]?.flag === 'red' ? '⚠ Fully booked right now.' : `${cap[Object.keys(TEAM).find(k=>TEAM[k].name===rec.secondary.name)]?.free || 0} days free.`}</div>
+      </div>` : '';
+
+    const warnHtml = rec.warn ? `<div class="rec-warn">⚠ ${rec.warn}</div>` : '';
+
+    const desc = (ticket.description || '').replace(/<[^>]+>/g,'').trim().slice(0, 140);
+
+    return `
+    <div class="ticket-card ${urg}" id="card-${ticket.id}">
+      <div class="ticket-header" onclick="toggleCard('${ticket.id}')">
+        <div class="ticket-urgency ${urg}">${urgLabel}</div>
+        <div class="ticket-info">
+          <div class="ticket-title">${ticket.title}</div>
+          <div class="ticket-meta">
+            <span class="ticket-tag">📋 ${rec.disc.label}</span>
+            ${ticket.due_date ? `<span class="ticket-tag">📅 Due ${fmtDate(ticket.due_date)}</span>` : ''}
+            ${desc ? `<span class="ticket-tag" style="color:#555">${desc.slice(0,60)}…</span>` : ''}
+          </div>
+        </div>
+        <div class="ticket-chevron">▾</div>
+      </div>
+      <div class="ticket-body">
+        <div class="rec-section">
+          <div class="rec-label">Recommended</div>
+          <div class="rec-primary">
+            <div class="rec-person-row">
+              <div class="rec-avatar" style="background:${p.color}">${p.initials}</div>
+              <div class="rec-person-info">
+                <div class="rec-person-name">${p.name}</div>
+                <div class="rec-person-role">${p.role}</div>
+              </div>
+              <div class="rec-cap-badge ${pCapData?.flag || 'green'}">${pCapData?.free || 0}d free</div>
+            </div>
+            <div class="rec-reason">${rec.reason}</div>
+            ${timelineHtml}
+          </div>
+          ${secHtml ? `<div class="rec-label" style="margin-top:8px">Also suitable</div><div class="rec-secondary-list">${secHtml}</div>` : ''}
+          ${warnHtml}
+        </div>
+
+        <!-- Accept panel -->
+        <div class="accept-panel">
+          <div class="accept-title">Schedule this ticket</div>
+          <div class="ticket-type-toggle">
+            <button class="type-btn active" onclick="setType('${ticket.id}','support',this)">Support ticket</button>
+            <button class="type-btn" onclick="setType('${ticket.id}','project',this)">Project booking</button>
+          </div>
+          <div class="accept-fields" id="fields-${ticket.id}">
+            <div class="accept-field">
+              <label>Assign to</label>
+              <select id="assignee-${ticket.id}">
+                ${Object.entries(TEAM).map(([k,v])=>`<option value="${k}" ${v.name===p.name?'selected':''}>${v.name}</option>`).join('')}
+              </select>
+            </div>
+            <div class="accept-field">
+              <label>Start date</label>
+              <input type="date" id="start-${ticket.id}" value="${pCapData?.gaps?.[0]?.start || today()}">
+            </div>
+          </div>
+          <div class="accept-actions">
+            <button class="btn-accept" onclick="acceptTicket('${ticket.id}')">✓ Accept &amp; Book</button>
+            <button class="btn-skip" onclick="dismissCard('${ticket.id}')">Skip</button>
+          </div>
+          <div class="accept-status" id="status-${ticket.id}"></div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleCard(id) {
+  const card = document.getElementById('card-'+id);
+  card.classList.toggle('open');
+}
+
+function setType(id, type, btn) {
+  document.querySelectorAll(`#card-${id} .type-btn`).forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const fields = document.getElementById('fields-'+id);
+  if (type === 'project') {
+    // Add duration and hours fields if not already there
+    if (!document.getElementById('duration-'+id)) {
+      fields.innerHTML += `
+        <div class="accept-field">
+          <label>Duration (days)</label>
+          <input type="number" id="duration-${id}" placeholder="5" min="1" max="60">
+        </div>
+        <div class="accept-field">
+          <label>Hours (optional)</label>
+          <input type="number" id="hours-${id}" placeholder="e.g. 20" min="1">
+        </div>`;
+    }
+  } else {
+    // Remove duration/hours if present
+    const dur = document.getElementById('duration-'+id);
+    const hrs = document.getElementById('hours-'+id);
+    if (dur) dur.parentElement.remove();
+    if (hrs) hrs.parentElement.remove();
+  }
+}
+
+function dismissCard(id) {
+  document.getElementById('card-'+id).classList.add('dismissed');
+}
+
+// ════════════════════════════════════════════════════════
+// ACCEPT → GITHUB WRITE
+// ════════════════════════════════════════════════════════
+async function acceptTicket(ticketId) {
+  const statusEl = document.getElementById('status-'+ticketId);
+  const btn = document.querySelector(`#card-${ticketId} .btn-accept`);
+  btn.disabled = true;
+  statusEl.className = 'accept-status loading';
+  statusEl.textContent = 'Saving to Apollo…';
+
+  try {
+    const assigneePid = document.getElementById('assignee-'+ticketId).value;
+    const startDate   = document.getElementById('start-'+ticketId).value;
+    const durEl       = document.getElementById('duration-'+ticketId);
+    const hrsEl       = document.getElementById('hours-'+ticketId);
+    const durationDays = durEl ? (parseInt(durEl.value) || 1) : 1;
+    const hours = hrsEl ? (parseFloat(hrsEl.value) || null) : null;
+
+    if (!startDate) throw new Error('Please pick a start date.');
+
+    // Find ticket title from rendered data
+    const card = document.getElementById('card-'+ticketId);
+    const title = card.querySelector('.ticket-title').textContent;
+
+    // Build new Apollo entry
+    const s = dayOffset(startDate);
+    const n = durationDays;
+    const entry = {
+      p: assigneePid,
+      proj: 'g',
+      s, n, dn: n,
+      note: title,
+      hrs: hours,
+      isLeave: false,
+      prodBookingId: null,
+      prodUrl: `https://sandbox.productive.io/1476-dotcollective/tasks/${ticketId}`,
+      prodTaskId: ticketId,
+      sowUrl: null,
+      title,
+      description: '',
+      tags: [], taskList: '', priority: '', status: '',
+      dueDate: null,
+      attachments: []
+    };
+
+    // Get current tasks.json from GitHub (need SHA for update)
+    const ghToken = getGhToken();
+    const contentsResp = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_FILE}`, {
+      headers: { 'Authorization': `Bearer ${ghToken}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!contentsResp.ok) throw new Error(`GitHub: ${contentsResp.status} ${contentsResp.statusText}`);
+    const contentsData = await contentsResp.json();
+    const sha = contentsData.sha;
+    const currentContent = JSON.parse(atob(contentsData.content.replace(/\n/g, '')));
+
+    // Append new entry
+    currentContent.entries.push(entry);
+    currentContent.generated = new Date().toISOString();
+
+    // Write back
+    const newContent = btoa(unescape(encodeURIComponent(JSON.stringify(currentContent, null, 2))));
+    const putResp = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_FILE}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${ghToken}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: `Queue: assign "${title}" to ${TEAM[assigneePid].name}`, content: newContent, sha })
+    });
+    if (!putResp.ok) {
+      const err = await putResp.json();
+      throw new Error(`GitHub write failed: ${err.message}`);
+    }
+
+    // Mark card as done
+    statusEl.className = 'accept-status success';
+    statusEl.textContent = `✓ Booked for ${TEAM[assigneePid].name} — visible in Apollo in ~30s`;
+    card.classList.add('done');
+    card.classList.remove('urgent','soon','flexible');
+
+  } catch (err) {
+    btn.disabled = false;
+    statusEl.className = 'accept-status error';
+    statusEl.textContent = '✗ ' + err.message;
+  }
+}
+
+// ════════════════════════════════════════════════════════
+// DATA LOADING
+// ════════════════════════════════════════════════════════
+async function loadApollo() {
+  const resp = await fetch(APOLLO_TASKS_URL + '?t=' + Date.now());
+  const data = await resp.json();
+  apolloEntries = data.entries || [];
+  return apolloEntries;
+}
+
+async function loadProductiveQueue() {
+  const token = getProdToken();
+  // Fetch Hannah's open tickets
+  const resp = await fetch(
+    `${PRODUCTIVE_BASE}/tasks?filter%5Bassignee_id%5D=${HANNAH_PROD_ID}&filter%5Bstatus%5D=1&filter%5Bafter%5D=2025-10-01&include=deal%2Cservice&page%5Bsize%5D=100`,
+    { headers: { 'X-Auth-Token': token, 'X-Organization-Id': PRODUCTIVE_ORG, 'Content-Type': 'application/json' } }
+  );
+  if (!resp.ok) throw new Error(`Productive API error: ${resp.status}`);
+  const data = await resp.json();
+
+  const dealMap = {}, serviceMap = {};
+  for (const inc of data.included || []) {
+    if (inc.type === 'deals') dealMap[inc.id] = inc.attributes?.name || '';
+    if (inc.type === 'services') serviceMap[inc.id] = inc.attributes?.name || '';
+  }
+
+  return (data.data || []).map(t => {
+    const attrs = t.attributes || {};
+    const rels = t.relationships || {};
+    const dealId = rels.deal?.data?.id;
+    const svcId  = rels.service?.data?.id;
+    return {
+      id: t.id,
+      title: attrs.title || '',
+      description: (attrs.description || '').replace(/<[^>]+>/g,' ').trim().slice(0,300),
+      due_date: attrs.due_date || null,
+      client: dealMap[dealId] || '',
+      service: serviceMap[svcId] || '',
+      created_at: attrs.created_at || '',
+    };
+  });
+}
+
+async function loadAll() {
+  document.getElementById('capacityStrip').innerHTML = '<div class="cap-pill"><div class="spinner"></div><span style="color:#666">Loading…</span></div>';
+  document.getElementById('ticketList').innerHTML = '<div class="state-center"><div class="spinner"></div><div class="msg">Fetching your queue…</div></div>';
+  document.getElementById('headerSub').textContent = 'Loading…';
+
+  try {
+    const [entries, tickets] = await Promise.all([loadApollo(), loadProductiveQueue()]);
+    capacityData = computeCapacity(entries);
+    renderCapacity(capacityData);
+    renderTickets(tickets, capacityData);
+    const t = today();
+    document.getElementById('headerSub').textContent = `${tickets.filter(x=>!x.title.toLowerCase().includes('test')&&!x.title.toLowerCase().includes('template')).length} tickets · refreshed ${new Date().toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit'})}`;
+  } catch (err) {
+    document.getElementById('ticketList').innerHTML = `
+      <div class="state-center">
+        <div class="icon">⚠</div>
+        <div class="msg">Could not load queue</div>
+        <div class="sub">${err.message}</div>
+        <div class="sub" style="margin-top:8px">Check your API tokens in Settings ⚙</div>
+      </div>`;
+    document.getElementById('capacityStrip').innerHTML = '';
+    console.error(err);
+  }
+}
+
+// ════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', () => {
+  if (!checkTokens()) return;
+  loadAll();
+});
+</script>
+</body>
+</html>
