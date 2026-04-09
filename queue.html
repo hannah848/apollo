@@ -618,12 +618,17 @@ async function acceptTicket(ticketId) {
     const card = document.getElementById('card-'+ticketId);
     const title = card.querySelector('.ticket-title').textContent;
 
+    // Detect work type from active type button
+    const activeTypeBtn = card.querySelector('.type-btn.active');
+    const bookingType = activeTypeBtn ? (activeTypeBtn.textContent.includes('Support') ? 'support' : 'project') : 'support';
+
     // Build new Apollo entry
     const s = dayOffset(startDate);
     const n = durationDays;
     const entry = {
       p: assigneePid,
       proj: 'g',
+      type: bookingType,
       s, n, dn: n,
       note: title,
       hrs: hours,
