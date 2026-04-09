@@ -2231,7 +2231,7 @@ function BookingModal({
       letterSpacing: '-0.03em',
       flex: 1
     }
-  }, isEdit ? 'Edit Booking' : 'New Booking'), form.prodUrl && /*#__PURE__*/React.createElement("a", {
+  }, isEdit ? (bk?.source === 'productive' ? '⟳ Edit Booking' : 'Edit Booking') : 'New Booking'), form.prodUrl && /*#__PURE__*/React.createElement("a", {
     href: form.prodUrl,
     target: "_blank",
     rel: "noopener noreferrer",
