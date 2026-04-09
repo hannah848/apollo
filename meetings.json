@@ -1,0 +1,1138 @@
+{
+  "_synced": "2026-04-09T08:17:07.766884Z",
+  "_note": "Auto-synced from Google Calendar. Meetings show as thin strips on each attendee's lane in Apollo. Bookings created in Hannah's name in Productive.",
+  "entries": [
+    {
+      "gcalId": "32a6vf6pq82bd075up2kkosuru_20260407T010000Z",
+      "recurringId": "32a6vf6pq82bd075up2kkosuru",
+      "title": "Han & Dave 1:1",
+      "date": "2026-04-09",
+      "s": 10,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "2"
+      ],
+      "startTime": "12:45",
+      "endTime": "13:15"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260409T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-10",
+      "s": 11,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260406T020000Z",
+      "recurringId": "4bvfb3lghemhgofsne1fhd45ih",
+      "title": "Han & Seo 1:1",
+      "date": "2026-04-10",
+      "s": 11,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "4"
+      ],
+      "startTime": "10:00",
+      "endTime": "10:30"
+    },
+    {
+      "gcalId": "43l49uuhuk5a9htud8v9flg7og",
+      "recurringId": null,
+      "title": "Rip Curl Weekly Reporting Aignment",
+      "date": "2026-04-10",
+      "s": 11,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2"
+      ],
+      "startTime": "12:00",
+      "endTime": "12:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260412T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-13",
+      "s": 14,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "3c8m8s2n20gd878l1iv16guu7n",
+      "recurringId": null,
+      "title": "Handover technical audit for Runaway the Label",
+      "date": "2026-04-13",
+      "s": 14,
+      "hrsPerDay": 1.0,
+      "attendees": [
+        "2"
+      ],
+      "startTime": "10:00",
+      "endTime": "11:00"
+    },
+    {
+      "gcalId": "6phnumciso7iqnvgaj6s4ptsij_20260413T010000Z",
+      "recurringId": "6phnumciso7iqnvgaj6s4ptsij_R20260406T010000",
+      "title": "Han & Audrina 1:1",
+      "date": "2026-04-13",
+      "s": 14,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "3"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260413T020000Z",
+      "recurringId": "4bvfb3lghemhgofsne1fhd45ih",
+      "title": "Han & Seo 1:1",
+      "date": "2026-04-13",
+      "s": 14,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "4"
+      ],
+      "startTime": "12:00",
+      "endTime": "12:30"
+    },
+    {
+      "gcalId": "16rv61vg02uki4pl1agkjucotv",
+      "recurringId": null,
+      "title": "Alpha60 x UX next steps",
+      "date": "2026-04-13",
+      "s": 14,
+      "hrsPerDay": 0.33,
+      "attendees": [
+        "1"
+      ],
+      "startTime": "12:30",
+      "endTime": "12:50"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260413T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-14",
+      "s": 15,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "5am6rhuski8cv1fogu2prdta97",
+      "recurringId": null,
+      "title": "Early Settler Creative Concept Alignment",
+      "date": "2026-04-14",
+      "s": 15,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "4"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "32a6vf6pq82bd075up2kkosuru_20260414T010000Z",
+      "recurringId": "32a6vf6pq82bd075up2kkosuru",
+      "title": "Han & Dave 1:1",
+      "date": "2026-04-14",
+      "s": 15,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "2"
+      ],
+      "startTime": "11:30",
+      "endTime": "12:00"
+    },
+    {
+      "gcalId": "59rcbv8ome0edcq2cr8aoimj73_20260414T020000Z",
+      "recurringId": "59rcbv8ome0edcq2cr8aoimj73_R20260317T020000",
+      "title": "Han & Kate",
+      "date": "2026-04-14",
+      "s": 15,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1"
+      ],
+      "startTime": "13:00",
+      "endTime": "13:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260414T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-15",
+      "s": 16,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "2283scrbt7vcp4828e1a2f5q49_20260415T010000Z",
+      "recurringId": "2283scrbt7vcp4828e1a2f5q49",
+      "title": "Han & Bec 1:1",
+      "date": "2026-04-15",
+      "s": 16,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "5"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260415T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-16",
+      "s": 17,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "03jk2efvm6qtfpg1l5q95ibn87",
+      "recurringId": null,
+      "title": "Hold time: Runaway the Label WIP",
+      "date": "2026-04-16",
+      "s": 17,
+      "hrsPerDay": 1.0,
+      "attendees": [
+        "2"
+      ],
+      "startTime": "11:00",
+      "endTime": "12:00"
+    },
+    {
+      "gcalId": "1fm6i9f3c6ic0dnf2g3m3jqrn7_20260416T013000Z",
+      "recurringId": "1fm6i9f3c6ic0dnf2g3m3jqrn7",
+      "title": "Han & Lachie 1:1",
+      "date": "2026-04-16",
+      "s": 17,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "6"
+      ],
+      "startTime": "11:30",
+      "endTime": "12:00"
+    },
+    {
+      "gcalId": "7f53t5d6jlbmb1srgrjppgs556",
+      "recurringId": null,
+      "title": "BFCM Recs",
+      "date": "2026-04-16",
+      "s": 17,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "12:30",
+      "endTime": "13:00"
+    },
+    {
+      "gcalId": "472n9f7aehq450cr3sbjt4p4fc",
+      "recurringId": null,
+      "title": "DotCollective X ByWren - Creative Workshop",
+      "date": "2026-04-16",
+      "s": 17,
+      "hrsPerDay": 2.0,
+      "attendees": [
+        "4",
+        "5"
+      ],
+      "startTime": "14:00",
+      "endTime": "16:00"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260416T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-17",
+      "s": 18,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260419T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-20",
+      "s": 21,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "6phnumciso7iqnvgaj6s4ptsij_20260420T010000Z",
+      "recurringId": "6phnumciso7iqnvgaj6s4ptsij_R20260406T010000",
+      "title": "Han & Audrina 1:1",
+      "date": "2026-04-20",
+      "s": 21,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "3"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260420T020000Z",
+      "recurringId": "4bvfb3lghemhgofsne1fhd45ih",
+      "title": "Han & Seo 1:1",
+      "date": "2026-04-20",
+      "s": 21,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "4"
+      ],
+      "startTime": "12:00",
+      "endTime": "12:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260420T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-21",
+      "s": 22,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "32a6vf6pq82bd075up2kkosuru_20260421T010000Z",
+      "recurringId": "32a6vf6pq82bd075up2kkosuru",
+      "title": "Han & Dave 1:1",
+      "date": "2026-04-21",
+      "s": 22,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "2"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "59rcbv8ome0edcq2cr8aoimj73_20260421T020000Z",
+      "recurringId": "59rcbv8ome0edcq2cr8aoimj73_R20260317T020000",
+      "title": "Han & Kate",
+      "date": "2026-04-21",
+      "s": 22,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1"
+      ],
+      "startTime": "12:00",
+      "endTime": "12:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260421T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-22",
+      "s": 23,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "2283scrbt7vcp4828e1a2f5q49_20260422T010000Z",
+      "recurringId": "2283scrbt7vcp4828e1a2f5q49",
+      "title": "Han & Bec 1:1",
+      "date": "2026-04-22",
+      "s": 23,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "5"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260422T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-23",
+      "s": 24,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "1fm6i9f3c6ic0dnf2g3m3jqrn7_20260423T013000Z",
+      "recurringId": "1fm6i9f3c6ic0dnf2g3m3jqrn7",
+      "title": "Han & Lachie 1:1",
+      "date": "2026-04-23",
+      "s": 24,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "6"
+      ],
+      "startTime": "11:30",
+      "endTime": "12:00"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260423T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-24",
+      "s": 25,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260426T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-27",
+      "s": 28,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "6phnumciso7iqnvgaj6s4ptsij_20260427T010000Z",
+      "recurringId": "6phnumciso7iqnvgaj6s4ptsij_R20260406T010000",
+      "title": "Han & Audrina 1:1",
+      "date": "2026-04-27",
+      "s": 28,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "3"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260427T020000Z",
+      "recurringId": "4bvfb3lghemhgofsne1fhd45ih",
+      "title": "Han & Seo 1:1",
+      "date": "2026-04-27",
+      "s": 28,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "4"
+      ],
+      "startTime": "12:00",
+      "endTime": "12:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260427T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-28",
+      "s": 29,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "32a6vf6pq82bd075up2kkosuru_20260428T010000Z",
+      "recurringId": "32a6vf6pq82bd075up2kkosuru",
+      "title": "Han & Dave 1:1",
+      "date": "2026-04-28",
+      "s": 29,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "2"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "59rcbv8ome0edcq2cr8aoimj73_20260428T020000Z",
+      "recurringId": "59rcbv8ome0edcq2cr8aoimj73_R20260317T020000",
+      "title": "Han & Kate",
+      "date": "2026-04-28",
+      "s": 29,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1"
+      ],
+      "startTime": "12:00",
+      "endTime": "12:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260428T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-29",
+      "s": 30,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "2283scrbt7vcp4828e1a2f5q49_20260429T010000Z",
+      "recurringId": "2283scrbt7vcp4828e1a2f5q49",
+      "title": "Han & Bec 1:1",
+      "date": "2026-04-29",
+      "s": 30,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "5"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260429T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-04-30",
+      "s": 31,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "1fm6i9f3c6ic0dnf2g3m3jqrn7_20260430T013000Z",
+      "recurringId": "1fm6i9f3c6ic0dnf2g3m3jqrn7",
+      "title": "Han & Lachie 1:1",
+      "date": "2026-04-30",
+      "s": 31,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "6"
+      ],
+      "startTime": "11:30",
+      "endTime": "12:00"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260430T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-01",
+      "s": 32,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260503T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-04",
+      "s": 35,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "6phnumciso7iqnvgaj6s4ptsij_20260504T010000Z",
+      "recurringId": "6phnumciso7iqnvgaj6s4ptsij_R20260406T010000",
+      "title": "Han & Audrina 1:1",
+      "date": "2026-05-04",
+      "s": 35,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "3"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260504T020000Z",
+      "recurringId": "4bvfb3lghemhgofsne1fhd45ih",
+      "title": "Han & Seo 1:1",
+      "date": "2026-05-04",
+      "s": 35,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "4"
+      ],
+      "startTime": "12:00",
+      "endTime": "12:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260504T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-05",
+      "s": 36,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "32a6vf6pq82bd075up2kkosuru_20260505T010000Z",
+      "recurringId": "32a6vf6pq82bd075up2kkosuru",
+      "title": "Han & Dave 1:1",
+      "date": "2026-05-05",
+      "s": 36,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "2"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "59rcbv8ome0edcq2cr8aoimj73_20260505T020000Z",
+      "recurringId": "59rcbv8ome0edcq2cr8aoimj73_R20260317T020000",
+      "title": "Han & Kate",
+      "date": "2026-05-05",
+      "s": 36,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1"
+      ],
+      "startTime": "12:00",
+      "endTime": "12:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260505T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-06",
+      "s": 37,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "2283scrbt7vcp4828e1a2f5q49_20260506T010000Z",
+      "recurringId": "2283scrbt7vcp4828e1a2f5q49",
+      "title": "Han & Bec 1:1",
+      "date": "2026-05-06",
+      "s": 37,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "5"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260506T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-07",
+      "s": 38,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "1fm6i9f3c6ic0dnf2g3m3jqrn7_20260507T013000Z",
+      "recurringId": "1fm6i9f3c6ic0dnf2g3m3jqrn7",
+      "title": "Han & Lachie 1:1",
+      "date": "2026-05-07",
+      "s": 38,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "6"
+      ],
+      "startTime": "11:30",
+      "endTime": "12:00"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260507T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-08",
+      "s": 39,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260510T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-11",
+      "s": 42,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "6phnumciso7iqnvgaj6s4ptsij_20260511T010000Z",
+      "recurringId": "6phnumciso7iqnvgaj6s4ptsij_R20260406T010000",
+      "title": "Han & Audrina 1:1",
+      "date": "2026-05-11",
+      "s": 42,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "3"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260511T020000Z",
+      "recurringId": "4bvfb3lghemhgofsne1fhd45ih",
+      "title": "Han & Seo 1:1",
+      "date": "2026-05-11",
+      "s": 42,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "4"
+      ],
+      "startTime": "12:00",
+      "endTime": "12:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260511T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-12",
+      "s": 43,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "32a6vf6pq82bd075up2kkosuru_20260512T010000Z",
+      "recurringId": "32a6vf6pq82bd075up2kkosuru",
+      "title": "Han & Dave 1:1",
+      "date": "2026-05-12",
+      "s": 43,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "2"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "59rcbv8ome0edcq2cr8aoimj73_20260512T020000Z",
+      "recurringId": "59rcbv8ome0edcq2cr8aoimj73_R20260317T020000",
+      "title": "Han & Kate",
+      "date": "2026-05-12",
+      "s": 43,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1"
+      ],
+      "startTime": "12:00",
+      "endTime": "12:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260512T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-13",
+      "s": 44,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "2283scrbt7vcp4828e1a2f5q49_20260513T010000Z",
+      "recurringId": "2283scrbt7vcp4828e1a2f5q49",
+      "title": "Han & Bec 1:1",
+      "date": "2026-05-13",
+      "s": 44,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "5"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260513T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-14",
+      "s": 45,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "1fm6i9f3c6ic0dnf2g3m3jqrn7_20260514T013000Z",
+      "recurringId": "1fm6i9f3c6ic0dnf2g3m3jqrn7",
+      "title": "Han & Lachie 1:1",
+      "date": "2026-05-14",
+      "s": 45,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "6"
+      ],
+      "startTime": "11:30",
+      "endTime": "12:00"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260514T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-15",
+      "s": 46,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260517T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-18",
+      "s": 49,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "6phnumciso7iqnvgaj6s4ptsij_20260518T010000Z",
+      "recurringId": "6phnumciso7iqnvgaj6s4ptsij_R20260406T010000",
+      "title": "Han & Audrina 1:1",
+      "date": "2026-05-18",
+      "s": 49,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "3"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260518T020000Z",
+      "recurringId": "4bvfb3lghemhgofsne1fhd45ih",
+      "title": "Han & Seo 1:1",
+      "date": "2026-05-18",
+      "s": 49,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "4"
+      ],
+      "startTime": "12:00",
+      "endTime": "12:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260518T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-19",
+      "s": 50,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "32a6vf6pq82bd075up2kkosuru_20260519T010000Z",
+      "recurringId": "32a6vf6pq82bd075up2kkosuru",
+      "title": "Han & Dave 1:1",
+      "date": "2026-05-19",
+      "s": 50,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "2"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "59rcbv8ome0edcq2cr8aoimj73_20260519T020000Z",
+      "recurringId": "59rcbv8ome0edcq2cr8aoimj73_R20260317T020000",
+      "title": "Han & Kate",
+      "date": "2026-05-19",
+      "s": 50,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1"
+      ],
+      "startTime": "12:00",
+      "endTime": "12:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260519T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-20",
+      "s": 51,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "2283scrbt7vcp4828e1a2f5q49_20260520T010000Z",
+      "recurringId": "2283scrbt7vcp4828e1a2f5q49",
+      "title": "Han & Bec 1:1",
+      "date": "2026-05-20",
+      "s": 51,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "5"
+      ],
+      "startTime": "11:00",
+      "endTime": "11:30"
+    },
+    {
+      "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260520T233000Z",
+      "recurringId": "4dl0vi38ctk33bqmhtgc3gdb3m_R20260329T223000",
+      "title": "Apollo - Daily Stand Up",
+      "date": "2026-05-21",
+      "s": 52,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "startTime": "09:30",
+      "endTime": "10:00"
+    },
+    {
+      "gcalId": "1fm6i9f3c6ic0dnf2g3m3jqrn7_20260521T013000Z",
+      "recurringId": "1fm6i9f3c6ic0dnf2g3m3jqrn7",
+      "title": "Han & Lachie 1:1",
+      "date": "2026-05-21",
+      "s": 52,
+      "hrsPerDay": 0.5,
+      "attendees": [
+        "6"
+      ],
+      "startTime": "11:30",
+      "endTime": "12:00"
+    }
+  ]
+}
