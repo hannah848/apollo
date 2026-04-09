@@ -1955,7 +1955,7 @@ function BookingModal({
     endDate: bk ? offsetToDate(bk.s + (bk.n - 1)) : initial?.day ? initial.day.toISOString().slice(0, 10) : '',
     note: bk?.note || '',
     hrs: bk?.hrs ? String(bk.hrs) : '',
-    useSafe: false,
+    useSafe: !bk,
     signed: bk ? PROJ[bk.proj]?.signed || false : false,
     sowUrl: bk?.sowUrl || '',
     prodUrl: bk?.prodUrl || '',
@@ -3306,13 +3306,16 @@ function App() {
           newS = origS;
         }
         if (newN < 1) newN = 1;
-        // Live preview: update booking in-place
-        setBookings(prev => prev.map(b => b.id === bk.id ? {
-          ...b,
-          s: newS,
-          n: newN,
-          dn: newN
-        } : b));
+        // Live preview: update booking in-place, recalculate safe hours for new duration
+        setBookings(prev => prev.map(b => {
+          if (b.id !== bk.id) return b;
+          const person = teamData.find(m => m.id === b.p);
+          const startD = new Date(WIN.getTime() + newS * 86400000);
+          const endD = new Date(WIN.getTime() + (newS + newN - 1) * 86400000);
+          const wdays = workDaysBetween(startD, endD);
+          const newHrs = person?.safeHpD ? Math.round(wdays * person.safeHpD * 10) / 10 : b.hrs;
+          return { ...b, s: newS, n: newN, dn: newN, hrs: newHrs };
+        }));
         return;
       }
 
@@ -3386,12 +3389,24 @@ function App() {
         const visCol = Math.round(relX / dw);
         const newDay = visToCal(visCol); // convert visual → calendar
         const newPerson = teamData[targetPerson].id;
+        const newPersonData = teamData[targetPerson];
         setBookings(prev => {
-          const next = prev.map(b => b.id === bk.id ? {
-            ...b,
-            p: newPerson,
-            s: Math.max(-7, newDay)
-          } : b);
+          const next = prev.map(b => {
+            if (b.id !== bk.id) return b;
+            // Recalculate safe hours for the new person
+            const dn = b.dn || b.n || 1;
+            const newS = Math.max(-7, newDay);
+            const startD = new Date(WIN.getTime() + newS * 86400000);
+            const endD = new Date(WIN.getTime() + (newS + dn - 1) * 86400000);
+            const wdays = workDaysBetween(startD, endD);
+            const newHrs = newPersonData.safeHpD ? Math.round(wdays * newPersonData.safeHpD * 10) / 10 : b.hrs;
+            return {
+              ...b,
+              p: newPerson,
+              s: newS,
+              hrs: newHrs
+            };
+          });
           debouncedGHSave(next);
           // Sync moved booking to Productive
           const moved = next.find(b => b.id === bk.id);
