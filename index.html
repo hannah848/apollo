@@ -49,7 +49,7 @@ window.addEventListener('unhandledrejection',function(e){
 </script>
 <script>
 /* ── Google Calendar data (auto-refreshed) ── */
-var GCAL_REFRESHED='2026-04-09T17:22:27.843217+10:00';
+var GCAL_REFRESHED='2026-04-09T16:06:24.980838+10:00';
 var GCAL_MEETINGS = [
 {pid:'1',offset:0,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
 {pid:'1',offset:0,title:"SYDNEY - SPACE TENDER",start:'09:00',end:'14:00',durH:5.0},
@@ -66,7 +66,7 @@ var GCAL_MEETINGS = [
 {pid:'1',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
 {pid:'1',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
 {pid:'1',offset:8,title:"Eckersleys Design Handover",start:'10:00',end:'11:00',durH:1.0},
-{pid:'1',offset:8,title:"Eckersley\'s: AI Design efficiencies",start:'12:00',end:'13:00',durH:1.0},
+{pid:'1',offset:8,title:"Eckersley's: AI Design efficiencies",start:'12:00',end:'13:00',durH:1.0},
 {pid:'1',offset:9,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
 {pid:'1',offset:9,title:"Kate x Soph | Monthly",start:'11:30',end:'12:10',durH:0.67},
 {pid:'1',offset:11,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
@@ -122,7 +122,7 @@ var GCAL_MEETINGS = [
 {pid:'2',offset:4,title:"Apollo - Daily Stand Up",start:'08:30',end:'09:00',durH:0.5},
 {pid:'2',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
 {pid:'2',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:8,title:"Eckersley\'s: AI Design efficiencies",start:'12:00',end:'13:00',durH:1.0},
+{pid:'2',offset:8,title:"Eckersley's: AI Design efficiencies",start:'12:00',end:'13:00',durH:1.0},
 {pid:'2',offset:9,title:"Out of office",start:'09:00',end:'17:00',durH:8.0},
 {pid:'2',offset:9,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
 {pid:'2',offset:10,title:" Rip Curl - WIP",start:'11:00',end:'11:50',durH:0.83},
@@ -179,7 +179,7 @@ var GCAL_MEETINGS = [
 {pid:'3',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
 {pid:'3',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
 {pid:'3',offset:8,title:"Eckersleys Design Handover",start:'10:00',end:'11:00',durH:1.0},
-{pid:'3',offset:8,title:"Eckersley\'s: AI Design efficiencies",start:'12:00',end:'13:00',durH:1.0},
+{pid:'3',offset:8,title:"Eckersley's: AI Design efficiencies",start:'12:00',end:'13:00',durH:1.0},
 {pid:'3',offset:8,title:"Han & Audrina 1:1",start:'15:00',end:'15:30',durH:0.5},
 {pid:'3',offset:8,title:"Design Presentation - Stock by Status Project",start:'16:00',end:'16:30',durH:0.5},
 {pid:'3',offset:9,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
@@ -298,7 +298,7 @@ var GCAL_MEETINGS = [
 {pid:'5',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
 {pid:'5',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
 {pid:'5',offset:8,title:"Eckersleys Design Handover",start:'10:00',end:'11:00',durH:1.0},
-{pid:'5',offset:8,title:"Eckersley\'s: AI Design efficiencies",start:'12:00',end:'13:00',durH:1.0},
+{pid:'5',offset:8,title:"Eckersley's: AI Design efficiencies",start:'12:00',end:'13:00',durH:1.0},
 {pid:'5',offset:8,title:"Lunch",start:'13:00',end:'14:00',durH:1.0},
 {pid:'5',offset:8,title:"Buzz vet 5pm",start:'16:30',end:'17:30',durH:1.0},
 {pid:'5',offset:9,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
@@ -457,7 +457,7 @@ var GCAL_MEETINGS = [
 {pid:'7',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
 {pid:'7',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
 {pid:'7',offset:8,title:"vinnies",start:'10:00',end:'16:00',durH:6.0},
-{pid:'7',offset:8,title:"Eckersley\'s: AI Design efficiencies",start:'12:00',end:'13:00',durH:1.0},
+{pid:'7',offset:8,title:"Eckersley's: AI Design efficiencies",start:'12:00',end:'13:00',durH:1.0},
 {pid:'7',offset:8,title:"estimate scope - #1715 International Updates/Expansion",start:'16:00',end:'17:00',durH:1.0},
 {pid:'7',offset:9,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
 {pid:'7',offset:9,title:"Vinnies PMax Performance Review - State Performance and Fundraising Insights",start:'16:00',end:'16:45',durH:0.75},
@@ -1940,6 +1940,7 @@ function TabBtn({
 function BookingModal({
   initial,
   team,
+  bookings,
   onSave,
   onDelete,
   onClose
@@ -1971,7 +1972,41 @@ function BookingModal({
     bookingType: bk?.type || ''
   });
   const [tagInput, setTagInput] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const descRef = useRef(null);
+
+  // Build autofill suggestions from past bookings
+  const handleTitleChange = useCallback((val) => {
+    set('title', val);
+    set('note', val);
+    if (val.length < 2) { setSuggestions([]); setShowSuggestions(false); return; }
+    const q = val.toLowerCase();
+    const seen = new Set();
+    const matches = (bookings || []).filter(b => {
+      const t = (b.title || b.note || '').toLowerCase();
+      if (!t.includes(q)) return false;
+      const key = `${b.proj}|${b.title || b.note}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    }).slice(0, 6).map(b => ({
+      title: b.title || b.note || '',
+      proj: b.proj,
+      hrs: b.hrs,
+      projName: PROJ[b.proj]?.name || b.proj
+    }));
+    setSuggestions(matches);
+    setShowSuggestions(matches.length > 0);
+  }, [bookings]);
+
+  const applySuggestion = useCallback((s) => {
+    set('title', s.title);
+    set('note', s.title);
+    if (s.proj && !form.isLeave) set('proj', s.proj);
+    if (s.hrs) set('hrs', String(s.hrs));
+    setShowSuggestions(false);
+  }, [form.isLeave]);
   const member = useMemo(() => team.find(m => m.id === form.person) || team[0], [form.person, team]);
   useEffect(() => {
     if (!form.useSafe || !form.startDate || !form.endDate || !member.safeHpD) return;
@@ -2183,21 +2218,90 @@ function BookingModal({
       flexDirection: 'column',
       gap: 13
     }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Title"), /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'relative'
+    }
+  }, /*#__PURE__*/React.createElement("label", null, "Title"), /*#__PURE__*/React.createElement("input", {
     type: "text",
     value: form.title,
-    onChange: e => set('title', e.target.value),
+    onChange: e => handleTitleChange(e.target.value),
+    onFocus: () => suggestions.length > 0 && setShowSuggestions(true),
+    onBlur: () => setTimeout(() => setShowSuggestions(false), 150),
     placeholder: "e.g. Eckersley Wireframes",
     style: {
       fontWeight: 600
     }
-  })), /*#__PURE__*/React.createElement("div", {
+  }), showSuggestions && /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      top: '100%',
+      left: 0,
+      right: 0,
+      zIndex: 999,
+      background: '#1e1e2e',
+      border: '1px solid rgba(124,58,237,0.3)',
+      borderRadius: 8,
+      overflow: 'hidden',
+      boxShadow: '0 8px 24px rgba(0,0,0,0.4)'
+    }
+  }, suggestions.map((s, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    onMouseDown: () => applySuggestion(s),
+    style: {
+      padding: '9px 14px',
+      cursor: 'pointer',
+      borderBottom: '1px solid rgba(255,255,255,0.05)',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    },
+    onMouseEnter: e => e.currentTarget.style.background = 'rgba(124,58,237,0.12)',
+    onMouseLeave: e => e.currentTarget.style.background = 'transparent'
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13,
+      color: '#e2e8f0'
+    }
+  }, s.title), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: '#a78bfa',
+      background: 'rgba(124,58,237,0.15)',
+      padding: '2px 8px',
+      borderRadius: 10
+    }
+  }, s.projName, s.hrs ? ` · ${s.hrs}h` : ''))))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
       gap: 10
     }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Team Member"), /*#__PURE__*/React.createElement("select", {
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Team Member"), !isEdit && initial?.member ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 8,
+      padding: '8px 12px',
+      borderRadius: 8,
+      background: 'rgba(124,58,237,0.08)',
+      border: '1px solid rgba(124,58,237,0.2)'
+    }
+  }, initial.member.photo && /*#__PURE__*/React.createElement("img", {
+    src: initial.member.photo,
+    style: {
+      width: 26,
+      height: 26,
+      borderRadius: '50%',
+      objectFit: 'cover'
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 600,
+      fontSize: 13,
+      color: '#c4b5fd'
+    }
+  }, initial.member.name)) : /*#__PURE__*/React.createElement("select", {
     value: form.person,
     onChange: e => set('person', e.target.value)
   }, team.map(m => /*#__PURE__*/React.createElement("option", {
@@ -4260,12 +4364,14 @@ function App() {
   }), modal?.type === 'create' && /*#__PURE__*/React.createElement(BookingModal, {
     initial: modal,
     team: team,
+    bookings: bookings,
     onSave: handleSaveBooking,
     onDelete: handleDeleteBooking,
     onClose: () => setModal(null)
   }), modal?.type === 'edit' && /*#__PURE__*/React.createElement(BookingModal, {
     initial: modal,
     team: team,
+    bookings: bookings,
     onSave: handleSaveBooking,
     onDelete: handleDeleteBooking,
     onClose: () => setModal(null)
