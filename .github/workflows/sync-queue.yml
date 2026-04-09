@@ -1,7 +1,7 @@
 name: Sync Queue
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "* * * * *"
   workflow_dispatch:
 
 jobs:
@@ -26,7 +26,7 @@ data = json.load(sys.stdin)
 data['_generated'] = datetime.datetime.utcnow().isoformat() + 'Z'
 print(json.dumps(data, indent=2))
 " > queue-data.json
-          echo "Fetched $(python3 -c "import json; d=json.load(open('queue-data.json')); print(len(d.get('data',[])))" ) tickets"
+          echo "Fetched $(python3 -c \"import json; d=json.load(open('queue-data.json')); print(len(d.get('data',[])))\") tickets"
 
       - name: Commit if changed
         run: |
