@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-09T07:17:20.498Z",
+  "generated": "2026-04-09T07:17:26.340Z",
   "entries": [
     {
       "p": "1",
@@ -1026,19 +1026,6 @@
       "isLeave": false,
       "prodBookingId": "30946140",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17166271",
-      "sowUrl": null
-    },
-    {
-      "p": "8",
-      "proj": "g",
-      "s": 14,
-      "n": 1,
-      "dn": 1,
-      "note": "test 9/4",
-      "hrs": 4,
-      "isLeave": false,
-      "prodBookingId": null,
-      "prodUrl": null,
       "sowUrl": null
     }
   ]
