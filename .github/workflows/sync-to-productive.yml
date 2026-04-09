@@ -1,9 +1,15 @@
 name: Sync Apollo → Productive
 on:
-  workflow_dispatch:   # Manual only — run from Actions tab when you're ready to sync
+  push:
+    paths:
+      - tasks.json
+  workflow_dispatch:   # Also available to run manually from Actions tab
 
 jobs:
   sync:
+    # Only run if the commit message starts with "Apollo:" (written by the scheduler)
+    # This prevents loops when the bot commits prodBookingIds back to tasks.json
+    if: startsWith(github.event.head_commit.message, 'Apollo:') || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     permissions:
       contents: write
