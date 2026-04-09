@@ -1,5 +1,5 @@
 {
-  "_synced": "2026-04-09T08:17:07.766884Z",
+  "_synced": "2026-04-09T08:27:37.456417Z",
   "_note": "Auto-synced from Google Calendar. Meetings show as thin strips on each attendee's lane in Apollo. Bookings created in Hannah's name in Productive.",
   "entries": [
     {
@@ -13,7 +13,8 @@
         "2"
       ],
       "startTime": "12:45",
-      "endTime": "13:15"
+      "endTime": "13:15",
+      "prodBookingId": "30974365"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260409T233000Z",
@@ -31,7 +32,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974371"
     },
     {
       "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260406T020000Z",
@@ -44,7 +46,8 @@
         "4"
       ],
       "startTime": "10:00",
-      "endTime": "10:30"
+      "endTime": "10:30",
+      "prodBookingId": "30974372"
     },
     {
       "gcalId": "43l49uuhuk5a9htud8v9flg7og",
@@ -58,7 +61,8 @@
         "2"
       ],
       "startTime": "12:00",
-      "endTime": "12:30"
+      "endTime": "12:30",
+      "prodBookingId": "30974373"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260412T233000Z",
@@ -76,7 +80,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974374"
     },
     {
       "gcalId": "3c8m8s2n20gd878l1iv16guu7n",
@@ -89,7 +94,8 @@
         "2"
       ],
       "startTime": "10:00",
-      "endTime": "11:00"
+      "endTime": "11:00",
+      "prodBookingId": "30974377"
     },
     {
       "gcalId": "6phnumciso7iqnvgaj6s4ptsij_20260413T010000Z",
@@ -102,7 +108,8 @@
         "3"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974380"
     },
     {
       "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260413T020000Z",
@@ -115,7 +122,8 @@
         "4"
       ],
       "startTime": "12:00",
-      "endTime": "12:30"
+      "endTime": "12:30",
+      "prodBookingId": "30974382"
     },
     {
       "gcalId": "16rv61vg02uki4pl1agkjucotv",
@@ -128,7 +136,8 @@
         "1"
       ],
       "startTime": "12:30",
-      "endTime": "12:50"
+      "endTime": "12:50",
+      "prodBookingId": "30974384"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260413T233000Z",
@@ -146,7 +155,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974385"
     },
     {
       "gcalId": "5am6rhuski8cv1fogu2prdta97",
@@ -159,7 +169,8 @@
         "4"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974386"
     },
     {
       "gcalId": "32a6vf6pq82bd075up2kkosuru_20260414T010000Z",
@@ -172,7 +183,8 @@
         "2"
       ],
       "startTime": "11:30",
-      "endTime": "12:00"
+      "endTime": "12:00",
+      "prodBookingId": "30974394"
     },
     {
       "gcalId": "59rcbv8ome0edcq2cr8aoimj73_20260414T020000Z",
@@ -185,7 +197,8 @@
         "1"
       ],
       "startTime": "13:00",
-      "endTime": "13:30"
+      "endTime": "13:30",
+      "prodBookingId": "30974398"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260414T233000Z",
@@ -203,7 +216,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974399"
     },
     {
       "gcalId": "2283scrbt7vcp4828e1a2f5q49_20260415T010000Z",
@@ -216,7 +230,8 @@
         "5"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974400"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260415T233000Z",
@@ -234,7 +249,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974402"
     },
     {
       "gcalId": "03jk2efvm6qtfpg1l5q95ibn87",
@@ -247,7 +263,8 @@
         "2"
       ],
       "startTime": "11:00",
-      "endTime": "12:00"
+      "endTime": "12:00",
+      "prodBookingId": "30974403"
     },
     {
       "gcalId": "1fm6i9f3c6ic0dnf2g3m3jqrn7_20260416T013000Z",
@@ -260,7 +277,8 @@
         "6"
       ],
       "startTime": "11:30",
-      "endTime": "12:00"
+      "endTime": "12:00",
+      "prodBookingId": "30974406"
     },
     {
       "gcalId": "7f53t5d6jlbmb1srgrjppgs556",
@@ -278,7 +296,8 @@
         "6"
       ],
       "startTime": "12:30",
-      "endTime": "13:00"
+      "endTime": "13:00",
+      "prodBookingId": "30974408"
     },
     {
       "gcalId": "472n9f7aehq450cr3sbjt4p4fc",
@@ -292,7 +311,8 @@
         "5"
       ],
       "startTime": "14:00",
-      "endTime": "16:00"
+      "endTime": "16:00",
+      "prodBookingId": "30974409"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260416T233000Z",
@@ -310,7 +330,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974411"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260419T233000Z",
@@ -328,7 +349,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974412"
     },
     {
       "gcalId": "6phnumciso7iqnvgaj6s4ptsij_20260420T010000Z",
@@ -341,7 +363,8 @@
         "3"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974413"
     },
     {
       "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260420T020000Z",
@@ -354,7 +377,8 @@
         "4"
       ],
       "startTime": "12:00",
-      "endTime": "12:30"
+      "endTime": "12:30",
+      "prodBookingId": "30974414"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260420T233000Z",
@@ -372,7 +396,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974415"
     },
     {
       "gcalId": "32a6vf6pq82bd075up2kkosuru_20260421T010000Z",
@@ -385,7 +410,8 @@
         "2"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974416"
     },
     {
       "gcalId": "59rcbv8ome0edcq2cr8aoimj73_20260421T020000Z",
@@ -398,7 +424,8 @@
         "1"
       ],
       "startTime": "12:00",
-      "endTime": "12:30"
+      "endTime": "12:30",
+      "prodBookingId": "30974417"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260421T233000Z",
@@ -416,7 +443,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974418"
     },
     {
       "gcalId": "2283scrbt7vcp4828e1a2f5q49_20260422T010000Z",
@@ -429,7 +457,8 @@
         "5"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974419"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260422T233000Z",
@@ -447,7 +476,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974421"
     },
     {
       "gcalId": "1fm6i9f3c6ic0dnf2g3m3jqrn7_20260423T013000Z",
@@ -460,7 +490,8 @@
         "6"
       ],
       "startTime": "11:30",
-      "endTime": "12:00"
+      "endTime": "12:00",
+      "prodBookingId": "30974422"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260423T233000Z",
@@ -478,7 +509,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974423"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260426T233000Z",
@@ -496,7 +528,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974424"
     },
     {
       "gcalId": "6phnumciso7iqnvgaj6s4ptsij_20260427T010000Z",
@@ -509,7 +542,8 @@
         "3"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974426"
     },
     {
       "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260427T020000Z",
@@ -522,7 +556,8 @@
         "4"
       ],
       "startTime": "12:00",
-      "endTime": "12:30"
+      "endTime": "12:30",
+      "prodBookingId": "30974427"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260427T233000Z",
@@ -540,7 +575,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974428"
     },
     {
       "gcalId": "32a6vf6pq82bd075up2kkosuru_20260428T010000Z",
@@ -553,7 +589,8 @@
         "2"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974429"
     },
     {
       "gcalId": "59rcbv8ome0edcq2cr8aoimj73_20260428T020000Z",
@@ -566,7 +603,8 @@
         "1"
       ],
       "startTime": "12:00",
-      "endTime": "12:30"
+      "endTime": "12:30",
+      "prodBookingId": "30974432"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260428T233000Z",
@@ -584,7 +622,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974433"
     },
     {
       "gcalId": "2283scrbt7vcp4828e1a2f5q49_20260429T010000Z",
@@ -597,7 +636,8 @@
         "5"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974435"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260429T233000Z",
@@ -615,7 +655,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974437"
     },
     {
       "gcalId": "1fm6i9f3c6ic0dnf2g3m3jqrn7_20260430T013000Z",
@@ -628,7 +669,8 @@
         "6"
       ],
       "startTime": "11:30",
-      "endTime": "12:00"
+      "endTime": "12:00",
+      "prodBookingId": "30974439"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260430T233000Z",
@@ -646,7 +688,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974440"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260503T233000Z",
@@ -664,7 +707,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974441"
     },
     {
       "gcalId": "6phnumciso7iqnvgaj6s4ptsij_20260504T010000Z",
@@ -677,7 +721,8 @@
         "3"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974443"
     },
     {
       "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260504T020000Z",
@@ -690,7 +735,8 @@
         "4"
       ],
       "startTime": "12:00",
-      "endTime": "12:30"
+      "endTime": "12:30",
+      "prodBookingId": "30974446"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260504T233000Z",
@@ -708,7 +754,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974448"
     },
     {
       "gcalId": "32a6vf6pq82bd075up2kkosuru_20260505T010000Z",
@@ -721,7 +768,8 @@
         "2"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974449"
     },
     {
       "gcalId": "59rcbv8ome0edcq2cr8aoimj73_20260505T020000Z",
@@ -734,7 +782,8 @@
         "1"
       ],
       "startTime": "12:00",
-      "endTime": "12:30"
+      "endTime": "12:30",
+      "prodBookingId": "30974451"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260505T233000Z",
@@ -752,7 +801,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974452"
     },
     {
       "gcalId": "2283scrbt7vcp4828e1a2f5q49_20260506T010000Z",
@@ -765,7 +815,8 @@
         "5"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974453"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260506T233000Z",
@@ -783,7 +834,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974454"
     },
     {
       "gcalId": "1fm6i9f3c6ic0dnf2g3m3jqrn7_20260507T013000Z",
@@ -796,7 +848,8 @@
         "6"
       ],
       "startTime": "11:30",
-      "endTime": "12:00"
+      "endTime": "12:00",
+      "prodBookingId": "30974455"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260507T233000Z",
@@ -814,7 +867,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974456"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260510T233000Z",
@@ -832,7 +886,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974457"
     },
     {
       "gcalId": "6phnumciso7iqnvgaj6s4ptsij_20260511T010000Z",
@@ -845,7 +900,8 @@
         "3"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974458"
     },
     {
       "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260511T020000Z",
@@ -858,7 +914,8 @@
         "4"
       ],
       "startTime": "12:00",
-      "endTime": "12:30"
+      "endTime": "12:30",
+      "prodBookingId": "30974459"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260511T233000Z",
@@ -876,7 +933,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974462"
     },
     {
       "gcalId": "32a6vf6pq82bd075up2kkosuru_20260512T010000Z",
@@ -889,7 +947,8 @@
         "2"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974464"
     },
     {
       "gcalId": "59rcbv8ome0edcq2cr8aoimj73_20260512T020000Z",
@@ -902,7 +961,8 @@
         "1"
       ],
       "startTime": "12:00",
-      "endTime": "12:30"
+      "endTime": "12:30",
+      "prodBookingId": "30974465"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260512T233000Z",
@@ -920,7 +980,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974466"
     },
     {
       "gcalId": "2283scrbt7vcp4828e1a2f5q49_20260513T010000Z",
@@ -933,7 +994,8 @@
         "5"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974472"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260513T233000Z",
@@ -951,7 +1013,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974474"
     },
     {
       "gcalId": "1fm6i9f3c6ic0dnf2g3m3jqrn7_20260514T013000Z",
@@ -964,7 +1027,8 @@
         "6"
       ],
       "startTime": "11:30",
-      "endTime": "12:00"
+      "endTime": "12:00",
+      "prodBookingId": "30974475"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260514T233000Z",
@@ -982,7 +1046,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974476"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260517T233000Z",
@@ -1000,7 +1065,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974477"
     },
     {
       "gcalId": "6phnumciso7iqnvgaj6s4ptsij_20260518T010000Z",
@@ -1013,7 +1079,8 @@
         "3"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974479"
     },
     {
       "gcalId": "4bvfb3lghemhgofsne1fhd45ih_20260518T020000Z",
@@ -1026,7 +1093,8 @@
         "4"
       ],
       "startTime": "12:00",
-      "endTime": "12:30"
+      "endTime": "12:30",
+      "prodBookingId": "30974480"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260518T233000Z",
@@ -1044,7 +1112,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974482"
     },
     {
       "gcalId": "32a6vf6pq82bd075up2kkosuru_20260519T010000Z",
@@ -1057,7 +1126,8 @@
         "2"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974483"
     },
     {
       "gcalId": "59rcbv8ome0edcq2cr8aoimj73_20260519T020000Z",
@@ -1070,7 +1140,8 @@
         "1"
       ],
       "startTime": "12:00",
-      "endTime": "12:30"
+      "endTime": "12:30",
+      "prodBookingId": "30974484"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260519T233000Z",
@@ -1088,7 +1159,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974486"
     },
     {
       "gcalId": "2283scrbt7vcp4828e1a2f5q49_20260520T010000Z",
@@ -1101,7 +1173,8 @@
         "5"
       ],
       "startTime": "11:00",
-      "endTime": "11:30"
+      "endTime": "11:30",
+      "prodBookingId": "30974488"
     },
     {
       "gcalId": "4dl0vi38ctk33bqmhtgc3gdb3m_20260520T233000Z",
@@ -1119,7 +1192,8 @@
         "6"
       ],
       "startTime": "09:30",
-      "endTime": "10:00"
+      "endTime": "10:00",
+      "prodBookingId": "30974489"
     },
     {
       "gcalId": "1fm6i9f3c6ic0dnf2g3m3jqrn7_20260521T013000Z",
@@ -1132,7 +1206,8 @@
         "6"
       ],
       "startTime": "11:30",
-      "endTime": "12:00"
+      "endTime": "12:00",
+      "prodBookingId": "30974490"
     }
   ]
 }
