@@ -1,22 +1,16 @@
 name: Sync Apollo → Productive
 on:
-  push:
-    paths:
-      - tasks.json
-    branches:
-      - main
+  workflow_dispatch:   # Manual only — run from Actions tab when you're ready to sync
 
 jobs:
   sync:
-    # Skip if this is our own bot commit (avoid infinite loop)
-    if: "!startsWith(github.event.head_commit.message, 'sync:')"
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2   # need HEAD^ to compare changes
+          fetch-depth: 2
 
       - name: Sync bookings to Productive
         env:
