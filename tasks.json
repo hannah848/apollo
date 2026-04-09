@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-08T03:46:38.603Z",
+  "generated": "2026-04-09T05:46:53.525Z",
   "entries": [
     {
       "p": "1",
@@ -12,16 +12,7 @@
       "isLeave": false,
       "prodBookingId": "30915214",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16529374",
-      "prodTaskId": "16529374",
-      "sowUrl": null,
-      "title": "Design: Sprint 1 - Wireframes",
-      "description": "<p>Due Dates:</p><ul><li><p>Round 1: <strong>20/03/26</strong></p></li><li><p>Eckersley\u2019s Review: <strong>30/03/26</strong></p></li><li><p>Feedback: <strong>02/04/26</strong></p></li><li><p>Approval: <strong>03/04/26</strong></p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-07",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "1",
@@ -34,16 +25,7 @@
       "isLeave": false,
       "prodBookingId": "30915215",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16752342",
-      "prodTaskId": "16752342",
-      "sowUrl": null,
-      "title": "Design: Sprint 2 - Wireframes",
-      "description": "<p>Due Dates:</p><ul><li><p>Round 1: <strong>24/03/26</strong></p></li><li><p>Eckersley\u2019s Review: <strong>30/03/26</strong></p></li><li><p>Feedback: <strong>02/04/26</strong></p></li><li><p>Approval: <strong>03/04/26</strong></p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-14",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "1",
@@ -56,16 +38,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16778361",
-      "prodTaskId": "16778361",
-      "sowUrl": null,
-      "title": "Investigate Integration of Review Occasion Data into Shopify (Search & PDP Enhancements)",
-      "description": "<p>As part of enhancing the product discovery and gifting experience, there is a recommendation to surface product review insights that indicate the percentage of customers purchasing products for specific occasions (e.g. birthdays, anniversaries).</p><p></p><p>Additionally, we want to explore whether this \u201coccasion\u201d data can be fed into the Shopify backend to improve search functionality and enable more relevant gift-based discovery.</p><p>This task is to investigate the feasibility of capturing, storing, and leveraging review-based occasion data within Shopify.</p><p></p><p><strong>Scope of Work (Investigation):</strong></p><ul><li><p>Review current product review platform capabilities (e.g. does it capture occasion-based data?)</p></li><li><p>Assess how review data (occasion tags/percentages) can be accessed (API/export)</p></li><li><p>Investigate options to:</p><ul><li><p>Store occasion data in Shopify (e.g. metafields, tags, metaobjects)</p></li><li><p>Sync data between review platform and Shopify</p></li></ul></li><li><p>Evaluate how this data could be used:</p><ul><li><p>PDP display (e.g. \u201cX% bought for birthdays\u201d)</p></li><li><p>Shopify search filtering / boosting (e.g. \u201cgift for birthday\u201d)</p></li></ul></li><li><p>Identify any platform limitations (Shopify native search vs third-party search tools)</p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-03-26",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "1",
@@ -78,16 +51,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16846559",
-      "prodTaskId": "16846559",
-      "sowUrl": null,
-      "title": "Unifd - UX Review",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-03-26",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "1",
@@ -100,16 +64,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16921359",
-      "prodTaskId": "16921359",
-      "sowUrl": null,
-      "title": "Find in Store / Click & Collect",
-      "description": "<p>Creating this task from task <a href=\"https://sandbox.productive.io/1476-dotdev/tasks/12006519\" target=\"_blank\">#575 Update PDP Design</a></p><p></p><ul><li><p>Have one button for Find in Store and Click &amp; Collect.</p></li><li><p style=\"text-align: start;\">Have the same<strong> </strong>functionality as the C&amp;C modal. </p></li><li><p style=\"text-align: start;\">The current FIS modal doesn\u2019t show store distance, whereas C&amp;C does. I did the attached mock-up ages ago to show how the modals can be combined. </p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-08",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "1",
@@ -122,16 +77,7 @@
       "isLeave": false,
       "prodBookingId": "30915216",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17037589",
-      "prodTaskId": "17037589",
-      "sowUrl": null,
-      "title": "Seed UX & IA*",
-      "description": "<p>Placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-27",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "1",
@@ -144,16 +90,7 @@
       "isLeave": false,
       "prodBookingId": "30915217",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17037672",
-      "prodTaskId": "17037672",
-      "sowUrl": null,
-      "title": "Seed Wireframes*",
-      "description": "<p>Placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-06",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "1",
@@ -166,16 +103,7 @@
       "isLeave": false,
       "prodBookingId": "30915218",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17037687",
-      "prodTaskId": "17037687",
-      "sowUrl": null,
-      "title": "Living Edge UX & IA*",
-      "description": "<p>Placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-18",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "1",
@@ -188,16 +116,7 @@
       "isLeave": false,
       "prodBookingId": "30915219",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17037696",
-      "prodTaskId": "17037696",
-      "sowUrl": null,
-      "title": "Living Edge Wireframes*",
-      "description": "<p>Placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-27",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "2",
@@ -210,16 +129,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16526248",
-      "prodTaskId": "16526248",
-      "sowUrl": null,
-      "title": "Sprint 12: MTO PDP - Client Feedback Final Round",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-09",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "2",
@@ -232,16 +142,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16530589",
-      "prodTaskId": "16530589",
-      "sowUrl": null,
-      "title": "Creative Concepts",
-      "description": "<p><strong>Overview</strong></p><p>The Creative Concepts bring to life the visual look and feel of the solution, aligning the brand\u2019s identity with the experience we are designing. Using insights gathered during Discovery \u2013 and specifically the Creative Workshop \u2013 we create a set of design concepts that define how the solution will look and feel in practice.</p><p>This step sets the foundation for the entire design phase, ensuring that the visual direction is fully aligned with the brand\u2019s DNA before moving into full template and component design.</p><p></p><p><a href=\"https://sandbox.productive.io/1476-dotdev/docs/doc/441084?filter=MTE4OTA5NA%3D%3D&amp;page=441098\" target=\"_blank\">Further information</a></p><p></p><p><strong>Actions for Delivery Lead</strong> </p><ul><li><p>Schedule in internal kickoff to onboard Designer </p></li><li><p>Schedule internal review time &amp; internal feedback</p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-23",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "2",
@@ -254,16 +155,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16530590",
-      "prodTaskId": "16530590",
-      "sowUrl": null,
-      "title": "Design Rollout",
-      "description": "<p><strong>Overview</strong></p><p>The Design Rollout takes the approved Creative Concepts and applies them across the complete site experience. Every page template, component, and interaction pattern is designed to ensure a consistent, user-focused, and brand-aligned experience.</p><p>This stage also produces a comprehensive style guide that defines the visual language and provides the development team with the assets and specifications needed to begin building the site.</p><p></p><p><a href=\"https://sandbox.productive.io/1476-dotdev/docs/doc/441084?filter=MTE4OTA5NA%3D%3D&amp;page=441106\" target=\"_blank\">Further information</a></p><p></p><p><strong>Actions for Delivery Lead</strong> </p><ul><li><p>DL to schedule internal meeting with TL prior to presenting to client, to ensure designs are achievable and validate designs</p></li><li><p>Schedule client call to present design rollout </p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-01",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "2",
@@ -276,16 +168,7 @@
       "isLeave": false,
       "prodBookingId": "30915222",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17039690",
-      "prodTaskId": "17039690",
-      "sowUrl": null,
-      "title": "Castle & Cubby UX & IA*",
-      "description": "<p>placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-12",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "2",
@@ -298,16 +181,7 @@
       "isLeave": false,
       "prodBookingId": "30915223",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17039738",
-      "prodTaskId": "17039738",
-      "sowUrl": null,
-      "title": "Castle & Cubby Design Systems*",
-      "description": "<p>Placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-22",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "2",
@@ -320,16 +194,7 @@
       "isLeave": false,
       "prodBookingId": "30915224",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17039798",
-      "prodTaskId": "17039798",
-      "sowUrl": null,
-      "title": "Castle & Cubby UI Roll Out*",
-      "description": "<p>Placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-29",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "2",
@@ -342,16 +207,7 @@
       "isLeave": false,
       "prodBookingId": "30915225",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17039887",
-      "prodTaskId": "17039887",
-      "sowUrl": null,
-      "title": "Living Edge Design Systems*",
-      "description": "<p>Placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-06-08",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "2",
@@ -364,16 +220,7 @@
       "isLeave": false,
       "prodBookingId": "30915226",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17039901",
-      "prodTaskId": "17039901",
-      "sowUrl": null,
-      "title": "Living Edge UI Rollout*",
-      "description": "<p>placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-06-23",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "2",
@@ -381,21 +228,12 @@
       "s": 10,
       "n": 8,
       "dn": 8,
-      "note": "Runaway the Label \u2014 Commerce Turnaround (Emergency Diagnostic)",
+      "note": "Runaway the Label — Commerce Turnaround (Emergency Diagnostic)",
       "hrs": null,
       "isLeave": false,
       "prodBookingId": "30915221",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17071379",
-      "prodTaskId": "17071379",
-      "sowUrl": null,
-      "title": "Runaway the Label \u2014 Commerce Turnaround (Emergency Diagnostic)",
-      "description": "<p><strong>Service:</strong> UX Strategy / Senior UX Strategist</p><p></p><p><strong>Description:</strong></p><p>As the first phase of Runaway the Label's engagement, we need to deliver a Commerce Turnaround \u2014 an emergency diagnostic to identify areas of underperformance across the site before we move into the platform migration. This has been sold as a one-week program and needs to be resourced and started as soon as possible.</p><p></p><p><strong>Scope of work</strong></p><p><em>Emergency Diagnostic</em> Review the current site and identify all key areas of underperformance. This should cover both experience and technical \u2014 a UX/strategy lens on what's broken or underdelivering, as well as a technical review of Core Web Vitals and site health. Output should be a clearly presented document or deck summarising findings.</p><p><em>Root Cause Analysis</em> For each area of underperformance identified, document the likely root cause and flag whether it can be addressed within the platform migration or needs to be scoped as a separate piece of work.</p><p><em>Performance Accountability \u2014 Recovery KPI Setup</em> Establish a baseline of today's key metrics (conversion rate, Core Web Vitals, etc.) and define where we want to take them. These KPIs will be used to measure the success of the migration and will form the basis of ongoing strategic conversations with the client post-launch.</p><p></p><p><strong>Suggested resource</strong> Kate or Dave (UX Strategy lead). AI tooling should be leveraged where possible to support the analysis and speed up output production.</p><p><strong>Timeline</strong> ASAP \u2014 client was told work would begin within one week of sign-off. Confirm start date with Han by end of day.</p><p><strong>Notes</strong></p><ul><li><p>This feeds directly into the platform migration (six sprints, ~$49k) which follows</p></li><li><p>The client is also on a $5k support pack \u2014 Kat is already using this to help review ecommerce manager candidates</p></li><li><p>A post-launch review (~30 days from go-live) will check performance against the KPIs set in this diagnostic \u2014 to be confirmed whether this sits in the project budget or support pack</p></li></ul><p>Attached the sales dec for reference</p><p></p><p></p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-16",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "3",
@@ -408,16 +246,7 @@
       "isLeave": false,
       "prodBookingId": "30915236",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16528076",
-      "prodTaskId": "16528076",
-      "sowUrl": null,
-      "title": "Design: Sprint 4- Design System",
-      "description": "<p>Due Dates:</p><ul><li><p>Round 1: <strong>20-23/04</strong></p></li><li><p>Eckersley\u2019s Review: <strong>30/4-04/5</strong></p></li><li><p>Feedback: <strong>08-11/5</strong></p></li><li><p>Approval: <strong>12/05/26</strong></p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-30",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "3",
@@ -430,16 +259,7 @@
       "isLeave": false,
       "prodBookingId": "30915234",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16624117",
-      "prodTaskId": "16624117",
-      "sowUrl": null,
-      "title": "Sprint 3 - Creative Concepts",
-      "description": "<p>Due Dates:</p><ul><li><p>Round 1: <strong>09-14/04</strong></p></li><li><p>Eckersley\u2019s Review: <strong>16-20/04</strong></p></li><li><p>Feedback: <strong>21-23/4</strong></p></li><li><p>Approval: <strong>23/04/</strong></p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-23",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "3",
@@ -452,16 +272,7 @@
       "isLeave": false,
       "prodBookingId": "30915235",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16624140",
-      "prodTaskId": "16624140",
-      "sowUrl": null,
-      "title": "Design: Sprint 5 - Homepage and Globals",
-      "description": "<p>Due Dates:</p><ul><li><p>Round 1: <strong>24-29/04</strong></p></li><li><p>Eckersley\u2019s Review: <strong>30/4-4/5</strong></p></li><li><p>Feedback: <strong>08-11/5</strong></p></li><li><p>Approval: <strong>12/05</strong></p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-05",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "3",
@@ -474,16 +285,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16848902",
-      "prodTaskId": "16848902",
-      "sowUrl": null,
-      "title": "Unifd  Creative",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-07",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "3",
@@ -496,16 +298,7 @@
       "isLeave": false,
       "prodBookingId": "30915242",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17045318",
-      "prodTaskId": "17045318",
-      "sowUrl": null,
-      "title": "Seed Creative Concepts*",
-      "description": "<p>Placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-19",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "3",
@@ -518,16 +311,7 @@
       "isLeave": false,
       "prodBookingId": "30915246",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17045333",
-      "prodTaskId": "17045333",
-      "sowUrl": null,
-      "title": "Seed Design Systems*",
-      "description": "<p>Placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-21",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "3",
@@ -540,16 +324,7 @@
       "isLeave": false,
       "prodBookingId": "30915248",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17045351",
-      "prodTaskId": "17045351",
-      "sowUrl": null,
-      "title": "Seed UI Rollout*",
-      "description": "<p>Placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-06-05",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "4",
@@ -562,16 +337,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16773308",
-      "prodTaskId": "16773308",
-      "sowUrl": null,
-      "title": "PDF case study designed in Figma",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-20",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "4",
@@ -584,21 +350,12 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16779693",
-      "prodTaskId": "16779693",
-      "sowUrl": null,
-      "title": "Linked in & Instagram Post",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-17",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "4",
       "proj": "g",
-      "s": -7,
+      "s": -5,
       "n": 12,
       "dn": 12,
       "note": "Create RFP/Proposal/Sale Templates",
@@ -606,16 +363,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16801696",
-      "prodTaskId": "16801696",
-      "sowUrl": null,
-      "title": "Create RFP/Proposal/Sale Templates",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-03",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "4",
@@ -628,16 +376,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16982798",
-      "prodTaskId": "16982798",
-      "sowUrl": null,
-      "title": "DotCollective V2026 Site",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-01",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "4",
@@ -650,16 +389,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16982863",
-      "prodTaskId": "16982863",
-      "sowUrl": null,
-      "title": "DotCollective V2026 Site",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-02",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "4",
@@ -672,16 +402,7 @@
       "isLeave": false,
       "prodBookingId": "30915292",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17040039",
-      "prodTaskId": "17040039",
-      "sowUrl": null,
-      "title": "Living Edge Creative Concepts*",
-      "description": "<p>Placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-19",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "4",
@@ -694,16 +415,7 @@
       "isLeave": false,
       "prodBookingId": "30915301",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17040049",
-      "prodTaskId": "17040049",
-      "sowUrl": null,
-      "title": "Early Settler Design System*",
-      "description": "<p>Placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-06-10",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "4",
@@ -716,16 +428,7 @@
       "isLeave": false,
       "prodBookingId": "30915298",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17040064",
-      "prodTaskId": "17040064",
-      "sowUrl": null,
-      "title": "Early Settler UI Roll Out *",
-      "description": "<p>Placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-06-17",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "4",
@@ -738,16 +441,7 @@
       "isLeave": false,
       "prodBookingId": "30915264",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17068367",
-      "prodTaskId": "17068367",
-      "sowUrl": null,
-      "title": "Early Settler Creative Concepts",
-      "description": "<p>placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-13",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "4",
@@ -760,16 +454,7 @@
       "isLeave": false,
       "prodBookingId": "30915276",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17068381",
-      "prodTaskId": "17068381",
-      "sowUrl": null,
-      "title": "Nova Support",
-      "description": "<p>Tickets to be assigned. This is created for resourcing purposes</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-16",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "4",
@@ -782,16 +467,7 @@
       "isLeave": false,
       "prodBookingId": "30915285",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17068396",
-      "prodTaskId": "17068396",
-      "sowUrl": null,
-      "title": "Living Edge Workshops*",
-      "description": "<p>Dates TBC</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-24",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "4",
@@ -804,16 +480,7 @@
       "isLeave": false,
       "prodBookingId": "30915286",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17069051",
-      "prodTaskId": "17069051",
-      "sowUrl": null,
-      "title": "Living Edge Creative Concepts*",
-      "description": "<p>placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-04",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "5",
@@ -826,16 +493,7 @@
       "isLeave": false,
       "prodBookingId": "30915310",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16624170",
-      "prodTaskId": "16624170",
-      "sowUrl": null,
-      "title": "Design: Sprint 6- Key Templates (Collections and Search)",
-      "description": "<p>Due Dates:</p><ul><li><p>Round 1: <strong>30/4-5/5</strong></p></li><li><p>Eckersley\u2019s Review: <strong>05/5</strong></p></li><li><p>Feedback: <strong>11-14/5</strong></p></li><li><p>Approval: <strong>14/5</strong></p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-14",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "5",
@@ -848,16 +506,7 @@
       "isLeave": false,
       "prodBookingId": "30915311",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16624213",
-      "prodTaskId": "16624213",
-      "sowUrl": null,
-      "title": "Design: Sprint 7- Key Templates (Product Pages, Cart and Mini Cart)",
-      "description": "<p>Due Dates:</p><ul><li><p>Round 1: <strong>5-8/5</strong></p></li><li><p>Eckersley\u2019s Review: <strong>11-13/05</strong></p></li><li><p>Feedback: <strong>20-22/05</strong></p></li><li><p>Approval: <strong>22/05</strong></p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-22",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "5",
@@ -870,16 +519,7 @@
       "isLeave": false,
       "prodBookingId": "30915312",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16624224",
-      "prodTaskId": "16624224",
-      "sowUrl": null,
-      "title": "Design: Sprint 8- Secondary Pages Part 1",
-      "description": "<p>Due Dates:</p><ul><li><p>Round 1: <strong>15-19/5</strong></p></li><li><p>Eckersley\u2019s Review: <strong>20-22/5</strong></p></li><li><p>Feedback: <strong>28-29/5</strong></p></li><li><p>Approval: <strong>29/5</strong></p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-29",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "5",
@@ -892,16 +532,7 @@
       "isLeave": false,
       "prodBookingId": "30915313",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16624250",
-      "prodTaskId": "16624250",
-      "sowUrl": null,
-      "title": "Design: Sprint 9- Secondary Pages Part 2",
-      "description": "<p>Due Dates:</p><ul><li><p>Round 1: <strong>25-27/5</strong></p></li><li><p>Eckersley\u2019s Review: <strong>28/5-1/6</strong></p></li><li><p>Feedback: <strong>02-3/6</strong></p></li><li><p>Approval: <strong>3/6</strong></p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-06-03",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "5",
@@ -914,16 +545,7 @@
       "isLeave": false,
       "prodBookingId": "30915314",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16624290",
-      "prodTaskId": "16624290",
-      "sowUrl": null,
-      "title": "Design: Sprint 9- Secondary Pages Part 2 Loyalty + Accounts",
-      "description": "<p>Due Dates:</p><ul><li><p>Round 1: <strong>04-09/06</strong></p></li><li><p>Eckersley\u2019s Review: <strong>10-12/6</strong></p></li><li><p>Feedback: <strong>12-15/6</strong></p></li><li><p>Approval: <strong>15/6</strong></p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-06-15",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "5",
@@ -936,16 +558,7 @@
       "isLeave": false,
       "prodBookingId": "30915307",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16927341",
-      "prodTaskId": "16927341",
-      "sowUrl": null,
-      "title": "Sprint 1: Design (Applied branding to chosen theme in figma)",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-23",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "5",
@@ -958,16 +571,7 @@
       "isLeave": false,
       "prodBookingId": "30915308",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16927345",
-      "prodTaskId": "16927345",
-      "sowUrl": null,
-      "title": "Sprint 2: Design (Customations -Landing page & cart)",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-29",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "5",
@@ -980,16 +584,7 @@
       "isLeave": false,
       "prodBookingId": "30915309",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16927365",
-      "prodTaskId": "16927365",
-      "sowUrl": null,
-      "title": "Sprint 3: Design QA testing",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-30",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "5",
@@ -1002,16 +597,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17040359",
-      "prodTaskId": "17040359",
-      "sowUrl": null,
-      "title": "ByWren Creative Workshop",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-16",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "5",
@@ -1024,16 +610,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17072245",
-      "prodTaskId": "17072245",
-      "sowUrl": null,
-      "title": "Briefing: Implement Pre-Order Functionality",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-08",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1046,16 +623,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16900272",
-      "prodTaskId": "16900272",
-      "sowUrl": null,
-      "title": "Review Edgecases",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-01",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1068,16 +636,7 @@
       "isLeave": false,
       "prodBookingId": "30915320",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950842",
-      "prodTaskId": "16950842",
-      "sowUrl": null,
-      "title": "Internal Interview Planning",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-16",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1090,16 +649,7 @@
       "isLeave": false,
       "prodBookingId": "30915321",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950843",
-      "prodTaskId": "16950843",
-      "sowUrl": null,
-      "title": "Internal Interview Discussion Guide",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-16",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1112,16 +662,7 @@
       "isLeave": false,
       "prodBookingId": "30915323",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950845",
-      "prodTaskId": "16950845",
-      "sowUrl": null,
-      "title": "Conduct Internal Interviews",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-20",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1134,16 +675,7 @@
       "isLeave": false,
       "prodBookingId": "30915324",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950852",
-      "prodTaskId": "16950852",
-      "sowUrl": null,
-      "title": "Store Visit/Observation Planning",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-21",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1156,16 +688,7 @@
       "isLeave": false,
       "prodBookingId": "30915325",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950853",
-      "prodTaskId": "16950853",
-      "sowUrl": null,
-      "title": "Store Visits x 3",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-22",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1178,16 +701,7 @@
       "isLeave": false,
       "prodBookingId": "30915326",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950874",
-      "prodTaskId": "16950874",
-      "sowUrl": null,
-      "title": "Initial Findings Summary",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-24",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1200,16 +714,7 @@
       "isLeave": false,
       "prodBookingId": "30915327",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950876",
-      "prodTaskId": "16950876",
-      "sowUrl": null,
-      "title": "Research Plan",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-24",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1222,16 +727,7 @@
       "isLeave": false,
       "prodBookingId": "30915328",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950878",
-      "prodTaskId": "16950878",
-      "sowUrl": null,
-      "title": "Platform & Screener Setup",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-29",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1244,16 +740,7 @@
       "isLeave": false,
       "prodBookingId": "30915329",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950880",
-      "prodTaskId": "16950880",
-      "sowUrl": null,
-      "title": "Qual Interview Discussion Guide",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-30",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1266,16 +753,7 @@
       "isLeave": false,
       "prodBookingId": "30915330",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950882",
-      "prodTaskId": "16950882",
-      "sowUrl": null,
-      "title": "Candidate Selection & Scheduling",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-06",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1288,16 +766,7 @@
       "isLeave": false,
       "prodBookingId": "30915331",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950883",
-      "prodTaskId": "16950883",
-      "sowUrl": null,
-      "title": "Qual Customer Interviews x 15",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-11",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1310,16 +779,7 @@
       "isLeave": false,
       "prodBookingId": "30915332",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950887",
-      "prodTaskId": "16950887",
-      "sowUrl": null,
-      "title": "Qual Analysis & Insight Consolidation",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-11",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1332,16 +792,7 @@
       "isLeave": false,
       "prodBookingId": "30915333",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950888",
-      "prodTaskId": "16950888",
-      "sowUrl": null,
-      "title": "Findings & Insights Summary Doc",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-20",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1354,16 +805,7 @@
       "isLeave": false,
       "prodBookingId": "30915334",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16950889",
-      "prodTaskId": "16950889",
-      "sowUrl": null,
-      "title": "Final Presentation",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-21",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1376,16 +818,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17007936",
-      "prodTaskId": "17007936",
-      "sowUrl": null,
-      "title": "Early Settler Workshop OOO",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-03-31",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1398,16 +831,7 @@
       "isLeave": false,
       "prodBookingId": "30915315",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17007937",
-      "prodTaskId": "17007937",
-      "sowUrl": null,
-      "title": "Space RFP OOO",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-03-30",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1420,16 +844,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17007938",
-      "prodTaskId": "17007938",
-      "sowUrl": null,
-      "title": "Early Settler Workshop OOO ",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-01",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1442,16 +857,7 @@
       "isLeave": false,
       "prodBookingId": "30915319",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17070531",
-      "prodTaskId": "17070531",
-      "sowUrl": null,
-      "title": "Chemist Warehouse Op Scoping",
-      "description": "<p>placeholder</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-14",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "6",
@@ -1464,16 +870,7 @@
       "isLeave": false,
       "prodBookingId": "30915322",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17070534",
-      "prodTaskId": "17070534",
-      "sowUrl": null,
-      "title": "Rip Curl- Action Items",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-17",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "7",
@@ -1486,16 +883,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16646873",
-      "prodTaskId": "16646873",
-      "sowUrl": null,
-      "title": "Back To School Autumn Appeal Optimisation",
-      "description": "<p>Review and optimise the Back To School Autumn Appeal campaign, including Google Ads copy, and conversion tracking to improve engagement and donation performance.</p><p>cc. @[{\"type\":\"person\",\"id\":\"1061780\",\"label\":\"Stacey James\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] @[{\"type\":\"person\",\"id\":\"1061781\",\"label\":\"Lauren Ottaway\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-17",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "7",
@@ -1503,21 +891,12 @@
       "s": -14,
       "n": 16,
       "dn": 16,
-      "note": "Audience Test \u2013 Import Customer List into Autumn Appeal PMAX",
+      "note": "Audience Test – Import Customer List into Autumn Appeal PMAX",
       "hrs": null,
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16727300",
-      "prodTaskId": "16727300",
-      "sowUrl": null,
-      "title": "Audience Test \u2013 Import Customer List into Autumn Appeal PMAX",
-      "description": "<p>Test whether using a direct customer list upload (1st-party audience) improves campaign performance compared with the current GA4 cookie-based audience signals.</p><p></p><p>Actions</p><ol><li><p>Extract available donor/customer list from CRM or fundraising platform.</p></li><li><p>Clean and format data for Google Ads Customer Match upload.</p></li><li><p>Upload audience list into Google Ads.</p></li><li><p>Add audience as a signal to the Autumn Appeal Performance Max campaign.</p></li><li><p>Monitor performance vs current GA4 audience signals.</p></li></ol><p>Metrics to Review</p><ul><li><p>ROAS</p></li><li><p>Conversion value</p></li><li><p>Conversion rate</p></li><li><p>Average donation value</p></li></ul><p>Outcome</p><p>Determine whether 1st-party data targeting improves performance, informing Winter Appeal targeting strategy.</p><p></p><p>cc. @[{\"type\":\"person\",\"id\":\"1061780\",\"label\":\"Stacey James\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] @[{\"type\":\"person\",\"id\":\"1061781\",\"label\":\"Lauren Ottaway\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-03-31",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "7",
@@ -1530,16 +909,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16727394",
-      "prodTaskId": "16727394",
-      "sowUrl": null,
-      "title": "Winter Appeal Strategy Recommendations",
-      "description": "<p>Use findings from audience testing and cross-state analysis to inform the Winter Appeal campaign structure.</p><p></p><p><u>Actions</u></p><ol><li><p>Consolidate insights from:</p><ul><li><p>Audience testing</p></li><li><p>Cross-state analysis</p></li><li><p>Bid strategy review</p></li></ul></li><li><p>Evaluate potential campaign structures:</p><ul><li><p>National vs state campaigns</p></li><li><p>Audience targeting approach</p></li><li><p>Budget allocation</p></li></ul></li><li><p>Present recommended approach.</p></li></ol><p></p><p><u>Outcome</u></p><p>Clear campaign structure and targeting strategy for Winter Appeal.</p><p></p><p>cc. @[{\"type\":\"person\",\"id\":\"1061780\",\"label\":\"Stacey James\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] @[{\"type\":\"person\",\"id\":\"1061781\",\"label\":\"Lauren Ottaway\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-30",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "7",
@@ -1552,16 +922,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16879540",
-      "prodTaskId": "16879540",
-      "sowUrl": null,
-      "title": "International Updates/Expansion: SEO Review Post-Launch",
-      "description": "<p>Hi there,</p><p></p><p>We are launching the US clone site on decjuba.com on Thursday and want post-launch SEO checks reviewed to ensure we are not compromising anything for both the AU and US domains.</p><p></p><p>Can you please review these setups and confirm if there are any red flags/anything missing?</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-07",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "7",
@@ -1574,16 +935,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17163531",
-      "prodTaskId": "17163531",
-      "sowUrl": null,
-      "title": "BAU Monthly Google Grant Optimisation",
-      "description": "<p>Ongoing monthly optimisation of Google Ad Grant campaigns, including</p><ul><li><p>conversion review</p></li><li><p>keyword and search query analysis</p></li><li><p>ad copy refinements</p></li><li><p>ad asset refinements</p></li><li><p>compliance checks</p></li></ul><p>cc. @[{\"type\":\"person\",\"id\":\"1061781\",\"label\":\"Lauren Ottaway\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] @[{\"type\":\"person\",\"id\":\"1061780\",\"label\":\"Stacey James\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-01",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "7",
@@ -1596,16 +948,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17164239",
-      "prodTaskId": "17164239",
-      "sowUrl": null,
-      "title": "Olga Berg - Google Merchant & SEO Support (Initial Engagement)",
-      "description": "<p>Initial engagement to assess and support Olga Berg with a Google Merchant Center access issue and explore broader SEO requirements. Includes defining the most appropriate path forward (account recovery vs rebuild) and identifying opportunities for ongoing SEO support.</p>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-17",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "8",
@@ -1618,16 +961,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16875245",
-      "prodTaskId": "16875245",
-      "sowUrl": null,
-      "title": "APG Design System Brief",
-      "description": "<p><strong>Context</strong><br>We previously completed the JAG website redesign, which now serves as a strong foundation in both design and technical architecture. Given APG also manages  Sportscraft and Saba, we would like to leverage the existing JAG theme and structure to create efficiencies across brands, rather than designing each site from scratch.</p><p><br>To enable this, we need to extract and simplify the JAG design system by removing brand-specific elements, creating a neutral base that can be re-skinned. Each brand will then apply its own identity with minor variations (approx. 5\u201310%), while maintaining consistency in core components and functionality.<br>A work order is already prepared and ready to proceed, pending any budget confirmation if required.</p><p></p><p></p><p><strong>Deliverables</strong></p><ul><li><p>Duplicated JAG design system with all brand-specific styling removed</p></li><li><p>Clean, neutral (vanilla) base design system aligned to existing JAG theme and architecture</p></li><li><p>APG-branded design system applied to the base</p></li><li><p>Defined framework to allow 5\u201310% visual customisation per brand (JAG, Sportscraft, Saba)</p></li><li><p>Reusable components and patterns to support rollout across multiple APG brand</p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-07",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "8",
@@ -1640,16 +974,7 @@
       "isLeave": false,
       "prodBookingId": null,
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16876026",
-      "prodTaskId": "16876026",
-      "sowUrl": null,
-      "title": "Rip Curl - Deep Dive Analysis",
-      "description": "<p><strong>Files:</strong></p><ul><li><p><a href=\"https://docs.google.com/spreadsheets/d/1DrHFe5WK3iH0NzF9f5o0qHepoNH2RppiZ3YPXmzaPfg/edit?gid=1002931040#gid=1002931040\" target=\"_blank\">Google Sheet working file</a></p></li><li><p><a href=\"https://docs.google.com/document/d/1vWqJaaktL4NgHoC7Sea_wjjFzYB8bNc3xePJC1YRHI4/edit?tab=t.0\" target=\"_blank\">Deep Dive report</a></p></li><li><p><a href=\"https://docs.google.com/document/d/1dELIp6n0fF7ZHycZW8y6ZHFdH7quAGdw4T8nhDfwlH8/edit?tab=t.0\" target=\"_blank\">Oscar\u2019s Tech Audit</a></p></li><li><p><a href=\"https://docs.google.com/spreadsheets/d/14DX-ZpQCts7E3K76iiL6qM2V7S36C2xO2lzQv825c0w/edit?gid=469591659#gid=469591659\" target=\"_blank\">Rip Curl shared priority &amp; roadmap</a> - Jas has requested we update \u201cSales Findings\u201d tab</p></li></ul><p>__</p><p></p><p><strong>Overview</strong><br>Validate whether performance is actually down ~30% (EU) post Shopify launch vs Magento, and identify where/why.</p><p></p><ul><li><p>Sales reported 30% down but no validation - GA4 tracking completely unreliable due to:</p><ul><li><p>Server-side tracking on Magento vs browser-side on Shopify</p></li><li><p>Consent tracking issues since launch</p></li><li><p>Multiple tracking bugs and implementation problems</p></li></ul></li><li><p>Launch dates:</p><ul><li><p>AU/NZ launched 14th Oct 2025</p></li><li><p>EU/US launched 5th Nov 2025</p></li><li><p>Other markets launched month intervals after</p></li><li><p>Multiple launch phases created data complexity</p></li></ul></li></ul><p></p><p><strong>Scope</strong></p><ul><li><p>Sales by country (Magento vs Shopify)</p><ul><li><p>Exclude EU countries no longer serviced</p></li><li><p>Check currency accuracy + returns impact</p></li></ul></li><li><p>Organic performance by country</p><ul><li><p>GSC + Merchant Centre (traffic, clicks, visibility)</p></li></ul></li><li><p>Paid performance by country</p><ul><li><p>Google Ads (traffic, CVR, revenue)</p></li></ul></li><li><p>Sanity check tracking + reporting consistency</p></li></ul><p><strong>Output</strong></p><ul><li><p>Confirm if 30% drop is valid</p></li><li><p>Where the drop is occurring</p></li><li><p>Key drivers / issues</p></li></ul><p></p><p><strong>Dependencies</strong></p><ul><li><p>Required data:</p><ol><li><p>Historical Magento sales data by country</p></li><li><p>Historical Magento sales data by category (if product categories consistent between platforms)</p></li></ol></li><li><p>Marketing promo calendar requested for qualitative overlay</p></li></ul>",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-03-27",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "8",
@@ -1662,16 +987,7 @@
       "isLeave": false,
       "prodBookingId": "30915720",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/16927510",
-      "prodTaskId": "16927510",
-      "sowUrl": null,
-      "title": "Sprint 4: Design QA testing",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-05-07",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "8",
@@ -1684,16 +1000,7 @@
       "isLeave": false,
       "prodBookingId": "30915719",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17039413",
-      "prodTaskId": "17039413",
-      "sowUrl": null,
-      "title": "ByWren Creative Workshop Prep",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "2026-04-02",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "8",
@@ -1706,16 +1013,7 @@
       "isLeave": false,
       "prodBookingId": "30919684",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17166270",
-      "prodTaskId": "17166270",
-      "sowUrl": null,
-      "title": "Test - Booking",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "",
-      "attachments": []
+      "sowUrl": null
     },
     {
       "p": "8",
@@ -1728,17 +1026,7 @@
       "isLeave": false,
       "prodBookingId": "30946140",
       "prodUrl": "https://sandbox.productive.io/1476-dotcollective/tasks/17166271",
-      "prodTaskId": "17166271",
-      "sowUrl": null,
-      "title": "test 8/4",
-      "description": "",
-      "tags": [],
-      "taskList": "",
-      "priority": "",
-      "status": "",
-      "dueDate": "",
-      "attachments": []
+      "sowUrl": null
     }
-  ],
-  "synced": "2026-04-08T14:01:36.219760"
+  ]
 }
