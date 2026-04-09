@@ -935,8 +935,15 @@ const GH_TOKEN = _g.join('');
 const GH_REPO = 'hannah848/apollo';
 const GH_FILE = 'tasks.json';
 let _ghSha = null; // track file sha for updates
+let _ghLastCount = null; // track last known entry count for save-guard
 
 async function saveBookingsToGH(bookings) {
+  // Save-guard: abort if entry count drops by more than 20% (prevents partial-state overwrites)
+  if (_ghLastCount !== null && bookings.length < _ghLastCount * 0.8) {
+    console.error(`[GH] Save ABORTED — count dropped from ${_ghLastCount} to ${bookings.length} (possible partial state). Reload the page to fix.`);
+    alert(`⚠️ Apollo save aborted: booking count dropped from ${_ghLastCount} to ${bookings.length}.\n\nThis likely means the page loaded with partial data. Please reload to restore full data before editing.`);
+    return false;
+  }
   try {
     const api = `https://api.github.com/repos/${GH_REPO}/contents/${GH_FILE}`;
     const hdrs = {
@@ -958,12 +965,15 @@ async function saveBookingsToGH(bookings) {
       content: btoa(unescape(encodeURIComponent(JSON.stringify({
         generated: new Date().toISOString(),
         entries: bookings.map(b => ({
+          id: b.id,
           p: b.p,
           proj: b.proj,
+          type: b.type || null,
           s: b.s,
           n: b.n,
           dn: b.dn,
           note: b.note,
+          title: b.title || b.note || '',
           hrs: b.hrs,
           isLeave: b.isLeave,
           prodBookingId: b.prodBookingId,
@@ -984,8 +994,37 @@ async function saveBookingsToGH(bookings) {
     if (r2.ok) {
       const d = await r2.json();
       _ghSha = d.content.sha;
-      console.log('[GH] Saved tasks.json');
+      _ghLastCount = bookings.length;
+      console.log(`[GH] Saved tasks.json (${bookings.length} entries)`);
       return true;
+    } else if (r2.status === 409) {
+      // SHA conflict — re-fetch current SHA and retry once
+      console.warn('[GH] SHA conflict (409), re-fetching SHA and retrying...');
+      _ghSha = null;
+      try {
+        const rSha = await fetch(api, { headers: hdrs });
+        if (rSha.ok) {
+          const dSha = await rSha.json();
+          _ghSha = dSha.sha;
+          payload.sha = _ghSha;
+          const r3 = await fetch(api, {
+            method: 'PUT',
+            headers: { ...hdrs, 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (r3.ok) {
+            const d3 = await r3.json();
+            _ghSha = d3.content.sha;
+            _ghLastCount = bookings.length;
+            console.log(`[GH] Saved tasks.json after retry (${bookings.length} entries)`);
+            return true;
+          }
+        }
+      } catch (retryErr) {
+        console.error('[GH] Retry failed:', retryErr);
+      }
+      console.error('[GH] Save failed after 409 retry');
+      return false;
     } else {
       console.error('[GH] Save failed:', r2.status, await r2.text());
       return false;
@@ -1004,6 +1043,10 @@ function debouncedGHSave(bookings) {
 }
 
 /* ── Productive API Sync Layer ── */
+/* NOTE: Browser-side Productive sync is DISABLED — CORS blocks github.io → productive.io.
+   All Productive syncing (create/update/delete bookings) is handled by the
+   sync-to-productive GitHub Action which runs whenever tasks.json is committed. */
+const PROD_BROWSER_SYNC_ENABLED = false;
 const PROD_API = 'https://api.productive.io/api/v2';
 const PROD_TOKEN = 'c7e381f5-685e-4850-8bac-14941f97af46';
 const PROD_ORG = '1476';
@@ -1102,6 +1145,7 @@ const FALLBACK_SERVICE = '8931117';
 
 /* Create a booking in Productive (tries project service, falls back to universal) */
 async function prodCreateBooking(bk, capMode) {
+  if (!PROD_BROWSER_SYNC_ENABLED) return null; // Sync handled by GitHub Actions
   const personId = PERSON_PROD_MAP[bk.p];
   if (!personId) return null;
   const startDate = offsetToDate(bk.s);
@@ -1149,6 +1193,7 @@ async function prodCreateBooking(bk, capMode) {
 
 /* Update an existing booking in Productive */
 async function prodUpdateBooking(prodBookingId, bk, capMode) {
+  if (!PROD_BROWSER_SYNC_ENABLED) return false; // Sync handled by GitHub Actions
   if (!prodBookingId) return false;
   const startDate = offsetToDate(bk.s);
   const endDate = offsetToDate(bk.s + bk.dn - 1);
@@ -1192,6 +1237,7 @@ async function prodUpdateBooking(prodBookingId, bk, capMode) {
 
 /* Delete a booking in Productive */
 async function prodDeleteBooking(prodBookingId) {
+  if (!PROD_BROWSER_SYNC_ENABLED) return false; // Sync handled by GitHub Actions
   if (!prodBookingId) return false;
   const result = await prodFetch('DELETE', `/bookings/${prodBookingId}`);
   if (result) {
@@ -3189,8 +3235,9 @@ function App() {
       if (fresh && fresh.length > 0) {
         setBookings(fresh);
         historyRef.current = [fresh];
+        _ghLastCount = fresh.length; // initialise save-guard baseline
         setSyncStatus('synced');
-        console.log('[Sync] Loaded fresh data from Productive');
+        console.log(`[Sync] Loaded ${fresh.length} entries from tasks.json`);
       } else {
         setSyncStatus('error');
         console.warn('[Sync] No data returned, keeping INIT');
