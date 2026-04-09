@@ -2102,6 +2102,10 @@ function BookingModal({
       sowUrl: form.sowUrl,
       prodUrl: form.prodUrl,
       prodBookingId: bk?.prodBookingId || null,
+      prodTaskId: bk?.prodTaskId || null,
+      prodTaskUrl: bk?.prodTaskUrl || null,
+      source: bk?.source || 'apollo',
+      lastProdUpdate: bk?.lastProdUpdate || null,
       title: form.title,
       description: form.description,
       tags: form.tags,
@@ -2636,7 +2640,36 @@ function BookingModal({
       color: '#a78bfa',
       whiteSpace: 'nowrap'
     }
-  }, "Open \u2197"))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Label / Note (legacy)"), /*#__PURE__*/React.createElement("input", {
+  }, "Open \u2197"))), bk?.prodTaskUrl && /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: '10px 14px',
+      background: 'rgba(14,165,233,0.08)',
+      border: '1px solid rgba(14,165,233,0.25)',
+      borderRadius: 8,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: { fontSize: 10, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 3 }
+  }, "Productive Task"), /*#__PURE__*/React.createElement("div", {
+    style: { fontSize: 12, color: '#7dd3fc', fontFamily: 'monospace' }
+  }, bk.prodTaskId ? `#${bk.prodTaskId}` : '')), /*#__PURE__*/React.createElement("a", {
+    href: bk.prodTaskUrl,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      fontSize: 12,
+      color: '#38bdf8',
+      background: 'rgba(14,165,233,0.15)',
+      padding: '5px 12px',
+      borderRadius: 6,
+      textDecoration: 'none',
+      whiteSpace: 'nowrap'
+    }
+  }, "Open in Productive ↗")),
+  /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Label / Note (legacy)"), /*#__PURE__*/React.createElement("input", {
     type: "text",
     value: form.note,
     onChange: e => set('note', e.target.value),
