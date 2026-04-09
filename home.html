@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apollo — Dot Collective</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    min-height: 100%;
+    background: #1c1c1e;
+    color: #f5f4f2;
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container {
+    width: 100%;
+    max-width: 580px;
+    padding: 48px 24px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .logo-mark {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+  .logo-text {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+  }
+  .tagline {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 40px;
+    margin-left: 56px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .card {
+    display: block;
+    text-decoration: none;
+    background: #252528;
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 24px 22px;
+    transition: all 0.18s;
+    cursor: pointer;
+    color: inherit;
+  }
+  .card:hover {
+    border-color: rgba(124,58,237,0.5);
+    background: #2a2a2e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .card-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .card-desc {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.5;
+  }
+  .card.scheduler .card-title { color: #a78bfa; }
+  .card.queue .card-title { color: #38bdf8; }
+  .card.scheduler { border-color: rgba(124,58,237,0.2); }
+  .card.queue { border-color: rgba(14,165,233,0.2); }
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #444;
+    margin-top: 12px;
+  }
+  .status-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    margin-right: 5px;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="logo">
+    <div class="logo-mark">⬡</div>
+    <div class="logo-text">Apollo</div>
+  </div>
+  <div class="tagline">Dot Collective resource scheduler</div>
+
+  <div class="cards">
+    <a class="card scheduler" href="./index.html">
+      <span class="card-icon">📅</span>
+      <div class="card-title">Scheduler</div>
+      <div class="card-desc">Team timeline, drag-and-drop bookings, capacity view</div>
+    </a>
+    <a class="card queue" href="./queue.html">
+      <span class="card-icon">📋</span>
+      <div class="card-title">My Queue</div>
+      <div class="card-desc">Productive tickets ready to schedule or action</div>
+    </a>
+  </div>
+
+  <div class="footer">
+    <span class="status-dot"></span>
+    Syncing live with Productive · Built for Dot Collective
+  </div>
+</div>
+</body>
+</html>
