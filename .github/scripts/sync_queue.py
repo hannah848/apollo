@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch Hannah\'s open Productive tasks → queue-data.json.
+"""Fetch Hannah's open Productive tasks → queue-data.json.
 Runs every minute via sync-queue.yml GitHub Action.
 """
 import urllib.request, json, datetime, os
@@ -23,8 +23,7 @@ while True:
     url = (f'/tasks?filter[assignee_id][]=777282'
            f'&filter[workflow_status_category_id][]=1'
            f'&filter[workflow_status_category_id][]=2'
-           f'&page[size]=100&page[number]={page}'
-           f'&include=assignees,task_list')
+           f'&page[size]=100&page[number]={page}')
     data = prod(url)
     all_tasks.extend(data.get('data', []))
     meta = data.get('meta', {})
