@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-10T14:32:45.613217Z",
+  "_generated": "2026-04-10T17:36:38.551933Z",
   "data": [
     {
       "id": "13006382",
@@ -6750,9 +6750,129 @@
           }
         }
       }
+    },
+    {
+      "id": "17227205",
+      "type": "tasks",
+      "attributes": {
+        "title": "Update SKU's on US Webiste",
+        "description": "<p>Hi @[{\"type\":\"person\",\"id\":\"777282\",\"label\":\"Hannah Grantham\",\"avatar_url\":\"https://files.productive.io/people/avatars/f82c5a24-0ecf-412e-99ef-9ebbc7cd1f9d/thumb/Hannah_Grantham.jpeg\",\"attachment_url\":null,\"is_done\":false}] and @[{\"type\":\"person\",\"id\":\"1147959\",\"label\":\"Devon Henson\",\"avatar_url\":\"https://files.productive.io/people/avatars/0cbfc7ee-e426-4b7e-8d39-5d5324e15d6d/thumb/devon.jpg\",\"attachment_url\":null,\"is_done\":false}] </p><p></p><p>Please update the PDP and subscriptions for the following Feline can SKU\u2019s that have now transitioned to new formulation/packaging.</p><p></p><ul><li><p>2207  Chicken &amp; Lamb 6oz can feast</p></li><li><p>2453  Lamb 6oz can feast</p></li></ul><p></p><p>Thanks,</p><p>Candice</p><p></p><p>cc @[{\"type\":\"person\",\"id\":\"1082405\",\"label\":\"Courtney Butcher\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p><p></p><p></p>",
+        "number": "751",
+        "task_number": "751",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-04-10T19:17:28.325+02:00",
+        "updated_at": "2026-04-10T19:18:11.509+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "86528f26be72e6f4cc9ad9f03a154534",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 8040000,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T19:18:01.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
     }
   ],
   "meta": {
-    "total_count": 56
+    "total_count": 57
   }
 }
