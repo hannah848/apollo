@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-10T01:53:26.036416Z",
+  "_generated": "2026-04-10T06:21:49.925622Z",
   "data": [
     {
       "id": "13416018",
@@ -3503,7 +3503,7 @@
         "start_date": "2026-04-07",
         "closed_at": null,
         "created_at": "2026-03-22T23:15:11.403+01:00",
-        "updated_at": "2026-04-07T08:28:06.481+02:00",
+        "updated_at": "2026-04-10T06:10:31.381+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -3531,9 +3531,9 @@
         "tag_list": [],
         "last_activity_at": "2026-04-07T08:27:56.000+02:00",
         "initial_estimate": 480,
-        "remaining_time": 120,
+        "remaining_time": 300,
         "billable_time": 0,
-        "worked_time": 495,
+        "worked_time": 315,
         "deleted_at": null
       },
       "relationships": {
@@ -3743,7 +3743,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-03-23T02:40:57.770+01:00",
-        "updated_at": "2026-04-01T01:35:32.983+02:00",
+        "updated_at": "2026-04-10T07:39:00.489+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -3983,7 +3983,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-03-23T23:14:31.676+01:00",
-        "updated_at": "2026-03-23T23:14:31.713+01:00",
+        "updated_at": "2026-04-10T04:08:05.981+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -4009,7 +4009,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-03-23T23:14:31.000+01:00",
+        "last_activity_at": "2026-04-10T04:07:55.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": null,
