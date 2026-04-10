@@ -1,6 +1,130 @@
 {
-  "_generated": "2026-04-10T06:21:49.925622Z",
+  "_generated": "2026-04-10T10:17:29.921855Z",
   "data": [
+    {
+      "id": "13006382",
+      "type": "tasks",
+      "attributes": {
+        "title": "GA4/GTM/GAD Access via GMP Organisation-Level Access for All (previously) WeRD Clients",
+        "description": "<div class=\"prose-mirror-html\"></div><p>For all Werd clients currently accessed via Werd\u2019s Google Analytics accounts, request that support@dotdev.com.au be granted Editor access at the organisation level in Google Marketing Platform (GMP).</p><p></p><p>This ensures continued access to all GA4 properties after Werd\u2019s account is deleted and avoids the account-per-user limit in GA4.</p><p></p><p><strong>task</strong></p><p>client to add support@dotdev.com.au via Google Marketing Platform at the organisation level</p><p>via <a href=\"https://marketingplatform.google.com/home?authuser=0\" target=\"_blank\">https://marketingplatform.google.com/home?authuser=0</a></p><p>support@dotcollective.com.au</p><p></p><p><a href=\"https://docs.google.com/spreadsheets/d/1xeKmlD6CHlIGA7pUo51NvDD0oNypBWgbbvtX4ekW_B4/edit?gid=0#gid=0\" target=\"_blank\">https://docs.google.com/spreadsheets/d/1xeKmlD6CHlIGA7pUo51NvDD0oNypBWgbbvtX4ekW_B4/edit?gid=0#gid=0</a></p>",
+        "number": "4699",
+        "task_number": "4699",
+        "private": false,
+        "due_date": "2026-02-25",
+        "start_date": "2026-02-25",
+        "closed_at": null,
+        "created_at": "2025-07-21T05:56:03.305+02:00",
+        "updated_at": "2026-04-10T08:38:59.596+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "61a20cea72d66df5b3b902f51f218469",
+        "custom_fields": {
+          "122246": [
+            "314448"
+          ]
+        },
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 46337000,
+        "subtask_placement": 1020000,
+        "bookings_count": 1,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T08:38:46.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 0,
+        "worked_time": 60,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
     {
       "id": "13416018",
       "type": "tasks",
@@ -242,6 +366,368 @@
       }
     },
     {
+      "id": "15036407",
+      "type": "tasks",
+      "attributes": {
+        "title": "SEO Review (6 months) AU & NZ",
+        "description": "<ul><li><p>The SEO Impact Report provides a clear view of progress at 3 and 6 months post-delivery. It benchmarks performance against competitors, validates the results of implemented recommendations, and highlights new opportunities for optimisation.</p></li><li><p>Delivered on a time-and-materials basis at $1,600 per region, per report, it gives Decjuba confidence that investment is translating into measurable outcomes.</p></li><li><p>Deliverables</p><ul><li><p>Validation of results at 3 and 6 months, benchmarking progress, highlighting gains, and identifying next opportunities.</p></li></ul></li></ul>",
+        "number": "1631",
+        "task_number": "1631",
+        "private": false,
+        "due_date": "2026-06-01",
+        "start_date": "2026-06-01",
+        "closed_at": null,
+        "created_at": "2025-12-02T06:48:57.527+01:00",
+        "updated_at": "2026-04-10T08:38:59.653+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "904b7e5611573de6214d1348bcc8ded7",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 16790000,
+        "subtask_placement": 1070000,
+        "bookings_count": 1,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T08:38:47.000+02:00",
+        "initial_estimate": 240,
+        "remaining_time": 240,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "15206365",
+      "type": "tasks",
+      "attributes": {
+        "title": "SEO - Launch Tasks",
+        "description": "<p>Launch Tasks:</p><p><a href=\"https://docs.google.com/spreadsheets/d/11nckE1KIsZ7_Sa9GUTKbXxrQawzQhzTZp9KMZivPAfQ/edit?gid=437069481#gid=437069481\" target=\"_blank\">https://docs.google.com/spreadsheets/d/11nckE1KIsZ7_Sa9GUTKbXxrQawzQhzTZp9KMZivPAfQ/edit?gid=437069481#gid=437069481</a></p><p></p><p>Task: </p><p>Update collection H1 markup to remove the &lt;span class=\"visually-hidden\"&gt;Collection:&lt;/span&gt; prefix from collection page headings</p>",
+        "number": "219",
+        "task_number": "219",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2025-12-09T03:39:11.035+01:00",
+        "updated_at": "2026-04-10T08:39:03.460+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "d116410c8ed1d68d5a12d55ecfc82f22",
+        "custom_fields": null,
+        "todo_count": 1,
+        "open_todo_count": 1,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [
+          "777282"
+        ],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 4340000,
+        "subtask_placement": 1200000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T08:38:49.000+02:00",
+        "initial_estimate": 600,
+        "remaining_time": 225,
+        "billable_time": 375,
+        "worked_time": 375,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "15745674",
+      "type": "tasks",
+      "attributes": {
+        "title": "Create 3-month Shoplift launch & testing plan",
+        "description": "<p>Create and document a three-month launch and testing plan for Shoplift to support a structured rollout and optimisation period.</p><p></p><p>The plan should outline key phases, activities, owners, and success metrics to guide the team through launch, validation, and iteration.</p>",
+        "number": "310",
+        "task_number": "310",
+        "private": false,
+        "due_date": "2026-03-02",
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-01-19T04:06:29.765+01:00",
+        "updated_at": "2026-04-10T08:38:59.805+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "4b351174c26192f0c4221a62cc245bd1",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 3570000,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T08:38:47.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
       "id": "15886198",
       "type": "tasks",
       "attributes": {
@@ -254,7 +740,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-01-27T04:07:57.278+01:00",
-        "updated_at": "2026-03-30T08:14:39.104+02:00",
+        "updated_at": "2026-04-10T08:38:47.763+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -525,6 +1011,491 @@
         "remaining_time": null,
         "billable_time": null,
         "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "15979256",
+      "type": "tasks",
+      "attributes": {
+        "title": "Phase 4: Roadmap: Investment, Sequencing and Readiness",
+        "description": "<p style=\"text-align: start;\"><strong>Purpose</strong></p><p style=\"text-align: start;\">Turn clarity into confident decision making without committing to premature build.</p><p></p><p style=\"text-align: start;\"><strong>Activities</strong></p><ul><li><p>Translate strategy into realistic implementation pathways</p></li><li><p>Define sequencing aligned to March launches and near term priorities</p></li><li><p>Sense check effort against team capability and maturity</p></li></ul><p><br><strong>Output</strong></p><ul><li><p>Clear roadmap options with trade offs</p></li><li><p>Indicative scope, timing, and investment ranges</p></li><li><p>Risks and dependencies clearly articulated</p></li></ul><p></p>",
+        "number": "46",
+        "task_number": "46",
+        "private": false,
+        "due_date": "2026-03-20",
+        "start_date": "2026-03-02",
+        "closed_at": null,
+        "created_at": "2026-02-01T01:19:31.386+01:00",
+        "updated_at": "2026-04-10T08:39:01.584+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "ad26126154b6a52dc981b61c73e3b9c7",
+        "custom_fields": null,
+        "todo_count": 1,
+        "open_todo_count": 0,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 1560000,
+        "subtask_placement": 1060000,
+        "bookings_count": 2,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T08:38:47.000+02:00",
+        "initial_estimate": 480,
+        "remaining_time": 180,
+        "billable_time": 300,
+        "worked_time": 300,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16081804",
+      "type": "tasks",
+      "attributes": {
+        "title": "Review overall presentation and deck and then refine pricing",
+        "description": "",
+        "number": "5018",
+        "task_number": "5018",
+        "private": false,
+        "due_date": "2026-03-09",
+        "start_date": "2026-03-04",
+        "closed_at": null,
+        "created_at": "2026-02-06T01:02:14.206+01:00",
+        "updated_at": "2026-04-10T08:39:01.678+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "254152ca5430f3cd1735de19eb8511fa",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 48968000,
+        "subtask_placement": 1040000,
+        "bookings_count": 1,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T08:38:47.000+02:00",
+        "initial_estimate": 60,
+        "remaining_time": 60,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16181293",
+      "type": "tasks",
+      "attributes": {
+        "title": "SEO & AEO Blog Training Session",
+        "description": "<p>Plan and deliver a 60\u201390 minute training session covering SEO and AEO best practices for blog content, including supporting materials and templates.</p><p></p><p></p><p>\u2014\u2014-</p><p>Context</p><p></p><p>Overview<br>Decjuba has requested a training session for their marketing team to ensure blog content aligns with current SEO and AEO best practices.</p><p></p><p>Objective<br>Equip the Decjuba marketing team with practical guidelines to improve blog performance across organic search and answer-driven platforms (e.g. featured snippets, AI summaries).</p><p></p><p>Scope</p><ul><li><p>60\u201390 minute training session (virtual)</p></li><li><p>Focus on:</p><ul><li><p>SEO fundamentals for blogs (keyword strategy, structure, internal linking, metadata)</p></li><li><p>AEO principles (intent matching, structured answers, FAQ schema, content formatting)</p></li><li><p>Blog structure templates for performance</p></li><li><p>Examples: what\u2019s working vs. what\u2019s not</p></li><li><p>Q&amp;A session</p></li></ul></li></ul><p></p><p>Deliverables</p><ul><li><p>Training session delivered</p></li><li><p>Slide deck shared post-session</p></li><li><p>SEO/AEO blog checklist template</p></li><li><p>Optional: recommended blog structure template</p></li><li><p></p></li></ul>",
+        "number": "1692",
+        "task_number": "1692",
+        "private": false,
+        "due_date": "2026-02-23",
+        "start_date": "2026-02-23",
+        "closed_at": null,
+        "created_at": "2026-02-12T01:47:51.146+01:00",
+        "updated_at": "2026-04-10T08:39:02.206+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "9538aaf1eceac35f55e1e1f350475abf",
+        "custom_fields": {
+          "7295": "25216",
+          "7297": "25222"
+        },
+        "todo_count": 2,
+        "open_todo_count": 0,
+        "subtask_count": 1,
+        "open_subtask_count": 0,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 17350000,
+        "subtask_placement": null,
+        "bookings_count": 1,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T08:38:48.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 435,
+        "worked_time": 425,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16181969",
+      "type": "tasks",
+      "attributes": {
+        "title": "Post-Launch Monitoring",
+        "description": "",
+        "number": "358",
+        "task_number": "358",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-02-12T04:03:40.064+01:00",
+        "updated_at": "2026-04-10T08:39:01.702+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "0c3917b12e699e4c323dc79c6603e4c4",
+        "custom_fields": null,
+        "todo_count": 10,
+        "open_todo_count": 5,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [
+          "777282"
+        ],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 4330000,
+        "subtask_placement": 1270000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T08:38:48.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 75,
+        "worked_time": 75,
         "deleted_at": null
       },
       "relationships": {
@@ -2648,6 +3619,249 @@
       }
     },
     {
+      "id": "16646873",
+      "type": "tasks",
+      "attributes": {
+        "title": "Back To School Autumn Appeal Optimisation",
+        "description": "<p>Review and optimise the Back To School Autumn Appeal campaign, including Google Ads copy, and conversion tracking to improve engagement and donation performance.</p><p>cc. @[{\"type\":\"person\",\"id\":\"1061780\",\"label\":\"Stacey James\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] @[{\"type\":\"person\",\"id\":\"1061781\",\"label\":\"Lauren Ottaway\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p>",
+        "number": "109",
+        "task_number": "109",
+        "private": false,
+        "due_date": "2026-04-17",
+        "start_date": "2026-03-01",
+        "closed_at": null,
+        "created_at": "2026-03-10T01:26:20.684+01:00",
+        "updated_at": "2026-04-10T08:39:02.667+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "d7e1825cb73327a8694a0a3087271395",
+        "custom_fields": null,
+        "todo_count": 4,
+        "open_todo_count": 2,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 2864284628,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T08:38:49.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 165,
+        "worked_time": 165,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16647116",
+      "type": "tasks",
+      "attributes": {
+        "title": "Back To School Autumn Appeal 2026 Reporting",
+        "description": "<p>Ongoing weekly reporting on the Vinnies Victoria Autumn Appeal 2026 campaign performance. Includes updating the appeals report dashboard with current Google Ads data across the paid PMAX and brand campaigns, reviewing donation revenue by appeal, and tracking the Google Ads donation revenue trend across both Grant and paid accounts. Report is shared with the client weekly for the duration of the campaign period (27 January \u2013 30 April 2026).</p><p></p><p>@[{\"type\":\"person\",\"id\":\"1061780\",\"label\":\"Stacey James\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] @[{\"type\":\"person\",\"id\":\"1061781\",\"label\":\"Lauren Ottaway\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}]</p>",
+        "number": "110",
+        "task_number": "110",
+        "private": false,
+        "due_date": "2026-04-30",
+        "start_date": "2026-01-27",
+        "closed_at": null,
+        "created_at": "2026-03-10T01:43:45.068+01:00",
+        "updated_at": "2026-04-10T08:39:02.472+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "74c565bff782959263765401801a474c",
+        "custom_fields": null,
+        "todo_count": 8,
+        "open_todo_count": 3,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 2864294628,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [
+          "Reporting",
+          "Autumn Appeal"
+        ],
+        "last_activity_at": "2026-04-10T08:38:48.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 210,
+        "worked_time": 210,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
       "id": "16679884",
       "type": "tasks",
       "attributes": {
@@ -2691,6 +3905,248 @@
         "remaining_time": null,
         "billable_time": 90,
         "worked_time": 120,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16702324",
+      "type": "tasks",
+      "attributes": {
+        "title": "Sprint 15: Create Master Analytics Gmail & Verify Access Across Google Accounts",
+        "description": "<p>Establish a master analytics Gmail account (<strong>k9feline.analytics@gmail.com</strong>) to act as the permanent administrative owner across all NPFG Google platforms (Google Analytics, Google Ads, and Google Merchant Center).</p><p></p><p>This ensures NPFG retains long-term administrative control of all analytics and performance platforms and avoids scenarios where access is tied to individual staff members who may leave the organisation, potentially causing loss of account ownership.</p><p></p><p>Once the master account is confirmed, it must be granted Admin access across all existing Google platforms for AU, NZ, and US markets.</p><p></p><p><strong>Master Accounts</strong></p><p>k9feline.analytics@gmail.com <em>(primary analytics governance account)</em></p><p></p><ul><li><p>GA4</p></li><li><p>Google search console</p></li><li><p>Google ads</p></li><li><p>GTM</p></li></ul><p></p><p>Please note - Meta requires personal logins to be connected by NPFG in consultation with DotCollective</p><p></p><p>cc. @[{\"type\":\"person\",\"id\":\"1082405\",\"label\":\"Courtney Butcher\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] @[{\"type\":\"person\",\"id\":\"373912\",\"label\":\"Ellie White\",\"avatar_url\":\"https://files.productive.io/people/avatars/18052edf-8dcd-45eb-9e65-68e81931cb1c/thumb/Screenshot_2025-05-23_at_8.33.41%E2%80%AFAM.png\",\"attachment_url\":null,\"is_done\":true}]</p>",
+        "number": "709",
+        "task_number": "709",
+        "private": false,
+        "due_date": "2026-03-20",
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-11T23:27:25.494+01:00",
+        "updated_at": "2026-04-10T08:39:03.700+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "13e70e17e9ac5e2c1b661998a5f68e5b",
+        "custom_fields": null,
+        "todo_count": 2,
+        "open_todo_count": 1,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 1,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 1,
+        "linked_dependency_count": 0,
+        "placement": 7600000,
+        "subtask_placement": 1330000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T08:38:50.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 60,
+        "worked_time": 60,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16705114",
+      "type": "tasks",
+      "attributes": {
+        "title": "Sprint 15: Google Platform Ownership & Access",
+        "description": "<p>Google Platform Ownership &amp; Access Register ensures the master governance account (<a href=\"mailto:k9feline.analytics@gmail.com\" target=\"_blank\">k9feline.analytics@gmail.com</a>) has administrative or owner access across all Google accounts.<br><br>At the conclusion of the project, DotCollective will arrange a handover, including a password reset for <a href=\"mailto:k9feline.analytics@gmail.com\" target=\"_blank\">k9feline.analytics@gmail.com</a> and 2FA setup for the appropriate NPFG member(s).</p><p></p><p>Google Platform Ownership &amp; Access Register</p><p><a href=\"https://docs.google.com/spreadsheets/d/1U-aMZZT_4uwnmwhVi5FtGfGrct3XZ1gl4YY7GoUvsPo/edit?gid=1852868209#gid=1852868209\" target=\"_blank\"></a><a href=\"https://docs.google.com/spreadsheets/d/1U-aMZZT_4uwnmwhVi5FtGfGrct3XZ1gl4YY7GoUvsPo/edit?gid=1852868209#gid=1852868209\" target=\"_blank\">https://docs.google.com/spreadsheets/d/1U-aMZZT_4uwnmwhVi5FtGfGrct3XZ1gl4YY7GoUvsPo/edit?gid=1852868209#gid=1852868209</a></p><p></p><p>Productive task (for ongoing comms)</p><p><a href=\"https://app.productive.io/1476-dotcollective/tasks/16705114\" target=\"_blank\"></a><a href=\"https://app.productive.io/1476-dotcollective/tasks/16705114\" target=\"_blank\">https://app.productive.io/1476-dotcollective/tasks/16705114</a></p><p><br></p><p>Task for NPFG @[{\"type\":\"person\",\"id\":\"1082405\",\"label\":\"Courtney Butcher\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p><p>Please add <a href=\"mailto:k9feline.analytics@gmail.com\" target=\"_blank\">k9feline.analytics@gmail.com</a> as Admin&nbsp;across all relevant platform accounts, properties, and containers.</p><p></p><p><u>Platforms in scope</u><strong><br></strong>Google Analytics 4 (GA4)<br>Google Ads<br>Google Merchant Center<br>Google Search Console<br>Google Tag Manager</p>",
+        "number": "714",
+        "task_number": "714",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-12T04:28:42.651+01:00",
+        "updated_at": "2026-04-10T08:39:02.694+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "0f1e2d77edf87d8344092b48af1cd5d3",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 1,
+        "type_id": 1,
+        "blocking_dependency_count": 1,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 7650000,
+        "subtask_placement": 1340000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [
+          "Pre-Launch"
+        ],
+        "last_activity_at": "2026-04-10T08:38:49.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 75,
+        "worked_time": 75,
         "deleted_at": null
       },
       "relationships": {
@@ -3851,6 +5307,126 @@
       }
     },
     {
+      "id": "16879540",
+      "type": "tasks",
+      "attributes": {
+        "title": "International Updates/Expansion: SEO Review Post-Launch",
+        "description": "<p>Hi there,</p><p></p><p>We are launching the US clone site on decjuba.com on Thursday and want post-launch SEO checks reviewed to ensure we are not compromising anything for both the AU and US domains.</p><p></p><p>Can you please review these setups and confirm if there are any red flags/anything missing?</p>",
+        "number": "1715",
+        "task_number": "1715",
+        "private": false,
+        "due_date": "2026-04-10",
+        "start_date": "2026-03-31",
+        "closed_at": null,
+        "created_at": "2026-03-23T09:18:53.403+01:00",
+        "updated_at": "2026-04-10T08:39:03.313+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "64f4efd9813f9ad85a9ea3f165952810",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 17580000,
+        "subtask_placement": 1060001,
+        "bookings_count": 1,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T08:38:49.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
       "id": "16896827",
       "type": "tasks",
       "attributes": {
@@ -4696,6 +6272,246 @@
       }
     },
     {
+      "id": "17163531",
+      "type": "tasks",
+      "attributes": {
+        "title": "BAU Monthly Google Grant Optimisation",
+        "description": "<p>Ongoing monthly optimisation of Google Ad Grant campaigns, including</p><ul><li><p>conversion review</p></li><li><p>keyword and search query analysis</p></li><li><p>ad copy refinements</p></li><li><p>ad asset refinements</p></li><li><p>compliance checks</p></li></ul><p>cc. @[{\"type\":\"person\",\"id\":\"1061781\",\"label\":\"Lauren Ottaway\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] @[{\"type\":\"person\",\"id\":\"1061780\",\"label\":\"Stacey James\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p>",
+        "number": "127",
+        "task_number": "127",
+        "private": false,
+        "due_date": "2026-05-01",
+        "start_date": "2026-04-01",
+        "closed_at": null,
+        "created_at": "2026-04-08T01:36:36.422+02:00",
+        "updated_at": "2026-04-10T08:39:03.455+02:00",
+        "repeat_schedule_id": 3,
+        "repeat_on_interval": 1,
+        "repeat_on_monthday": 1,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": 16647247,
+        "email_key": "6887d428269e0233a7f3b3c30e239cea",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 2864394628,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T08:38:50.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "17164239",
+      "type": "tasks",
+      "attributes": {
+        "title": "Olga Berg - Google Merchant & SEO Support (Initial Engagement)",
+        "description": "<p>Initial engagement to assess and support Olga Berg with a Google Merchant Center access issue and explore broader SEO requirements. Includes defining the most appropriate path forward (account recovery vs rebuild) and identifying opportunities for ongoing SEO support.</p>",
+        "number": "5279",
+        "task_number": "5279",
+        "private": false,
+        "due_date": "2026-04-17",
+        "start_date": "2026-04-08",
+        "closed_at": null,
+        "created_at": "2026-04-08T02:30:51.464+02:00",
+        "updated_at": "2026-04-10T08:39:03.534+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "e0094211f44e8b8924b65a748b4a1111",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 51338000,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-10T08:38:50.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 0,
+        "worked_time": 75,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
       "id": "17166270",
       "type": "tasks",
       "attributes": {
@@ -4937,6 +6753,6 @@
     }
   ],
   "meta": {
-    "total_count": 41
+    "total_count": 56
   }
 }
