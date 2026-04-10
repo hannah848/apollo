@@ -1,5 +1,126 @@
 {
+  "_generated": "2026-04-10T01:53:26.036416Z",
   "data": [
+    {
+      "id": "13416018",
+      "type": "tasks",
+      "attributes": {
+        "title": "Support",
+        "description": "",
+        "number": "1",
+        "task_number": "1",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2025-08-21T04:41:49.030+02:00",
+        "updated_at": "2026-03-26T03:43:25.751+01:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "49b072f3b633191ebe9e74881a5e4560",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 1010000,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-03-26T03:43:14.000+01:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 240,
+        "worked_time": 240,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
     {
       "id": "15036405",
       "type": "tasks",
@@ -89,7 +210,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -207,7 +330,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -325,7 +450,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -443,7 +570,129 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16271960",
+      "type": "tasks",
+      "attributes": {
+        "title": "Post Purchase Customer Survey",
+        "description": "<p>Hi @[{\"type\":\"person\",\"id\":\"992798\",\"label\":\"Kat Hanzalek\",\"avatar_url\":\"https://files.productive.io/people/avatars/6a6b9c6e-1224-442f-ae77-a2cfb1107782/thumb/kat.jpg\",\"attachment_url\":null,\"is_done\":false}] and Dot team,&nbsp;</p><p></p><p>This is my first task so not sure if I am doing this correctly!</p><p></p><p>NPFG would like to add a post-purchase DTC customer survey to our project plan for implementation following launch.&nbsp; Suggested in-market timing Monday, US April 20th. See attached for the current questionnaire.</p><p>This was spearheaded by NA team; however, I believe this makes sense for global implementation so adding Kristy to this as an FYI.&nbsp;</p><p>Ideally this would be an embedded / inline form on this site (likely via the \"Forms theme app embed\" via Shopify). It would link to a third-party service platform. Note, we already pay for SurveyMonkey.&nbsp;If there is a way to fully integrate SurveyMonkey into Shopify, that would be amazing as answers could live in Shopify.&nbsp;</p><p>Would love to&nbsp;review this as a team and determine accurate project scope / strategy.&nbsp;Realize we have lots going on right now with launch, <u>so this is not a priority right now</u>. If we could at minimum add this to our project plan for discussion mid-March, that would be ideal.&nbsp;</p><p>Thanks,<br>Shannon</p><p></p><p>CC: @[{\"type\":\"person\",\"id\":\"1082405\",\"label\":\"Courtney Butcher\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p>",
+        "number": "567",
+        "task_number": "567",
+        "private": false,
+        "due_date": "2026-04-20",
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-02-17T22:30:55.194+01:00",
+        "updated_at": "2026-04-09T21:32:02.371+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "7c7244912d45a1d8cac9851d8eef24e1",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 6300000,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-09T21:31:48.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -561,7 +810,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -679,7 +930,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -797,7 +1050,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -915,7 +1170,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -1036,7 +1293,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -1157,7 +1416,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -1275,7 +1536,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -1393,7 +1656,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -1511,7 +1776,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -1629,7 +1896,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -1747,7 +2016,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -1865,7 +2136,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -1983,7 +2256,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -2101,7 +2376,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -2219,7 +2496,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -2337,7 +2616,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -2455,7 +2736,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -2573,7 +2856,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -2691,7 +2976,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -2809,7 +3096,132 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16802190",
+      "type": "tasks",
+      "attributes": {
+        "title": "Feeds - Translations (EU)",
+        "description": "<p>There are number of products (3.2K in EU) which are currently not translated into the feed language (eg. descriptions are still in English). These products are being flagged as \"incorrect language\" and have their visibility limited. <a href=\"https://merchants.google.com/mc/items/details?a=113995149&amp;offerId=115MSA009010&amp;language=de&amp;channel=0&amp;feedLabel=DE&amp;tab=productdetails\" target=\"_blank\"></a><a href=\"https://merchants.google.com/mc/items/details?a=113995149&amp;offerId=115MSA009010&amp;language=de&amp;channel=0&amp;feedLabel=DE&amp;tab=productdetails\" target=\"_blank\">https://merchants.google.com/mc/items/details?a=113995149&amp;offerId=115MSA009010&amp;language=de&amp;channel=0&amp;feedLabel=DE&amp;tab=productdetails</a></p><p></p><p>Needs to be updated from a content perspective. Verified that it is working correctly form a technical POV<br><br>Two steps here: <br>1. Have EU translated this in the PIM? IF no, then is a content issue <br>2. If yes, then DA issue</p>",
+        "number": "1557",
+        "task_number": "1557",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-18T04:44:28.431+01:00",
+        "updated_at": "2026-04-09T11:17:45.660+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "afb9001e3cfeaf4b855dea3722f10594",
+        "custom_fields": {
+          "7295": "25216",
+          "243502": "456511"
+        },
+        "todo_count": 1,
+        "open_todo_count": 0,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 14905997,
+        "subtask_placement": 1060000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-09T11:17:33.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -2927,7 +3339,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -3045,7 +3459,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -3163,7 +3579,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -3281,7 +3699,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -3399,7 +3819,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -3517,7 +3939,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -3635,7 +4059,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -3673,11 +4099,11 @@
         "number": "54",
         "task_number": "54",
         "private": false,
-        "due_date": "2026-05-07",
-        "start_date": "2026-05-07",
+        "due_date": "2026-05-14",
+        "start_date": "2026-05-14",
         "closed_at": null,
         "created_at": "2026-03-25T03:22:49.840+01:00",
-        "updated_at": "2026-03-30T00:45:34.708+02:00",
+        "updated_at": "2026-04-09T08:21:55.189+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -3703,7 +4129,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-03-30T00:45:24.000+02:00",
+        "last_activity_at": "2026-04-09T08:21:44.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": null,
@@ -3753,7 +4179,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -3871,7 +4299,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -3989,7 +4419,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -4112,125 +4544,9 @@
           }
         },
         "service": {
-          "data": null
-        },
-        "repeated_task": {
           "meta": {
             "included": false
           }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "17096776",
-      "type": "tasks",
-      "attributes": {
-        "title": "Product Page Optimisations",
-        "description": "<p>A number of recommendations have been identified across UZ audits and additional feature requests, all impacting the Product Detail Page (PDP). These have been captured across multiple sub-tasks but are currently fragmented.</p><p></p><p>Additionally, client feedback (via Kate) indicates that the PDP is beginning to feel visually outdated, highlighting an opportunity to modernise the design while improving conversion performance.</p><p></p><p>This initiative aims to consolidate all PDP-related improvements into a single, cohesive optimisation scope.</p><p></p><p><strong>Goals &amp; Objectives</strong></p><p><strong>Primary Goals:</strong></p><ul><li><p>Improve PDP conversion rate </p></li><li><p>Modernise UI to align with UX audit suggestions and current PDP briefs</p><p></p></li></ul><p><strong>Scope</strong></p><p><strong>1. Strategic Review (Required First Step)</strong></p><p>A strategist to:</p><ul><li><p>Review all existing PDP-related sub-tasks and audit recommendations</p></li><li><p>Incorporate client feedback (incl. \u201cpage feels old\u201d)</p></li><li><p>Identify overlaps, gaps, and priorities</p></li><li><p>Consolidate into a single recommended PDP experience</p></li></ul><p><strong>2. UX &amp; Design Enhancements</strong></p><ul><li><p>Refresh overall PDP layout and visual hierarchy</p></li></ul><p><strong>3. Conversion Optimisation</strong></p><p><strong>4. Functional Enhancements (from audits)</strong></p><ul><li><p>Incorporate all validated features from sub-tasks</p><p></p></li></ul>",
-        "number": "122",
-        "task_number": "122",
-        "private": false,
-        "due_date": "2026-04-08",
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-04-02T01:44:52.937+02:00",
-        "updated_at": "2026-04-09T00:16:07.887+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "9b6626dea0f5e7ea5d232e16c341fa19",
-        "custom_fields": null,
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": 5,
-        "open_subtask_count": 5,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 1093100,
-        "subtask_placement": null,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-08T07:30:08.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": 30,
-        "worked_time": 8,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "data": null
         },
         "repeated_task": {
           "meta": {
@@ -4348,7 +4664,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -4466,7 +4784,9 @@
           }
         },
         "service": {
-          "data": null
+          "meta": {
+            "included": false
+          }
         },
         "repeated_task": {
           "meta": {
@@ -4584,125 +4904,9 @@
           }
         },
         "service": {
-          "data": null
-        },
-        "repeated_task": {
           "meta": {
             "included": false
           }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "17166816",
-      "type": "tasks",
-      "attributes": {
-        "title": "DESIGN ESTIMATION: Product Page Optimisations",
-        "description": "",
-        "number": "123",
-        "task_number": "123",
-        "private": false,
-        "due_date": "2026-04-08",
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-04-08T07:28:00.547+02:00",
-        "updated_at": "2026-04-08T07:28:30.825+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "036490e7f5ca9fa39072569dce097b79",
-        "custom_fields": null,
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 2140000,
-        "subtask_placement": 1000000,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-08T07:28:15.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": null,
-        "worked_time": null,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "data": null
         },
         "repeated_task": {
           "meta": {
@@ -4732,16 +4936,7 @@
       }
     }
   ],
-  "links": {
-    "first": "https://api.productive.io/api/v2/tasks?filter%5Bafter%5D=2025-10-01&filter%5Bassignee_id%5D=777282&filter%5Bstatus%5D=1&include=deal%2Cservice&page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "last": "https://api.productive.io/api/v2/tasks?filter%5Bafter%5D=2025-10-01&filter%5Bassignee_id%5D=777282&filter%5Bstatus%5D=1&include=deal%2Cservice&page%5Bnumber%5D=1&page%5Bsize%5D=100"
-  },
   "meta": {
-    "current_page": 1,
-    "total_pages": 1,
-    "total_count": 40,
-    "page_size": 100,
-    "max_page_size": 200
-  },
-  "_generated": "2026-04-09T05:42:23.904248Z"
+    "total_count": 41
+  }
 }
