@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-11T23:53:58.393385Z",
+  "_generated": "2026-04-12T06:12:08.691626Z",
   "data": [
     {
       "id": "13006382",
@@ -5079,7 +5079,7 @@
         "start_date": "2026-03-24",
         "closed_at": null,
         "created_at": "2026-03-23T01:16:12.168+01:00",
-        "updated_at": "2026-04-02T09:08:29.163+02:00",
+        "updated_at": "2026-04-12T06:40:48.619+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -5107,9 +5107,9 @@
         "tag_list": [],
         "last_activity_at": "2026-04-02T09:07:55.000+02:00",
         "initial_estimate": 1440,
-        "remaining_time": 600,
+        "remaining_time": 735,
         "billable_time": 0,
-        "worked_time": 840,
+        "worked_time": 705,
         "deleted_at": null
       },
       "relationships": {
