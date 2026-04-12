@@ -47,409 +47,7 @@ window.addEventListener('unhandledrejection',function(e){
   d.textContent=(d.textContent||'')+'PROMISE ERROR: '+e.reason;
 });
 </script>
-<script>
-/* ── Google Calendar data (auto-refreshed) ── */
-var GCAL_REFRESHED='2026-04-12T21:24:11.243Z';
-var GCAL_MEETINGS = [
-{pid:'1',offset:0,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:0,title:"SYDNEY - SPACE TENDER",start:'10:00',end:'15:00',durH:5},
-{pid:'1',offset:1,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:1,title:"Early Settler | Discovery workshop (In person)",start:'10:00',end:'12:50',durH:2.83},
-{pid:'1',offset:1,title:"Early Settler | Feature workshop (In person)",start:'13:30',end:'16:20',durH:2.83},
-{pid:'1',offset:2,title:"Frank Green - WIP ",start:'09:00',end:'09:50',durH:0.83},
-{pid:'1',offset:2,title:"Apollo - Daily Stand Up",start:'09:45',end:'10:15',durH:0.5},
-{pid:'1',offset:2,title:"Early Settler | Creative workshop (In person)",start:'10:00',end:'12:50',durH:2.83},
-{pid:'1',offset:2,title:"Han & Kate",start:'15:00',end:'15:30',durH:0.5},
-{pid:'1',offset:3,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:3,title:"Manning Cartell Search Spring Audit",start:'12:00',end:'12:30',durH:0.5},
-{pid:'1',offset:4,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:8,title:"Eckersleys Design Handover",start:'10:00',end:'11:00',durH:1},
-{pid:'1',offset:8,title:"Eckersley\'s: AI Design efficiencies",start:'12:00',end:'13:00',durH:1},
-{pid:'1',offset:9,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:9,title:"Kate x Soph | Monthly",start:'11:30',end:'12:10',durH:0.67},
-{pid:'1',offset:11,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:11,title:"Rip Curl Weekly Reporting Aignment",start:'12:00',end:'12:30',durH:0.5},
-{pid:'1',offset:11,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1},
-{pid:'1',offset:14,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:14,title:"Alpha60 x UX next steps",start:'12:30',end:'12:50',durH:0.33},
-{pid:'1',offset:15,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:15,title:"Han & Kate",start:'13:00',end:'13:30',durH:0.5},
-{pid:'1',offset:16,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:16,title:"Frank Green - Fortnightly WIP",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:16,title:"Eckersley\'s x DotCollective: IA and Wireframes presentation",start:'10:00',end:'12:00',durH:2},
-{pid:'1',offset:17,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:17,title:"Briefing Meeting: Product Page Optimisations",start:'11:30',end:'12:00',durH:0.5},
-{pid:'1',offset:17,title:"BFCM Recs",start:'12:30',end:'13:00',durH:0.5},
-{pid:'1',offset:17,title:"Busy",start:'13:00',end:'17:00',durH:4},
-{pid:'1',offset:18,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:18,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1},
-{pid:'1',offset:21,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:22,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:22,title:"Han & Kate",start:'12:00',end:'12:30',durH:0.5},
-{pid:'1',offset:23,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:23,title:"INTERNAL-Concept review for Early Settler",start:'14:00',end:'14:45',durH:0.75},
-{pid:'1',offset:24,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:24,title:"DotCollective X Living Edge - Discovery Workshop",start:'09:30',end:'12:20',durH:2.83},
-{pid:'1',offset:24,title:"DotCollective X Living Edge - Design Workshop ",start:'13:00',end:'15:50',durH:2.83},
-{pid:'1',offset:25,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:28,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:29,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:29,title:"Han & Kate",start:'12:00',end:'12:30',durH:0.5},
-{pid:'1',offset:29,title:"HOLD-Early Settler - Design Concept Presentation",start:'14:00',end:'15:00',durH:1},
-{pid:'1',offset:30,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:30,title:"Frank Green - Fortnightly WIP",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:31,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:32,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:35,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:36,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:36,title:"Han & Kate",start:'12:00',end:'12:30',durH:0.5},
-{pid:'1',offset:37,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:38,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'1',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1},
-{pid:'2',offset:0,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:0,title:"Weekly Rip Curl Report Brief",start:'11:00',end:'11:30',durH:0.5},
-{pid:'2',offset:1,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:1,title:"Han & Dave 1:1",start:'14:30',end:'15:00',durH:0.5},
-{pid:'2',offset:1,title:"Shakti Regroup",start:'16:00',end:'16:30',durH:0.5},
-{pid:'2',offset:2,title:" From Claude Code to Figma – and Back Again",start:'03:00',end:'04:00',durH:1},
-{pid:'2',offset:2,title:"Out of office",start:'09:00',end:'17:00',durH:8},
-{pid:'2',offset:3,title:"Landsmith-SOW review before sharing with client",start:'09:15',end:'10:15',durH:1},
-{pid:'2',offset:3,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:3,title:"TRiC x Dot Collective | Castle & Cubby",start:'10:00',end:'11:00',durH:1},
-{pid:'2',offset:3,title:"Rip Curl Deep Dive check-in",start:'14:00',end:'14:30',durH:0.5},
-{pid:'2',offset:4,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:8,title:"Eckersley\'s: AI Design efficiencies",start:'12:00',end:'13:00',durH:1},
-{pid:'2',offset:9,title:"Out of office",start:'09:00',end:'17:00',durH:8},
-{pid:'2',offset:9,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:10,title:" Rip Curl - WIP",start:'11:00',end:'11:50',durH:0.83},
-{pid:'2',offset:10,title:"Han & Dave 1:1",start:'12:45',end:'13:15',durH:0.5},
-{pid:'2',offset:11,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:11,title:"Rip Curl Weekly Reporting Aignment",start:'12:00',end:'12:30',durH:0.5},
-{pid:'2',offset:14,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:14,title:"Handover technical audit for Runaway The Label",start:'10:00',end:'11:00',durH:1},
-{pid:'2',offset:15,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:15,title:"Dave x Audrina: Fortnightly Checkin",start:'11:00',end:'11:45',durH:0.75},
-{pid:'2',offset:15,title:"Han & Dave 1:1",start:'11:30',end:'12:00',durH:0.5},
-{pid:'2',offset:16,title:"Out of office",start:'09:00',end:'17:00',durH:8},
-{pid:'2',offset:16,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:17,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:17,title:"Hold time: Runaway the Label WIP",start:'11:00',end:'12:00',durH:1},
-{pid:'2',offset:17,title:"BFCM Recs",start:'12:30',end:'13:00',durH:0.5},
-{pid:'2',offset:18,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:18,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1},
-{pid:'2',offset:21,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:21,title:"Dave x Audrina: Fortnightly Checkin",start:'10:00',end:'10:45',durH:0.75},
-{pid:'2',offset:22,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:22,title:"Han & Dave 1:1",start:'11:00',end:'11:30',durH:0.5},
-{pid:'2',offset:23,title:"Out of office",start:'09:00',end:'17:00',durH:8},
-{pid:'2',offset:23,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:24,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:25,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:28,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:29,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:29,title:"Han & Dave 1:1",start:'11:00',end:'11:30',durH:0.5},
-{pid:'2',offset:30,title:"Out of office",start:'09:00',end:'17:00',durH:8},
-{pid:'2',offset:30,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:31,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:32,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:32,title:"Happy Dentistry",start:'12:00',end:'13:00',durH:1},
-{pid:'2',offset:35,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:35,title:"Dave x Audrina: Fortnightly Checkin",start:'10:00',end:'10:45',durH:0.75},
-{pid:'2',offset:36,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:36,title:"Han & Dave 1:1",start:'11:00',end:'11:30',durH:0.5},
-{pid:'2',offset:37,title:"Out of office",start:'09:00',end:'17:00',durH:8},
-{pid:'2',offset:37,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:38,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'2',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1},
-{pid:'3',offset:0,title:"SYDNEY - SPACE TENDER",start:'10:00',end:'15:00',durH:5},
-{pid:'3',offset:1,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:1,title:"JAG + DotCollective - Weekly WIP ",start:'10:00',end:'11:00',durH:1},
-{pid:'3',offset:1,title:"Han & Audrina 1:1",start:'15:30',end:'16:00',durH:0.5},
-{pid:'3',offset:2,title:" From Claude Code to Figma – and Back Again",start:'03:00',end:'04:00',durH:1},
-{pid:'3',offset:2,title:"Apollo - Daily Stand Up",start:'09:45',end:'10:15',durH:0.5},
-{pid:'3',offset:2,title:"Bec x Audrina: Fortnightly Checkin",start:'11:00',end:'12:00',durH:1},
-{pid:'3',offset:3,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:3,title:"Design review - Stock Status by Region/State (Q1)",start:'16:00',end:'16:15',durH:0.25},
-{pid:'3',offset:4,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:8,title:"Eckersleys Design Handover",start:'10:00',end:'11:00',durH:1},
-{pid:'3',offset:8,title:"Eckersley\'s: AI Design efficiencies",start:'12:00',end:'13:00',durH:1},
-{pid:'3',offset:8,title:"Han & Audrina 1:1",start:'15:00',end:'15:30',durH:0.5},
-{pid:'3',offset:8,title:"Design Presentation - Stock by Status Project",start:'16:00',end:'16:30',durH:0.5},
-{pid:'3',offset:9,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:9,title:"Eckersleys Design Handover",start:'10:00',end:'10:30',durH:0.5},
-{pid:'3',offset:10,title:"On AL",start:'00:00',end:'00:00',durH:48},
-{pid:'3',offset:11,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:11,title:"Design Lead Catch Up",start:'14:00',end:'15:00',durH:1},
-{pid:'3',offset:14,title:"On AL",start:'00:00',end:'00:00',durH:24},
-{pid:'3',offset:14,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:14,title:"Bec x Audrina: Fortnightly Checkin",start:'10:00',end:'10:45',durH:0.75},
-{pid:'3',offset:14,title:"Han & Audrina 1:1",start:'11:00',end:'11:30',durH:0.5},
-{pid:'3',offset:15,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:15,title:"Dave x Audrina: Fortnightly Checkin",start:'11:00',end:'11:45',durH:0.75},
-{pid:'3',offset:15,title:"Developer briefing: Promotions Custom App Project - Phase 1 (Q1-2)",start:'15:00',end:'15:30',durH:0.5},
-{pid:'3',offset:16,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:16,title:"Eckersley\'s x DotCollective: IA and Wireframes presentation",start:'10:00',end:'12:00',durH:2},
-{pid:'3',offset:17,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:17,title:"BFCM Recs",start:'12:30',end:'13:00',durH:0.5},
-{pid:'3',offset:18,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:18,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1},
-{pid:'3',offset:21,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:21,title:"Dave x Audrina: Fortnightly Checkin",start:'10:00',end:'10:45',durH:0.75},
-{pid:'3',offset:21,title:"Han & Audrina 1:1",start:'11:00',end:'11:30',durH:0.5},
-{pid:'3',offset:22,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:23,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:23,title:"Eckersley\'s x DotCollective: Creative concepts presentation",start:'10:00',end:'11:45',durH:1.75},
-{pid:'3',offset:23,title:"INTERNAL-Concept review for Early Settler",start:'14:00',end:'14:45',durH:0.75},
-{pid:'3',offset:24,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:25,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:28,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:28,title:"Bec x Audrina: Fortnightly Checkin",start:'10:00',end:'10:45',durH:0.75},
-{pid:'3',offset:28,title:"Han & Audrina 1:1",start:'11:00',end:'11:30',durH:0.5},
-{pid:'3',offset:29,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:30,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:31,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:32,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:35,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:35,title:"Dave x Audrina: Fortnightly Checkin",start:'10:00',end:'10:45',durH:0.75},
-{pid:'3',offset:35,title:"Han & Audrina 1:1",start:'11:00',end:'11:30',durH:0.5},
-{pid:'3',offset:36,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:37,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:38,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'3',offset:39,title:"Design Lead Catch Up",start:'14:00',end:'15:00',durH:1},
-{pid:'3',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1},
-{pid:'4',offset:0,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:0,title:"Lunch break",start:'12:00',end:'12:30',durH:0.5},
-{pid:'4',offset:1,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:1,title:"Early Settler | Discovery workshop (In person)",start:'10:00',end:'12:50',durH:2.83},
-{pid:'4',offset:1,title:"Lunch break",start:'12:00',end:'12:30',durH:0.5},
-{pid:'4',offset:1,title:"Early Settler | Feature workshop (In person)",start:'13:30',end:'16:20',durH:2.83},
-{pid:'4',offset:2,title:"Apollo - Daily Stand Up",start:'09:45',end:'10:15',durH:0.5},
-{pid:'4',offset:2,title:"Early Settler | Creative workshop (In person)",start:'10:00',end:'12:50',durH:2.83},
-{pid:'4',offset:2,title:"Lunch break",start:'12:00',end:'12:30',durH:0.5},
-{pid:'4',offset:3,title:"SEO x Karson- DC site (will confirm in morning but will either 9 or 9.30)",start:'09:00',end:'10:05',durH:1.08},
-{pid:'4',offset:3,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:3,title:"TRiC x Dot Collective | Castle & Cubby",start:'10:00',end:'11:00',durH:1},
-{pid:'4',offset:3,title:"DotCollective Site Alignment",start:'11:00',end:'11:30',durH:0.5},
-{pid:'4',offset:3,title:"Lunch break",start:'12:00',end:'12:30',durH:0.5},
-{pid:'4',offset:4,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:4,title:"Lunch break",start:'12:00',end:'12:30',durH:0.5},
-{pid:'4',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:8,title:"Eckersleys Design Handover",start:'10:00',end:'11:00',durH:1},
-{pid:'4',offset:9,title:"SEO x karson - DC site",start:'09:00',end:'09:50',durH:0.83},
-{pid:'4',offset:9,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:9,title:"Eckersleys Design Handover",start:'10:00',end:'10:30',durH:0.5},
-{pid:'4',offset:10,title:"SEO x Karson",start:'13:45',end:'14:10',durH:0.42},
-{pid:'4',offset:11,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:11,title:"Design Lead Catch Up",start:'14:00',end:'15:00',durH:1},
-{pid:'4',offset:14,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:14,title:"Han & Seo 1:1",start:'12:00',end:'12:30',durH:0.5},
-{pid:'4',offset:15,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:15,title:"Early Settler Creative Concept Alignment",start:'11:00',end:'11:30',durH:0.5},
-{pid:'4',offset:16,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:17,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:18,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:18,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1},
-{pid:'4',offset:21,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:21,title:"Han & Seo 1:1",start:'12:00',end:'12:30',durH:0.5},
-{pid:'4',offset:22,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:23,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:23,title:"INTERNAL-Concept review for Early Settler",start:'14:00',end:'14:45',durH:0.75},
-{pid:'4',offset:24,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:24,title:"DotCollective X Living Edge - Discovery Workshop",start:'09:30',end:'12:20',durH:2.83},
-{pid:'4',offset:24,title:"DotCollective X Living Edge - Design Workshop ",start:'13:00',end:'15:50',durH:2.83},
-{pid:'4',offset:25,title:"DotCollective X Living Edge - Feature Workshop ",start:'09:30',end:'12:20',durH:2.83},
-{pid:'4',offset:25,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:28,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:28,title:"Han & Seo 1:1",start:'12:00',end:'12:30',durH:0.5},
-{pid:'4',offset:29,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:29,title:"HOLD-Early Settler - Design Concept Presentation",start:'14:00',end:'15:00',durH:1},
-{pid:'4',offset:30,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:31,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:32,title:"Leave Approved: Seo",start:'00:00',end:'00:00',durH:24},
-{pid:'4',offset:35,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:35,title:"Han & Seo 1:1",start:'12:00',end:'12:30',durH:0.5},
-{pid:'4',offset:36,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:37,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:38,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'4',offset:39,title:"Design Lead Catch Up",start:'14:00',end:'15:00',durH:1},
-{pid:'4',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1},
-{pid:'5',offset:0,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:0,title:"Appointment",start:'14:00',end:'18:30',durH:4.5},
-{pid:'5',offset:1,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:2,title:" From Claude Code to Figma – and Back Again",start:'03:00',end:'04:00',durH:1},
-{pid:'5',offset:2,title:"Apollo - Daily Stand Up",start:'09:45',end:'10:15',durH:0.5},
-{pid:'5',offset:2,title:"Bec x Audrina: Fortnightly Checkin",start:'11:00',end:'12:00',durH:1},
-{pid:'5',offset:2,title:"Busy",start:'12:00',end:'13:30',durH:1.5},
-{pid:'5',offset:2,title:"Han & Bec 1:1",start:'13:30',end:'14:00',durH:0.5},
-{pid:'5',offset:2,title:"ByWren - Internal Creative Prep",start:'14:00',end:'14:30',durH:0.5},
-{pid:'5',offset:3,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:3,title:"Dentist 12:30",start:'12:00',end:'13:00',durH:1},
-{pid:'5',offset:4,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:4,title:"OOO",start:'15:00',end:'17:30',durH:2.5},
-{pid:'5',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:8,title:"Eckersleys Design Handover",start:'10:00',end:'11:00',durH:1},
-{pid:'5',offset:8,title:"Eckersley\'s: AI Design efficiencies",start:'12:00',end:'13:00',durH:1},
-{pid:'5',offset:8,title:"Lunch",start:'13:00',end:'14:00',durH:1},
-{pid:'5',offset:8,title:"Buzz vet 5pm",start:'16:30',end:'17:30',durH:1},
-{pid:'5',offset:9,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:9,title:"Han & Bec 1:1",start:'11:00',end:'11:30',durH:0.5},
-{pid:'5',offset:9,title:"Outside now",start:'13:30',end:'14:30',durH:1},
-{pid:'5',offset:9,title:"Internal handover/briefing - Implement Pre-Order Functionality",start:'15:30',end:'16:00',durH:0.5},
-{pid:'5',offset:10,title:"Figma Office Hours: Slots",start:'01:00',end:'02:00',durH:1},
-{pid:'5',offset:11,title:"Appointment",start:'08:00',end:'12:00',durH:4},
-{pid:'5',offset:11,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:14,title:"Bec A/L",start:'00:00',end:'00:00',durH:48},
-{pid:'5',offset:14,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:14,title:"Bec x Audrina: Fortnightly Checkin",start:'10:00',end:'10:45',durH:0.75},
-{pid:'5',offset:15,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:16,title:"Buzz vet 9:10",start:'08:45',end:'09:45',durH:1},
-{pid:'5',offset:16,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:16,title:"Eckersley\'s x DotCollective: IA and Wireframes presentation",start:'10:00',end:'12:00',durH:2},
-{pid:'5',offset:16,title:"Han & Bec 1:1",start:'11:00',end:'11:30',durH:0.5},
-{pid:'5',offset:17,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:17,title:"Busy",start:'12:30',end:'14:00',durH:1.5},
-{pid:'5',offset:17,title:"BFCM Recs",start:'12:30',end:'13:00',durH:0.5},
-{pid:'5',offset:17,title:"DotCollective X ByWren – Creative Workshop ",start:'14:00',end:'16:00',durH:2},
-{pid:'5',offset:18,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:18,title:"OOO",start:'15:00',end:'17:30',durH:2.5},
-{pid:'5',offset:18,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1},
-{pid:'5',offset:21,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:22,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:22,title:"The push and pull of AI + design: How roles are changing and what comes next",start:'14:00',end:'15:00',durH:1},
-{pid:'5',offset:23,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:23,title:"Eckersley\'s x DotCollective: Creative concepts presentation",start:'10:00',end:'11:45',durH:1.75},
-{pid:'5',offset:23,title:"Han & Bec 1:1",start:'11:00',end:'11:30',durH:0.5},
-{pid:'5',offset:24,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:25,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:25,title:"OOO",start:'15:00',end:'17:30',durH:2.5},
-{pid:'5',offset:28,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:28,title:"Bec x Audrina: Fortnightly Checkin",start:'10:00',end:'10:45',durH:0.75},
-{pid:'5',offset:29,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:30,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:30,title:"Han & Bec 1:1",start:'11:00',end:'11:30',durH:0.5},
-{pid:'5',offset:31,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:32,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:32,title:"OOO",start:'15:00',end:'17:30',durH:2.5},
-{pid:'5',offset:35,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:36,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:37,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:37,title:"Han & Bec 1:1",start:'11:00',end:'11:30',durH:0.5},
-{pid:'5',offset:38,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'5',offset:39,title:"OOO",start:'15:00',end:'17:30',durH:2.5},
-{pid:'5',offset:39,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1},
-{pid:'6',offset:0,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:0,title:"Out of Office",start:'09:00',end:'17:30',durH:8.5},
-{pid:'6',offset:0,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:0,title:"SYDNEY - SPACE TENDER",start:'10:00',end:'15:00',durH:5},
-{pid:'6',offset:1,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:1,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:1,title:"Early Settler | Discovery workshop (In person)",start:'10:00',end:'12:50',durH:2.83},
-{pid:'6',offset:1,title:"Early Settler | Feature workshop (In person)",start:'13:30',end:'16:20',durH:2.83},
-{pid:'6',offset:2,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:2,title:"Apollo - Daily Stand Up",start:'09:45',end:'10:15',durH:0.5},
-{pid:'6',offset:2,title:"Early Settler | Creative workshop (In person)",start:'10:00',end:'12:50',durH:2.83},
-{pid:'6',offset:3,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:3,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:3,title:"Han & Lach",start:'12:30',end:'13:30',durH:1},
-{pid:'6',offset:3,title:"Strategy Talking Strategy",start:'13:00',end:'13:30',durH:0.5},
-{pid:'6',offset:3,title:"Han & Lachie 1:1",start:'13:30',end:'14:00',durH:0.5},
-{pid:'6',offset:3,title:"Rip Curl Deep Dive check-in",start:'14:00',end:'14:30',durH:0.5},
-{pid:'6',offset:3,title:"Design review - Stock Status by Region/State (Q1)",start:'16:00',end:'16:15',durH:0.25},
-{pid:'6',offset:4,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:4,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:7,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:7,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:8,title:"Out of office",start:'00:00',end:'00:00',durH:96},
-{pid:'6',offset:8,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:8,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:8,title:"Out of Office",start:'15:30',end:'17:30',durH:2},
-{pid:'6',offset:9,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:9,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:9,title:"Out of Office",start:'15:30',end:'17:30',durH:2},
-{pid:'6',offset:10,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:10,title:"Strategy Talking Strategy",start:'13:00',end:'13:30',durH:0.5},
-{pid:'6',offset:10,title:"Out of Office",start:'15:30',end:'17:30',durH:2},
-{pid:'6',offset:11,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:11,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:11,title:"Out of Office",start:'15:30',end:'17:30',durH:2},
-{pid:'6',offset:14,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:14,title:"Out of Office",start:'09:00',end:'17:30',durH:8.5},
-{pid:'6',offset:14,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:15,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:15,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:15,title:"Hold - Early Settler - Deep Dive Session - Analytics & User Tracking",start:'11:00',end:'12:00',durH:1},
-{pid:'6',offset:15,title:"Developer briefing: Promotions Custom App Project - Phase 1 (Q1-2)",start:'15:00',end:'15:30',durH:0.5},
-{pid:'6',offset:16,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:16,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:17,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:17,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:17,title:"Han & Lachie 1:1",start:'11:30',end:'12:00',durH:0.5},
-{pid:'6',offset:17,title:"BFCM Recs",start:'12:30',end:'13:00',durH:0.5},
-{pid:'6',offset:17,title:"Strategy Talking Strategy",start:'13:00',end:'13:30',durH:0.5},
-{pid:'6',offset:18,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:18,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:18,title:"Tribe Monthly Catch Up",start:'15:00',end:'16:00',durH:1},
-{pid:'6',offset:21,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:21,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:22,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:22,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:22,title:"Out of Office",start:'15:30',end:'17:30',durH:2},
-{pid:'6',offset:23,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:23,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:23,title:"Out of Office",start:'15:30',end:'17:30',durH:2},
-{pid:'6',offset:24,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:24,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:24,title:"Han & Lachie 1:1",start:'11:30',end:'12:00',durH:0.5},
-{pid:'6',offset:24,title:"Strategy Talking Strategy",start:'13:00',end:'13:30',durH:0.5},
-{pid:'6',offset:24,title:"Out of Office",start:'15:30',end:'17:30',durH:2},
-{pid:'6',offset:25,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:25,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:25,title:"Out of Office",start:'15:30',end:'17:30',durH:2},
-{pid:'6',offset:28,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:28,title:"Out of Office",start:'09:00',end:'17:30',durH:8.5},
-{pid:'6',offset:28,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:29,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:29,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:30,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:30,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:31,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:31,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:31,title:"Han & Lachie 1:1",start:'11:30',end:'12:00',durH:0.5},
-{pid:'6',offset:31,title:"Strategy Talking Strategy",start:'13:00',end:'13:30',durH:0.5},
-{pid:'6',offset:32,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:32,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:35,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:35,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:36,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:36,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:36,title:"Out of Office",start:'15:30',end:'17:30',durH:2},
-{pid:'6',offset:37,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:37,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:37,title:"Out of Office",start:'15:30',end:'17:30',durH:2},
-{pid:'6',offset:38,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:38,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:38,title:"Han & Lachie 1:1",start:'11:30',end:'12:00',durH:0.5},
-{pid:'6',offset:38,title:"Strategy Talking Strategy",start:'13:00',end:'13:30',durH:0.5},
-{pid:'6',offset:38,title:"Out of Office",start:'15:30',end:'17:30',durH:2},
-{pid:'6',offset:39,title:"Unavailable for Meetings (School Drop-Off)",start:'09:00',end:'09:15',durH:0.25},
-{pid:'6',offset:39,title:"Apollo - Daily Stand Up",start:'09:30',end:'10:00',durH:0.5},
-{pid:'6',offset:39,title:"Out of Office",start:'15:30',end:'17:30',durH:2},
-];
 
-</script>
 <script>
 const {
   useState,
@@ -484,8 +82,6 @@ const DAY_W = 56,
   ROW_PAD = 12,
   NAME_W = 200,
   HDR_H = 52;
-const MEET_LANE_H = 16,
-  MEET_BAR_H = 13;
 const WIN = new Date(2026, 2, 30); // Mar 30
 const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -1266,37 +862,6 @@ function offsetToDate(off) {
   return d.toISOString().slice(0, 10);
 }
 
-/* ── Meeting lanes per person ── */
-function computeMeetingLanes(pid) {
-  const ms = GCAL_MEETINGS.filter(m => m.pid === pid);
-  const byDay = {};
-  ms.forEach(m => {
-    if (!byDay[m.offset]) byDay[m.offset] = [];
-    byDay[m.offset].push(m);
-  });
-  let maxLanes = 0;
-  const meetBks = [];
-  Object.entries(byDay).forEach(([off, meetings]) => {
-    const sorted = [...meetings].sort((a, b) => a.start.localeCompare(b.start));
-    sorted.forEach((ev, i) => {
-      meetBks.push({
-        ...ev,
-        meetLane: i
-      });
-      maxLanes = Math.max(maxLanes, i + 1);
-    });
-  });
-  const meetH = maxLanes > 0 ? maxLanes * MEET_LANE_H + 6 : 0;
-  const meetHoursPerDay = {};
-  ms.forEach(m => {
-    meetHoursPerDay[m.offset] = (meetHoursPerDay[m.offset] || 0) + m.durH;
-  });
-  return {
-    meetBks,
-    meetH,
-    meetHoursPerDay
-  };
-}
 
 /* ── Avatar ── */
 function Avatar({
@@ -1339,101 +904,6 @@ function Avatar({
   }, m.ini);
 }
 
-/* ════════════════════════════════════
-   MEETING BAR
-   ════════════════════════════════════ */
-function MeetingBar({
-  ev,
-  bookingRowH,
-  dayW = DAY_W
-}) {
-  const [hov, setHov] = useState(false);
-  const top = bookingRowH + 3 + ev.meetLane * MEET_LANE_H;
-  return /*#__PURE__*/React.createElement("div", {
-    className: "no-sel",
-    onMouseEnter: () => setHov(true),
-    onMouseLeave: () => setHov(false),
-    style: {
-      position: 'absolute',
-      left: calToVis(ev.offset) * dayW + 1,
-      top,
-      width: dayW - 2,
-      height: MEET_BAR_H,
-      borderRadius: 3,
-      zIndex: hov ? 22 : 11,
-      background: 'rgba(28,28,38,0.97)',
-      border: '1px solid rgba(255,255,255,0.14)',
-      display: 'flex',
-      alignItems: 'center',
-      padding: '0 4px',
-      gap: 2,
-      cursor: 'default',
-      overflow: 'hidden'
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontSize: 8,
-      opacity: 0.7,
-      flexShrink: 0,
-      lineHeight: 1
-    }
-  }, "\uD83D\uDCC5"), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontSize: 8,
-      color: 'rgba(200,200,220,0.75)',
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      flex: 1,
-      letterSpacing: '-0.01em'
-    }
-  }, ev.start, " ", ev.title), hov && /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      bottom: 'calc(100% + 7px)',
-      left: '50%',
-      transform: 'translateX(-50%)',
-      background: '#1c1c24',
-      border: `1px solid ${C.borderMid}`,
-      color: C.text1,
-      padding: '9px 13px',
-      borderRadius: 10,
-      fontSize: 11,
-      whiteSpace: 'nowrap',
-      boxShadow: '0 8px 30px rgba(0,0,0,0.7)',
-      zIndex: 200,
-      pointerEvents: 'none',
-      lineHeight: 1.8,
-      letterSpacing: '-0.01em'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontWeight: 700,
-      marginBottom: 2
-    }
-  }, ev.title), /*#__PURE__*/React.createElement("div", {
-    style: {
-      color: C.text2
-    }
-  }, "\uD83D\uDCC5 ", ev.start, " \u2013 ", ev.end), /*#__PURE__*/React.createElement("div", {
-    style: {
-      color: C.text2
-    }
-  }, ev.durH, "h"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      bottom: -5,
-      left: '50%',
-      transform: 'translateX(-50%) rotate(45deg)',
-      width: 10,
-      height: 10,
-      background: '#1c1c24',
-      border: `1px solid ${C.borderMid}`,
-      borderTop: 'none',
-      borderLeft: 'none'
-    }
-  })));
-}
 
 /* ════════════════════════════════════
    PROJECT DRAWER
@@ -1746,19 +1216,7 @@ function ProjectDrawer({
         marginTop: 2
       }
     }, bk.note));
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      padding: '12px 20px',
-      borderTop: `1px solid ${C.border}`,
-      background: 'rgba(124,58,237,0.06)'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 10,
-      color: 'rgba(167,139,250,0.8)',
-      lineHeight: 1.5
-    }
-  }, "\uD83D\uDCA1 To sync meeting time to Productive, add bookings manually or use the Productive API integration."))));
+  })));
 }
 
 /* ════════════════════════════════════
@@ -2991,7 +2449,6 @@ function CapacityTip({
   tip,
   team,
   bookings,
-  meetHoursPerDay,
   capMode
 }) {
   if (!tip) return null;
@@ -3001,11 +2458,10 @@ function CapacityTip({
   if (!d) return null;
   const calOff = visToCal(tip.offset); // calendar offset for booking comparisons
   const safeH = capMode === 'real' ? 7.6 : m.safeHpD || 0;
-  const meetH = meetHoursPerDay?.[calOff] || 0;
   // Booking hours on this day: for each booking covering this day, allocate hrs/n per day
   const dayBks = bookings.filter(b => b.p === m.id && !b.isLeave && b.s <= calOff && calOff < b.s + b.dn);
   const bookedH = dayBks.reduce((s, b) => s + (b.hrs ? b.hrs / b.n : 0), 0);
-  const availH = Math.max(0, safeH - meetH - bookedH);
+  const availH = Math.max(0, safeH - bookedH);
   const fmtH = h => Math.round(h * 10) / 10;
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3048,22 +2504,7 @@ function CapacityTip({
     style: {
       fontWeight: 600
     }
-  }, fmtH(safeH), "h")), meetH > 0 && /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      gap: 18
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: '#93c5fd'
-    }
-  }, "\uD83D\uDCC5 Meetings"), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontWeight: 600,
-      color: '#93c5fd'
-    }
-  }, "\u2212", fmtH(meetH), "h")), bookedH > 0 && /*#__PURE__*/React.createElement("div", {
+  }, fmtH(safeH), "h")), bookedH > 0 && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -3195,7 +2636,6 @@ function App() {
   const [modal, setModal] = useState(null);
   const [collapsed, setCollapsed] = useState({});
   const [filter, setFilter] = useState('all');
-  const [showMeetings, setShowMeetings] = useState(true);
   const [capMode, setCapMode] = useState('safe'); // 'safe' or 'real'
   const capModeRef = useRef(capMode);
   useEffect(() => {
@@ -3235,30 +2675,16 @@ function App() {
   const scrollRef = useRef(null);
   const tipTimerRef = useRef(null);
 
-  /* ── Precompute meeting data per person ── */
-  const meetingDataByPerson = useMemo(() => {
-    const result = {};
-    initTeam.forEach(m => {
-      result[m.id] = computeMeetingLanes(m.id);
-    });
-    return result;
-  }, []);
+
   const rawTeamData = useMemo(() => processTeam(bookings, team), [bookings, team]);
   const teamData = useMemo(() => rawTeamData.filter(m => visibleTeam.has(m.id)).map(m => {
     const isCollapsed = !!collapsed[m.id];
-    const md = meetingDataByPerson[m.id] || {
-      meetBks: [],
-      meetH: 0
-    };
-    const meetH = showMeetings ? md.meetH : 0;
     return {
       ...m,
       isCollapsed,
-      effectiveRowH: isCollapsed ? 48 : m.rowH + meetH,
-      meetBks: showMeetings ? md.meetBks : [],
-      meetH
+      effectiveRowH: isCollapsed ? 48 : m.rowH
     };
-  }), [rawTeamData, collapsed, meetingDataByPerson, showMeetings, visibleTeam]);
+  }), [rawTeamData, collapsed, visibleTeam]);
   const rowTops = useMemo(() => {
     const t = [];
     let y = 0;
@@ -3877,36 +3303,7 @@ function App() {
       alignItems: 'center',
       gap: 6
     }
-  }, /*#__PURE__*/React.createElement("button", {
-    onClick: () => setShowMeetings(v => !v),
-    title: showMeetings ? 'Hide meetings' : 'Show calendar meetings (auto-synced daily)',
-    style: {
-      padding: '5px 12px',
-      fontSize: 11,
-      fontWeight: 600,
-      borderRadius: 6,
-      border: showMeetings ? `1px solid rgba(147,197,253,0.4)` : '1px solid rgba(255,255,255,0.14)',
-      background: showMeetings ? 'rgba(59,130,246,0.18)' : 'rgba(255,255,255,0.07)',
-      color: showMeetings ? '#93c5fd' : 'rgba(255,255,255,0.5)',
-      cursor: 'pointer',
-      letterSpacing: '-0.01em',
-      display: 'flex',
-      alignItems: 'center',
-      gap: 5
-    }
-  }, /*#__PURE__*/React.createElement("span", null, "\uD83D\uDCC5"), /*#__PURE__*/React.createElement("span", null, showMeetings ? 'Meetings on' : 'Meetings')), (() => {
-    const d = new Date(GCAL_REFRESHED),
-      now = new Date();
-    const diffH = Math.round((now - d) / 3600000);
-    const label = diffH < 1 ? 'just now' : diffH < 24 ? `${diffH}h ago` : `${Math.round(diffH / 24)}d ago`;
-    return /*#__PURE__*/React.createElement("span", {
-      style: {
-        fontSize: 8,
-        color: 'rgba(255,255,255,0.25)',
-        letterSpacing: '-0.01em'
-      }
-    }, "synced ", label);
-  })()), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       flex: 1
     }
@@ -4085,9 +3482,7 @@ function App() {
       }
     }, MONS[d.getMonth()]));
   })), teamData.map((m, mi) => {
-    const meetH = showMeetings ? meetingDataByPerson[m.id]?.meetHoursPerDay || {} : [];
-    const totalMeetH = showMeetings ? Object.values(meetH).reduce((s, h) => s + h, 0) : 0;
-    const bookedH = m.bks.filter(b => !b.isLeave).reduce((s, b) => s + (b.hrs || 0), 0) + totalMeetH;
+    const bookedH = m.bks.filter(b => !b.isLeave).reduce((s, b) => s + (b.hrs || 0), 0);
     const hpd = capMode === 'real' ? 7.6 : m.safeHpD || 0;
     const safeH = hpd ? hpd * 25 : null;
     const pct = safeH ? Math.min(bookedH / safeH * 100, 100) : 0;
@@ -4263,11 +3658,6 @@ function App() {
       mini: m.isCollapsed,
       filter: filter,
       dayW: dayW
-    })), showMeetings && !m.isCollapsed && m.meetBks.map((ev, ei) => /*#__PURE__*/React.createElement(MeetingBar, {
-      key: ei,
-      ev: ev,
-      bookingRowH: m.rowH,
-      dayW: dayW
     }))));
   }))), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -4397,7 +3787,6 @@ function App() {
     tip: dayTip,
     team: team,
     bookings: bookings,
-    meetHoursPerDay: meetingDataByPerson[dayTip.pid]?.meetHoursPerDay,
     capMode: capMode
   }), ghost && /*#__PURE__*/React.createElement("div", {
     className: "no-sel",
@@ -4452,7 +3841,7 @@ function App() {
     onSave: handleSaveSettings,
     onClose: () => setModal(null)
   }),
-  panel === 'capacity' && /*#__PURE__*/React.createElement(CapacityPanel, { bookings, team, meetingDataByPerson, onClose: () => setPanel(null) }),
+  panel === 'capacity' && /*#__PURE__*/React.createElement(CapacityPanel, { bookings, team, onClose: () => setPanel(null) }),
   panel === 'sprint'   && /*#__PURE__*/React.createElement(SprintPanel,   { bookings, team, onClose: () => setPanel(null) }),
   panel === 'gap'      && /*#__PURE__*/React.createElement(GapPanel,      { bookings, team, onClose: () => setPanel(null) }),
   panel === 'export'   && /*#__PURE__*/React.createElement(ExportPanel,   { bookings, team, onClose: () => setPanel(null) })
@@ -4501,7 +3890,7 @@ function PanelOverlay({ title, icon, onClose, children }) {
 }
 
 /* ── 1. CAPACITY FORECAST ── */
-function CapacityPanel({ bookings, team, meetingDataByPerson, onClose }) {
+function CapacityPanel({ bookings, team, onClose }) {
   const e = React.createElement;
   const today = new Date();
   const todayOff = Math.round((today - WIN) / 86400000);
@@ -4527,15 +3916,10 @@ function CapacityPanel({ bookings, team, meetingDataByPerson, onClose }) {
     team.filter(m => m.id !== '8').map(m => {
       const weekData = weeks.map(wk => {
         const booked = personHoursInRange(bookings, m.id, wk.wsOff, wk.weOff);
-        const meetH = meetingDataByPerson[m.id]?.meetHoursPerDay
-          ? Object.entries(meetingDataByPerson[m.id].meetHoursPerDay)
-              .filter(([d]) => { const dOff = Math.round((new Date(d) - WIN)/86400000); return dOff>=wk.wsOff && dOff<=wk.weOff; })
-              .reduce((s,[,h]) => s+h, 0)
-          : 0;
         const avail = m.safeHpD * 5;
-        const pct = avail > 0 ? Math.round((booked + meetH) / avail * 100) : 0;
+        const pct = avail > 0 ? Math.round(booked / avail * 100) : 0;
         const col = wk.isPast ? '#2a2a30' : pct >= 100 ? '#ef4444' : pct >= 80 ? '#f59e0b' : '#10b981';
-        return { booked, meetH, avail, pct, col, isPast: wk.isPast };
+        return { booked, avail, pct, col, isPast: wk.isPast };
       });
       const avgPct = Math.round(weekData.filter(w=>!w.isPast).reduce((s,w)=>s+w.pct,0) / weekData.filter(w=>!w.isPast).length) || 0;
       return e('div', { key:m.id, style:{ background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.07)',
@@ -4548,7 +3932,7 @@ function CapacityPanel({ bookings, team, meetingDataByPerson, onClose }) {
         ),
         e('div', { style:{ display:'grid', gridTemplateColumns:'repeat(8,1fr)', gap:6 }},
           weekData.map((wd,wi) =>
-            e('div', { key:wi, title: weeks[wi].label+': '+wd.booked+'h booked + '+Math.round(wd.meetH*10)/10+'h meetings / '+wd.avail+'h avail ('+wd.pct+'%)',
+            e('div', { key:wi, title: weeks[wi].label+': '+wd.booked+'h booked / '+wd.avail+'h avail ('+wd.pct+'%)',
                 style:{ textAlign:'center' }},
               e('div', { style:{ height:6, borderRadius:3, background: wd.isPast?'#2a2a30': 'rgba(255,255,255,0.08)', marginBottom:4, overflow:'hidden' }},
                 e('div', { style:{ height:'100%', width: Math.min(100,wd.pct)+'%', background:wd.col, transition:'width 0.4s' }})
