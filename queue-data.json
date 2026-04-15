@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-15T06:08:01.187209Z",
+  "_generated": "2026-04-15T10:43:46.840181Z",
   "data": [
     {
       "id": "13416018",
@@ -3750,7 +3750,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-03-23T02:40:57.770+01:00",
-        "updated_at": "2026-04-10T07:39:00.489+02:00",
+        "updated_at": "2026-04-15T09:22:23.896+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -3762,7 +3762,7 @@
         "todo_count": null,
         "open_todo_count": null,
         "subtask_count": 4,
-        "open_subtask_count": 2,
+        "open_subtask_count": 1,
         "creation_method_id": 1,
         "todo_assignee_ids": [],
         "task_dependency_count": 0,
