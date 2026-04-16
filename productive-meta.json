@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-15T22:05:47.492370Z",
+  "_generated": "2026-04-16T06:16:12.816035Z",
   "projects": [
     {
       "id": "418822",
@@ -322,14 +322,6 @@
       "name": "Akubra Support"
     },
     {
-      "id": "794759",
-      "name": "Alex Onboarding "
-    },
-    {
-      "id": "696741",
-      "name": "Alex Onboarding (DotApparel)"
-    },
-    {
       "id": "675256",
       "name": "Alley Group Support"
     },
@@ -344,10 +336,6 @@
     {
       "id": "675783",
       "name": "Amy - Test"
-    },
-    {
-      "id": "888686",
-      "name": "Andy Onboarding "
     },
     {
       "id": "110446",
@@ -482,10 +470,6 @@
       "name": "DECJUBA Support"
     },
     {
-      "id": "837618",
-      "name": "Devon Onboarding "
-    },
-    {
       "id": "420661",
       "name": "Dineamic Support"
     },
@@ -538,10 +522,6 @@
       "name": "Early Settler | Shopify Website"
     },
     {
-      "id": "798439",
-      "name": "Eben Onboarding "
-    },
-    {
       "id": "840660",
       "name": "Eckersley's Unified Project"
     },
@@ -584,10 +564,6 @@
     {
       "id": "256651",
       "name": "Factory X Support"
-    },
-    {
-      "id": "729687",
-      "name": "Fernando Onboarding (DotApparel)"
     },
     {
       "id": "849416",
@@ -702,20 +678,12 @@
       "name": "Jardan Support"
     },
     {
-      "id": "792417",
-      "name": "Jarrod Onboarding"
-    },
-    {
       "id": "741624",
       "name": "Jas"
     },
     {
       "id": "743524",
       "name": "Jas"
-    },
-    {
-      "id": "721551",
-      "name": "Jayden Onboarding "
     },
     {
       "id": "797827",
@@ -726,16 +694,8 @@
       "name": "JD Lighting - Retail"
     },
     {
-      "id": "841722",
-      "name": "Jhem Onboarding"
-    },
-    {
       "id": "864850",
       "name": "Kate H Onboarding"
-    },
-    {
-      "id": "740330",
-      "name": "Kate Onboarding"
     },
     {
       "id": "599660",
@@ -792,10 +752,6 @@
     {
       "id": "490898",
       "name": "Love to Dream Support"
-    },
-    {
-      "id": "781707",
-      "name": "Lucas Onboarding "
     },
     {
       "id": "759157",
@@ -1042,12 +998,12 @@
       "name": "Ripe Maternity Support"
     },
     {
-      "id": "775798",
-      "name": "Rochelle Onboarding "
-    },
-    {
       "id": "900290",
       "name": "Runaway The Label - Rebuild Project"
+    },
+    {
+      "id": "912007",
+      "name": "Ryan's Onboarding "
     },
     {
       "id": "783130",
@@ -1082,10 +1038,6 @@
       "name": "Seed"
     },
     {
-      "id": "775860",
-      "name": "Seo Onboarding"
-    },
-    {
       "id": "854997",
       "name": "Shakti Mat Digital Experience, Merchandising & Ecommerce Strategy"
     },
@@ -1104,10 +1056,6 @@
     {
       "id": "776656",
       "name": "Siren Footwear DotApparel Implementation"
-    },
-    {
-      "id": "875553",
-      "name": "Sophie Onboarding "
     },
     {
       "id": "707378",
@@ -1214,16 +1162,8 @@
       "name": "Woon Onboarding (DotApparel)"
     },
     {
-      "id": "725791",
-      "name": "Zhen's Onboarding "
-    },
-    {
       "id": "737469",
       "name": "Zoe "
-    },
-    {
-      "id": "868067",
-      "name": "Zoey Onboarding"
     }
   ],
   "taskLists": []
