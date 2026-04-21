@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-20T22:29:51.554628Z",
+  "_generated": "2026-04-21T06:13:31.470527Z",
   "data": [
     {
       "id": "13416018",
@@ -527,6 +527,129 @@
         "remaining_time": 225,
         "billable_time": 375,
         "worked_time": 375,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "15697041",
+      "type": "tasks",
+      "attributes": {
+        "title": "Change of Sizing PDP/PLP",
+        "description": "<p>Hi @[{\"type\":\"person\",\"id\":\"373912\",\"label\":\"Ellie White\",\"avatar_url\":\"https://files.productive.io/people/avatars/18052edf-8dcd-45eb-9e65-68e81931cb1c/thumb/Screenshot_2025-05-23_at_8.33.41%E2%80%AFAM.png\",\"attachment_url\":null,\"is_done\":true}] </p><p></p><p>We are in the process of updating our sizing from&nbsp;our numerical&nbsp;<strong>00-4 sizing to the universally recognized XXS-XL alpha sizing</strong>.</p><p></p><p style=\"text-align: start;\">Our denim will also be updated to a global sizing standard of&nbsp;<strong>22-32 </strong>which will also&nbsp;address the \"in-between\" sizing feedback we've been receiving by adding further sizes. </p><p style=\"text-align: start;\"></p><p style=\"text-align: start;\">Sizing will transition on product from our Autumn collection on Feb 3rd. </p><p style=\"text-align: start;\"></p><p style=\"text-align: start;\">Core will transition over the&nbsp;next 2 months with new size pips starting&nbsp;to come through already.</p><p></p><p style=\"text-align: start;\">Conversions as follows:</p><p></p><table><tbody><tr><td style=\"text-align: center; vertical-align: bottom;\"><p>CURRENT SIZE</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>NEW SIZE</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>DENIM SIZE</p></td></tr><tr><td style=\"text-align: center; vertical-align: bottom;\"><p>00</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>XXS</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>22</p></td></tr><tr><td style=\"text-align: center; vertical-align: bottom;\"><p>&nbsp;</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>&nbsp;</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>23</p></td></tr><tr><td style=\"text-align: center; vertical-align: bottom;\"><p>0</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>XS</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>24</p></td></tr><tr><td style=\"text-align: center; vertical-align: bottom;\"><p>&nbsp;</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>&nbsp;</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>25</p></td></tr><tr><td style=\"text-align: center; vertical-align: bottom;\"><p>1</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>S</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>26</p></td></tr><tr><td style=\"text-align: center; vertical-align: bottom;\"><p>&nbsp;</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>&nbsp;</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>27</p></td></tr><tr><td style=\"text-align: center; vertical-align: bottom;\"><p>2</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>M</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>28</p></td></tr><tr><td style=\"text-align: center; vertical-align: bottom;\"><p>3</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>L</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>30</p></td></tr><tr><td style=\"text-align: center; vertical-align: bottom;\"><p>4</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>XL</p></td><td style=\"text-align: center; vertical-align: bottom;\"><p>32</p></td></tr></tbody></table><p></p><p>Could we please place this as top priority to scope?</p><p></p><p>Thank you,</p><p>Riley</p><p></p><p>CC: @[{\"type\":\"person\",\"id\":\"883492\",\"label\":\"Alicja Balambilayi\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] @[{\"type\":\"person\",\"id\":\"533691\",\"label\":\"Kaddison Rizk\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] @[{\"type\":\"person\",\"id\":\"984756\",\"label\":\"Madeline Uto\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p>",
+        "number": "1747",
+        "task_number": "1747",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-01-15T01:17:01.518+01:00",
+        "updated_at": "2026-04-21T05:24:50.877+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "4df844b48cc813e44aa7dbf5235160ed",
+        "custom_fields": {
+          "7295": "65533",
+          "25067": "2026-02-02"
+        },
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 18390000,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-21T05:24:39.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 60,
+        "worked_time": 55,
         "deleted_at": null
       },
       "relationships": {
@@ -1492,126 +1615,6 @@
         "remaining_time": null,
         "billable_time": null,
         "worked_time": null,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "16275588",
-      "type": "tasks",
-      "attributes": {
-        "title": "Functional Requirements",
-        "description": "<p><strong>Overview</strong></p><p>The Functional Requirements output provides a comprehensive roadmap for the project. It details everything that will be delivered, when it will be delivered, and how each feature will be validated. The board ensures the entire team is aligned on scope, priorities, and delivery expectations.</p><p>It brings together all the Discovery and Definition work to create a clear, actionable plan for design, development, testing, and launch.</p><p></p><p><a href=\"https://app.productive.io/1476-dotdev/docs/doc/441084?filter=MTE4OTA5NA%3D%3D&amp;page=441096\" target=\"_blank\"><del>Further information</del></a></p><p>Updated <a href=\"https://www.notion.so/dotcollectiveanz/Functional-Requirements-327097c375ce804285c7e081d1f75235?source=copy_link\" target=\"_blank\">Functional Requirements Guideline</a></p>",
-        "number": "21",
-        "task_number": "21",
-        "private": false,
-        "due_date": "2026-04-16",
-        "start_date": "2026-04-16",
-        "closed_at": null,
-        "created_at": "2026-02-18T03:55:36.427+01:00",
-        "updated_at": "2026-04-17T05:34:43.676+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "80a1fc65b16c9d484260c465af473252",
-        "custom_fields": null,
-        "todo_count": 0,
-        "open_todo_count": 0,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 1160000,
-        "subtask_placement": 1030000,
-        "bookings_count": 6,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-17T05:21:59.000+02:00",
-        "initial_estimate": 300,
-        "remaining_time": -30,
-        "billable_time": 150,
-        "worked_time": 150,
         "deleted_at": null
       },
       "relationships": {
@@ -3510,7 +3513,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-03-23T02:40:57.770+01:00",
-        "updated_at": "2026-04-20T01:58:26.403+02:00",
+        "updated_at": "2026-04-21T04:10:28.970+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -3522,7 +3525,7 @@
         "todo_count": null,
         "open_todo_count": null,
         "subtask_count": 6,
-        "open_subtask_count": 2,
+        "open_subtask_count": 1,
         "creation_method_id": 1,
         "todo_assignee_ids": [],
         "task_dependency_count": 0,
@@ -4230,7 +4233,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-03-29T23:01:27.595+02:00",
-        "updated_at": "2026-04-15T01:10:14.943+02:00",
+        "updated_at": "2026-04-21T00:47:42.377+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -4261,7 +4264,7 @@
           "Email",
           "Automation"
         ],
-        "last_activity_at": "2026-04-15T01:09:54.000+02:00",
+        "last_activity_at": "2026-04-21T00:47:31.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": 90,
@@ -4506,131 +4509,6 @@
         "remaining_time": null,
         "billable_time": null,
         "worked_time": null,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "17073303",
-      "type": "tasks",
-      "attributes": {
-        "title": "Tracking - Store Engagements",
-        "description": "<p>Hey @[{\"type\":\"person\",\"id\":\"293787\",\"label\":\"Ally Moravski\",\"avatar_url\":\"https://files.productive.io/users/avatars/000/080/600/thumb/attachments_2Ffiles_2F001_2F992_2F317_2Foriginal_2F1625574779793.jpeg?1659930119\",\"attachment_url\":null,\"is_done\":false}] </p><p></p><p>We noticed that sometime in early Feb our store engagement key event metric in GA has dropped off and stopped tracking for GA4. From Feb 8 onwards it's all 0 so looks like something has dropped off about this time (see screenshot attached).</p><p></p><p>The tag should be firing from Google Tag Manager, but I\u2019m not sure why it would have dropped off - no changes come to mind on site or in platform from our end.</p><p></p><p>Thanks</p>",
-        "number": "240",
-        "task_number": "240",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-04-01T07:27:33.302+02:00",
-        "updated_at": "2026-04-08T07:12:40.912+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "76222b981c9eac191656a304e44df641",
-        "custom_fields": {
-          "7295": "25216",
-          "7297": "25227"
-        },
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 47027000,
-        "subtask_placement": null,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [
-          "Development"
-        ],
-        "last_activity_at": "2026-04-02T02:12:52.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": 45,
-        "worked_time": 30,
         "deleted_at": null
       },
       "relationships": {
@@ -5205,7 +5083,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-04-15T00:33:30.937+02:00",
-        "updated_at": "2026-04-21T00:01:18.406+02:00",
+        "updated_at": "2026-04-21T07:15:12.047+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -5354,248 +5232,6 @@
         "due_time": null,
         "tag_list": [],
         "last_activity_at": "2026-04-20T09:05:51.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": null,
-        "worked_time": null,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "17328616",
-      "type": "tasks",
-      "attributes": {
-        "title": "Design Workshop",
-        "description": "",
-        "number": "55",
-        "task_number": "55",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-04-17T01:32:23.646+02:00",
-        "updated_at": "2026-04-17T02:43:42.872+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "3f37d9940aec0172bc0b5ed2cae382e0",
-        "custom_fields": null,
-        "todo_count": 8,
-        "open_todo_count": 4,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [
-          "293787"
-        ],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 1630000,
-        "subtask_placement": 1020000,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-17T02:43:31.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": null,
-        "worked_time": null,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "17329554",
-      "type": "tasks",
-      "attributes": {
-        "title": "Reporting 13/04 - 19/04",
-        "description": "",
-        "number": "1670",
-        "task_number": "1670",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-04-17T03:18:40.171+02:00",
-        "updated_at": "2026-04-17T03:19:10.601+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "0c854f426e33266d86efb3b6ed77ff6c",
-        "custom_fields": null,
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 15995997,
-        "subtask_placement": 1050000,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-17T03:18:59.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": null,
@@ -6278,6 +5914,6 @@
     }
   ],
   "meta": {
-    "total_count": 52
+    "total_count": 49
   }
 }
