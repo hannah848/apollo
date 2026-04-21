@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-21T06:13:31.470527Z",
+  "_generated": "2026-04-21T10:51:24.086357Z",
   "data": [
     {
       "id": "13416018",
@@ -405,6 +405,126 @@
         "remaining_time": 240,
         "billable_time": null,
         "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "15098863",
+      "type": "tasks",
+      "attributes": {
+        "title": "NPFG \u2013 Set Up Subscription Transactional SMS Notifications (Pre-Delivery + Shipping Updates)",
+        "description": "<p><strong>Description:</strong><br>NPFG would like to introduce automated transactional SMS messages for subscription customers. The goal is to notify subscribers <em>five days prior to their upcoming delivery</em> so they can review or modify their order if needed. This aims to reduce avoidable customer service issues, prevent incorrect shipments, and give customers more control over their subscription experience.</p><p></p><p><strong>Key Requirements:</strong></p><ol><li><p><strong>Pre-Delivery SMS (5 days before charge/dispatch)</strong></p><ul><li><p>Trigger an automated text message to subscription customers.</p></li><li><p>Message should prompt them to:<br>\u2022 Review their upcoming subscription order<br>\u2022 Update flavours, quantities, delivery dates, or skip if needed</p></li><li><p><em>Outcome:</em> Reduce fulfilment errors and CS contacts by allowing customers to self-manage before it becomes an issue.</p><p></p></li></ul></li><li><p><strong>Shipping / Fulfilment SMS Updates</strong></p><ul><li><p>Explore integrating SMS notifications to update customers on delivery status.</p></li><li><p>Would ideally include:<br>\u2022 Order dispatched<br>\u2022 Delivery ETA<br>\u2022 Delivery exceptions (if applicable)</p><p></p></li></ul></li></ol><p><strong>Dependencies / Considerations:</strong></p><ul><li><p><strong>Need to confirm if subscription modifications can be controlled and surfaced on site via the current bold set up if no this will need to wait for new site?? ****</strong></p></li><li><p>Estimate feasibility of pulling shipping status from the logistics partners.</p><p></p></li></ul><p><strong>Questions for Client (NPFG):</strong></p><ul><li><p><strong>@Candice</strong> could you please confirm:<br>\u2022 Any preferred copy direction for the pre-delivery SMS?<br>\u2022 Any specific outcomes or behaviours you want to drive beyond order modification?<br>\u2022 For shipping updates, do you want <em>only dispatched + ETA</em> or a full tracking flow?</p></li></ul><p></p><p><strong>Acceptance Criteria:</strong></p><ul><li><p>Pre-delivery SMS sends successfully 5 days before subscription renewal/dispatch.</p></li><li><p>Customers receive a link to manage or edit their subscription.</p></li><li><p>System logs confirm messages are being triggered on the correct dates.</p></li><li><p>Shipping SMS updates fire correctly (if approved) with accurate tracking data.</p></li><li><p>All messaging complies with regional SMS regulations.</p></li><li><p>Start with US market and then apply to other regions.</p></li></ul><p></p><p>@[{\"type\":\"person\",\"id\":\"1038738\",\"label\":\"Candice Watson\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p>",
+        "number": "277",
+        "task_number": "277",
+        "private": false,
+        "due_date": "2026-04-09",
+        "start_date": "2026-04-07",
+        "closed_at": null,
+        "created_at": "2025-12-05T00:36:05.176+01:00",
+        "updated_at": "2026-04-21T12:16:30.872+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "2b8756217e1604e56c9a0c0508a76ca5",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": 1,
+        "open_subtask_count": 0,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 1,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 3610000,
+        "subtask_placement": null,
+        "bookings_count": 1,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-21T12:16:19.000+02:00",
+        "initial_estimate": 60,
+        "remaining_time": -165,
+        "billable_time": 255,
+        "worked_time": 255,
         "deleted_at": null
       },
       "relationships": {
@@ -2175,6 +2295,726 @@
       }
     },
     {
+      "id": "16525219",
+      "type": "tasks",
+      "attributes": {
+        "title": "Sprint 5: Design Review",
+        "description": "<div class=\"prose-mirror-html\"></div><p>Task to schedule and complete the first round of design testing for all subtasks in this sprint.</p>",
+        "number": "360",
+        "task_number": "360",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-02T22:53:21.420+01:00",
+        "updated_at": "2026-04-21T09:30:15.783+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "50885f767eb4d6e2ca34a4408db87604",
+        "custom_fields": null,
+        "todo_count": 2,
+        "open_todo_count": 2,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 2100000,
+        "subtask_placement": 1031000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-21T09:30:03.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16525258",
+      "type": "tasks",
+      "attributes": {
+        "title": "Sprint 6: Design Review",
+        "description": "<div class=\"prose-mirror-html\"></div><p>Task to schedule and complete the first round of design testing for all subtasks in this sprint.</p>",
+        "number": "368",
+        "task_number": "368",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-02T22:56:56.760+01:00",
+        "updated_at": "2026-04-21T09:30:26.078+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "d53185f79e7a88e718c82ea002f7efa1",
+        "custom_fields": null,
+        "todo_count": 2,
+        "open_todo_count": 2,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 2100000,
+        "subtask_placement": 1031000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-21T09:30:13.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16525357",
+      "type": "tasks",
+      "attributes": {
+        "title": "Sprint 8: Design Review",
+        "description": "<div class=\"prose-mirror-html\"></div><p>Task to schedule and complete the first round of design testing for all subtasks in this sprint.</p>",
+        "number": "384",
+        "task_number": "384",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-02T23:02:11.871+01:00",
+        "updated_at": "2026-04-21T09:30:32.320+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "009948a5b0d14a9ffbba12b3ebcd1b0b",
+        "custom_fields": null,
+        "todo_count": 2,
+        "open_todo_count": 2,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 2100000,
+        "subtask_placement": 1031000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-21T09:30:21.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16526993",
+      "type": "tasks",
+      "attributes": {
+        "title": "Sprint 9: Design Review",
+        "description": "<div class=\"prose-mirror-html\"></div><p>Task to schedule and complete the first round of design testing for all subtasks in this sprint.</p>",
+        "number": "393",
+        "task_number": "393",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-03T00:52:43.912+01:00",
+        "updated_at": "2026-04-21T09:30:40.459+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "856eff36ea26024dfff1fe3ed46ee71e",
+        "custom_fields": null,
+        "todo_count": 2,
+        "open_todo_count": 2,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 2100000,
+        "subtask_placement": 1031000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-21T09:30:28.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16527002",
+      "type": "tasks",
+      "attributes": {
+        "title": "Sprint 10: Design Review",
+        "description": "<div class=\"prose-mirror-html\"></div><p>Task to schedule and complete the first round of design testing for all subtasks in this sprint.</p>",
+        "number": "401",
+        "task_number": "401",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-03T00:52:59.717+01:00",
+        "updated_at": "2026-04-21T09:30:48.322+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "2901de9607faf51dcd5cbc1aa0d3f603",
+        "custom_fields": null,
+        "todo_count": 2,
+        "open_todo_count": 2,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 2100000,
+        "subtask_placement": 1031000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-21T09:30:36.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16527011",
+      "type": "tasks",
+      "attributes": {
+        "title": "Sprint 11: Design Review",
+        "description": "<div class=\"prose-mirror-html\"></div><p>Task to schedule and complete the first round of design testing for all subtasks in this sprint.</p>",
+        "number": "409",
+        "task_number": "409",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-03T00:53:08.112+01:00",
+        "updated_at": "2026-04-21T09:31:01.195+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "9f84c389f70a67edfea7629d03e135ff",
+        "custom_fields": null,
+        "todo_count": 2,
+        "open_todo_count": 2,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 2100000,
+        "subtask_placement": 1031000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-21T09:30:42.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
       "id": "16529369",
       "type": "tasks",
       "attributes": {
@@ -2895,6 +3735,246 @@
       }
     },
     {
+      "id": "16530640",
+      "type": "tasks",
+      "attributes": {
+        "title": "Sprint 12: Design Review",
+        "description": "<div class=\"prose-mirror-html\"></div><p>Task to schedule and complete the first round of design testing for all subtasks in this sprint.</p>",
+        "number": "533",
+        "task_number": "533",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-03T06:40:30.416+01:00",
+        "updated_at": "2026-04-21T09:31:04.919+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "5a17177894ac8603559e5f3ad3c286ec",
+        "custom_fields": null,
+        "todo_count": 2,
+        "open_todo_count": 2,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 2100000,
+        "subtask_placement": 1031000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-21T09:30:50.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16530715",
+      "type": "tasks",
+      "attributes": {
+        "title": "Sprint 19: Design Review",
+        "description": "<div class=\"prose-mirror-html\"></div><p>Task to schedule and complete the first round of design testing for all subtasks in this sprint.</p>",
+        "number": "589",
+        "task_number": "589",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-03T06:44:40.363+01:00",
+        "updated_at": "2026-04-21T09:31:17.619+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "e029b1773fc877b16fbc99f07f289ac0",
+        "custom_fields": null,
+        "todo_count": 2,
+        "open_todo_count": 2,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 2100000,
+        "subtask_placement": 1031000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-21T09:31:05.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
       "id": "16581501",
       "type": "tasks",
       "attributes": {
@@ -2907,7 +3987,7 @@
         "start_date": "2026-05-11",
         "closed_at": null,
         "created_at": "2026-03-05T05:35:57.457+01:00",
-        "updated_at": "2026-04-17T07:55:56.162+02:00",
+        "updated_at": "2026-04-21T08:20:29.499+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -2936,7 +4016,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-17T07:55:37.000+02:00",
+        "last_activity_at": "2026-04-21T08:20:18.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": 30,
@@ -5914,6 +6994,6 @@
     }
   ],
   "meta": {
-    "total_count": 49
+    "total_count": 58
   }
 }
