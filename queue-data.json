@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-21T22:25:33.864666Z",
+  "_generated": "2026-04-22T00:04:20.861033Z",
   "data": [
     {
       "id": "13416018",
@@ -490,11 +490,11 @@
         "number": "277",
         "task_number": "277",
         "private": false,
-        "due_date": "2026-04-09",
-        "start_date": "2026-04-07",
+        "due_date": "2026-04-22",
+        "start_date": "2026-04-22",
         "closed_at": null,
         "created_at": "2025-12-05T00:36:05.176+01:00",
-        "updated_at": "2026-04-21T12:16:30.872+02:00",
+        "updated_at": "2026-04-22T01:15:11.143+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -520,7 +520,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-21T12:16:19.000+02:00",
+        "last_activity_at": "2026-04-22T01:14:59.000+02:00",
         "initial_estimate": 60,
         "remaining_time": -165,
         "billable_time": 255,
@@ -1087,126 +1087,6 @@
       }
     },
     {
-      "id": "15909483",
-      "type": "tasks",
-      "attributes": {
-        "title": "Tolstoy Account Structure Review & Training Setup",
-        "description": "<p><strong>Description</strong><br>The team has raised questions around the optimal Tolstoy setup to support regional product linking and playlists.</p><p>Currently, <strong>one Tolstoy account has already been created</strong>, however we need to confirm whether:</p><ul><li><p>A single Tolstoy account with multiple playlists is sufficient, <strong>or</strong></p></li><li><p>Multiple Tolstoy accounts are required (likely one per region) to ensure product and Shopify links correctly route to region-specific sites.</p></li></ul><p>Initial assumption is that <strong>3 Tolstoy accounts may be required (one per region)</strong> so that all product, PDP, and collection links resolve correctly by region.</p><p>This task is to confirm the correct approach and define a clear setup and training path for the client team.</p><p><strong>Task Objective</strong><br>Confirm the correct Tolstoy account structure (single vs multi-account), and prepare the team to self-manage playlists and product linking through training resources.</p><p></p><p><strong>Scope</strong></p><ul><li><p>Review Tolstoy\u2019s capabilities and constraints around:</p><ul><li><p>Regional Shopify integrations</p></li><li><p>Product and collection linking by region</p></li><li><p>Playlist reuse vs duplication across regions</p></li></ul></li><li><p>Confirm whether multiple Tolstoy accounts are required or if one account can support all regions</p></li><li><p>Advise on best-practice account structure going forward</p></li><li><p></p></li></ul><p><strong>Deliverables</strong></p><ul><li><p>Clear recommendation:</p><ul><li><p>One Tolstoy account with multiple playlists <strong>or</strong></p></li><li><p>Multiple Tolstoy accounts (per region), with rationale</p></li></ul></li><li><p>Confirmation of how the existing Tolstoy account fits into the recommended setup</p></li><li><p>Training materials to support internal enablement - they would like just a notion page like we usually do with some recorded loom videos on how to use. Rather than a live training session so whole team can watch and learn. </p></li></ul>",
-        "number": "469",
-        "task_number": "469",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-01-28T02:50:24.828+01:00",
-        "updated_at": "2026-04-15T00:26:53.510+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "d49a2b34cd0511f7e3946157de660ace",
-        "custom_fields": null,
-        "todo_count": 1,
-        "open_todo_count": 0,
-        "subtask_count": 3,
-        "open_subtask_count": 1,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 6450002,
-        "subtask_placement": null,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-08T01:22:54.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": 90,
-        "worked_time": 90,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
       "id": "15979256",
       "type": "tasks",
       "attributes": {
@@ -1572,126 +1452,6 @@
       }
     },
     {
-      "id": "16271960",
-      "type": "tasks",
-      "attributes": {
-        "title": "Post Purchase Customer Survey",
-        "description": "<p>Hi @[{\"type\":\"person\",\"id\":\"992798\",\"label\":\"Kat Hanzalek\",\"avatar_url\":\"https://files.productive.io/people/avatars/6a6b9c6e-1224-442f-ae77-a2cfb1107782/thumb/kat.jpg\",\"attachment_url\":null,\"is_done\":false}] and Dot team,&nbsp;</p><p></p><p>This is my first task so not sure if I am doing this correctly!</p><p></p><p>NPFG would like to add a post-purchase DTC customer survey to our project plan for implementation following launch.&nbsp; Suggested in-market timing Monday, US April 20th. See attached for the current questionnaire.</p><p>This was spearheaded by NA team; however, I believe this makes sense for global implementation so adding Kristy to this as an FYI.&nbsp;</p><p>Ideally this would be an embedded / inline form on this site (likely via the \"Forms theme app embed\" via Shopify). It would link to a third-party service platform. Note, we already pay for SurveyMonkey.&nbsp;If there is a way to fully integrate SurveyMonkey into Shopify, that would be amazing as answers could live in Shopify.&nbsp;</p><p>Would love to&nbsp;review this as a team and determine accurate project scope / strategy.&nbsp;Realize we have lots going on right now with launch, <u>so this is not a priority right now</u>. If we could at minimum add this to our project plan for discussion mid-March, that would be ideal.&nbsp;</p><p>Thanks,<br>Shannon</p><p></p><p>CC: @[{\"type\":\"person\",\"id\":\"1082405\",\"label\":\"Courtney Butcher\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p>",
-        "number": "567",
-        "task_number": "567",
-        "private": false,
-        "due_date": "2026-04-20",
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-02-17T22:30:55.194+01:00",
-        "updated_at": "2026-04-15T00:26:22.701+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "7c7244912d45a1d8cac9851d8eef24e1",
-        "custom_fields": null,
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 6450001,
-        "subtask_placement": null,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-09T21:31:48.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": null,
-        "worked_time": null,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
       "id": "16275587",
       "type": "tasks",
       "attributes": {
@@ -1944,7 +1704,7 @@
         "start_date": "2026-03-19",
         "closed_at": null,
         "created_at": "2026-02-23T07:20:04.427+01:00",
-        "updated_at": "2026-04-22T00:19:11.170+02:00",
+        "updated_at": "2026-04-22T01:14:36.823+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -2098,126 +1858,6 @@
         "remaining_time": null,
         "billable_time": 15,
         "worked_time": 6,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "16410908",
-      "type": "tasks",
-      "attributes": {
-        "title": "Subscription Reactivation - AU",
-        "description": "",
-        "number": "677",
-        "task_number": "677",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-02-26T00:50:36.716+01:00",
-        "updated_at": "2026-04-15T00:24:33.834+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "d6ee6f08aaacdf6eddc951a4866c3efa",
-        "custom_fields": null,
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 6451000,
-        "subtask_placement": 1020000,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-15T00:24:23.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": null,
-        "worked_time": null,
         "deleted_at": null
       },
       "relationships": {
@@ -5301,131 +4941,6 @@
       }
     },
     {
-      "id": "17010064",
-      "type": "tasks",
-      "attributes": {
-        "title": "Wrong WELCOME email sent to US customer",
-        "description": "<p>Hi @[{\"type\":\"person\",\"id\":\"777282\",\"label\":\"Hannah Grantham\",\"avatar_url\":\"https://files.productive.io/people/avatars/f82c5a24-0ecf-412e-99ef-9ebbc7cd1f9d/thumb/Hannah_Grantham.jpeg\",\"attachment_url\":null,\"is_done\":false}]  and team, we\u2019ve had a US customer sign up to our newsletter, but it looks like the email they got came from bark@k9natural.com so they may have signed up via NZ K9 url. They are set up in K9FN US shopify.</p><p></p><p>The email they received with the welcome code is not a valid code for our US site. Its the code we provide for NZ/AU. US should just be WELCOME but the email they got was WELCOME20 so the code was invalid for them. </p><p></p><p>I am guessing this is something to do with the automated email being incorrect? Can we please check this and if there\u2019s an error please amend? </p><p></p><p>Thanks! </p><p>cc@[{\"type\":\"person\",\"id\":\"1082405\",\"label\":\"Courtney Butcher\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] @[{\"type\":\"person\",\"id\":\"1038738\",\"label\":\"Candice Watson\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p><p></p>",
-        "number": "744",
-        "task_number": "744",
-        "private": false,
-        "due_date": "2026-04-09",
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-03-29T23:01:27.595+02:00",
-        "updated_at": "2026-04-21T00:47:42.377+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "318fdf715bcca7e35b68f86fb7650825",
-        "custom_fields": {
-          "7295": "25215"
-        },
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 7970000,
-        "subtask_placement": null,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [
-          "Email",
-          "Automation"
-        ],
-        "last_activity_at": "2026-04-21T00:47:31.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": 90,
-        "worked_time": 60,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
       "id": "17039690",
       "type": "tasks",
       "attributes": {
@@ -6273,6 +5788,126 @@
       }
     },
     {
+      "id": "17287460",
+      "type": "tasks",
+      "attributes": {
+        "title": "Merchant Centre Syncing - Issue",
+        "description": "<p>Hi @[{\"type\":\"person\",\"id\":\"1082405\",\"label\":\"Courtney Butcher\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p><p></p><p>Lachlan flagged that there is an issue with your Merchant Centre syncing for AU, which has suspended your feed.</p><p></p><p>Please review this.</p>",
+        "number": "759",
+        "task_number": "759",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-04-15T10:48:29.841+02:00",
+        "updated_at": "2026-04-22T01:22:10.710+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "eca79ed63d6ed72c3c6a351f69347c27",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 8120000,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-22T01:21:58.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 15,
+        "worked_time": 15,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
       "id": "17308291",
       "type": "tasks",
       "attributes": {
@@ -6994,6 +6629,6 @@
     }
   ],
   "meta": {
-    "total_count": 58
+    "total_count": 55
   }
 }
