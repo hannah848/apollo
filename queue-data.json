@@ -1,126 +1,6 @@
 {
-  "_generated": "2026-04-22T00:04:20.861033Z",
+  "_generated": "2026-04-22T06:25:32.688558Z",
   "data": [
-    {
-      "id": "13416018",
-      "type": "tasks",
-      "attributes": {
-        "title": "Support",
-        "description": "",
-        "number": "1",
-        "task_number": "1",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2025-08-21T04:41:49.030+02:00",
-        "updated_at": "2026-03-26T03:43:25.751+01:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "49b072f3b633191ebe9e74881a5e4560",
-        "custom_fields": null,
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 1010000,
-        "subtask_placement": null,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-03-26T03:43:14.000+01:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": 240,
-        "worked_time": 240,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
     {
       "id": "14461243",
       "type": "tasks",
@@ -3627,7 +3507,7 @@
         "start_date": "2026-05-11",
         "closed_at": null,
         "created_at": "2026-03-05T05:35:57.457+01:00",
-        "updated_at": "2026-04-21T08:20:29.499+02:00",
+        "updated_at": "2026-04-22T07:46:29.309+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -3656,7 +3536,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-21T08:20:18.000+02:00",
+        "last_activity_at": "2026-04-22T07:46:13.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": 30,
@@ -4233,7 +4113,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-03-23T02:40:57.770+01:00",
-        "updated_at": "2026-04-21T04:10:28.970+02:00",
+        "updated_at": "2026-04-22T02:49:53.599+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -4245,7 +4125,7 @@
         "todo_count": null,
         "open_todo_count": null,
         "subtask_count": 6,
-        "open_subtask_count": 1,
+        "open_subtask_count": 0,
         "creation_method_id": 1,
         "todo_assignee_ids": [],
         "task_dependency_count": 0,
@@ -5678,7 +5558,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-04-15T00:33:30.937+02:00",
-        "updated_at": "2026-04-21T07:15:12.047+02:00",
+        "updated_at": "2026-04-22T05:38:01.374+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -5788,6 +5668,126 @@
       }
     },
     {
+      "id": "17285304",
+      "type": "tasks",
+      "attributes": {
+        "title": "Projects Page",
+        "description": "<p>Hi @[{\"type\":\"person\",\"id\":\"293787\",\"label\":\"Ally Moravski\",\"avatar_url\":\"https://files.productive.io/users/avatars/000/080/600/thumb/attachments_2Ffiles_2F001_2F992_2F317_2Foriginal_2F1625574779793.jpeg?1659930119\",\"attachment_url\":null,\"is_done\":false}] &amp; @[{\"type\":\"person\",\"id\":\"934507\",\"label\":\"Audrina Heng\",\"avatar_url\":\"https://files.productive.io/people/avatars/f84dd339-d28c-43c8-86b3-3a0bbf66c61c/thumb/1687927681893.jpeg\",\"attachment_url\":null,\"is_done\":false}]  ,</p><p></p><p>Hope you\u2019re well. </p><p>I\u2019ve noticed we do not have designs for our projects page <a href=\"https://www.jardan.com.au/blogs/projects\" target=\"_blank\"></a><a href=\"https://www.jardan.com.au/blogs/projects\" target=\"_blank\">https://www.jardan.com.au/blogs/projects</a></p><p></p><p>Was Audrina assuming we use the blog designs in Figma for Projects also?</p><p>Thanks</p><p></p>",
+        "number": "668",
+        "task_number": "668",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-04-15T08:51:19.410+02:00",
+        "updated_at": "2026-04-22T06:14:11.312+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "ac537715e70bf0dc22a7769881a186cb",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 5110000,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-22T06:14:00.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
       "id": "17287460",
       "type": "tasks",
       "attributes": {
@@ -5800,7 +5800,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-04-15T10:48:29.841+02:00",
-        "updated_at": "2026-04-22T01:22:10.710+02:00",
+        "updated_at": "2026-04-22T06:21:46.914+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -5826,7 +5826,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-22T01:21:58.000+02:00",
+        "last_activity_at": "2026-04-22T06:21:35.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": 15,
@@ -6036,11 +6036,11 @@
         "number": "724",
         "task_number": "724",
         "private": false,
-        "due_date": null,
+        "due_date": "2026-04-23",
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-04-17T07:49:31.554+02:00",
-        "updated_at": "2026-04-17T07:53:31.656+02:00",
+        "updated_at": "2026-04-22T07:46:34.626+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -6066,7 +6066,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-17T07:53:19.000+02:00",
+        "last_activity_at": "2026-04-22T07:46:23.000+02:00",
         "initial_estimate": 60,
         "remaining_time": 60,
         "billable_time": null,
@@ -6156,11 +6156,11 @@
         "number": "725",
         "task_number": "725",
         "private": false,
-        "due_date": null,
+        "due_date": "2026-04-23",
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-04-17T07:49:37.198+02:00",
-        "updated_at": "2026-04-17T07:53:34.187+02:00",
+        "updated_at": "2026-04-22T07:46:37.189+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -6186,7 +6186,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-17T07:53:23.000+02:00",
+        "last_activity_at": "2026-04-22T07:46:25.000+02:00",
         "initial_estimate": 60,
         "remaining_time": 60,
         "billable_time": null,
@@ -6276,11 +6276,11 @@
         "number": "726",
         "task_number": "726",
         "private": false,
-        "due_date": null,
+        "due_date": "2026-04-23",
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-04-17T07:51:32.329+02:00",
-        "updated_at": "2026-04-17T07:53:39.773+02:00",
+        "updated_at": "2026-04-22T07:46:38.229+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -6306,7 +6306,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-17T07:53:29.000+02:00",
+        "last_activity_at": "2026-04-22T07:46:27.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": null,
@@ -6396,11 +6396,11 @@
         "number": "727",
         "task_number": "727",
         "private": false,
-        "due_date": null,
+        "due_date": "2026-04-23",
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-04-17T07:51:59.987+02:00",
-        "updated_at": "2026-04-17T07:53:45.276+02:00",
+        "updated_at": "2026-04-22T07:46:40.444+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -6426,7 +6426,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-17T07:53:34.000+02:00",
+        "last_activity_at": "2026-04-22T07:46:29.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": null,
