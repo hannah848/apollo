@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-23T06:18:17.999775Z",
+  "_generated": "2026-04-23T10:56:32.330392Z",
   "data": [
     {
       "id": "14461243",
@@ -7598,9 +7598,146 @@
           }
         }
       }
+    },
+    {
+      "id": "17427657",
+      "type": "tasks",
+      "attributes": {
+        "title": "CRO Audit options - to be scoped",
+        "description": "<p>The Nude Lucy team would like to look at some audit options for a CRO-focused audit(similar to previous Glue audit) estimated ~$10K for thorough audit.</p><p></p>",
+        "number": "17",
+        "task_number": "17",
+        "private": false,
+        "due_date": "2026-04-27",
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-04-23T10:24:03.047+02:00",
+        "updated_at": "2026-04-23T10:27:56.730+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "6c46faa6cc17bca8d371983c8c75975a",
+        "custom_fields": {
+          "7295": "25215"
+        },
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 2863451528,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-23T10:27:44.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "todos": {
+          "meta": {
+            "included": false
+          }
+        },
+        "subtasks": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_dependencies": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
     }
   ],
   "meta": {
-    "total_count": 56
+    "total_count": 57
   }
 }
