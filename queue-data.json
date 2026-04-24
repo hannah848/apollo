@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-23T22:30:15.585159Z",
+  "_generated": "2026-04-24T06:21:41.150407Z",
   "data": [
     {
       "id": "14461243",
@@ -2997,7 +2997,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-03-03T04:51:33.641+01:00",
-        "updated_at": "2026-04-16T02:50:39.269+02:00",
+        "updated_at": "2026-04-24T04:53:55.169+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -3017,13 +3017,13 @@
         "blocking_dependency_count": 0,
         "waiting_on_dependency_count": 0,
         "linked_dependency_count": 0,
-        "placement": 11961000,
+        "placement": 11962000,
         "subtask_placement": null,
         "bookings_count": 0,
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-14T06:02:37.000+02:00",
+        "last_activity_at": "2026-04-24T04:53:40.000+02:00",
         "initial_estimate": 960,
         "remaining_time": 60,
         "billable_time": 0,
@@ -4656,6 +4656,141 @@
         "remaining_time": null,
         "billable_time": null,
         "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "todos": {
+          "meta": {
+            "included": false
+          }
+        },
+        "subtasks": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_dependencies": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16876793",
+      "type": "tasks",
+      "attributes": {
+        "title": "UAT Testing",
+        "description": null,
+        "number": "704",
+        "task_number": "704",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-23T04:02:21.507+01:00",
+        "updated_at": "2026-04-24T04:12:33.401+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "80bc9d9f25f69698be7e07439382316d",
+        "custom_fields": null,
+        "todo_count": 24,
+        "open_todo_count": 24,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 7540000,
+        "subtask_placement": 1120000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-24T04:11:49.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 255,
+        "worked_time": 255,
         "deleted_at": null
       },
       "relationships": {
@@ -6522,7 +6657,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-04-15T10:48:29.841+02:00",
-        "updated_at": "2026-04-22T06:21:46.914+02:00",
+        "updated_at": "2026-04-24T07:11:59.220+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -6551,8 +6686,8 @@
         "last_activity_at": "2026-04-22T06:21:35.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
-        "billable_time": 15,
-        "worked_time": 15,
+        "billable_time": 30,
+        "worked_time": 30,
         "deleted_at": null
       },
       "relationships": {
@@ -7738,6 +7873,6 @@
     }
   ],
   "meta": {
-    "total_count": 57
+    "total_count": 58
   }
 }
