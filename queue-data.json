@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-24T06:21:41.150407Z",
+  "_generated": "2026-04-24T10:53:03.901538Z",
   "data": [
     {
       "id": "14461243",
@@ -587,6 +587,141 @@
         "remaining_time": 225,
         "billable_time": 375,
         "worked_time": 375,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "todos": {
+          "meta": {
+            "included": false
+          }
+        },
+        "subtasks": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_dependencies": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "15650646",
+      "type": "tasks",
+      "attributes": {
+        "title": "DC 2026: All Pages",
+        "description": "",
+        "number": "14",
+        "task_number": "14",
+        "private": false,
+        "due_date": "2026-04-24",
+        "start_date": "2026-04-16",
+        "closed_at": null,
+        "created_at": "2026-01-13T06:48:13.500+01:00",
+        "updated_at": "2026-04-24T08:59:45.004+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "d204705ce17ddc2b67eedb8b9bc2b16a",
+        "custom_fields": null,
+        "todo_count": 15,
+        "open_todo_count": 6,
+        "subtask_count": 0,
+        "open_subtask_count": 0,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 1140000,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-24T08:59:24.000+02:00",
+        "initial_estimate": 2400,
+        "remaining_time": 1680,
+        "billable_time": null,
+        "worked_time": null,
         "deleted_at": null
       },
       "relationships": {
@@ -7873,6 +8008,6 @@
     }
   ],
   "meta": {
-    "total_count": 58
+    "total_count": 59
   }
 }
