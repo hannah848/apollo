@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-26T21:55:58.954697Z",
+  "_generated": "2026-04-27T00:03:07.513174Z",
   "data": [
     {
       "id": "14461243",
@@ -6657,7 +6657,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-04-15T08:51:19.410+02:00",
-        "updated_at": "2026-04-23T01:39:08.348+02:00",
+        "updated_at": "2026-04-27T01:21:21.591+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -6683,7 +6683,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-23T01:38:57.000+02:00",
+        "last_activity_at": "2026-04-27T01:21:11.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": null,
@@ -8005,9 +8005,144 @@
           }
         }
       }
+    },
+    {
+      "id": "17484180",
+      "type": "tasks",
+      "attributes": {
+        "title": "Design amends: Implement Pre-Order Functionality",
+        "description": "<p>Design amends: 45 mins </p><p></p><p>Changes: </p><p>In regards to the design updates, I think my fault that i wasn\u2019t very clear. </p><p>Only wanted \u201cA seperate shipping fee will apply to each shipment\u201d removed from the logic of the cart when all shipping was free. </p><p>Still want that copy on other other scenarios.</p><p>Figma marked up <br></p><p>Designs: <a href=\"https://www.figma.com/proto/sgh2nT5YrAy3coghbFZuG6/Jac-Jack---Support?node-id=5132-3334&amp;m=dev&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=5132%3A1932&amp;starting-point-node-id=5132%3A3334&amp;show-proto-sidebar=1&amp;t=Kgmwu3mMs7PSTgFd-1\" target=\"_blank\"></a><a href=\"https://www.figma.com/proto/sgh2nT5YrAy3coghbFZuG6/Jac-Jack---Support?node-id=5132-3334&amp;m=dev&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=5132%3A1932&amp;starting-point-node-id=5132%3A3334&amp;show-proto-sidebar=1&amp;t=Kgmwu3mMs7PSTgFd-1\" target=\"_blank\">https://www.figma.com/proto/sgh2nT5YrAy3coghbFZuG6/Jac-Jack---Support?node-id=5132-3334&amp;m=dev&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=5132%3A1932&amp;starting-point-node-id=5132%3A3334&amp;show-proto-sidebar=1&amp;t=Kgmwu3mMs7PSTgFd-1</a></p>",
+        "number": "315",
+        "task_number": "315",
+        "private": false,
+        "due_date": "2026-04-27",
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-04-27T00:06:13.903+02:00",
+        "updated_at": "2026-04-27T00:07:57.867+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "bb8179d624f2f2a4d49d7dd8a943ddd8",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 4030000,
+        "subtask_placement": 1130000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-27T00:07:16.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "todos": {
+          "meta": {
+            "included": false
+          }
+        },
+        "subtasks": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_dependencies": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
     }
   ],
   "meta": {
-    "total_count": 59
+    "total_count": 60
   }
 }
