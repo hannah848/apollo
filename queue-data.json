@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-27T20:00:46.029933Z",
+  "_generated": "2026-04-27T22:35:56.255022Z",
   "data": [
     {
       "id": "14461243",
@@ -6508,143 +6508,6 @@
       }
     },
     {
-      "id": "17280773",
-      "type": "tasks",
-      "attributes": {
-        "title": "US search traffic resolving to NZ store + geo\u2011redirect prompt for US users",
-        "description": "<p>Hi @[{\"type\":\"person\",\"id\":\"777282\",\"label\":\"Hannah Grantham\",\"avatar_url\":\"https://files.productive.io/people/avatars/f82c5a24-0ecf-412e-99ef-9ebbc7cd1f9d/thumb/Hannah_Grantham.jpeg\",\"attachment_url\":null,\"is_done\":false}] / @[{\"type\":\"person\",\"id\":\"1147959\",\"label\":\"Devon Henson\",\"avatar_url\":\"https://files.productive.io/people/avatars/0cbfc7ee-e426-4b7e-8d39-5d5324e15d6d/thumb/devon.jpg\",\"attachment_url\":null,\"is_done\":false}] </p><p></p><p>One for you both (I think) - we\u2019ve identified an issue where our NZ store is appearing in US organic search engine &amp; AI summary results, and US users are landing on the NZ site instead of the US store. </p><p></p><p>Could you please investigate:</p><p></p><ol><li><p>Why the NZ site continues to be ranking / being served in US search results, even after a period of time since launch</p><p></p></li><li><p>What changes are needed to ensure US users are directed to the US store by default, with clear geographic separation between NZ and US experiences</p><p></p></li></ol><p>In addition, we\u2019d like advice on whether it\u2019s possible to implement a geo\u2011recognition prompt/pop-up on the NZ site, such as:</p><blockquote><p>\u201cLooks like you\u2019re in the US \u2014 head to our US site\u201d</p></blockquote><p>This could be a pop-up banner, or similar, as soon as they land on the site, and ideally:</p><ul><li><p>Triggers for users identified as being in the US</p></li><li><p>Aligns with SEO best practice (i.e. doesn\u2019t negatively impact indexing)</p><p></p></li></ul><p>Please let us know:</p><ul><li><p>Likely cause of the current issue</p></li><li><p>Recommended solution(s)</p></li><li><p>Any trade\u2011offs or risks to be aware of</p></li><li><p>Indicative cost</p><p></p></li></ul><p>Thanks and appreciate your help getting this resolved.</p><p></p><p>CC @[{\"type\":\"person\",\"id\":\"1038738\",\"label\":\"Candice Watson\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}]  @[{\"type\":\"person\",\"id\":\"1116524\",\"label\":\"Shannon Kolarik\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p>",
-        "number": "755",
-        "task_number": "755",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-04-15T00:33:30.937+02:00",
-        "updated_at": "2026-04-22T12:24:10.037+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "4a910eece6ac6a90c7436a647c1c4116",
-        "custom_fields": {
-          "7295": "25215"
-        },
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": 1,
-        "open_subtask_count": 1,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 8080000,
-        "subtask_placement": null,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-21T00:01:03.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": null,
-        "worked_time": null,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "todos": {
-          "meta": {
-            "included": false
-          }
-        },
-        "subtasks": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_dependencies": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
       "id": "17287460",
       "type": "tasks",
       "attributes": {
@@ -7873,6 +7736,6 @@
     }
   ],
   "meta": {
-    "total_count": 58
+    "total_count": 57
   }
 }
