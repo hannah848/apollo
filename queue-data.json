@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-28T18:11:41.094303Z",
+  "_generated": "2026-04-28T21:44:38.294111Z",
   "data": [
     {
       "id": "14461243",
@@ -1540,144 +1540,6 @@
         "remaining_time": null,
         "billable_time": 60,
         "worked_time": 60,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "todos": {
-          "meta": {
-            "included": false
-          }
-        },
-        "subtasks": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_dependencies": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "16345306",
-      "type": "tasks",
-      "attributes": {
-        "title": "Global: Reactivating subscriptions eDM",
-        "description": "<p><strong>Reactivating subscriptions</strong></p><p></p><p>The new website launch will require customers to reactivate their subscriptions and reenter payment details. @[{\"type\":\"person\",\"id\":\"373912\",\"label\":\"Ellie White\",\"avatar_url\":\"https://files.productive.io/people/avatars/18052edf-8dcd-45eb-9e65-68e81931cb1c/thumb/Screenshot_2025-05-23_at_8.33.41%E2%80%AFAM.png\",\"attachment_url\":null,\"is_done\":true}] mentioned there was some work and an existing ticket underway on a recommendation from Dot Collective here, so looking for a recommendation on how to do this following best practice. If via an eDM, then thinking the below:</p><p></p><p><strong>Who</strong>: All users who have a subscription with us</p><p><strong>What</strong>: Prompt to reactivate their subscription and reenter their payment details</p><p><strong>Where</strong>: All Markets (US, AU, NZ)</p><p><strong>When</strong>: Dot to advise, does this need to happen before new site launching? Do not want it to impact the fulfilment of orders during the transition period in any way</p><p><strong>Why</strong>: Users will need to reactivate their account and reenter payment details. Want to avoid any assumptions that price increase is due to new site etc. and results in people not wanting to reactivate. We likely need to offer a discount or incentive to reactivate, eg $10 OFF discount.</p><p><strong>How</strong>: x2 eDMs per market (x6 in total)</p><p></p><p><strong>Notes</strong>:</p><p>Head\u2019s up price increases coming April 1, update now to ensure set-up before change. For US, version required without mentioning price increase for US to exclude Feline Freeze-Dried customers &amp; K9 Toppers &amp; 17/6oz Freeze-Dried (no increase impacting them). Link to customer service.</p>",
-        "number": "623",
-        "task_number": "623",
-        "private": false,
-        "due_date": "2026-03-19",
-        "start_date": "2026-03-19",
-        "closed_at": null,
-        "created_at": "2026-02-23T07:20:04.427+01:00",
-        "updated_at": "2026-04-28T06:41:15.086+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "1bd7026db3130d76388155ce92fb7a23",
-        "custom_fields": {
-          "7295": "25215",
-          "7297": "51881"
-        },
-        "todo_count": 0,
-        "open_todo_count": 0,
-        "subtask_count": 2,
-        "open_subtask_count": 1,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 1,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 6450010,
-        "subtask_placement": null,
-        "bookings_count": 2,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-22T00:19:00.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": null,
-        "worked_time": null,
         "deleted_at": null
       },
       "relationships": {
@@ -9003,6 +8865,141 @@
         "last_activity_at": "2026-04-28T07:45:16.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "todos": {
+          "meta": {
+            "included": false
+          }
+        },
+        "subtasks": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_dependencies": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "17532326",
+      "type": "tasks",
+      "attributes": {
+        "title": "Meeting with designer: Review and update Design System with shared component limitations for SABA & Sportscraft",
+        "description": "<p>Hey Hannah - Can you please book in a meeting with Alex and a designer to run through the customisations, Shopify limitations and app limitations ready to hand back to APG?</p><p></p><p>Then the designer can update Figma, ready to hand back to APG.</p>",
+        "number": "47",
+        "task_number": "47",
+        "private": false,
+        "due_date": "2026-05-14",
+        "start_date": "2026-05-14",
+        "closed_at": null,
+        "created_at": "2026-04-28T22:33:26.449+02:00",
+        "updated_at": "2026-04-28T22:35:00.009+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "eb6277ad82e87ab811cd67589c228253",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 1560000,
+        "subtask_placement": 1020000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-28T22:34:49.000+02:00",
+        "initial_estimate": 60,
+        "remaining_time": 60,
         "billable_time": null,
         "worked_time": null,
         "deleted_at": null
