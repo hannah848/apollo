@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-28T21:44:38.294111Z",
+  "_generated": "2026-04-29T06:40:28.613478Z",
   "data": [
     {
       "id": "14461243",
@@ -1509,7 +1509,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-02-18T03:55:37.157+01:00",
-        "updated_at": "2026-04-27T02:03:25.063+02:00",
+        "updated_at": "2026-04-29T01:48:04.193+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -1521,7 +1521,7 @@
         "todo_count": null,
         "open_todo_count": null,
         "subtask_count": 7,
-        "open_subtask_count": 7,
+        "open_subtask_count": 6,
         "creation_method_id": 1,
         "todo_assignee_ids": [],
         "task_dependency_count": 0,
@@ -1540,6 +1540,141 @@
         "remaining_time": null,
         "billable_time": 60,
         "worked_time": 60,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "todos": {
+          "meta": {
+            "included": false
+          }
+        },
+        "subtasks": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_dependencies": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16299523",
+      "type": "tasks",
+      "attributes": {
+        "title": "Incu - Online Optimisation",
+        "description": "<p>Hey Ellie,</p><p></p><p>We\u2019re currently working on an online optimisation project and I\u2019d love to run you through the brief and key focus areas before we start raising tickets to have everything scoped properly.</p><p></p><p>At a high level, the objective is to create a more seamless conversion funnel and make it easier for customers to discover brands and products - primarily by levelling up our on-site search, filtering and merchandising experience.</p><p></p><p>This project will largely involve the Athos team, as we\u2019ll be optimising both the design and functionality across:</p><p><strong>Search &amp; Filtering</strong></p><ul><li><p>Advanced filters</p></li><li><p>Size filters</p></li><li><p>Search bar optimisations</p></li></ul><p><strong>UX Improvements</strong></p><ul><li><p>Hover size availability for all products, plus ability to click/swipe through products at PLP level</p></li><li><p>Updated in-line banners</p></li><li><p>Updated badge design</p></li><li><p>\u201cShop by Fit\u201d navigation functionality</p></li><li><p>Colour swatches</p></li><li><p>Improved size guides</p></li></ul><p>We\u2019re also exploring development of a few new homepage modules, including:</p><ul><li><p>Product gallery module</p></li><li><p>Full-bleed multi-column module</p></li><li><p>New CTA capabilities so we can run multiple messages i.e. separate 'Mens' &amp; 'Womens' buttons on one module&nbsp;</p></li></ul><p>For Incu Collection specifically, we\u2019re considering creating a dedicated landing page / website tab to give the brand a more distinct experience separate from the main site - similar to how Aje structures Aje, Aje Studio and Aje Athletica (<a href=\"https://ajeworld.com.au/\" target=\"_blank\"></a><a href=\"https://ajeworld.com.au/\" target=\"_blank\">https://ajeworld.com.au/</a>).</p><p></p><p>These are the initial areas we\u2019re looking to prioritise &amp; I'd love to discuss the brief with you in more detail. It would be great to get your perspective on which elements you think would require UX input versus those that are more straightforward from a development perspective and could be scoped without UX support.</p><p></p><p>Let me know a good time to connect and I can run you through everything - I can do Friday at 11am if that suits?</p><p>Thanks,<br>Laura</p>",
+        "number": "492",
+        "task_number": "492",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-02-19T05:05:17.654+01:00",
+        "updated_at": "2026-04-29T08:26:16.834+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "41097df35420985fefc83dd4fb65b2ad",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": 1,
+        "open_subtask_count": 1,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 4287477432,
+        "subtask_placement": null,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-29T08:25:53.000+02:00",
+        "initial_estimate": 30,
+        "remaining_time": -60,
+        "billable_time": 90,
+        "worked_time": 90,
         "deleted_at": null
       },
       "relationships": {
@@ -3669,7 +3804,7 @@
         "start_date": "2026-05-11",
         "closed_at": null,
         "created_at": "2026-03-05T05:35:57.457+01:00",
-        "updated_at": "2026-04-23T02:48:25.231+02:00",
+        "updated_at": "2026-04-29T07:29:20.465+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -3700,7 +3835,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-23T02:43:25.000+02:00",
+        "last_activity_at": "2026-04-29T07:29:10.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": 30,
@@ -5150,6 +5285,141 @@
       }
     },
     {
+      "id": "16928799",
+      "type": "tasks",
+      "attributes": {
+        "title": "Sprint 12: PDP Configuration - Additional designs",
+        "description": "<ul><li><p>Tables (Products with options 1-3)</p></li><li><p>Rugs</p></li></ul>",
+        "number": "665",
+        "task_number": "665",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-25T07:10:45.513+01:00",
+        "updated_at": "2026-04-29T08:29:36.847+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "4b9b096f479e0baa217be46606fd10bf",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 5080000,
+        "subtask_placement": 1110000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-04-29T08:29:25.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 45,
+        "worked_time": 45,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "todos": {
+          "meta": {
+            "included": false
+          }
+        },
+        "subtasks": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_dependencies": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
       "id": "16928800",
       "type": "tasks",
       "attributes": {
@@ -6143,141 +6413,6 @@
         "remaining_time": null,
         "billable_time": null,
         "worked_time": null,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "todos": {
-          "meta": {
-            "included": false
-          }
-        },
-        "subtasks": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_dependencies": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "17287460",
-      "type": "tasks",
-      "attributes": {
-        "title": "Merchant Centre Syncing - Issue",
-        "description": "<p>Hi @[{\"type\":\"person\",\"id\":\"1082405\",\"label\":\"Courtney Butcher\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] </p><p></p><p>Lachlan flagged that there is an issue with your Merchant Centre syncing for AU, which has suspended your feed.</p><p></p><p>Please review this.</p>",
-        "number": "759",
-        "task_number": "759",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-04-15T10:48:29.841+02:00",
-        "updated_at": "2026-04-24T07:11:59.220+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "eca79ed63d6ed72c3c6a351f69347c27",
-        "custom_fields": null,
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 8120000,
-        "subtask_placement": null,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-22T06:21:35.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": 30,
-        "worked_time": 30,
         "deleted_at": null
       },
       "relationships": {
@@ -9095,6 +9230,6 @@
     }
   ],
   "meta": {
-    "total_count": 67
+    "total_count": 68
   }
 }
