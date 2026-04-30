@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-29T23:40:03.909367Z",
+  "_generated": "2026-04-30T07:53:14.504090Z",
   "data": [
     {
       "id": "14461243",
@@ -3804,7 +3804,7 @@
         "start_date": "2026-05-11",
         "closed_at": null,
         "created_at": "2026-03-05T05:35:57.457+01:00",
-        "updated_at": "2026-04-29T07:29:20.465+02:00",
+        "updated_at": "2026-04-30T08:48:39.566+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -3835,7 +3835,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-29T07:29:10.000+02:00",
+        "last_activity_at": "2026-04-30T08:48:28.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": 30,
@@ -4745,141 +4745,6 @@
       }
     },
     {
-      "id": "16876793",
-      "type": "tasks",
-      "attributes": {
-        "title": "UAT Testing",
-        "description": null,
-        "number": "704",
-        "task_number": "704",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-03-23T04:02:21.507+01:00",
-        "updated_at": "2026-04-24T04:12:33.401+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "80bc9d9f25f69698be7e07439382316d",
-        "custom_fields": null,
-        "todo_count": 24,
-        "open_todo_count": 24,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 7540000,
-        "subtask_placement": 1120000,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-24T04:11:49.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": 255,
-        "worked_time": 255,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "todos": {
-          "meta": {
-            "included": false
-          }
-        },
-        "subtasks": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_dependencies": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
       "id": "16879540",
       "type": "tasks",
       "attributes": {
@@ -5158,11 +5023,11 @@
         "number": "54",
         "task_number": "54",
         "private": false,
-        "due_date": "2026-05-21",
-        "start_date": "2026-05-21",
+        "due_date": "2026-06-04",
+        "start_date": "2026-06-04",
         "closed_at": null,
         "created_at": "2026-03-25T03:22:49.840+01:00",
-        "updated_at": "2026-04-16T04:05:19.538+02:00",
+        "updated_at": "2026-04-30T07:24:17.309+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -5188,7 +5053,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-16T04:05:08.000+02:00",
+        "last_activity_at": "2026-04-30T07:23:58.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": null,
@@ -5297,7 +5162,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-03-25T07:10:45.513+01:00",
-        "updated_at": "2026-04-29T08:29:36.847+02:00",
+        "updated_at": "2026-04-30T09:24:48.321+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -6517,7 +6382,7 @@
         "start_date": "2026-05-11",
         "closed_at": null,
         "created_at": "2026-04-16T05:13:26.506+02:00",
-        "updated_at": "2026-04-23T02:51:13.786+02:00",
+        "updated_at": "2026-04-30T02:45:34.431+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -6545,9 +6410,9 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-23T02:50:58.000+02:00",
+        "last_activity_at": "2026-04-30T02:45:23.000+02:00",
         "initial_estimate": 840,
-        "remaining_time": 840,
+        "remaining_time": 1260,
         "billable_time": null,
         "worked_time": null,
         "deleted_at": null
@@ -7468,11 +7333,11 @@
         "number": "17",
         "task_number": "17",
         "private": false,
-        "due_date": "2026-04-27",
+        "due_date": null,
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-04-23T10:24:03.047+02:00",
-        "updated_at": "2026-04-23T10:27:56.730+02:00",
+        "updated_at": "2026-04-30T05:53:04.500+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -7500,7 +7365,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-23T10:27:44.000+02:00",
+        "last_activity_at": "2026-04-30T05:52:52.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": null,
@@ -7735,144 +7600,6 @@
       }
     },
     {
-      "id": "17507445",
-      "type": "tasks",
-      "attributes": {
-        "title": "[Fulfillment & Operations] Inventory Planning & Demand Forecasting \u2014 Replace Excel",
-        "description": "<p>Outcome: Eliminate peak-season stock-outs + free team from manual spreadsheet forecasting. Output: 'this is what you need to order, this is your campaign size given the stock you've ordered'.</p><p>Context (21 Apr call):</p><p>- Currently all Excel \u2014 pulling historical campaigns + manual forecasting.</p><p>- Brend wants a tool that ingests trends, emerging products, launches, and last year's success/failure to recommend orders.</p><p>- Scott noted NetSuite has a basic forecasting platform \u2014 evaluate as cheap baseline vs. dedicated tool.</p><p>- Negative-sentiment AI layer requested ('what did we screw up last year? what did we not order enough of?').</p><p>- Likely overlaps with Reporting Automation \u2014 confirm whether delivered as one program.</p><p>Bumped from Medium \u2192 High based on call (forecasting friction is acute, especially in peak when team is on leave).</p><p>Next step: Set kickoff discovery call to scope \u2014 and align with Reporting Automation kickoff.</p>",
-        "number": "118",
-        "task_number": "118",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-04-28T03:14:07.820+02:00",
-        "updated_at": "2026-04-28T05:01:07.815+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "fd6f4e88f9677aee27d71e52712d1e75",
-        "custom_fields": {
-          "7295": "25215",
-          "7297": "25227"
-        },
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 1970010,
-        "subtask_placement": null,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-28T05:00:53.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": null,
-        "worked_time": null,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "todos": {
-          "meta": {
-            "included": false
-          }
-        },
-        "subtasks": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_dependencies": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
       "id": "17507448",
       "type": "tasks",
       "attributes": {
@@ -7885,7 +7612,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-04-28T03:14:12.648+02:00",
-        "updated_at": "2026-04-28T04:48:46.000+02:00",
+        "updated_at": "2026-04-30T04:01:41.277+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -7899,8 +7626,8 @@
         },
         "todo_count": null,
         "open_todo_count": null,
-        "subtask_count": null,
-        "open_subtask_count": null,
+        "subtask_count": 3,
+        "open_subtask_count": 3,
         "creation_method_id": 1,
         "todo_assignee_ids": [],
         "task_dependency_count": 0,
@@ -8023,7 +7750,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-04-28T03:14:14.490+02:00",
-        "updated_at": "2026-04-28T04:48:58.192+02:00",
+        "updated_at": "2026-04-30T03:57:29.237+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -8037,8 +7764,8 @@
         },
         "todo_count": null,
         "open_todo_count": null,
-        "subtask_count": null,
-        "open_subtask_count": null,
+        "subtask_count": 1,
+        "open_subtask_count": 1,
         "creation_method_id": 1,
         "todo_assignee_ids": [],
         "task_dependency_count": 0,
@@ -8962,7 +8689,7 @@
       "id": "17509939",
       "type": "tasks",
       "attributes": {
-        "title": "Email Templates",
+        "title": "Gift Card Email Templates",
         "description": "<p>The email notification should include the design featured on the page template. </p><p></p><p>@[{\"type\":\"person\",\"id\":\"774284\",\"label\":\"Jayde McLean\",\"avatar_url\":null,\"attachment_url\":null,\"is_done\":false}] please add additional information here so I can get the design team onto this.</p><p></p><p>Thank you,</p>",
         "number": "365",
         "task_number": "365",
@@ -8971,7 +8698,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-04-28T07:15:52.523+02:00",
-        "updated_at": "2026-04-28T07:45:29.984+02:00",
+        "updated_at": "2026-04-30T05:23:05.388+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -8997,7 +8724,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-28T07:45:16.000+02:00",
+        "last_activity_at": "2026-04-30T05:22:54.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": null,
@@ -9230,6 +8957,6 @@
     }
   ],
   "meta": {
-    "total_count": 68
+    "total_count": 66
   }
 }
