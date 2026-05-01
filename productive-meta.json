@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-05-01T00:07:15.887307Z",
+  "_generated": "2026-05-01T08:30:16.565977Z",
   "projects": [
     {
       "id": "418822",
@@ -274,10 +274,6 @@
       "name": "[TEST] Project with compute hours"
     },
     {
-      "id": "545855",
-      "name": "Accent Group Lifestyle Support"
-    },
-    {
       "id": "315963",
       "name": "Accent Group Support"
     },
@@ -338,10 +334,6 @@
       "name": "Apparel 21 POS Integration"
     },
     {
-      "id": "550367",
-      "name": "Arms of Eve - Shopify POS"
-    },
-    {
       "id": "717581",
       "name": "Australian Stitch"
     },
@@ -362,10 +354,6 @@
       "name": "Billini & Banb\u00e9 Theme Rebuilds "
     },
     {
-      "id": "912888",
-      "name": "Billini and Banb\u00e9 Theme Rebuilds"
-    },
-    {
       "id": "568241",
       "name": "Bonnie & Neil Support "
     },
@@ -384,10 +372,6 @@
     {
       "id": "148584",
       "name": "Brandbank Support"
-    },
-    {
-      "id": "435422",
-      "name": "Brauz"
     },
     {
       "id": "65285",
@@ -428,10 +412,6 @@
     {
       "id": "79822",
       "name": "Charles Rose Support"
-    },
-    {
-      "id": "766564",
-      "name": "Chemist Warehouse Optometry - Support"
     },
     {
       "id": "920388",
@@ -516,6 +496,10 @@
     {
       "id": "872275",
       "name": "Early Settler | Shopify Website"
+    },
+    {
+      "id": "925825",
+      "name": "Eckersley's - POS"
     },
     {
       "id": "840660",
@@ -798,10 +782,6 @@
       "name": "MJ Bale"
     },
     {
-      "id": "844951",
-      "name": "Mr. Smith Support"
-    },
-    {
       "id": "59873",
       "name": "My Journey Support"
     },
@@ -906,10 +886,6 @@
       "name": "Premax Support "
     },
     {
-      "id": "687725",
-      "name": "Price Attack"
-    },
-    {
       "id": "707374",
       "name": "Prime100 Support "
     },
@@ -932,10 +908,6 @@
     {
       "id": "807620",
       "name": "Project test Sophie"
-    },
-    {
-      "id": "549601",
-      "name": "Purebaby - POS"
     },
     {
       "id": "569449",
@@ -1062,10 +1034,6 @@
       "name": "Shopify "
     },
     {
-      "id": "577672",
-      "name": "SIR The Label - POS"
-    },
-    {
       "id": "776656",
       "name": "Siren Footwear DotApparel Implementation"
     },
@@ -1114,10 +1082,6 @@
       "name": "The AFL Store Support"
     },
     {
-      "id": "725115",
-      "name": "The Memo Support "
-    },
-    {
       "id": "602617",
       "name": "The New Trend Support"
     },
@@ -1160,10 +1124,6 @@
     {
       "id": "794952",
       "name": "Wesfarmers RFP"
-    },
-    {
-      "id": "580411",
-      "name": "Wilson & Dorset - Data Migration"
     },
     {
       "id": "706603",
