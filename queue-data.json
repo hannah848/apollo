@@ -1,5 +1,5 @@
 {
-  "_generated": "2026-04-30T21:36:52.229238Z",
+  "_generated": "2026-05-01T07:17:17.144814Z",
   "data": [
     {
       "id": "14461243",
@@ -1374,7 +1374,7 @@
         "start_date": "2026-04-07",
         "closed_at": null,
         "created_at": "2026-02-18T03:55:36.210+01:00",
-        "updated_at": "2026-03-24T07:45:18.884+01:00",
+        "updated_at": "2026-05-01T06:11:33.000+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -1509,7 +1509,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-02-18T03:55:37.157+01:00",
-        "updated_at": "2026-04-29T01:48:04.193+02:00",
+        "updated_at": "2026-05-01T06:11:33.000+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -1644,7 +1644,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-02-19T05:05:17.654+01:00",
-        "updated_at": "2026-04-29T08:26:16.834+02:00",
+        "updated_at": "2026-05-01T08:05:28.550+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -1810,681 +1810,6 @@
         "remaining_time": null,
         "billable_time": 15,
         "worked_time": 6,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "todos": {
-          "meta": {
-            "included": false
-          }
-        },
-        "subtasks": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_dependencies": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "16525219",
-      "type": "tasks",
-      "attributes": {
-        "title": "Sprint 5: Design Review",
-        "description": "<div class=\"prose-mirror-html\"></div><p>Task to schedule and complete the first round of design testing for all subtasks in this sprint.</p>",
-        "number": "360",
-        "task_number": "360",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-03-02T22:53:21.420+01:00",
-        "updated_at": "2026-04-21T09:30:15.783+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "50885f767eb4d6e2ca34a4408db87604",
-        "custom_fields": null,
-        "todo_count": 2,
-        "open_todo_count": 2,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 2100000,
-        "subtask_placement": 1031000,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-21T09:30:03.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": null,
-        "worked_time": null,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "todos": {
-          "meta": {
-            "included": false
-          }
-        },
-        "subtasks": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_dependencies": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "16525253",
-      "type": "tasks",
-      "attributes": {
-        "title": "Sprint 6: Product - Gift Card PDP, Bundle PDP",
-        "description": "<p>This sprint covers the rollout of the following features:</p><ul><li><p>Gift Card PDP</p></li><li><p>Bundle PDP</p></li></ul><p>Details &amp; technical approaches are included in the below subtasks.</p><p></p>",
-        "number": "363",
-        "task_number": "363",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-03-02T22:56:55.899+01:00",
-        "updated_at": "2026-04-30T13:28:16.809+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "82ef81a7e7cef9e189a734d66f307eaf",
-        "custom_fields": null,
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": 8,
-        "open_subtask_count": 3,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 3,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 4140000,
-        "subtask_placement": null,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-30T13:28:04.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": 2445,
-        "worked_time": 1230,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "todos": {
-          "meta": {
-            "included": false
-          }
-        },
-        "subtasks": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_dependencies": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "16525258",
-      "type": "tasks",
-      "attributes": {
-        "title": "Sprint 6: Design Review",
-        "description": "<div class=\"prose-mirror-html\"></div><p>Task to schedule and complete the first round of design testing for all subtasks in this sprint.</p>",
-        "number": "368",
-        "task_number": "368",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-03-02T22:56:56.760+01:00",
-        "updated_at": "2026-04-21T09:30:26.078+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "d53185f79e7a88e718c82ea002f7efa1",
-        "custom_fields": null,
-        "todo_count": 2,
-        "open_todo_count": 2,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 2100000,
-        "subtask_placement": 1031000,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-21T09:30:13.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": null,
-        "worked_time": null,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "todos": {
-          "meta": {
-            "included": false
-          }
-        },
-        "subtasks": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_dependencies": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "16525357",
-      "type": "tasks",
-      "attributes": {
-        "title": "Sprint 8: Design Review",
-        "description": "<div class=\"prose-mirror-html\"></div><p>Task to schedule and complete the first round of design testing for all subtasks in this sprint.</p>",
-        "number": "384",
-        "task_number": "384",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-03-02T23:02:11.871+01:00",
-        "updated_at": "2026-04-21T09:30:32.320+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "009948a5b0d14a9ffbba12b3ebcd1b0b",
-        "custom_fields": null,
-        "todo_count": 2,
-        "open_todo_count": 2,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 2100000,
-        "subtask_placement": 1031000,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-21T09:30:21.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": null,
-        "worked_time": null,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "todos": {
-          "meta": {
-            "included": false
-          }
-        },
-        "subtasks": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_dependencies": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "16526993",
-      "type": "tasks",
-      "attributes": {
-        "title": "Sprint 9: Design Review",
-        "description": "<div class=\"prose-mirror-html\"></div><p>Task to schedule and complete the first round of design testing for all subtasks in this sprint.</p>",
-        "number": "393",
-        "task_number": "393",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-03-03T00:52:43.912+01:00",
-        "updated_at": "2026-04-21T09:30:40.459+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "856eff36ea26024dfff1fe3ed46ee71e",
-        "custom_fields": null,
-        "todo_count": 2,
-        "open_todo_count": 2,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 2100000,
-        "subtask_placement": 1031000,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-21T09:30:28.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": null,
-        "worked_time": null,
         "deleted_at": null
       },
       "relationships": {
@@ -2994,7 +2319,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-03-03T04:51:33.641+01:00",
-        "updated_at": "2026-04-24T04:53:55.169+02:00",
+        "updated_at": "2026-05-01T05:05:53.735+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -3014,13 +2339,13 @@
         "blocking_dependency_count": 0,
         "waiting_on_dependency_count": 0,
         "linked_dependency_count": 0,
-        "placement": 11962000,
+        "placement": 50461000,
         "subtask_placement": null,
         "bookings_count": 0,
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-24T04:53:40.000+02:00",
+        "last_activity_at": "2026-05-01T05:05:37.000+02:00",
         "initial_estimate": 960,
         "remaining_time": 60,
         "billable_time": 0,
@@ -3657,276 +2982,6 @@
       }
     },
     {
-      "id": "16530345",
-      "type": "tasks",
-      "attributes": {
-        "title": "Bundle PDP",
-        "description": "<p><strong>In Scope:</strong></p><ul><li><p>Expanding on the Default PDP Layout</p></li><li><p>Display savings badge in place of stock level badge</p><ul><li><p>To also inherit base product hex colour</p></li></ul></li><li><p>Total price and comparison to full price to be displayed</p><ul><li><p>This price updates as quantities and products are changed</p></li></ul></li><li><p>Display a list of product included within the bundle that:</p><ul><li><p>Appears in an accordion list showing the title and thumbnail of the currently selected product</p></li><li><p>On expansion of the accordion, show:</p><ul><li><p>Colour title and swatches</p></li><li><p>Size title and variant selection</p></li><li><p>Quantity selector</p><ul><li><p>This may have a minimum quantity required, and this minimum should be displayed</p></li></ul></li></ul></li></ul></li><li><p>On click of the add to cart button, each selected product is to be added to cart with line item attributes identifying them as part of a bundle and outlining the bundle requirements and target price for processing by the discount function</p></li></ul><p></p><p><strong>Out of scope:</strong></p><ul><li><p>Discounting of bundle items in cart/checkout (addressed in another task)</p></li><li><p>Application of bundle discount and attributes when added outside of Bundle PDP</p></li></ul><p></p><p><strong>Acceptance criteria:</strong></p><ul><li><p>All relevant Default PDP functionality continues to display and function as expected</p><ul><li><p>Elements that aren't relevant to the bundle template are correctly removed</p></li></ul></li><li><p>Bundle price and comparison correctly reflects currently selected items</p><ul><li><p>Changes as selection are updated</p></li></ul></li><li><p>Variant selection options function correctly for each child product</p></li><li><p>On add to cart, all selected products are added to cart with correct:</p><ul><li><p>Variant options</p></li><li><p>Quantities</p></li><li><p>Line item attributes</p></li></ul></li></ul><p></p><p><strong>References:</strong></p><ul><li><p><a href=\"https://www.figma.com/design/DxOY3rxIdGfjgrirLYyxjg/Jardan---Website-Redesign--Master-?node-id=11649-24331&amp;p=f&amp;t=lItbnZYGftm9fpFy-0\" target=\"_blank\"></a><a href=\"https://www.figma.com/design/DxOY3rxIdGfjgrirLYyxjg/Jardan---Website-Redesign--Master-?node-id=11649-24331&amp;p=f&amp;t=lItbnZYGftm9fpFy-0\" target=\"_blank\">https://www.figma.com/design/DxOY3rxIdGfjgrirLYyxjg/Jardan---Website-Redesign--Master-?node-id=11649-24331&amp;p=f&amp;t=lItbnZYGftm9fpFy-0</a></p></li></ul>",
-        "number": "519",
-        "task_number": "519",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-03-03T06:22:30.850+01:00",
-        "updated_at": "2026-04-30T13:28:01.609+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "7f373d0ade8a365da8247d536dac3c73",
-        "custom_fields": null,
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 4320000,
-        "subtask_placement": 1011000,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-30T13:27:51.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": 0,
-        "worked_time": 0,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "todos": {
-          "meta": {
-            "included": false
-          }
-        },
-        "subtasks": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_dependencies": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
-      "id": "16530418",
-      "type": "tasks",
-      "attributes": {
-        "title": "Cart Page",
-        "description": "<p><strong>In Scope:</strong></p><ul><li><p>Empty cart page view contains:</p><ul><li><p>Page heading</p></li><li><p>Continue shopping link</p></li><li><p>Featured collection link cards</p></li></ul></li><li><p>Cart page heading with item count</p></li><li><p>Cart summary section including:</p><ul><li><p>Heading</p></li><li><p>Shipping progress indicator</p></li><li><p>Cart totals</p></li><li><p>Proceed to checkout button</p></li></ul></li><li><p>Cart items list as per Cart Drawer layout</p></li><li><p>Gifting options:</p><ul><li><p>Ability to select from standard packaging or gift wrapping</p></li><li><p>Additional line item to be added to cart when gift wrapping selected</p></li><li><p>Ability to add gift message</p></li><li><p>Ability to define which items are wrapped when</p></li></ul></li><li><p>Recommended products carousel</p></li></ul><p></p><p><strong>Out of scope:</strong></p><ul><li><p>Checkout process (separate task)</p></li><li><p>Payment processing</p></li></ul><p></p><p><strong>Acceptance criteria:</strong></p><ul><li><p>Empty cart state displays appropriately</p></li><li><p>Cart items display with correct details</p></li><li><p>Quantity updates work correctly</p></li><li><p>Item types correctly split into groups with appropriate headings</p></li><li><p>Cart summary shows accurate totals</p></li><li><p>Cart is responsive across breakpoints</p></li><li><p>Recommended products display correctly</p></li><li><p>Cart state updates correctly on change</p></li><li><p>Gifting options are selectable and correctly apply to cart session</p></li></ul><p></p><p><strong>References:</strong></p><ul><li><p><a href=\"https://www.figma.com/design/DxOY3rxIdGfjgrirLYyxjg/Jardan---Website-Redesign--Master-?node-id=11649-24331&amp;p=f&amp;t=nwfdbgUZPOGqJqnV-0\" target=\"_blank\"></a><a href=\"https://www.figma.com/design/DxOY3rxIdGfjgrirLYyxjg/Jardan---Website-Redesign--Master-?node-id=11649-24331&amp;p=f&amp;t=nwfdbgUZPOGqJqnV-0\" target=\"_blank\">https://www.figma.com/design/DxOY3rxIdGfjgrirLYyxjg/Jardan---Website-Redesign--Master-?node-id=11649-24331&amp;p=f&amp;t=nwfdbgUZPOGqJqnV-0</a></p></li></ul>",
-        "number": "522",
-        "task_number": "522",
-        "private": false,
-        "due_date": null,
-        "start_date": null,
-        "closed_at": null,
-        "created_at": "2026-03-03T06:25:36.884+01:00",
-        "updated_at": "2026-04-30T13:19:36.868+02:00",
-        "repeat_schedule_id": null,
-        "repeat_on_interval": null,
-        "repeat_on_monthday": null,
-        "repeat_on_weekday": [],
-        "repeat_on_date": null,
-        "repeat_origin_id": null,
-        "email_key": "c1200775b31d9863edec351343cc39d1",
-        "custom_fields": null,
-        "todo_count": null,
-        "open_todo_count": null,
-        "subtask_count": null,
-        "open_subtask_count": null,
-        "creation_method_id": 1,
-        "todo_assignee_ids": [],
-        "task_dependency_count": 0,
-        "type_id": 1,
-        "blocking_dependency_count": 0,
-        "waiting_on_dependency_count": 0,
-        "linked_dependency_count": 0,
-        "placement": 4350000,
-        "subtask_placement": 1011000,
-        "bookings_count": 0,
-        "closed": false,
-        "due_time": null,
-        "tag_list": [],
-        "last_activity_at": "2026-04-30T13:19:25.000+02:00",
-        "initial_estimate": null,
-        "remaining_time": null,
-        "billable_time": 0,
-        "worked_time": 0,
-        "deleted_at": null
-      },
-      "relationships": {
-        "organization": {
-          "data": {
-            "type": "organizations",
-            "id": "1476"
-          }
-        },
-        "project": {
-          "meta": {
-            "included": false
-          }
-        },
-        "creator": {
-          "meta": {
-            "included": false
-          }
-        },
-        "assignee": {
-          "meta": {
-            "included": false
-          }
-        },
-        "last_actor": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_list": {
-          "meta": {
-            "included": false
-          }
-        },
-        "parent_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "workflow_status": {
-          "meta": {
-            "included": false
-          }
-        },
-        "service": {
-          "meta": {
-            "included": false
-          }
-        },
-        "repeated_task": {
-          "meta": {
-            "included": false
-          }
-        },
-        "template_object": {
-          "meta": {
-            "included": false
-          }
-        },
-        "attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_people": {
-          "meta": {
-            "included": false
-          }
-        },
-        "custom_field_attachments": {
-          "meta": {
-            "included": false
-          }
-        },
-        "todos": {
-          "meta": {
-            "included": false
-          }
-        },
-        "subtasks": {
-          "meta": {
-            "included": false
-          }
-        },
-        "task_dependencies": {
-          "meta": {
-            "included": false
-          }
-        }
-      }
-    },
-    {
       "id": "16530640",
       "type": "tasks",
       "attributes": {
@@ -4062,6 +3117,141 @@
       }
     },
     {
+      "id": "16530648",
+      "type": "tasks",
+      "attributes": {
+        "title": "Sprint 13: Design Review",
+        "description": "<div class=\"prose-mirror-html\"></div><p>Task to schedule and complete the first round of design testing for all subtasks in this sprint.</p>",
+        "number": "541",
+        "task_number": "541",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-03T06:40:37.630+01:00",
+        "updated_at": "2026-05-01T01:31:34.247+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "6137006573b9e92d2ba9286b66a965ea",
+        "custom_fields": null,
+        "todo_count": 2,
+        "open_todo_count": 2,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 2100000,
+        "subtask_placement": 1031000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-05-01T01:31:21.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "todos": {
+          "meta": {
+            "included": false
+          }
+        },
+        "subtasks": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_dependencies": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
       "id": "16530715",
       "type": "tasks",
       "attributes": {
@@ -4101,6 +3291,276 @@
         "due_time": null,
         "tag_list": [],
         "last_activity_at": "2026-04-21T09:31:05.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "todos": {
+          "meta": {
+            "included": false
+          }
+        },
+        "subtasks": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_dependencies": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16530981",
+      "type": "tasks",
+      "attributes": {
+        "title": "Collection Grid",
+        "description": "<p><strong>In Scope:</strong></p><ul><li><p>Product Card grid that displays a filtered list of products and links to their respective PDPs</p></li></ul><p></p><p><strong>Out of scope:</strong></p><ul><li><p>Alternative Collection/Category layouts</p></li></ul><p></p><p><strong>Acceptance criteria:</strong></p><ul><li><p>Products display in grid format correctly</p></li><li><p>Pagination correctly updates results</p></li><li><p>Grid is responsive across breakpoints</p></li></ul><p></p><p><strong>References:</strong></p><ul><li><p><a href=\"https://www.figma.com/design/DxOY3rxIdGfjgrirLYyxjg/Jardan---Website-Redesign--Master-?node-id=12559-336349&amp;t=lItbnZYGftm9fpFy-0\" target=\"_blank\"></a><a href=\"https://www.figma.com/design/DxOY3rxIdGfjgrirLYyxjg/Jardan---Website-Redesign--Master-?node-id=12559-336349&amp;t=lItbnZYGftm9fpFy-0\" target=\"_blank\">https://www.figma.com/design/DxOY3rxIdGfjgrirLYyxjg/Jardan---Website-Redesign--Master-?node-id=12559-336349&amp;t=lItbnZYGftm9fpFy-0</a></p></li></ul>",
+        "number": "613",
+        "task_number": "613",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-03T07:26:45.075+01:00",
+        "updated_at": "2026-05-01T01:30:33.548+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "13c41f1835a201d5a84d4b7ee6f17a9f",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 4570000,
+        "subtask_placement": 1000000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-05-01T01:30:22.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": null,
+        "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "todos": {
+          "meta": {
+            "included": false
+          }
+        },
+        "subtasks": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_dependencies": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "16530984",
+      "type": "tasks",
+      "attributes": {
+        "title": "Filter and Sort",
+        "description": "<p><strong>In Scope:</strong></p><ul><li><p>Filter bar controlling the results displayed below:</p><ul><li><p>Results count</p></li><li><p>Range filters:</p><ul><li><p>This should be based on collection attributes e.g. find all of the 'Range' metafield values for the collections selected for this template and display them as filter options</p></li><li><p>Clicking these buttons will filter the results shown and replace the grid below with a standard product card grid</p></li></ul></li><li><p>Product/Gallery view toggle</p><ul><li><p>Sort option is shown in place of this for specified collections</p></li></ul></li></ul></li></ul><p></p><p><strong>Out of scope:</strong></p><ul><li><p>Product grid layout - this element will control what is displayed there, but the actual contents are handled in another task</p></li></ul><p></p><p><strong>Acceptance criteria:</strong></p><ul><li><p>Results count updates correctly</p></li><li><p>Filters work as expected and update results</p></li><li><p>Layout toggle options work correctly</p></li><li><p>Sort option correctly reorders results</p></li></ul><p></p><p><strong>References:</strong></p><ul><li><p><a href=\"https://www.figma.com/design/DxOY3rxIdGfjgrirLYyxjg/Jardan---Website-Redesign--Master-?node-id=11649-24331&amp;p=f&amp;t=nwfdbgUZPOGqJqnV-0\" target=\"_blank\"></a><a href=\"https://www.figma.com/design/DxOY3rxIdGfjgrirLYyxjg/Jardan---Website-Redesign--Master-?node-id=11649-24331&amp;p=f&amp;t=nwfdbgUZPOGqJqnV-0\" target=\"_blank\">https://www.figma.com/design/DxOY3rxIdGfjgrirLYyxjg/Jardan---Website-Redesign--Master-?node-id=11649-24331&amp;p=f&amp;t=nwfdbgUZPOGqJqnV-0</a></p></li></ul>",
+        "number": "614",
+        "task_number": "614",
+        "private": false,
+        "due_date": null,
+        "start_date": null,
+        "closed_at": null,
+        "created_at": "2026-03-03T07:27:06.081+01:00",
+        "updated_at": "2026-05-01T01:30:51.431+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "916df2befc0f647e0d1891b8a34b5861",
+        "custom_fields": null,
+        "todo_count": null,
+        "open_todo_count": null,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 4580000,
+        "subtask_placement": 1001000,
+        "bookings_count": 0,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-05-01T01:30:40.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": null,
@@ -4349,7 +3809,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-03-05T07:38:54.362+01:00",
-        "updated_at": "2026-04-27T05:57:02.894+02:00",
+        "updated_at": "2026-05-01T01:31:39.851+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -4375,7 +3835,7 @@
         "closed": false,
         "due_time": null,
         "tag_list": [],
-        "last_activity_at": "2026-04-27T05:56:52.000+02:00",
+        "last_activity_at": "2026-05-01T01:31:29.000+02:00",
         "initial_estimate": null,
         "remaining_time": null,
         "billable_time": 0,
@@ -5027,7 +4487,7 @@
         "start_date": null,
         "closed_at": null,
         "created_at": "2026-03-23T02:40:57.770+01:00",
-        "updated_at": "2026-04-22T02:49:53.599+02:00",
+        "updated_at": "2026-05-01T02:18:47.184+02:00",
         "repeat_schedule_id": null,
         "repeat_on_interval": null,
         "repeat_on_monthday": null,
@@ -5038,8 +4498,8 @@
         "custom_fields": null,
         "todo_count": null,
         "open_todo_count": null,
-        "subtask_count": 6,
-        "open_subtask_count": 0,
+        "subtask_count": 7,
+        "open_subtask_count": 1,
         "creation_method_id": 1,
         "todo_assignee_ids": [],
         "task_dependency_count": 0,
@@ -6683,6 +6143,143 @@
         "remaining_time": null,
         "billable_time": null,
         "worked_time": null,
+        "deleted_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "1476"
+          }
+        },
+        "project": {
+          "meta": {
+            "included": false
+          }
+        },
+        "creator": {
+          "meta": {
+            "included": false
+          }
+        },
+        "assignee": {
+          "meta": {
+            "included": false
+          }
+        },
+        "last_actor": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_list": {
+          "meta": {
+            "included": false
+          }
+        },
+        "parent_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "workflow_status": {
+          "meta": {
+            "included": false
+          }
+        },
+        "service": {
+          "meta": {
+            "included": false
+          }
+        },
+        "repeated_task": {
+          "meta": {
+            "included": false
+          }
+        },
+        "template_object": {
+          "meta": {
+            "included": false
+          }
+        },
+        "attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_people": {
+          "meta": {
+            "included": false
+          }
+        },
+        "custom_field_attachments": {
+          "meta": {
+            "included": false
+          }
+        },
+        "todos": {
+          "meta": {
+            "included": false
+          }
+        },
+        "subtasks": {
+          "meta": {
+            "included": false
+          }
+        },
+        "task_dependencies": {
+          "meta": {
+            "included": false
+          }
+        }
+      }
+    },
+    {
+      "id": "17305683",
+      "type": "tasks",
+      "attributes": {
+        "title": "Projects Page Update",
+        "description": "<p><strong>Aim:</strong> Our projects are key selling tools for our business. The aim of this redesign is to ensure that our projects are visible sitewide, clients are inspired by the selection and variety of projects and can easily find information they need.&nbsp;</p><p></p><p>We would like your recommendations on how to: </p><ol><li><p>Display our projects - ie projects page look &amp; feel and functionality&nbsp;</p></li><li><p>Integrate the projects across the site so clients are inspired throughout&nbsp;</p></li><li><p>Consider how this relates to More Space. It is currently part of more space - please consider the role overall of content across the site.&nbsp;</p></li></ol><p>Update should be:</p><ul><li><p>More inspiring&nbsp;</p></li></ul><ul><li><p>Easy to navigate&nbsp;</p></li></ul><ul><li><p>Easy to filter between residential or commercial&nbsp;&nbsp;</p></li></ul><p></p><p>We have three categories of projects for our content. They are separated by the content we have access to, and the time we have to turn them around to be online, and how in depth we cover them.&nbsp;</p><ol><li><p>Level 1 | 1-2 Images | Simple Caption - Project, Designer/Architect/ Featured Products <br>F<em>ast and easy to load in house</em>&nbsp;&nbsp;</p></li><li><p>Level 2 | Multi Images | Copy \u2013 1-2 Paragraphs (+if appropriate a quote) |Caption - Project, Designer/Architect/ Featured Products <br><em>Short and sharp overview of project \u2013 copywriter needed with short turnaround </em>&nbsp;</p></li><li><p>Level 3 | Multi Images | Copy \u2013 Story / Interview |Caption - Project, Designer/Architect/ Featured Products&nbsp; <br><em>More in depth \u2013 longer lead time </em>&nbsp;<br>&nbsp;</p></li></ol><p><strong>Suggested Features</strong>&nbsp;</p><ol><li><p>Filter \u2013 Client should be able to filter by Type \u2013 Residential or Commercial with relevant sub-categories. For commercial this would include public spaces / Hospitality / Education / Workplace .</p></li><li><p>Hyperlinking functionality to \u201cread more\u201d and click through to specific project page if the content has been built and available.&nbsp;</p></li><li><p>Hover function or underneath project name.</p></li><li><p>Explore option to also show on PDP page - for example tagged images with Tufty&nbsp;</p></li></ol><p>&nbsp;</p><p><strong>Design</strong></p><p>Please suggest format - is grid the best option?&nbsp;</p><ul><li><p>Consider Portrait &amp; Landscape Images </p></li><li><p>We like the cascade / editorial feel of Zimmerman and or simple grid of Mobilia </p></li><li><p>Level 2 and 3 above need to link to their individual project page. </p></li><li><p>Project pages will vary depending on images and copy available.</p></li><li><p>Examples of level 2 landing page are as follows;&nbsp;&nbsp;</p><ul><li><p><a href=\"https://www.spacefurniture.com.au/blogs/journal/iconic-furniture-and-hybrid-thinking-shapes-120-collins-street\" target=\"_blank\">Iconic furniture and hybrid thinking at 120 Collins Street | Space Furniture</a>&nbsp;</p></li><li><p><a href=\"https://www.spacefurniture.com.au/blogs/journal/space-ateliers-for-palma-by-graya\" target=\"_blank\">Space Atelier's new interiors for Palma by Graya | Space Furniture</a>&nbsp;</p></li></ul></li></ul>",
+        "number": "258",
+        "task_number": "258",
+        "private": false,
+        "due_date": "2026-05-01",
+        "start_date": "2026-04-30",
+        "closed_at": null,
+        "created_at": "2026-04-16T01:22:46.383+02:00",
+        "updated_at": "2026-05-01T03:24:16.125+02:00",
+        "repeat_schedule_id": null,
+        "repeat_on_interval": null,
+        "repeat_on_monthday": null,
+        "repeat_on_weekday": [],
+        "repeat_on_date": null,
+        "repeat_origin_id": null,
+        "email_key": "88670fdfb2a255248c4c3feb82787582",
+        "custom_fields": null,
+        "todo_count": 3,
+        "open_todo_count": 1,
+        "subtask_count": null,
+        "open_subtask_count": null,
+        "creation_method_id": 1,
+        "todo_assignee_ids": [
+          "293787"
+        ],
+        "task_dependency_count": 0,
+        "type_id": 1,
+        "blocking_dependency_count": 0,
+        "waiting_on_dependency_count": 0,
+        "linked_dependency_count": 0,
+        "placement": 47077000,
+        "subtask_placement": null,
+        "bookings_count": 1,
+        "closed": false,
+        "due_time": null,
+        "tag_list": [],
+        "last_activity_at": "2026-05-01T03:22:07.000+02:00",
+        "initial_estimate": null,
+        "remaining_time": null,
+        "billable_time": 30,
+        "worked_time": 30,
         "deleted_at": null
       },
       "relationships": {
@@ -9362,6 +8959,6 @@
     }
   ],
   "meta": {
-    "total_count": 69
+    "total_count": 66
   }
 }
